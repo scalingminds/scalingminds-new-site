@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ========== SIX SHIFTS HERO ========== */
     .ss-hero {
       background: #123e35;
       padding: 100px 24px 56px;
@@ -19,276 +18,131 @@
     }
     .ss-hero h1 { color: var(--white); margin-bottom: 12px; }
     .ss-hero h1 em { color: var(--gold); font-style: normal; }
-    .ss-hero__sub {
-      font-size: 1.05rem; color: rgba(255,255,255,0.6);
-      max-width: 560px; margin: 0 auto 20px;
-    }
-    .ss-hero__stat {
-      font-size: 1.05rem; color: var(--gold); font-style: italic;
-      max-width: 520px; margin: 0 auto 40px; font-weight: 500;
-    }
+    .ss-hero__sub { font-size: 1.05rem; color: rgba(255,255,255,0.6); max-width: 560px; margin: 0 auto 20px; }
+    .ss-hero__stat { font-size: 1.05rem; color: var(--gold); font-style: italic; max-width: 520px; margin: 0 auto 40px; font-weight: 500; }
 
-    /* ========== HEXAGON GRID ========== */
+    /* Interactive hex grid */
     .hex-grid {
       position: relative;
-      width: 480px;
-      height: 440px;
+      width: 500px;
+      height: 460px;
       margin: 0 auto;
     }
     .hex-item {
       position: absolute;
-      width: 148px;
-      height: 170px;
+      width: 155px;
+      height: 155px;
       cursor: pointer;
       transition: all 0.4s ease;
       opacity: 0;
-      transform: scale(0.8);
+      transform: scale(0.7);
     }
-    .hex-item.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-    .hex-item:hover {
-      transform: scale(1.08);
-      z-index: 10;
-    }
-    .hex-item:hover .hex-shape {
-      fill: rgba(184,134,11,0.25);
-      stroke: var(--gold);
-    }
-    .hex-item:hover .hex-label {
-      color: var(--gold);
-    }
+    .hex-item.visible { opacity: 1; transform: scale(1); }
+    .hex-item:hover { transform: scale(1.1); z-index: 10; filter: brightness(1.2); }
+    .hex-item img { width: 100%; height: 100%; object-fit: contain; }
 
-    .hex-shape-wrap {
-      position: relative;
-      width: 148px;
-      height: 170px;
-    }
-    .hex-shape-wrap svg {
+    /* Center piece */
+    .hex-center-piece {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    .hex-shape {
-      fill: rgba(255,255,255,0.06);
-      stroke: rgba(184,134,11,0.4);
-      stroke-width: 2;
-      transition: all 0.4s ease;
-    }
-    .hex-content {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      width: 175px;
+      height: 175px;
+      opacity: 0;
+      transform: scale(0.7);
+      transition: all 0.5s ease;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px 12px;
-      text-align: center;
     }
-    .hex-icon {
-      width: 32px;
-      height: 32px;
-      margin-bottom: 8px;
-      opacity: 0.7;
-    }
-    .hex-icon svg {
+    .hex-center-piece.visible { opacity: 1; transform: scale(1); }
+    .hex-center-bg {
+      position: absolute;
       width: 100%;
       height: 100%;
     }
-    .hex-label {
-      font-size: 0.75rem;
+    .hex-center-text {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .hex-center-text .hex-title {
+      font-size: 0.95rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--cream);
-      transition: color 0.3s;
-      margin-bottom: 2px;
-    }
-    .hex-sublabel {
-      font-size: 0.6rem;
-      color: rgba(255,255,255,0.4);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      line-height: 1.3;
-    }
-
-    /* Center hex */
-    .hex-center {
-      position: absolute;
-      width: 170px;
-      height: 196px;
-    }
-    .hex-center .hex-shape {
-      fill: rgba(184,134,11,0.2);
-      stroke: var(--gold);
-      stroke-width: 2.5;
-    }
-    .hex-center .hex-label {
-      font-size: 0.9rem;
       color: var(--gold);
-      letter-spacing: 0.05em;
+      line-height: 1.2;
     }
-    .hex-center .hex-sublabel {
+    .hex-center-text .hex-subtitle {
       font-size: 0.55rem;
       color: var(--gold);
       opacity: 0.7;
-      margin-top: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
     }
 
-    /* Hex positions - honeycomb layout */
-    .hex-pos-top    { left: 166px; top: 0; }
-    .hex-pos-tr     { left: 290px; top: 72px; }
-    .hex-pos-br     { left: 290px; top: 216px; }
-    .hex-pos-bottom { left: 166px; top: 288px; }
-    .hex-pos-bl     { left: 42px;  top: 216px; }
-    .hex-pos-tl     { left: 42px;  top: 72px; }
-    .hex-pos-center { left: 155px; top: 131px; }
+    /* Honeycomb positions */
+    .hex-pos-top    { left: 172px; top: 0; }
+    .hex-pos-tr     { left: 302px; top: 78px; }
+    .hex-pos-br     { left: 302px; top: 228px; }
+    .hex-pos-bottom { left: 172px; top: 306px; }
+    .hex-pos-bl     { left: 42px;  top: 228px; }
+    .hex-pos-tl     { left: 42px;  top: 78px; }
+    .hex-pos-center { left: 162px; top: 142px; }
 
-    /* Connecting arrows */
-    .hex-arrows {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 1s ease 2s;
-    }
-    .hex-arrows.visible { opacity: 0.3; }
+    /* Staggered animation delays */
+    .hex-item:nth-child(1) { transition-delay: 0.2s; }
+    .hex-item:nth-child(2) { transition-delay: 0.4s; }
+    .hex-item:nth-child(3) { transition-delay: 0.6s; }
+    .hex-item:nth-child(4) { transition-delay: 0.8s; }
+    .hex-item:nth-child(5) { transition-delay: 1.0s; }
+    .hex-item:nth-child(6) { transition-delay: 1.2s; }
+    .hex-center-piece { transition-delay: 1.5s; }
 
-    /* Animation delays */
-    .hex-item:nth-child(1) { transition-delay: 0.1s; }
-    .hex-item:nth-child(2) { transition-delay: 0.3s; }
-    .hex-item:nth-child(3) { transition-delay: 0.5s; }
-    .hex-item:nth-child(4) { transition-delay: 0.7s; }
-    .hex-item:nth-child(5) { transition-delay: 0.9s; }
-    .hex-item:nth-child(6) { transition-delay: 1.1s; }
-    .hex-center { transition-delay: 1.4s; opacity: 0; transform: scale(0.8); transition: all 0.5s ease 1.4s; }
-    .hex-center.visible { opacity: 1; transform: scale(1); }
-
-    /* ========== SHIFT SECTIONS ========== */
+    /* Shift sections */
     .shift-section { padding: 80px 0; }
+    .shift-section:nth-child(even) { background: var(--cream-light); }
     .shift-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 64px;
-      align-items: center;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 24px;
+      display: grid; grid-template-columns: 1fr 1.5fr; gap: 56px; align-items: center;
+      max-width: var(--max-width); margin: 0 auto; padding: 0 24px;
     }
-    .shift-layout--reverse { grid-template-columns: 1.4fr 1fr; }
+    .shift-layout--reverse { grid-template-columns: 1.5fr 1fr; }
     .shift-layout--reverse .shift-visual { order: 2; }
     .shift-layout--reverse .shift-content { order: 1; }
     .shift-visual { text-align: center; }
-
-    /* Section hex icon - larger version */
-    .section-hex {
-      width: 160px;
-      height: 184px;
-      margin: 0 auto;
-      position: relative;
-      cursor: default;
-    }
-    .section-hex svg.hex-bg {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-    }
-    .section-hex .hex-bg polygon {
-      fill: rgba(18,62,53,0.08);
-      stroke: #123e35;
-      stroke-width: 2;
-    }
-    .section-hex__inner {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .section-hex__icon {
-      width: 40px; height: 40px;
-      margin-bottom: 10px;
-      color: var(--gold);
-    }
-    .section-hex__label {
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #123e35;
-    }
-    .section-hex__sub {
-      font-size: 0.6rem;
-      color: var(--gray);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    /* Cream section hex */
-    .shift-section:nth-child(even) { background: var(--cream-light); }
-    .shift-section:nth-child(even) .section-hex .hex-bg polygon {
-      fill: rgba(18,62,53,0.06);
-    }
-
+    .shift-visual img { width: 180px; height: 180px; margin: 0 auto; object-fit: contain; transition: transform 0.4s; }
+    .shift-visual img:hover { transform: scale(1.05); }
     .shift-content .eyebrow { margin-bottom: 8px; }
     .shift-content h2 { color: #123e35; margin-bottom: 16px; font-size: clamp(1.5rem, 3vw, 2.2rem); }
     .shift-content p { font-size: 1.05rem; line-height: 1.85; color: #4B5563; margin-bottom: 12px; }
     .shift-content__cost {
-      font-size: 0.95rem;
-      color: #123e35;
-      font-weight: 600;
-      margin-top: 16px;
-      padding-left: 16px;
-      border-left: 3px solid var(--gold);
+      font-size: 0.95rem; color: #123e35; font-weight: 600;
+      margin-top: 16px; padding-left: 16px; border-left: 3px solid var(--gold);
     }
 
     /* Timeline */
     .timeline {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      position: relative;
-      max-width: 900px;
-      margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+      position: relative; max-width: 900px; margin: 0 auto;
     }
     .timeline::before {
-      content: '';
-      position: absolute;
-      top: 28px;
-      left: 12.5%;
-      right: 12.5%;
-      height: 3px;
-      background: linear-gradient(to right, var(--gold), #123e35);
+      content: ''; position: absolute; top: 28px; left: 12.5%; right: 12.5%;
+      height: 3px; background: linear-gradient(to right, var(--gold), #123e35);
     }
     .timeline__step { text-align: center; position: relative; z-index: 1; }
     .timeline__dot {
-      width: 56px; height: 56px; border-radius: 50%;
-      background: #123e35; color: var(--gold);
-      font-weight: 700; font-size: 1.2rem;
+      width: 56px; height: 56px; border-radius: 50%; background: #123e35;
+      color: var(--gold); font-weight: 700; font-size: 1.2rem;
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 16px; border: 3px solid var(--gold);
     }
     .timeline__label { font-weight: 700; color: #123e35; font-size: 1rem; margin-bottom: 8px; }
     .timeline__desc { font-size: 0.88rem; color: #4B5563; line-height: 1.6; max-width: 180px; margin: 0 auto; }
 
-    /* Fit section */
     .fit-section { max-width: 760px; margin: 0 auto; }
     .fit-section h3 { color: #123e35; font-size: 1.2rem; margin-bottom: 12px; font-weight: 700; }
     .fit-section p { font-size: 1.05rem; line-height: 1.85; color: #4B5563; margin-bottom: 24px; }
 
     @media (max-width: 900px) {
-      .hex-grid { transform: scale(0.65); transform-origin: top center; height: 290px; }
+      .hex-grid { transform: scale(0.6); transform-origin: top center; height: 280px; }
       .shift-layout, .shift-layout--reverse { grid-template-columns: 1fr; gap: 32px; text-align: center; }
       .shift-layout--reverse .shift-visual { order: 1; }
       .shift-layout--reverse .shift-content { order: 2; }
@@ -318,7 +172,7 @@
     </div>
   </nav>
 
-  <!-- HERO WITH INTERACTIVE HEX GRID -->
+  <!-- HERO -->
   <section class="ss-hero">
     <div class="reveal">
       <h1>The Six Shifts™</h1>
@@ -327,119 +181,23 @@
     </div>
 
     <div class="hex-grid" id="hexGrid">
-      <!-- SVG hex shape template used by all hexagons -->
+      <div class="hex-item hex-pos-top" data-target="shift-trust"><img src="trust.svg" alt="Trust"></div>
+      <div class="hex-item hex-pos-tr" data-target="shift-candor"><img src="candor.svg" alt="Candor"></div>
+      <div class="hex-item hex-pos-br" data-target="shift-ownership"><img src="ownership.svg" alt="Ownership"></div>
+      <div class="hex-item hex-pos-bottom" data-target="shift-empowerment"><img src="empowerment.svg" alt="Empowerment"></div>
+      <div class="hex-item hex-pos-bl" data-target="shift-alignment"><img src="alignment.svg" alt="Alignment"></div>
+      <div class="hex-item hex-pos-tl" data-target="shift-leadership"><img src="leadership.svg" alt="Leadership"></div>
 
-      <!-- TRUST - top -->
-      <div class="hex-item hex-pos-top" data-target="shift-trust">
-        <div class="hex-shape-wrap">
-          <svg viewBox="0 0 148 170"><polygon class="hex-shape" points="74,2 146,44 146,126 74,168 2,126 2,44"/></svg>
-          <div class="hex-content">
-            <div class="hex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round"><path d="M12 21c-4-2.5-8-5.5-8-10a5 5 0 0110 0 5 5 0 0110 0c0 4.5-4 7.5-8 10z" fill="rgba(184,134,11,0.15)"/></svg></div>
-            <div class="hex-label">Trust</div>
-            <div class="hex-sublabel">Psychological<br>Safety</div>
-          </div>
-        </div>
+      <div class="hex-center-piece hex-pos-center" id="hexCenter">
+        <img src="sixshifts.svg" alt="The Six Shifts Leadership Operating System" style="width: 100%; height: 100%; object-fit: contain;">
       </div>
-
-      <!-- CANDOR - top right -->
-      <div class="hex-item hex-pos-tr" data-target="shift-candor">
-        <div class="hex-shape-wrap">
-          <svg viewBox="0 0 148 170"><polygon class="hex-shape" points="74,2 146,44 146,126 74,168 2,126 2,44"/></svg>
-          <div class="hex-content">
-            <div class="hex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
-            <div class="hex-label">Candor</div>
-            <div class="hex-sublabel">Courageous<br>Truth</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- OWNERSHIP - bottom right -->
-      <div class="hex-item hex-pos-br" data-target="shift-ownership">
-        <div class="hex-shape-wrap">
-          <svg viewBox="0 0 148 170"><polygon class="hex-shape" points="74,2 146,44 146,126 74,168 2,126 2,44"/></svg>
-          <div class="hex-content">
-            <div class="hex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-            <div class="hex-label">Ownership</div>
-            <div class="hex-sublabel">Shared<br>Accountability</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- EMPOWERMENT - bottom -->
-      <div class="hex-item hex-pos-bottom" data-target="shift-empowerment">
-        <div class="hex-shape-wrap">
-          <svg viewBox="0 0 148 170"><polygon class="hex-shape" points="74,2 146,44 146,126 74,168 2,126 2,44"/></svg>
-          <div class="hex-content">
-            <div class="hex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg></div>
-            <div class="hex-label">Empowerment</div>
-            <div class="hex-sublabel">Distributed<br>Leadership</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ALIGNMENT - bottom left -->
-      <div class="hex-item hex-pos-bl" data-target="shift-alignment">
-        <div class="hex-shape-wrap">
-          <svg viewBox="0 0 148 170"><polygon class="hex-shape" points="74,2 146,44 146,126 74,168 2,126 2,44"/></svg>
-          <div class="hex-content">
-            <div class="hex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20M2 12h20"/></svg></div>
-            <div class="hex-label">Alignment</div>
-            <div class="hex-sublabel">Strategic<br>Alignment</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- LEADERSHIP - top left -->
-      <div class="hex-item hex-pos-tl" data-target="shift-leadership">
-        <div class="hex-shape-wrap">
-          <svg viewBox="0 0 148 170"><polygon class="hex-shape" points="74,2 146,44 146,126 74,168 2,126 2,44"/></svg>
-          <div class="hex-content">
-            <div class="hex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-            <div class="hex-label">Leadership</div>
-            <div class="hex-sublabel">Unified<br>Organization</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CENTER -->
-      <div class="hex-center hex-pos-center" id="hexCenter">
-        <svg viewBox="0 0 170 196"><polygon class="hex-shape" points="85,2 168,50 168,146 85,194 2,146 2,50"/></svg>
-        <div class="hex-content">
-          <div class="hex-label" style="font-size: 0.85rem;">The Six<br>Shifts™</div>
-          <div class="hex-sublabel" style="margin-top: 4px;">Leadership<br>Operating System</div>
-        </div>
-      </div>
-
-      <!-- Connecting arrows SVG -->
-      <svg class="hex-arrows" id="hexArrows" viewBox="0 0 480 440">
-        <defs>
-          <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
-            <polygon points="0 0, 6 2, 0 4" fill="rgba(184,134,11,0.5)"/>
-          </marker>
-        </defs>
-        <path d="M280 30 C310 40 320 55 310 70" stroke="rgba(184,134,11,0.4)" fill="none" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        <path d="M400 140 C410 170 400 200 390 210" stroke="rgba(184,134,11,0.4)" fill="none" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        <path d="M350 310 C320 330 290 330 270 320" stroke="rgba(184,134,11,0.4)" fill="none" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        <path d="M200 380 C180 370 160 350 150 330" stroke="rgba(184,134,11,0.4)" fill="none" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        <path d="M80 270 C70 240 75 210 85 195" stroke="rgba(184,134,11,0.4)" fill="none" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        <path d="M120 100 C140 80 170 60 195 50" stroke="rgba(184,134,11,0.4)" fill="none" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-      </svg>
     </div>
   </section>
 
   <!-- SHIFT 1: TRUST -->
   <section class="shift-section" id="shift-trust">
     <div class="shift-layout reveal">
-      <div class="shift-visual">
-        <div class="section-hex">
-          <svg class="hex-bg" viewBox="0 0 160 184"><polygon points="80,2 158,47 158,137 80,182 2,137 2,47"/></svg>
-          <div class="section-hex__inner">
-            <div class="section-hex__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" width="40" height="40"><path d="M12 21c-4-2.5-8-5.5-8-10a5 5 0 0110 0 5 5 0 0110 0c0 4.5-4 7.5-8 10z" fill="rgba(184,134,11,0.15)"/></svg></div>
-            <div class="section-hex__label">Trust</div>
-            <div class="section-hex__sub">Psychological Safety</div>
-          </div>
-        </div>
-      </div>
+      <div class="shift-visual"><img src="trust.svg" alt="Trust"></div>
       <div class="shift-content">
         <span class="eyebrow">Shift 01</span>
         <h2>Trust: Psychological Safety</h2>
@@ -453,16 +211,7 @@
   <!-- SHIFT 2: CANDOR -->
   <section class="shift-section" id="shift-candor">
     <div class="shift-layout shift-layout--reverse reveal">
-      <div class="shift-visual">
-        <div class="section-hex">
-          <svg class="hex-bg" viewBox="0 0 160 184"><polygon points="80,2 158,47 158,137 80,182 2,137 2,47"/></svg>
-          <div class="section-hex__inner">
-            <div class="section-hex__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" width="40" height="40"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
-            <div class="section-hex__label">Candor</div>
-            <div class="section-hex__sub">Courageous Truth</div>
-          </div>
-        </div>
-      </div>
+      <div class="shift-visual"><img src="candor.svg" alt="Candor"></div>
       <div class="shift-content">
         <span class="eyebrow">Shift 02</span>
         <h2>Candor: Courageous Truth</h2>
@@ -476,16 +225,7 @@
   <!-- SHIFT 3: OWNERSHIP -->
   <section class="shift-section" id="shift-ownership">
     <div class="shift-layout reveal">
-      <div class="shift-visual">
-        <div class="section-hex">
-          <svg class="hex-bg" viewBox="0 0 160 184"><polygon points="80,2 158,47 158,137 80,182 2,137 2,47"/></svg>
-          <div class="section-hex__inner">
-            <div class="section-hex__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" width="40" height="40"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-            <div class="section-hex__label">Ownership</div>
-            <div class="section-hex__sub">Shared Accountability</div>
-          </div>
-        </div>
-      </div>
+      <div class="shift-visual"><img src="ownership.svg" alt="Ownership"></div>
       <div class="shift-content">
         <span class="eyebrow">Shift 03</span>
         <h2>Ownership: Shared Accountability</h2>
@@ -499,16 +239,7 @@
   <!-- SHIFT 4: EMPOWERMENT -->
   <section class="shift-section" id="shift-empowerment">
     <div class="shift-layout shift-layout--reverse reveal">
-      <div class="shift-visual">
-        <div class="section-hex">
-          <svg class="hex-bg" viewBox="0 0 160 184"><polygon points="80,2 158,47 158,137 80,182 2,137 2,47"/></svg>
-          <div class="section-hex__inner">
-            <div class="section-hex__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" width="40" height="40"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg></div>
-            <div class="section-hex__label">Empowerment</div>
-            <div class="section-hex__sub">Distributed Leadership</div>
-          </div>
-        </div>
-      </div>
+      <div class="shift-visual"><img src="empowerment.svg" alt="Empowerment"></div>
       <div class="shift-content">
         <span class="eyebrow">Shift 04</span>
         <h2>Empowerment: Distributed Leadership</h2>
@@ -522,16 +253,7 @@
   <!-- SHIFT 5: ALIGNMENT -->
   <section class="shift-section" id="shift-alignment">
     <div class="shift-layout reveal">
-      <div class="shift-visual">
-        <div class="section-hex">
-          <svg class="hex-bg" viewBox="0 0 160 184"><polygon points="80,2 158,47 158,137 80,182 2,137 2,47"/></svg>
-          <div class="section-hex__inner">
-            <div class="section-hex__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" width="40" height="40"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20M2 12h20"/></svg></div>
-            <div class="section-hex__label">Alignment</div>
-            <div class="section-hex__sub">Strategic Alignment</div>
-          </div>
-        </div>
-      </div>
+      <div class="shift-visual"><img src="alignment.svg" alt="Alignment"></div>
       <div class="shift-content">
         <span class="eyebrow">Shift 05</span>
         <h2>Alignment: Strategic Clarity</h2>
@@ -545,16 +267,7 @@
   <!-- SHIFT 6: COLLECTIVE LEADERSHIP -->
   <section class="shift-section" id="shift-leadership">
     <div class="shift-layout shift-layout--reverse reveal">
-      <div class="shift-visual">
-        <div class="section-hex">
-          <svg class="hex-bg" viewBox="0 0 160 184"><polygon points="80,2 158,47 158,137 80,182 2,137 2,47"/></svg>
-          <div class="section-hex__inner">
-            <div class="section-hex__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" width="40" height="40"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-            <div class="section-hex__label">Leadership</div>
-            <div class="section-hex__sub">Unified Organization</div>
-          </div>
-        </div>
-      </div>
+      <div class="shift-visual"><img src="leadership.svg" alt="Leadership"></div>
       <div class="shift-content">
         <span class="eyebrow">Shift 06</span>
         <h2>Collective Leadership: Unified Organization</h2>
@@ -676,21 +389,16 @@
 
   <script src="main.js"></script>
   <script>
-    // Hex grid animation on load
     document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         document.querySelectorAll('.hex-item').forEach(el => el.classList.add('visible'));
         document.getElementById('hexCenter').classList.add('visible');
-        document.getElementById('hexArrows').classList.add('visible');
       }, 300);
 
-      // Click hex to scroll to section
       document.querySelectorAll('.hex-item[data-target]').forEach(hex => {
         hex.addEventListener('click', () => {
           const target = document.getElementById(hex.dataset.target);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       });
     });
