@@ -4,20 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Start Here | Scaling Minds</title>
-  <meta name="description" content="Ready to transform how you and your team lead? Start with a conversation with Andy Hite.">
+  <meta name="description" content="Ready to transform how you and your team lead? Tell us what's going on and we'll be in touch.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
     .start-intro {
-      max-width: 640px;
+      max-width: 600px;
       margin: 0 auto;
       text-align: center;
-    }
-    .start-intro h2 {
-      color: #123e35;
-      margin-bottom: 20px;
     }
     .start-intro p {
       font-size: 1.1rem;
@@ -32,61 +28,46 @@
       margin-top: 20px;
     }
 
-    /* Two paths */
-    .paths-grid {
+    .form-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 64px;
       align-items: start;
-    }
-    .path-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 40px 36px;
-      border: 1px solid #E5E7EB;
-      transition: border-color 0.3s;
-    }
-    .path-card:hover { border-color: var(--gold); }
-    .path-card h3 {
-      color: #123e35;
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .path-card__sub {
-      font-size: 0.92rem;
-      color: var(--gray);
-      margin-bottom: 24px;
-    }
-
-    /* Calendly embed */
-    .calendly-wrap {
-      border-radius: 8px;
-      overflow: hidden;
-      min-height: 660px;
-    }
-    .calendly-wrap iframe {
-      width: 100%;
-      height: 660px;
-      border: none;
     }
 
     /* Form */
-    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 44px 40px;
+      border: 1px solid #E5E7EB;
+    }
+    .form-card h3 {
+      color: #123e35;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .form-card__sub {
+      font-size: 0.95rem;
+      color: var(--gray);
+      margin-bottom: 28px;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 20px; }
     .contact-form label {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: #9CA3AF;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       display: block;
     }
     .contact-form input,
     .contact-form textarea,
     .contact-form select {
       width: 100%;
-      padding: 12px 16px;
+      padding: 14px 16px;
       border: 1px solid #E5E7EB;
       border-radius: 8px;
       font-family: 'Inter', sans-serif;
@@ -101,61 +82,133 @@
       outline: none;
       border-color: var(--gold);
     }
-    .contact-form textarea { resize: vertical; min-height: 120px; }
-    .contact-form select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%239CA3AF'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #C4C4C4;
+    }
+    .contact-form textarea { resize: vertical; min-height: 140px; }
+    .contact-form select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%239CA3AF'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
     .contact-form button {
       background: var(--gold);
       color: var(--white);
-      padding: 14px 32px;
+      padding: 16px 36px;
       border: none;
       border-radius: 8px;
       font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       cursor: pointer;
       transition: all 0.3s;
-      align-self: flex-start;
+      width: 100%;
     }
     .contact-form button:hover {
       background: #D4A017;
       transform: translateY(-1px);
     }
-
-    /* Contact info strip */
-    .contact-strip {
-      display: flex;
-      justify-content: center;
-      gap: 48px;
-      flex-wrap: wrap;
+    #formSuccess {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      background: rgba(18,62,53,0.05);
+      border-radius: 8px;
+      color: #123e35;
+      font-weight: 600;
+      font-size: 1rem;
     }
-    .contact-strip__item {
+
+    /* Sidebar */
+    .contact-sidebar {}
+    .sidebar-card {
+      background: var(--cream-light);
+      border-radius: 12px;
+      padding: 32px 28px;
+      border: 1px solid rgba(184,134,11,0.12);
+      margin-bottom: 24px;
+    }
+    .sidebar-card h4 {
+      color: #123e35;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .sidebar-card__item {
       display: flex;
       align-items: center;
       gap: 10px;
+      margin-bottom: 14px;
     }
-    .contact-strip__icon {
+    .sidebar-card__item:last-child { margin-bottom: 0; }
+    .sidebar-card__icon {
       width: 18px;
       height: 18px;
       color: var(--gold);
       flex-shrink: 0;
     }
-    .contact-strip__text {
+    .sidebar-card__text {
       font-size: 0.95rem;
       color: #4B5563;
     }
-    .contact-strip__text a {
+    .sidebar-card__text a {
       color: var(--gold);
       transition: color 0.3s;
     }
-    .contact-strip__text a:hover { color: #123e35; }
+    .sidebar-card__text a:hover { color: #123e35; }
+
+    /* Quote sidebar */
+    .sidebar-quote {
+      background: #123e35;
+      border-radius: 12px;
+      padding: 32px 28px;
+      position: relative;
+    }
+    .sidebar-quote::before {
+      content: '\201C';
+      font-size: 4rem;
+      font-family: Georgia, serif;
+      color: var(--gold);
+      opacity: 0.2;
+      line-height: 1;
+      position: absolute;
+      top: 16px;
+      left: 20px;
+    }
+    .sidebar-quote p {
+      font-size: 0.95rem;
+      font-style: italic;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+      position: relative;
+      z-index: 1;
+      margin-bottom: 16px;
+    }
+    .sidebar-quote__name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .sidebar-quote__role {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+    }
 
     @media (max-width: 900px) {
-      .paths-grid { grid-template-columns: 1fr; }
-      .contact-strip { flex-direction: column; align-items: center; gap: 16px; }
-      .calendly-wrap { min-height: 700px; }
-      .calendly-wrap iframe { height: 700px; }
+      .form-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-card { padding: 32px 24px; }
     }
   </style>
 </head>
@@ -180,7 +233,7 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero" style="min-height: 45vh;">
+  <section class="hero" style="min-height: 40vh;">
     <div class="container">
       <div class="hero__content reveal">
         <h1>Every engagement starts the same way.<br><em>A real conversation.</em></h1>
@@ -189,45 +242,44 @@
   </section>
 
   <!-- INTRO -->
-  <section class="section" style="padding-bottom: 48px;">
+  <section style="padding: 56px 0 0;">
     <div class="container">
       <div class="start-intro reveal">
-        <p>No pitch. No proposal on the first call. Just an honest conversation about what's happening with your team or your leadership, and whether working together makes sense.</p>
-        <p class="start-intro__nudge">"Most leaders I work with tell me they knew something needed to change months before they made the call. The only thing they regret is waiting."</p>
+        <p>No pitch. No proposal. Just an honest conversation about what's happening with your team or your leadership, and whether working together makes sense.</p>
+        <p class="start-intro__nudge">Most leaders I work with tell me they knew something needed to change months before they made the call. The only thing they regret is waiting.</p>
       </div>
     </div>
   </section>
 
-  <!-- TWO PATHS -->
-  <section class="section" style="padding-top: 0;">
+  <!-- FORM + SIDEBAR -->
+  <section class="section">
     <div class="container">
-      <div class="paths-grid">
+      <div class="form-grid">
 
-        <!-- PATH 1: BOOK A CALL -->
-        <div class="path-card reveal">
-          <h3>Ready to talk?</h3>
-          <p class="path-card__sub">Book a 30-minute call. We'll meet over Zoom or phone.</p>
-          <div class="calendly-wrap">
-            <iframe src="https://calendly.com/scalingminds/30-min-discovery-call-sixshifts?hide_event_type_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=123e35&primary_color=B8860B" loading="lazy"></iframe>
-          </div>
-        </div>
-
-        <!-- PATH 2: SEND A MESSAGE -->
-        <div class="path-card reveal" style="transition-delay: 0.15s;">
-          <h3>Not ready to call? Start here.</h3>
-          <p class="path-card__sub">Tell me a little about what's going on. I'll get back to you within 24 hours.</p>
+        <!-- FORM -->
+        <div class="form-card reveal">
+          <h3>Tell me what's going on.</h3>
+          <p class="form-card__sub">I'll get back to you within 24 hours.</p>
           <div class="contact-form" id="contactForm">
-            <div>
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required>
+            <div class="form-row">
+              <div>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@company.com" required>
+              </div>
             </div>
-            <div>
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="you@company.com" required>
-            </div>
-            <div>
-              <label for="company">Company & Role</label>
-              <input type="text" id="company" name="company" placeholder="Company name, your title">
+            <div class="form-row">
+              <div>
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Company name">
+              </div>
+              <div>
+                <label for="role">Your Role</label>
+                <input type="text" id="role" name="role" placeholder="CEO, VP, COO, etc.">
+              </div>
             </div>
             <div>
               <label for="interest">I'm interested in</label>
@@ -240,57 +292,44 @@
               </select>
             </div>
             <div>
-              <label for="message">What's going on?</label>
-              <textarea id="message" name="message" placeholder="Tell me about your situation. What's working? What's not? What are you hoping to change?"></textarea>
+              <label for="message">What's happening?</label>
+              <textarea id="message" name="message" placeholder="What's working? What's not? What are you hoping to change?"></textarea>
             </div>
             <button type="button" onclick="submitForm()">Send Message</button>
-            <p id="formSuccess" style="display: none; color: #123e35; font-weight: 600; font-size: 0.95rem;">Got it. I'll be in touch within 24 hours.</p>
           </div>
+          <div id="formSuccess">Thanks. I'll be in touch within 24 hours.</div>
         </div>
 
-      </div>
-    </div>
-  </section>
+        <!-- SIDEBAR -->
+        <div class="contact-sidebar reveal" style="transition-delay: 0.15s;">
 
-  <!-- CONTACT INFO STRIP -->
-  <section style="padding: 40px 0; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB;">
-    <div class="container">
-      <div class="contact-strip reveal">
-        <div class="contact-strip__item">
-          <div class="contact-strip__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          <div class="sidebar-card">
+            <h4>Reach out directly</h4>
+            <div class="sidebar-card__item">
+              <div class="sidebar-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+              <div class="sidebar-card__text"><a href="mailto:andy@scalingminds.com">andy@scalingminds.com</a></div>
+            </div>
+            <div class="sidebar-card__item">
+              <div class="sidebar-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+              <div class="sidebar-card__text"><a href="tel:3127725825">(312) 772-5825</a></div>
+            </div>
+            <div class="sidebar-card__item">
+              <div class="sidebar-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div class="sidebar-card__text">Chicago, IL — working nationally</div>
+            </div>
+            <div class="sidebar-card__item">
+              <div class="sidebar-card__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+              <div class="sidebar-card__text"><a href="https://www.linkedin.com/in/andy-hite/" target="_blank">Connect on LinkedIn</a></div>
+            </div>
           </div>
-          <div class="contact-strip__text"><a href="mailto:andy@scalingminds.com">andy@scalingminds.com</a></div>
-        </div>
-        <div class="contact-strip__item">
-          <div class="contact-strip__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          </div>
-          <div class="contact-strip__text"><a href="tel:3127725825">(312) 772-5825</a></div>
-        </div>
-        <div class="contact-strip__item">
-          <div class="contact-strip__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div class="contact-strip__text">Chicago, IL — working nationally</div>
-        </div>
-        <div class="contact-strip__item">
-          <div class="contact-strip__icon">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </div>
-          <div class="contact-strip__text"><a href="https://www.linkedin.com/in/andy-hite/" target="_blank">LinkedIn</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- TESTIMONIAL -->
-  <section class="section" style="padding: 64px 0;">
-    <div class="container">
-      <div class="reveal" style="max-width: 700px; margin: 0 auto; text-align: center;">
-        <p style="font-size: 1.2rem; font-style: italic; line-height: 1.75; color: #374151; margin-bottom: 20px;">"If you're looking for someone to tell you what to do, he's probably not your coach. If you're looking for someone who will help you think more clearly and lead more steadily, he's exceptional."</p>
-        <div style="font-weight: 600; color: #123e35;">Founder & CEO</div>
-        <div style="font-size: 0.85rem; color: var(--gray);">Professional Services</div>
+          <div class="sidebar-quote">
+            <p>"If you're looking for someone to tell you what to do, he's probably not your coach. If you're looking for someone who will help you think more clearly and lead more steadily, he's exceptional."</p>
+            <div class="sidebar-quote__name">Founder & CEO</div>
+            <div class="sidebar-quote__role">Professional Services</div>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
@@ -341,6 +380,7 @@
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const company = document.getElementById('company').value;
+      const role = document.getElementById('role').value;
       const interest = document.getElementById('interest').value;
       const message = document.getElementById('message').value;
 
@@ -349,21 +389,19 @@
         return;
       }
 
-      // Send via Formspree
       fetch('https://formspree.io/f/xovdgpkw', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, company, interest, message })
+        body: JSON.stringify({ name, email, company, role, interest, message })
       }).then(response => {
         if (response.ok) {
+          document.getElementById('contactForm').style.display = 'none';
           document.getElementById('formSuccess').style.display = 'block';
-          document.getElementById('contactForm').querySelectorAll('input, textarea, select').forEach(el => el.value = '');
         } else {
-          // Fallback: open email client
-          window.location.href = 'mailto:andy@scalingminds.com?subject=Inquiry from ' + encodeURIComponent(name) + '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nCompany: ' + company + '\nInterest: ' + interest + '\n\n' + message);
+          window.location.href = 'mailto:andy@scalingminds.com?subject=Inquiry from ' + encodeURIComponent(name) + '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nCompany: ' + company + '\nRole: ' + role + '\nInterest: ' + interest + '\n\n' + message);
         }
       }).catch(() => {
-        window.location.href = 'mailto:andy@scalingminds.com?subject=Inquiry from ' + encodeURIComponent(name) + '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nCompany: ' + company + '\nInterest: ' + interest + '\n\n' + message);
+        window.location.href = 'mailto:andy@scalingminds.com?subject=Inquiry from ' + encodeURIComponent(name) + '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nCompany: ' + company + '\nRole: ' + role + '\nInterest: ' + interest + '\n\n' + message);
       });
     }
   </script>
