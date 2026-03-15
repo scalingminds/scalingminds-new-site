@@ -3,84 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Client Praise | Scaling Minds</title>
+  <title>Client Results | Scaling Minds</title>
   <meta name="description" content="Hear from the CEOs, executives, and leadership teams who have worked with Andy Hite and Scaling Minds.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ========== CLIENT PRAISE SPECIFIC ========== */
+    /* ========== CLIENT RESULTS SPECIFIC ========== */
 
-    /* Giant opening quote */
-    .hero-quote {
-      max-width: 900px;
-      margin: 0 auto;
+    /* Hero opens with the quote itself */
+    .quote-hero {
+      padding: 160px 24px 80px;
       text-align: center;
-      padding: 40px 0 0;
+      background: #123e35;
+      position: relative;
     }
-    .hero-quote__mark {
+    .quote-hero__mark {
       font-size: 8rem;
       line-height: 0.5;
       color: var(--gold);
-      opacity: 0.3;
+      opacity: 0.25;
       font-family: Georgia, serif;
       display: block;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
-    .hero-quote__text {
-      font-size: clamp(1.4rem, 3vw, 2rem);
+    .quote-hero__text {
+      max-width: 840px;
+      margin: 0 auto 32px;
+      font-size: clamp(1.3rem, 2.8vw, 1.9rem);
       font-weight: 400;
-      line-height: 1.6;
+      line-height: 1.65;
       color: rgba(255,255,255,0.9);
       font-style: italic;
-      margin-bottom: 28px;
     }
-    .hero-quote__author {
+    .quote-hero__name {
       font-size: 1rem;
       font-weight: 600;
       color: var(--gold);
     }
-    .hero-quote__role {
+    .quote-hero__role {
       font-size: 0.88rem;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.4);
       margin-top: 4px;
     }
 
-    /* Horizontal scrolling highlight strip */
+    /* Scrolling highlight strip */
     .highlight-strip {
-      background: var(--green);
-      padding: 48px 0;
+      background: #123e35;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 36px 0;
       overflow: hidden;
     }
     .highlight-strip__inner {
       display: flex;
-      gap: 32px;
-      animation: scrollStrip 40s linear infinite;
+      gap: 40px;
+      animation: scrollStrip 45s linear infinite;
       width: max-content;
     }
     .highlight-strip__item {
       flex-shrink: 0;
-      font-size: 1.15rem;
+      font-size: 1rem;
       font-weight: 500;
-      color: rgba(255,255,255,0.5);
+      color: var(--gold);
+      opacity: 0.6;
       white-space: nowrap;
-      padding: 0 16px;
-      position: relative;
     }
     .highlight-strip__item::after {
-      content: '·';
-      position: absolute;
-      right: -20px;
-      color: var(--gold);
-      opacity: 0.4;
+      content: ' ·';
+      color: rgba(255,255,255,0.2);
+      margin-left: 40px;
     }
     @keyframes scrollStrip {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
 
-    /* Full-bleed quote sections */
+    /* Full-bleed quote */
     .big-quote {
       padding: 80px 24px;
       text-align: center;
@@ -89,102 +88,89 @@
     .big-quote::before {
       content: '\201C';
       position: absolute;
-      top: 20px;
+      top: 24px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 10rem;
+      font-size: 9rem;
       font-family: Georgia, serif;
       color: var(--gold);
-      opacity: 0.08;
+      opacity: 0.06;
       line-height: 1;
       pointer-events: none;
-    }
-    .big-quote__text {
-      max-width: 780px;
-      margin: 0 auto 28px;
-      font-size: clamp(1.15rem, 2.5vw, 1.5rem);
-      line-height: 1.75;
-      color: #374151;
-      font-style: italic;
-    }
-    .big-quote--dark {
-      background: var(--green-dark);
-    }
-    .big-quote--dark .big-quote__text {
-      color: rgba(255,255,255,0.82);
-    }
-    .big-quote--dark .big-quote__name {
-      color: var(--gold);
-    }
-    .big-quote--dark .big-quote__role {
-      color: rgba(255,255,255,0.4);
-    }
-    .big-quote--cream {
-      background: var(--cream-light);
-    }
-    .big-quote__name {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--green);
-    }
-    .big-quote__role {
-      font-size: 0.88rem;
-      color: var(--gray);
-      margin-top: 2px;
     }
     .big-quote__line {
       width: 40px;
       height: 3px;
       background: var(--gold);
-      margin: 0 auto 20px;
+      margin: 0 auto 24px;
     }
+    .big-quote__text {
+      max-width: 760px;
+      margin: 0 auto 28px;
+      font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+      line-height: 1.8;
+      color: #374151;
+      font-style: italic;
+    }
+    .big-quote__name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #123e35;
+    }
+    .big-quote__role {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+    .big-quote--cream { background: var(--cream-light); }
+    .big-quote--dark {
+      background: #123e35;
+    }
+    .big-quote--dark .big-quote__text { color: rgba(255,255,255,0.82); }
+    .big-quote--dark .big-quote__name { color: var(--gold); }
+    .big-quote--dark .big-quote__role { color: rgba(255,255,255,0.4); }
+    .big-quote--dark::before { opacity: 0.08; }
 
     /* Two-column quote pair */
     .quote-pair {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0;
+      border-top: 1px solid #E5E7EB;
+      border-bottom: 1px solid #E5E7EB;
     }
     .quote-pair__item {
       padding: 56px 48px;
       position: relative;
+      transition: background 0.3s;
     }
-    .quote-pair__item:first-child {
-      border-right: 1px solid #E5E7EB;
-    }
+    .quote-pair__item:hover { background: #FAFAF8; }
+    .quote-pair__item:first-child { border-right: 1px solid #E5E7EB; }
     .quote-pair__item::before {
       content: '\201C';
-      font-size: 5rem;
+      font-size: 4.5rem;
       font-family: Georgia, serif;
       color: var(--gold);
       opacity: 0.15;
       line-height: 1;
       display: block;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
     .quote-pair__text {
-      font-size: 1.02rem;
+      font-size: 1rem;
       line-height: 1.85;
       color: #4B5563;
       font-style: italic;
       margin-bottom: 24px;
     }
-    .quote-pair__name {
-      font-weight: 700;
-      color: var(--green);
-      font-size: 0.92rem;
-    }
-    .quote-pair__role {
-      color: var(--gray);
-      font-size: 0.82rem;
-    }
+    .quote-pair__name { font-weight: 700; color: #123e35; font-size: 0.92rem; }
+    .quote-pair__role { color: var(--gray); font-size: 0.82rem; }
 
-    /* Three-column compact quotes */
+    /* Three-column compact */
     .quote-trio {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0;
-      border-top: 1px solid #E5E7EB;
       border-bottom: 1px solid #E5E7EB;
     }
     .quote-trio__item {
@@ -195,26 +181,19 @@
     .quote-trio__item:last-child { border-right: none; }
     .quote-trio__item:hover { background: var(--cream-light); }
     .quote-trio__text {
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       line-height: 1.8;
       color: #4B5563;
       font-style: italic;
       margin-bottom: 20px;
     }
-    .quote-trio__name {
-      font-weight: 700;
-      font-size: 0.88rem;
-      color: var(--green);
-    }
-    .quote-trio__role {
-      font-size: 0.8rem;
-      color: var(--gray);
-    }
+    .quote-trio__name { font-weight: 700; font-size: 0.85rem; color: #123e35; }
+    .quote-trio__role { font-size: 0.78rem; color: var(--gray); }
 
-    /* Number callout */
+    /* Number strip */
     .number-strip {
-      background: var(--green);
-      padding: 48px 0;
+      background: #123e35;
+      padding: 56px 0;
       text-align: center;
     }
     .number-strip__grid {
@@ -222,16 +201,15 @@
       justify-content: center;
       gap: 80px;
     }
-    .number-strip__item {}
     .number-strip__num {
-      font-size: 3.5rem;
+      font-size: 3.2rem;
       font-weight: 700;
       color: var(--gold);
       line-height: 1;
     }
     .number-strip__label {
       font-size: 0.85rem;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.45);
       margin-top: 8px;
     }
 
@@ -261,75 +239,62 @@
         <li><a href="/about">About</a></li>
         <li><a href="/six-shifts">The Six Shifts™</a></li>
         <li><a href="/services">Services</a></li>
-        <li><a href="/client-praise">Client Praise</a></li>
+        <li><a href="/client-results">Client Results</a></li>
         <li><a href="/contact" class="nav__cta">Let's Talk</a></li>
       </ul>
       <button class="nav__toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
-  <!-- HERO WITH OPENING QUOTE -->
-  <section class="hero" style="min-height: 70vh; display: flex; align-items: center;">
-    <div class="container">
-      <div class="hero-quote reveal">
-        <span class="hero-quote__mark">"</span>
-        <p class="hero-quote__text">Andy Hite with Scaling Minds has done truly outstanding work with me personally in my role as CEO, as well as with our broader C-Suite leadership team. His ability to challenge, clarify, and elevate leadership thinking — while staying grounded in real-world organizational dynamics — has been incredibly impactful for our organization.</p>
-        <div class="hero-quote__author">Scurry Miller</div>
-        <div class="hero-quote__role">President & CEO, Children's Home Association of Illinois</div>
-      </div>
-    </div>
+  <!-- HERO = SCURRY QUOTE -->
+  <section class="quote-hero">
+    <span class="quote-hero__mark reveal">"</span>
+    <p class="quote-hero__text reveal">"Andy Hite with Scaling Minds has done truly outstanding work with me personally in my role as CEO, as well as with our broader C-Suite leadership team at Children's Home. His ability to challenge, clarify, and elevate leadership thinking — while staying grounded in real-world organizational dynamics — has been incredibly impactful for our organization."</p>
+    <div class="quote-hero__name reveal">Scurry Miller</div>
+    <div class="quote-hero__role reveal">President & CEO, Children's Home Association of Illinois</div>
   </section>
 
-  <!-- SCROLLING HIGHLIGHT STRIP -->
+  <!-- SCROLLING HIGHLIGHTS -->
   <div class="highlight-strip">
     <div class="highlight-strip__inner">
       <span class="highlight-strip__item">0 to 20%+ net profit</span>
-      <span class="highlight-strip__item">Invaluable for our organization</span>
       <span class="highlight-strip__item">He's magical</span>
-      <span class="highlight-strip__item">A roadmap for actual change</span>
       <span class="highlight-strip__item">Changed our organization for the better</span>
-      <span class="highlight-strip__item">The most powerful and profound coach I've worked with</span>
       <span class="highlight-strip__item">He works at that intersection</span>
       <span class="highlight-strip__item">A realness I couldn't find anywhere else</span>
       <span class="highlight-strip__item">He was able to breakthrough</span>
       <span class="highlight-strip__item">Higher-performing leadership group</span>
-      <!-- duplicate for loop -->
+      <span class="highlight-strip__item">The most powerful coach I've worked with</span>
+      <span class="highlight-strip__item">A roadmap for actual change</span>
+      <span class="highlight-strip__item">Game-changer</span>
       <span class="highlight-strip__item">0 to 20%+ net profit</span>
-      <span class="highlight-strip__item">Invaluable for our organization</span>
       <span class="highlight-strip__item">He's magical</span>
-      <span class="highlight-strip__item">A roadmap for actual change</span>
       <span class="highlight-strip__item">Changed our organization for the better</span>
-      <span class="highlight-strip__item">The most powerful and profound coach I've worked with</span>
       <span class="highlight-strip__item">He works at that intersection</span>
       <span class="highlight-strip__item">A realness I couldn't find anywhere else</span>
       <span class="highlight-strip__item">He was able to breakthrough</span>
       <span class="highlight-strip__item">Higher-performing leadership group</span>
+      <span class="highlight-strip__item">The most powerful coach I've worked with</span>
+      <span class="highlight-strip__item">A roadmap for actual change</span>
+      <span class="highlight-strip__item">Game-changer</span>
     </div>
   </div>
 
-  <!-- JASON (ANONYMIZED) - FULL BLEED DARK -->
-  <section class="big-quote big-quote--dark reveal">
-    <div class="big-quote__line"></div>
-    <p class="big-quote__text">"I've worked with Andy during one of the more complex stretches of my professional life. What stands out is that our work was never just tactical — it was holistic. We talked about strategy, decisions, and leadership mechanics. But we also talked about the emotional weight that comes with carrying responsibility. Andy understands that you can't separate the two. He works at that intersection. If you're looking for someone to tell you what to do, he's probably not your coach. If you're looking for someone who will help you think more clearly and lead more steadily, he's exceptional."</p>
-    <div class="big-quote__name">Founder & CEO</div>
-    <div class="big-quote__role">Professional Services Firm</div>
-  </section>
-
-  <!-- PAIR: Matt + CJ -->
+  <!-- PAIR: Jason (anon) + Matt -->
   <section class="quote-pair reveal">
+    <div class="quote-pair__item">
+      <p class="quote-pair__text">"I've worked with Andy during one of the more complex stretches of my professional life. What stands out is that our work was never just tactical — it was holistic. We talked about strategy, decisions, and leadership mechanics. But we also talked about the emotional weight that comes with carrying responsibility. Andy understands that you can't separate the two. He works at that intersection. If you're looking for someone to tell you what to do, he's probably not your coach. If you're looking for someone who will help you think more clearly and lead more steadily, he's exceptional."</p>
+      <div class="quote-pair__name">Founder & CEO</div>
+      <div class="quote-pair__role">Professional Services</div>
+    </div>
     <div class="quote-pair__item">
       <p class="quote-pair__text">"I've worked with a number of coaches over the years, but Andy, hands down, stands out as the most powerful and profound among them. With Andy's help, I managed to transform my business from a state of no profit to achieving a net profit of over 20%. This remarkable turnaround can be attributed to the work we did together, addressing and overcoming the obstacles that were holding me back."</p>
       <div class="quote-pair__name">Matt Kuehlhorn</div>
       <div class="quote-pair__role">CEO, Kooler Garage Doors</div>
     </div>
-    <div class="quote-pair__item">
-      <p class="quote-pair__text">"While I saw tangible business results such as revenue growth and increased profitability, the even bigger takeaway was the transformation I saw in myself to show up in a different capacity, both as a leader and in my personal life. I cannot emphasize enough the overall growth, value, and transformation I felt from our time working together."</p>
-      <div class="quote-pair__name">CJ Walstrom</div>
-      <div class="quote-pair__role">Founder, Digital Marketing & Social Media Leader</div>
-    </div>
   </section>
 
-  <!-- ROBERT TUCKER - FULL BLEED CREAM -->
+  <!-- ROBERT TUCKER - cream bg -->
   <section class="big-quote big-quote--cream reveal">
     <div class="big-quote__line"></div>
     <p class="big-quote__text">"Working with Andy Hite of Scaling Minds has been an invaluable experience for both me and my leadership team. Andy has partnered closely with us to identify opportunities to strengthen communication, deepen trust, enhance collaboration, and improve overall team cohesion — ultimately positioning us to operate as a higher-performing leadership group. He brings extensive experience, sharp insight, and a thoughtful sense of humor that makes the work both engaging and impactful."</p>
@@ -337,12 +302,12 @@
     <div class="big-quote__role">President, Chicago Community Loan Foundation</div>
   </section>
 
-  <!-- TRIO: Anonymous CEO + Mackenzie + Debra -->
+  <!-- TRIO: Anon CEO + Mackenzie + CJ -->
   <section class="quote-trio reveal">
     <div class="quote-trio__item">
       <p class="quote-trio__text">"I was working through balancing the needs of a highly demanding job as a CEO with the needs of being a good husband and dad. In the past, I've worked with executive coaches and therapists. But I didn't change. However, with Andy, I have been able to understand my own thought patterns and beliefs. He was able to breakthrough."</p>
       <div class="quote-trio__name">CEO</div>
-      <div class="quote-trio__role">Private Company</div>
+      <div class="quote-trio__role">Construction Industry</div>
     </div>
     <div class="quote-trio__item">
       <p class="quote-trio__text">"Andy brought a realness to our sessions that I couldn't find anywhere else. I could bring things to the table that were hard to talk about with other business owners — things I felt like I'd be judged for. We got down to business and hashed out what mattered to the progress of my company during a major transition."</p>
@@ -350,13 +315,13 @@
       <div class="quote-trio__role">CEO, Blink & Co.</div>
     </div>
     <div class="quote-trio__item">
-      <p class="quote-trio__text">"In the 15 years I've been leading teams, I've found the same challenges showing up over and over again. It wasn't until working with Andy that I was able to finally overcome the barriers preventing me from becoming the leader I was hoping to be. Andy will push you when you're stuck, and show kindness when you need a friend."</p>
-      <div class="quote-trio__name">Debra Giunta</div>
-      <div class="quote-trio__role">CEO, The Brainchild Collective</div>
+      <p class="quote-trio__text">"While I saw tangible business results such as revenue growth and increased profitability, the even bigger takeaway was the transformation I saw in myself to show up in a different capacity, both as a leader and in my personal life. I cannot emphasize enough the overall growth and transformation I felt."</p>
+      <div class="quote-trio__name">CJ Walstrom</div>
+      <div class="quote-trio__role">Founder, Digital Marketing Leader</div>
     </div>
   </section>
 
-  <!-- DR. SOWINSKI - FULL BLEED DARK -->
+  <!-- DR SOWINSKI - dark bg (one green moment) -->
   <section class="big-quote big-quote--dark reveal">
     <div class="big-quote__line"></div>
     <p class="big-quote__text">"I was skeptical about the 'coaching' thing. I think for many of us we think of it as a cheerleader of life, somehow set to give us purpose. This isn't the case. Andy helped me understand that all I ever needed was within me. He is the catalyst not the cause. It is through his understanding, reflection, challenge, commitment, and humanity that I feel more assured as a person than I ever have. He's magical."</p>
@@ -364,21 +329,21 @@
     <div class="big-quote__role">Director of HAPA, City Schools of Hammond</div>
   </section>
 
-  <!-- PAIR: Jared + Sandra -->
+  <!-- PAIR: Debra + Jared -->
   <section class="quote-pair reveal">
+    <div class="quote-pair__item">
+      <p class="quote-pair__text">"In the 15 years I've been leading teams, I've found the same challenges showing up for me over and over again. I've read countless leadership books, listened to podcasts and attended trainings, but it wasn't until working with Andy that I was able to finally overcome the barriers preventing me from becoming the leader I was hoping to be. Andy will push you when you're stuck, and show kindness when you need a friend."</p>
+      <div class="quote-pair__name">Debra Giunta</div>
+      <div class="quote-pair__role">CEO, The Brainchild Collective</div>
+    </div>
     <div class="quote-pair__item">
       <p class="quote-pair__text">"Working with Andy has been a game-changer. He has the ability to bring things to the surface that I needed to see — and may have been avoiding searching for — then coach and hold me accountable on how to grow as a leader, husband, father, friend. If you're wondering if this coaching thing can work… I'd highly recommend a conversation with Andy."</p>
       <div class="quote-pair__name">Jared G.</div>
       <div class="quote-pair__role">VP of Growth & Marketing, Empower HR</div>
     </div>
-    <div class="quote-pair__item">
-      <p class="quote-pair__text">"There was an immediate connection to Andy. I felt like I was speaking to a wise, judgment-free friend who was ready to support me on any challenge that I had. I am now well stocked with a 'box' of Andy's tools that I will, without a doubt, continue to use daily. Investing in myself wasn't an easy decision for me, but choosing Andy was."</p>
-      <div class="quote-pair__name">Sandra S.</div>
-      <div class="quote-pair__role">VP of Business Development, Candor Threads</div>
-    </div>
   </section>
 
-  <!-- KERRIE - FULL BLEED CREAM -->
+  <!-- KERRIE - cream bg -->
   <section class="big-quote big-quote--cream reveal">
     <div class="big-quote__line"></div>
     <p class="big-quote__text">"Andy, through his company Scaling Minds, has changed our organization for the better. Reliable, trustworthy, consistent — I highly recommend him."</p>
@@ -386,37 +351,51 @@
     <div class="big-quote__role">WCCAC</div>
   </section>
 
-  <!-- TRIO: Priya + Jesse + Joseph -->
+  <!-- TRIO: Sandra + Priya + Jesse -->
   <section class="quote-trio reveal">
+    <div class="quote-trio__item">
+      <p class="quote-trio__text">"There was an immediate connection to Andy. I felt like I was speaking to a wise, judgment-free friend who was ready to support me on any challenge. I am now well stocked with a 'box' of Andy's tools that I will, without a doubt, continue to use daily. Investing in myself wasn't an easy decision, but choosing Andy was."</p>
+      <div class="quote-trio__name">Sandra S.</div>
+      <div class="quote-trio__role">VP of Business Development, Candor Threads</div>
+    </div>
     <div class="quote-trio__item">
       <p class="quote-trio__text">"Andy was my first coach, and it was a great experience to have his level of support during one of the toughest years of my entrepreneurial journey. I appreciated his understanding of both the business side and the emotional side that comes with being a leader."</p>
       <div class="quote-trio__name">Priya Shah</div>
       <div class="quote-trio__role">CEO, The Simple Good</div>
     </div>
     <div class="quote-trio__item">
-      <p class="quote-trio__text">"His coaching made a powerful, positive shift in my mindset that allows me to embrace the adventure of life in a self-empowering way. Andy's coaching was a powerful thaw. His authenticity is inspiring and has allowed me to be a more authentic person and more in touch with myself and the people around me."</p>
+      <p class="quote-trio__text">"His coaching made a powerful, positive shift in my mindset. Andy's coaching was a powerful thaw. His authenticity is inspiring and has allowed me to be a more authentic person and more in touch with myself and the people around me. I highly recommend coaching with Andy!"</p>
       <div class="quote-trio__name">Jesse P.</div>
       <div class="quote-trio__role">CFO, SourceScrub</div>
     </div>
-    <div class="quote-trio__item">
-      <p class="quote-trio__text">"Working with Andy was extremely helpful for my development. His ability to ask quality questions and listen intensely allowed me to explore situations that would have been quite difficult to think through without an external perspective. I found it refreshing that he never claimed to know best."</p>
-      <div class="quote-trio__name">Joseph R.</div>
-      <div class="quote-trio__role">AVP, IP Lending Solutions, Aon</div>
+  </section>
+
+  <!-- PAIR: Joseph + Cody -->
+  <section class="quote-pair reveal">
+    <div class="quote-pair__item">
+      <p class="quote-pair__text">"Working with Andy was extremely helpful for my development. His ability to ask quality questions and listen intensely allowed me to explore situations that would have been quite difficult to think through without an external perspective. I found it refreshing that he never claimed to know best but was always curious to see what we could both discover was true."</p>
+      <div class="quote-pair__name">Joseph R.</div>
+      <div class="quote-pair__role">AVP, IP Lending Solutions, Aon</div>
+    </div>
+    <div class="quote-pair__item">
+      <p class="quote-pair__text">"I met Andy just before a pivotal point in my career. He helped me dig myself out of a hole. At this point in my life I felt as if I was a complete failure and Andy helped me navigate my way back to a point of success. I seriously do not think I would be where I am today if it wasn't for Andy's help."</p>
+      <div class="quote-pair__name">Cody Vaughn</div>
+      <div class="quote-pair__role">CEO, Archer Electrical Contracting Co.</div>
     </div>
   </section>
 
   <!-- NUMBERS -->
   <section class="number-strip reveal">
     <div class="number-strip__grid">
-      <div class="number-strip__item">
+      <div>
         <div class="number-strip__num">20+</div>
         <div class="number-strip__label">Years developing leaders</div>
       </div>
-      <div class="number-strip__item">
+      <div>
         <div class="number-strip__num">100+</div>
         <div class="number-strip__label">Leaders and teams coached</div>
       </div>
-      <div class="number-strip__item">
+      <div>
         <div class="number-strip__num">5★</div>
         <div class="number-strip__label">Average client rating</div>
       </div>
@@ -424,10 +403,10 @@
   </section>
 
   <!-- CTA -->
-  <section class="cta-section">
+  <section class="cta-section" style="background: var(--white); color: var(--black);">
     <div class="container reveal">
-      <h2>Ready to see what's possible?</h2>
-      <p>Every engagement starts with a conversation. No pitch. No pressure.</p>
+      <h2 style="color: #123e35;">Ready to see what's possible?</h2>
+      <p style="color: var(--gray);">Every engagement starts with a conversation. No pitch. No pressure.</p>
       <a href="/contact" class="btn btn--primary">Start the Conversation</a>
     </div>
   </section>
@@ -452,7 +431,7 @@
             <li><a href="/about">About</a></li>
             <li><a href="/six-shifts">The Six Shifts™</a></li>
             <li><a href="/services">Services</a></li>
-            <li><a href="/client-praise">Client Praise</a></li>
+            <li><a href="/client-results">Client Results</a></li>
           </ul>
         </div>
         <div>
