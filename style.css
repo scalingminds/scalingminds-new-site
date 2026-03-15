@@ -666,9 +666,17 @@ p {
    ANIMATIONS
    ======================================== */
 .fade-up {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.7s ease;
+}
+.js-loaded .fade-up {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.7s ease;
+}
+.js-loaded .fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .fade-up.visible {
@@ -677,7 +685,7 @@ p {
 }
 
 .fade-in {
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.7s ease;
 }
 
@@ -686,8 +694,8 @@ p {
 }
 
 .stagger > * {
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1;
+  transform: translateY(0);
   transition: all 0.5s ease;
 }
 
