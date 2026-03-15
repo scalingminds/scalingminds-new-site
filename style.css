@@ -306,7 +306,7 @@ p { font-size: 1.05rem; line-height: 1.8; color: #4B5563; }
   .nav__links.open {
     display: flex; flex-direction: column; position: absolute;
     top: 68px; left: 0; right: 0; background: var(--green-nav);
-    padding: 24px; gap: 16px;
+    padding: 24px; gap: 16px; z-index: 1000;
     border-bottom: 1px solid rgba(0,0,0,0.2); box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   }
   .hero { min-height: auto; padding: 110px 0 72px; }
@@ -317,6 +317,7 @@ p { font-size: 1.05rem; line-height: 1.8; color: #4B5563; }
   .bio-grid { grid-template-columns: 1fr; gap: 40px; }
   .services-grid { grid-template-columns: 1fr; }
   .shifts-grid { grid-template-columns: 1fr; }
+  .hex-row { grid-template-columns: repeat(3, 1fr) !important; gap: 12px !important; max-width: 400px !important; }
   .footer__grid { grid-template-columns: 1fr; gap: 32px; }
   .footer__bottom { flex-direction: column; gap: 12px; text-align: center; }
   .testimonial-featured blockquote p { font-size: 1.2rem; }
