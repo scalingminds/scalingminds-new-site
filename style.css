@@ -286,12 +286,15 @@ p { font-size: 1.05rem; line-height: 1.8; color: #4B5563; }
    SCROLL REVEAL ANIMATIONS
    ======================================== */
 .reveal {
-  opacity: 0; transform: translateY(28px);
+  opacity: 1; transform: translateY(0);
   transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.js-ready .reveal {
+  opacity: 0; transform: translateY(28px);
 }
 .reveal--delay { transition-delay: 0.15s; }
 .reveal--delay-2 { transition-delay: 0.3s; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+.js-ready .reveal.visible { opacity: 1; transform: translateY(0); }
 
 /* ========================================
    RESPONSIVE

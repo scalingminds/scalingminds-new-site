@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Signal that JS is loaded - enables scroll animations
+  document.body.classList.add('js-ready');
+
   // Scroll-triggered reveal animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
