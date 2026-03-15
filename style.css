@@ -1,7 +1,7 @@
 /* ========================================
    SCALING MINDS - v2
    Brand: #123e35 (nav green), #1B4332 (dark green), #B8860B (gold), #D4C5A9 (cream)
-   Fonts: Cormorant Garamond (display) + Outfit (body) — matches logo aesthetic
+   Fonts: DM Serif Display (display) + Inter (body) — matches logo aesthetic
    ======================================== */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -18,8 +18,8 @@
   --white: #FFFFFF;
   --black: #111111;
   --gray: #6B7280;
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Outfit', 'Segoe UI', sans-serif;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
   --max-width: 1200px;
   --section-pad: 100px;
 }
