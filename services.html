@@ -4,163 +4,120 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services | Scaling Minds</title>
-  <meta name="description" content="Executive team coaching, 1:1 leadership coaching, and speaking engagements from Scaling Minds. We help leaders and teams fix what's actually broken.">
+  <meta name="description" content="Executive team coaching, 1:1 leadership coaching, and speaking engagements from Scaling Minds.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Services-specific styles */
-    .service-section {
-      padding: 100px 0;
-      position: relative;
-    }
-    .service-section + .service-section {
-      border-top: 1px solid #E5E7EB;
-    }
-    .service-section--alt {
-      background: var(--cream-light);
-    }
-
+    .service-section { padding: 100px 0; }
     .service-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 72px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 64px;
       align-items: start;
     }
+    .service-layout--reverse { grid-template-columns: 0.9fr 1.1fr; }
     .service-layout--reverse .service-content { order: 2; }
     .service-layout--reverse .service-aside { order: 1; }
 
-    .service-content {}
     .service-content .eyebrow { margin-bottom: 16px; }
     .service-content h2 { margin-bottom: 20px; color: #123e35; }
-    .service-content p {
-      font-size: 1.05rem;
-      line-height: 1.85;
-      color: #4B5563;
-      margin-bottom: 16px;
+    .service-content p { font-size: 1.05rem; line-height: 1.85; color: #4B5563; margin-bottom: 16px; }
+
+    .service-image {
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 24px;
     }
-    .service-content p:last-of-type { margin-bottom: 0; }
+    .service-image img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+    }
 
-    .service-aside {}
-
-    /* Outcome box */
+    /* Outcome box - dark green */
     .outcome-box {
-      background: #123e35;
       border-radius: 12px;
-      padding: 36px 32px;
+      padding: 32px 28px;
     }
+    .outcome-box--dark {
+      background: #123e35;
+    }
+    .outcome-box--dark .outcome-box__heading { color: var(--gold); }
+    .outcome-box--dark .outcome-box__text { color: rgba(255,255,255,0.75); }
+
+    .outcome-box--cream {
+      background: var(--cream-light);
+      border: 1px solid rgba(184,134,11,0.15);
+    }
+    .outcome-box--cream .outcome-box__heading { color: #123e35; }
+    .outcome-box--cream .outcome-box__text { color: #4B5563; }
+
     .outcome-box__heading {
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--gold);
+      font-size: 0.78rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.12em;
       margin-bottom: 20px;
     }
     .outcome-box__item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 16px;
+      display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px;
     }
     .outcome-box__item:last-child { margin-bottom: 0; }
     .outcome-box__check {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
+      width: 20px; height: 20px; border-radius: 50%;
       background: rgba(184,134,11,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
     }
-    .outcome-box__check svg {
-      width: 12px;
-      height: 12px;
+    .outcome-box__check svg { width: 12px; height: 12px; }
+    .outcome-box__text { font-size: 0.93rem; line-height: 1.6; }
+    .outcome-box__result {
+      margin-top: 20px; padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem; color: var(--gold); font-weight: 500;
+      font-style: italic;
     }
-    .outcome-box__text {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.6;
+    .outcome-box--cream .outcome-box__result {
+      border-top-color: rgba(184,134,11,0.15);
+      color: #123e35;
     }
 
-    /* Quote inline */
+    /* Inline quote */
     .service-quote {
       border-left: 3px solid var(--gold);
       padding: 24px 28px;
-      margin-top: 32px;
+      margin-top: 28px;
       background: rgba(184,134,11,0.04);
       border-radius: 0 8px 8px 0;
     }
     .service-quote__text {
-      font-size: 1rem;
-      font-style: italic;
-      color: #374151;
-      line-height: 1.75;
-      margin-bottom: 12px;
+      font-size: 1rem; font-style: italic; color: #374151;
+      line-height: 1.75; margin-bottom: 12px;
     }
-    .service-quote__author {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #123e35;
-    }
-    .service-quote__role {
-      font-size: 0.8rem;
-      color: var(--gray);
-    }
+    .service-quote__author { font-size: 0.85rem; font-weight: 600; color: #123e35; }
+    .service-quote__role { font-size: 0.8rem; color: var(--gray); }
 
-    /* Intro section */
+    /* Intro */
     .services-intro {
-      max-width: 720px;
-      margin: 0 auto;
-      text-align: center;
+      max-width: 720px; margin: 0 auto; text-align: center;
     }
-    .services-intro h2 {
-      color: #123e35;
-      margin-bottom: 20px;
-    }
-    .services-intro p {
-      font-size: 1.1rem;
-      line-height: 1.85;
-      color: #4B5563;
-    }
+    .services-intro h2 { color: #123e35; margin-bottom: 20px; }
+    .services-intro p { font-size: 1.1rem; line-height: 1.85; color: #4B5563; }
 
-    /* Divider line with label */
-    .service-divider {
-      text-align: center;
-      padding: 48px 0;
-      position: relative;
-    }
-    .service-divider::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: #E5E7EB;
-    }
-    .service-divider span {
-      position: relative;
-      background: var(--white);
-      padding: 0 24px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--gold);
+    /* Separator */
+    .section-sep {
+      border: none; border-top: 1px solid #E5E7EB; margin: 0;
     }
 
     @media (max-width: 900px) {
-      .service-layout {
-        grid-template-columns: 1fr;
-        gap: 40px;
+      .service-layout, .service-layout--reverse {
+        grid-template-columns: 1fr; gap: 40px;
       }
       .service-layout--reverse .service-content { order: 1; }
       .service-layout--reverse .service-aside { order: 2; }
       .service-section { padding: 64px 0; }
+      .service-image img { height: 220px; }
     }
   </style>
 </head>
@@ -185,20 +142,11 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero" style="min-height: 45vh;">
+  <section class="hero" style="min-height: 50vh;">
     <div class="container">
       <div class="hero__content reveal">
         <h1>You know something needs to change.<br><em>Here's how we help.</em></h1>
         <p class="hero__sub" style="max-width: 520px;">Most leaders come to us in one of two situations: the team isn't working and they know it, or they personally feel stuck and need someone in their corner. Sometimes both.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- INTRO -->
-  <section class="section" style="padding: 80px 0;">
-    <div class="container">
-      <div class="services-intro reveal">
-        <p>We don't hand you a menu. Every engagement starts with a conversation about what's actually happening — in the business, on the team, and with you as a leader. Then we build something around that. Here are the three ways we typically work with clients.</p>
       </div>
     </div>
   </section>
@@ -221,7 +169,10 @@
           </div>
         </div>
         <div class="service-aside">
-          <div class="outcome-box">
+          <div class="service-image">
+            <img src="andy-team-coaching.png" alt="Andy facilitating a leadership team session">
+          </div>
+          <div class="outcome-box outcome-box--dark">
             <div class="outcome-box__heading">What changes</div>
             <div class="outcome-box__item">
               <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -239,17 +190,14 @@
               <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
               <div class="outcome-box__text">The CEO stops being the bottleneck because other leaders step up</div>
             </div>
-            <div class="outcome-box__item">
-              <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-              <div class="outcome-box__text">The team leads together — and the culture follows</div>
-            </div>
+            <div class="outcome-box__result">"Impactful for our entire organization." — Scurry Miller, CEO</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="service-divider"><span>or</span></div>
+  <hr class="section-sep">
 
   <!-- SERVICE 2: 1:1 EXECUTIVE COACHING -->
   <section class="service-section">
@@ -258,7 +206,7 @@
         <div class="service-content">
           <span class="eyebrow">1:1 Executive Coaching</span>
           <h2>You're carrying more than you should be. And it's starting to show.</h2>
-          <p>Maybe you're a CEO who knows they're the bottleneck but can't figure out how to let go. Maybe you're a VP navigating a political minefield and losing sleep over it. Maybe you're a leader who keeps hitting the same ceiling and the books and podcasts aren't cutting it anymore.</p>
+          <p>Maybe you're a CEO who knows they're the bottleneck but can't figure out how to let go. Maybe you're a leader who keeps hitting the same ceiling and the books and podcasts aren't cutting it anymore.</p>
           <p>This is direct, structured coaching tied to real business outcomes. We work on the patterns you can't see in yourself — the motivations, the fears, the default reactions that drive every decision you make. When those shift, everything shifts: how you lead, how your team responds, how the business performs.</p>
           <p>Engagements are typically 6 to 12 months. We meet regularly, and the work happens between sessions as much as during them.</p>
 
@@ -269,7 +217,10 @@
           </div>
         </div>
         <div class="service-aside">
-          <div class="outcome-box">
+          <div class="service-image">
+            <img src="andy-1on1-coaching.png" alt="Andy in a one-on-one coaching session">
+          </div>
+          <div class="outcome-box outcome-box--cream">
             <div class="outcome-box__heading">What changes</div>
             <div class="outcome-box__item">
               <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -287,13 +238,14 @@
               <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
               <div class="outcome-box__text">Business results follow — revenue, profitability, execution, culture</div>
             </div>
+            <div class="outcome-box__result">"From no profit to 20%+ net profit." — Matt Kuehlhorn, CEO</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="service-divider"><span>or</span></div>
+  <hr class="section-sep">
 
   <!-- SERVICE 3: SPEAKING & FACILITATION -->
   <section class="service-section">
@@ -301,9 +253,9 @@
       <div class="service-layout reveal">
         <div class="service-content">
           <span class="eyebrow">Speaking & Facilitation</span>
-          <h2>You need your team to walk out of the room different than they walked in.</h2>
+          <h2>Your offsites keep producing energy but not change.</h2>
           <p>Whether it's a keynote, a leadership offsite, or a full-team retreat, we design sessions that actually change how people think and work together. Not inspirational fluff that fades by Monday. Real conversations, real frameworks, real shifts.</p>
-          <p>Every session is built for your context, your team, and your goals. We often lead signature Six Shifts™ retreats that give executive teams a concentrated experience of the framework — trust, candor, ownership, empowerment, alignment, and collective leadership — in one or two intensive days.</p>
+          <p>Every session is built for your context, your team, and your goals. We often lead signature Six Shifts™ retreats that give executive teams a concentrated experience of the framework in one or two intensive days.</p>
           <p>If you're investing the time and money to bring your team together, the experience should be worth it. We make sure it is.</p>
 
           <div class="service-quote">
@@ -313,7 +265,10 @@
           </div>
         </div>
         <div class="service-aside">
-          <div class="outcome-box">
+          <div class="service-image">
+            <img src="https://cdn.prod.website-files.com/60d235860a5b2d615c4d0420/6842397d8128bcd94d929146_Untitled%20design%20(34).png" alt="Andy speaking to a group">
+          </div>
+          <div class="outcome-box outcome-box--dark">
             <div class="outcome-box__heading">What we deliver</div>
             <div class="outcome-box__item">
               <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -337,13 +292,14 @@
     </div>
   </section>
 
-  <!-- NOT SURE WHICH -->
+  <!-- NOT SURE -->
   <section class="section" style="background: var(--cream-light); padding: 80px 0;">
     <div class="container">
       <div class="services-intro reveal">
         <span class="eyebrow">Not sure which is right?</span>
         <h2 style="color: #123e35;">That's what the first conversation is for.</h2>
         <p style="margin-top: 16px;">Most clients start with a 30-minute call. You tell me what's going on. I'll be honest about whether I can help and what I'd recommend. No pitch. No proposal on the first call. Just a real conversation between two people figuring out if there's a fit.</p>
+        <a href="/contact" class="btn btn--primary" style="margin-top: 28px;">Book a 30-Minute Call</a>
       </div>
     </div>
   </section>
@@ -352,7 +308,7 @@
   <section class="cta-section" style="background: #123e35;">
     <div class="container reveal">
       <h2>Let's talk about what you need.</h2>
-      <p>Whether it's your team, yourself, or both — the work starts with a conversation.</p>
+      <p>We take on a limited number of engagements each year to ensure dedicated support for every client. If now is the right time, let's find out together.</p>
       <a href="/contact" class="btn btn--primary">Start the Conversation</a>
     </div>
   </section>
