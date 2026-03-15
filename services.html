@@ -4,115 +4,356 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services | Scaling Minds</title>
-  <meta name="description" content="Executive coaching, team performance coaching, leadership 360 assessments, The Six Shifts™, and speaking engagements from Scaling Minds.">
+  <meta name="description" content="Executive team coaching, 1:1 leadership coaching, and speaking engagements from Scaling Minds. We help leaders and teams fix what's actually broken.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Services-specific styles */
+    .service-section {
+      padding: 100px 0;
+      position: relative;
+    }
+    .service-section + .service-section {
+      border-top: 1px solid #E5E7EB;
+    }
+    .service-section--alt {
+      background: var(--cream-light);
+    }
+
+    .service-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .service-layout--reverse .service-content { order: 2; }
+    .service-layout--reverse .service-aside { order: 1; }
+
+    .service-content {}
+    .service-content .eyebrow { margin-bottom: 16px; }
+    .service-content h2 { margin-bottom: 20px; color: #123e35; }
+    .service-content p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #4B5563;
+      margin-bottom: 16px;
+    }
+    .service-content p:last-of-type { margin-bottom: 0; }
+
+    .service-aside {}
+
+    /* Outcome box */
+    .outcome-box {
+      background: #123e35;
+      border-radius: 12px;
+      padding: 36px 32px;
+    }
+    .outcome-box__heading {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .outcome-box__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .outcome-box__item:last-child { margin-bottom: 0; }
+    .outcome-box__check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(184,134,11,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .outcome-box__check svg {
+      width: 12px;
+      height: 12px;
+    }
+    .outcome-box__text {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+    }
+
+    /* Quote inline */
+    .service-quote {
+      border-left: 3px solid var(--gold);
+      padding: 24px 28px;
+      margin-top: 32px;
+      background: rgba(184,134,11,0.04);
+      border-radius: 0 8px 8px 0;
+    }
+    .service-quote__text {
+      font-size: 1rem;
+      font-style: italic;
+      color: #374151;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+    .service-quote__author {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #123e35;
+    }
+    .service-quote__role {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    /* Intro section */
+    .services-intro {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .services-intro h2 {
+      color: #123e35;
+      margin-bottom: 20px;
+    }
+    .services-intro p {
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: #4B5563;
+    }
+
+    /* Divider line with label */
+    .service-divider {
+      text-align: center;
+      padding: 48px 0;
+      position: relative;
+    }
+    .service-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #E5E7EB;
+    }
+    .service-divider span {
+      position: relative;
+      background: var(--white);
+      padding: 0 24px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+    }
+
+    @media (max-width: 900px) {
+      .service-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .service-layout--reverse .service-content { order: 1; }
+      .service-layout--reverse .service-aside { order: 2; }
+      .service-section { padding: 64px 0; }
+    }
+  </style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav class="nav">
     <div class="nav__inner">
-      <a href="/" class="nav__logo"><span>Scaling Minds</span></a>
+      <a href="/" class="nav__logo" style="display: flex; align-items: center; gap: 10px;">
+        <img src="scaling_minds_logo.png" alt="Scaling Minds" style="height: 44px; width: auto;">
+      </a>
       <ul class="nav__links">
         <li><a href="/">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="six-shifts.html">The Six Shifts™</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="client-praise.html">Client Praise</a></li>
-        <li><a href="contact.html" class="nav__cta">Let's Talk</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/six-shifts">The Six Shifts™</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/client-results">Client Results</a></li>
+        <li><a href="/contact" class="nav__cta">Let's Talk</a></li>
       </ul>
       <button class="nav__toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
-  <!-- PAGE HERO -->
-  <section class="page-hero">
+  <!-- HERO -->
+  <section class="hero" style="min-height: 45vh;">
     <div class="container">
-      <span class="eyebrow">Services</span>
-      <h1>How We Work With You</h1>
-      <p>We believe that growth isn't just a goal; it's a journey that leads to extraordinary results.</p>
+      <div class="hero__content reveal">
+        <h1>You know something needs to change.<br><em>Here's how we help.</em></h1>
+        <p class="hero__sub" style="max-width: 520px;">Most leaders come to us in one of two situations: the team isn't working and they know it, or they personally feel stuck and need someone in their corner. Sometimes both.</p>
+      </div>
     </div>
   </section>
 
-  <!-- EXECUTIVE COACHING -->
-  <section class="section">
+  <!-- INTRO -->
+  <section class="section" style="padding: 80px 0;">
     <div class="container">
-      <div class="bio-grid">
-        <div class="fade-up">
-          <span class="eyebrow">1:1 Coaching</span>
-          <h2>Executive Coaching</h2>
-          <p class="lead mb-24">Lead with Clarity. Grow with Intention.</p>
-          <div class="divider"></div>
-          <div class="prose">
-            <p>This coaching isn't about tips and tricks. It's for leaders who feel the weight of big decisions, hard conversations, and nonstop responsibility — and are ready to do the deeper work.</p>
-            <p>Together, we'll get clear on what's in your way, shift the patterns that keep you stuck, and strengthen how you lead, connect, and execute.</p>
-            <p>If you're feeling stretched, stuck, or ready to step into something bigger — you're in the right place.</p>
+      <div class="services-intro reveal">
+        <p>We don't hand you a menu. Every engagement starts with a conversation about what's actually happening — in the business, on the team, and with you as a leader. Then we build something around that. Here are the three ways we typically work with clients.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE 1: EXECUTIVE TEAM COACHING -->
+  <section class="service-section">
+    <div class="container">
+      <div class="service-layout reveal">
+        <div class="service-content">
+          <span class="eyebrow">Executive Team Coaching</span>
+          <h2>Your leadership team isn't operating like a team.</h2>
+          <p>They're talented individually. But in the room together, real conversations don't happen. Accountability is inconsistent. Decisions get made and then quietly unmade. The CEO ends up carrying the weight because nobody else steps up the same way.</p>
+          <p>We work with the CEO and their leadership team — together — to reset how the team communicates, makes decisions, and holds each other accountable. The work is built on The Six Shifts™, our proprietary leadership operating system that moves teams from surface-level agreement to real trust, candor, and shared ownership.</p>
+          <p>This isn't a workshop. It's an ongoing engagement — typically 6 to 12 months — that changes how the team operates in every meeting, every decision, every day.</p>
+
+          <div class="service-quote">
+            <p class="service-quote__text">"Andy has partnered closely with us to strengthen communication, deepen trust, enhance collaboration, and improve overall team cohesion — ultimately positioning us to operate as a higher-performing leadership group."</p>
+            <div class="service-quote__author">Robert Tucker</div>
+            <div class="service-quote__role">President, Chicago Community Loan Foundation</div>
           </div>
-          <a href="contact.html" class="btn btn--green mt-32">Start the Conversation</a>
         </div>
-        <div class="bio-image fade-up" style="transition-delay: 0.15s;">
-          <img src="https://cdn.prod.website-files.com/60d235860a5b2d615c4d0420/684237fe861ba769c364d244_2.png" alt="Executive Coaching">
+        <div class="service-aside">
+          <div class="outcome-box">
+            <div class="outcome-box__heading">What changes</div>
+            <div class="outcome-box__item">
+              <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="outcome-box__text">Hard conversations happen in the room, not in the hallway after</div>
+            </div>
+            <div class="outcome-box__item">
+              <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="outcome-box__text">Accountability is shared across the team, not sitting with one or two people</div>
+            </div>
+            <div class="outcome-box__item">
+              <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="outcome-box__text">Strategy moves from plan to execution because the team is aligned</div>
+            </div>
+            <div class="outcome-box__item">
+              <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="outcome-box__text">The CEO stops being the bottleneck because other leaders step up</div>
+            </div>
+            <div class="outcome-box__item">
+              <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="outcome-box__text">The team leads together — and the culture follows</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SIX SHIFTS -->
-  <section class="section section--cream">
+  <div class="service-divider"><span>or</span></div>
+
+  <!-- SERVICE 2: 1:1 EXECUTIVE COACHING -->
+  <section class="service-section">
     <div class="container">
-      <div class="bio-grid" style="direction: rtl;">
-        <div class="fade-up" style="direction: ltr;">
-          <span class="eyebrow">Team Transformation</span>
-          <h2>The Six Shifts™</h2>
-          <p class="lead mb-24">Executive Team Transformation</p>
-          <div class="divider"></div>
-          <div class="prose">
-            <p>Most executive teams are leaving performance on the table. Not because they don't care — but because they're stuck in habits that no longer work: vague commitments, soft accountability, siloed goals, and conversations that never quite get to the truth.</p>
-            <p><strong>The Six Shifts™ is built to change that.</strong></p>
-            <p>This isn't a coaching program — it's a leadership operating system that resets how your team communicates, makes decisions, and leads together. Through a proven, immersive process, we help leadership teams build trust, speak with candor, and align around what really matters.</p>
-            <p>You'll replace friction and drift with clarity, ownership, and shared momentum. One team. One direction. Real traction. If your team is scaling, stuck, or ready to lead differently — this is the shift.</p>
+      <div class="service-layout service-layout--reverse reveal">
+        <div class="service-content">
+          <span class="eyebrow">1:1 Executive Coaching</span>
+          <h2>You're carrying more than you should be. And it's starting to show.</h2>
+          <p>Maybe you're a CEO who knows they're the bottleneck but can't figure out how to let go. Maybe you're a VP navigating a political minefield and losing sleep over it. Maybe you're a leader who keeps hitting the same ceiling and the books and podcasts aren't cutting it anymore.</p>
+          <p>This is direct, structured coaching tied to real business outcomes. We work on the patterns you can't see in yourself — the motivations, the fears, the default reactions that drive every decision you make. When those shift, everything shifts: how you lead, how your team responds, how the business performs.</p>
+          <p>Engagements are typically 6 to 12 months. We meet regularly, and the work happens between sessions as much as during them.</p>
+
+          <div class="service-quote">
+            <p class="service-quote__text">"In the past, I've worked with executive coaches and therapists. But I didn't change. However, with Andy, I have been able to understand my own thought patterns and beliefs. He was able to breakthrough."</p>
+            <div class="service-quote__author">CEO</div>
+            <div class="service-quote__role">Construction Industry</div>
           </div>
-          <a href="six-shifts.html" class="btn btn--green mt-32">Learn More About The Six Shifts™</a>
         </div>
-        <div class="bio-image fade-up" style="direction: ltr; transition-delay: 0.15s;">
-          <img src="https://cdn.prod.website-files.com/60d235860a5b2d615c4d0420/684236047199bd468c6f36a3_Untitled%20design%20(32).png" alt="The Six Shifts">
+        <div class="service-aside">
+          <div class="outcome-box">
+            <div class="outcome-box__heading">What changes</div>
+            <div class="outcome-box__item">
+              <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="outcome-box__text">You see the patterns that have been holding you back — and break them</div>
+            </div>
+            <div class="outcome-box__item">
+              <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="outcome-box__text">Hard conversations stop feeling hard because you know how to navigate them</div>
+            </div>
+            <div class="outcome-box__item">
+              <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="outcome-box__text">Your team responds differently because you're showing up differently</div>
+            </div>
+            <div class="outcome-box__item">
+              <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="outcome-box__text">Business results follow — revenue, profitability, execution, culture</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SPEAKING -->
-  <section class="section">
+  <div class="service-divider"><span>or</span></div>
+
+  <!-- SERVICE 3: SPEAKING & FACILITATION -->
+  <section class="service-section">
     <div class="container">
-      <div class="bio-grid">
-        <div class="fade-up">
-          <span class="eyebrow">Events & Retreats</span>
-          <h2>Speaking & Facilitation</h2>
-          <div class="divider"></div>
-          <div class="prose">
-            <p>From keynote talks to full-team retreats, we create experiences that shift how leaders think, show up, and work together.</p>
-            <p>Whether you're bringing people together for inspiration, alignment, or a reset — we design sessions that hit home. I speak on real leadership, not fluff: trust, candor, ownership, empowerment, strategic clarity — and what it takes to lead in today's world.</p>
-            <p>We also lead custom team experiences, including our signature <strong>Six Shifts™ retreats</strong>, built to help executive teams get real, get aligned, and perform at the level they're capable of.</p>
-            <p>Every session is built for your context, your team, and your goals.</p>
+      <div class="service-layout reveal">
+        <div class="service-content">
+          <span class="eyebrow">Speaking & Facilitation</span>
+          <h2>You need your team to walk out of the room different than they walked in.</h2>
+          <p>Whether it's a keynote, a leadership offsite, or a full-team retreat, we design sessions that actually change how people think and work together. Not inspirational fluff that fades by Monday. Real conversations, real frameworks, real shifts.</p>
+          <p>Every session is built for your context, your team, and your goals. We often lead signature Six Shifts™ retreats that give executive teams a concentrated experience of the framework — trust, candor, ownership, empowerment, alignment, and collective leadership — in one or two intensive days.</p>
+          <p>If you're investing the time and money to bring your team together, the experience should be worth it. We make sure it is.</p>
+
+          <div class="service-quote">
+            <p class="service-quote__text">"Andy, through his company Scaling Minds, has changed our organization for the better. Reliable, trustworthy, consistent."</p>
+            <div class="service-quote__author">Kerrie Stannell</div>
+            <div class="service-quote__role">WCCAC</div>
           </div>
-          <a href="contact.html" class="btn btn--green mt-32">Let's Plan Your Event</a>
         </div>
-        <div class="bio-image fade-up" style="transition-delay: 0.15s;">
-          <img src="https://cdn.prod.website-files.com/60d235860a5b2d615c4d0420/6842397d8128bcd94d929146_Untitled%20design%20(34).png" alt="Speaking and Facilitation">
+        <div class="service-aside">
+          <div class="outcome-box">
+            <div class="outcome-box__heading">What we deliver</div>
+            <div class="outcome-box__item">
+              <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="outcome-box__text">Keynote presentations on leadership, trust, and team performance</div>
+            </div>
+            <div class="outcome-box__item">
+              <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="outcome-box__text">Executive offsites and leadership team retreats</div>
+            </div>
+            <div class="outcome-box__item">
+              <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="outcome-box__text">Six Shifts™ immersive experiences</div>
+            </div>
+            <div class="outcome-box__item">
+              <div class="outcome-box__check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="outcome-box__text">Custom workshops built around your team's specific challenges</div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOT SURE WHICH -->
+  <section class="section" style="background: var(--cream-light); padding: 80px 0;">
+    <div class="container">
+      <div class="services-intro reveal">
+        <span class="eyebrow">Not sure which is right?</span>
+        <h2 style="color: #123e35;">That's what the first conversation is for.</h2>
+        <p style="margin-top: 16px;">Most clients start with a 30-minute call. You tell me what's going on. I'll be honest about whether I can help and what I'd recommend. No pitch. No proposal on the first call. Just a real conversation between two people figuring out if there's a fit.</p>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta-section">
-    <div class="container fade-up">
-      <h2>Ready to Lead Differently?</h2>
-      <p>Let's talk about what your team needs and how we can help.</p>
-      <a href="contact.html" class="btn btn--primary">Let's Talk</a>
+  <section class="cta-section" style="background: #123e35;">
+    <div class="container reveal">
+      <h2>Let's talk about what you need.</h2>
+      <p>Whether it's your team, yourself, or both — the work starts with a conversation.</p>
+      <a href="/contact" class="btn btn--primary">Start the Conversation</a>
     </div>
   </section>
 
@@ -121,37 +362,37 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <span>Scaling Minds</span>
+          <img src="scaling_minds_logo.png" alt="Scaling Minds" style="height: 40px; width: auto; margin-bottom: 12px;">
           <p>Executive team coaching and leadership development for businesses ready to lead differently.</p>
-          <p style="margin-top: 16px;">Chicago, IL<br>
-          <a href="mailto:andy@scalingminds.com" style="color: var(--gold);">andy@scalingminds.com</a><br>
-          <a href="tel:3127725825" style="color: rgba(255,255,255,0.6);">(312) 772-5825</a></p>
+          <p style="margin-top: 16px;">
+            Chicago, IL<br>
+            <a href="mailto:andy@scalingminds.com">andy@scalingminds.com</a><br>
+            <a href="tel:3127725825">(312) 772-5825</a>
+          </p>
         </div>
         <div>
           <h4>Navigate</h4>
           <ul class="footer__links">
             <li><a href="/">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="six-shifts.html">The Six Shifts™</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="client-praise.html">Client Praise</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/six-shifts">The Six Shifts™</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/client-results">Client Results</a></li>
           </ul>
         </div>
         <div>
           <h4>Connect</h4>
           <ul class="footer__links">
-            <li><a href="contact.html">Let's Talk</a></li>
+            <li><a href="/contact">Let's Talk</a></li>
             <li><a href="https://www.linkedin.com/in/andy-hite/" target="_blank">LinkedIn</a></li>
           </ul>
         </div>
       </div>
       <div class="footer__bottom">
-        <p>© 2025 Scaling Minds LLC. All rights reserved.</p>
-        <div class="footer__social">
-          <a href="https://www.linkedin.com/in/andy-hite/" target="_blank" aria-label="LinkedIn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-        </div>
+        <p>&copy; 2025 Scaling Minds LLC. All rights reserved.</p>
+        <a href="https://www.linkedin.com/in/andy-hite/" target="_blank" aria-label="LinkedIn" class="footer__social">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
       </div>
     </div>
   </footer>
