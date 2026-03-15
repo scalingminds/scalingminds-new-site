@@ -7,193 +7,403 @@
   <meta name="description" content="The Six Shifts™ is a proprietary leadership operating system that helps executive teams transform trust, alignment, and performance.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Six Shifts page styles */
+
+    /* Hero with infographic */
+    .ss-hero {
+      background: #123e35;
+      padding: 140px 24px 80px;
+      text-align: center;
+      color: var(--white);
+    }
+    .ss-hero h1 { color: var(--white); margin-bottom: 16px; }
+    .ss-hero h1 em { color: var(--gold); font-style: normal; }
+    .ss-hero__sub {
+      font-size: 1.1rem; color: rgba(255,255,255,0.6);
+      max-width: 600px; margin: 0 auto 16px;
+    }
+    .ss-hero__stat {
+      font-size: 0.95rem; color: var(--gold); font-style: italic;
+      max-width: 520px; margin: 0 auto 40px; opacity: 0.8;
+    }
+    .ss-hero__infographic {
+      max-width: 480px; margin: 0 auto;
+    }
+    .ss-hero__infographic img { width: 100%; height: auto; }
+
+    /* Individual shift section */
+    .shift-section {
+      padding: 80px 0;
+    }
+    .shift-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 64px;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .shift-layout--reverse {
+      grid-template-columns: 1.4fr 1fr;
+    }
+    .shift-layout--reverse .shift-visual { order: 2; }
+    .shift-layout--reverse .shift-content { order: 1; }
+
+    .shift-visual {
+      text-align: center;
+    }
+    .shift-hex {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .shift-hex img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    /* Placeholder hex until real images arrive */
+    .shift-hex--placeholder {
+      width: 180px;
+      height: 200px;
+      background: #123e35;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin: 0 auto;
+    }
+    .shift-hex--placeholder span {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .shift-hex--placeholder .shift-hex__icon {
+      font-size: 2rem;
+      color: var(--gold);
+      opacity: 0.6;
+      margin-bottom: 8px;
+    }
+
+    .shift-content {}
+    .shift-content .eyebrow { margin-bottom: 8px; }
+    .shift-content h2 { color: #123e35; margin-bottom: 16px; font-size: clamp(1.5rem, 3vw, 2.2rem); }
+    .shift-content p { font-size: 1.05rem; line-height: 1.85; color: #4B5563; margin-bottom: 12px; }
+    .shift-content__cost {
+      font-size: 0.95rem;
+      color: #123e35;
+      font-weight: 600;
+      margin-top: 16px;
+      padding-left: 16px;
+      border-left: 3px solid var(--gold);
+    }
+
+    /* Alternating backgrounds */
+    .shift-section:nth-child(even) { background: var(--cream-light); }
+
+    /* Timeline */
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 3px;
+      background: linear-gradient(to right, var(--gold), #123e35);
+      z-index: 0;
+    }
+    .timeline__step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .timeline__dot {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #123e35;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      border: 3px solid var(--gold);
+    }
+    .timeline__label {
+      font-weight: 700;
+      color: #123e35;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .timeline__desc {
+      font-size: 0.88rem;
+      color: #4B5563;
+      line-height: 1.6;
+      max-width: 180px;
+      margin: 0 auto;
+    }
+
+    /* Fit section */
+    .fit-section {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .fit-section h3 {
+      color: #123e35;
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .fit-section p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #4B5563;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .shift-layout, .shift-layout--reverse {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+      .shift-layout--reverse .shift-visual { order: 1; }
+      .shift-layout--reverse .shift-content { order: 2; }
+      .timeline { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .timeline::before { display: none; }
+      .ss-hero { padding: 120px 24px 60px; }
+      .ss-hero__infographic { max-width: 320px; }
+    }
+  </style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav class="nav">
     <div class="nav__inner">
-      <a href="/" class="nav__logo"><span>Scaling Minds</span></a>
+      <a href="/" class="nav__logo" style="display: flex; align-items: center; gap: 10px;">
+        <img src="scaling_minds_logo.png" alt="Scaling Minds" style="height: 44px; width: auto;">
+      </a>
       <ul class="nav__links">
         <li><a href="/">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="six-shifts.html">The Six Shifts™</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="client-praise.html">Client Praise</a></li>
-        <li><a href="contact.html" class="nav__cta">Let's Talk</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/six-shifts">The Six Shifts™</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/client-results">Client Results</a></li>
+        <li><a href="/contact" class="nav__cta">Let's Talk</a></li>
       </ul>
       <button class="nav__toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
   <!-- HERO -->
-  <section class="hero" style="min-height: 70vh;">
-    <div class="container">
-      <div class="hero__content fade-up">
-        <span class="hero__badge">The Six Shifts™</span>
-        <h1>Most Executive Teams Underperform. The Best Make <em>Six Shifts.</em></h1>
-        <p>The Six Shifts™ is our proprietary leadership operating system that helps executive teams transform trust, alignment, and performance.</p>
-        <div class="hero__actions">
-          <a href="https://calendly.com/scalingminds/30-min-discovery-call-sixshifts" class="btn btn--primary" target="_blank">Start The Shift</a>
-        </div>
+  <section class="ss-hero">
+    <div class="reveal">
+      <h1>The Six Shifts™</h1>
+      <p class="ss-hero__sub">A leadership operating system for executive teams that are done performing below their potential.</p>
+      <p class="ss-hero__stat">"At best, 20% of leadership teams are high-performing. More than 50% are underperforming."</p>
+      <div class="ss-hero__infographic">
+        <img src="six-shifts-infographic.png" alt="The Six Shifts Leadership Operating System">
       </div>
     </div>
   </section>
 
-  <!-- WHY TEAMS PLATEAU -->
+  <!-- SHIFT 1: TRUST -->
+  <section class="shift-section">
+    <div class="shift-layout reveal">
+      <div class="shift-visual">
+        <div class="shift-hex--placeholder">
+          <span>Trust</span>
+        </div>
+      </div>
+      <div class="shift-content">
+        <span class="eyebrow">Shift 01</span>
+        <h2>Trust: Psychological Safety</h2>
+        <p>Everything starts here. If your team doesn't feel safe enough to be honest — about what's working, what's not, and what they're struggling with — nothing else matters. Strategy sessions become theater. Feedback becomes performance.</p>
+        <p>We build the kind of trust where people say what they actually think, admit what they don't know, and challenge each other without fear of retaliation. This isn't trust falls. It's the foundation that makes everything else possible.</p>
+        <div class="shift-content__cost">Without it: your best people stay quiet and your worst decisions go unchallenged.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHIFT 2: CANDOR -->
+  <section class="shift-section">
+    <div class="shift-layout shift-layout--reverse reveal">
+      <div class="shift-visual">
+        <div class="shift-hex--placeholder">
+          <span>Candor</span>
+        </div>
+      </div>
+      <div class="shift-content">
+        <span class="eyebrow">Shift 02</span>
+        <h2>Candor: Courageous Truth</h2>
+        <p>Trust without candor is just politeness. And polite teams make slow, safe, mediocre decisions. Candor is the willingness to say the hard thing in the moment — not after the meeting, not in a side conversation, not in an email two days later.</p>
+        <p>We help teams build the muscle to speak directly, give feedback in real time, and disagree productively. When candor becomes a habit, meetings get shorter, decisions get better, and problems stop festering.</p>
+        <div class="shift-content__cost">Without it: tension goes underground and resentment builds until someone leaves.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHIFT 3: OWNERSHIP -->
+  <section class="shift-section">
+    <div class="shift-layout reveal">
+      <div class="shift-visual">
+        <div class="shift-hex--placeholder">
+          <span>Ownership</span>
+        </div>
+      </div>
+      <div class="shift-content">
+        <span class="eyebrow">Shift 03</span>
+        <h2>Ownership: Shared Accountability</h2>
+        <p>On most leadership teams, accountability lives with one or two people. Everyone else waits to be told, defers to the CEO, or quietly lets commitments slide. That's not a team. That's a group of individuals reporting to the same person.</p>
+        <p>Ownership means every leader on the team takes responsibility for the whole — not just their function. When something breaks, the response is "what can I do?" not "that's not my department."</p>
+        <div class="shift-content__cost">Without it: the CEO becomes the bottleneck and execution depends on one person's energy.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHIFT 4: EMPOWERMENT -->
+  <section class="shift-section">
+    <div class="shift-layout shift-layout--reverse reveal">
+      <div class="shift-visual">
+        <div class="shift-hex--placeholder">
+          <span>Empowerment</span>
+        </div>
+      </div>
+      <div class="shift-content">
+        <span class="eyebrow">Shift 04</span>
+        <h2>Empowerment: Distributed Leadership</h2>
+        <p>Most CEOs say they want empowered leaders. Then they override decisions, insert themselves into every conversation, and wonder why nobody takes initiative. Empowerment isn't a speech. It's a behavior change at the top that unlocks capability across the organization.</p>
+        <p>We help leadership teams push decision-making down, trust their people to own outcomes, and build the systems that make distributed leadership sustainable.</p>
+        <div class="shift-content__cost">Without it: your best leaders get frustrated and leave. The rest learn to wait for permission.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHIFT 5: ALIGNMENT -->
+  <section class="shift-section">
+    <div class="shift-layout reveal">
+      <div class="shift-visual">
+        <div class="shift-hex--placeholder">
+          <span>Alignment</span>
+        </div>
+      </div>
+      <div class="shift-content">
+        <span class="eyebrow">Shift 05</span>
+        <h2>Alignment: Strategic Clarity</h2>
+        <p>Alignment isn't agreement. Agreement is nodding in a meeting. Alignment is walking out of the room and making the same decision when nobody's watching. Most teams think they're aligned because they sat through the same presentation. Real alignment means every leader can articulate the priorities, the tradeoffs, and why.</p>
+        <p>We help teams get brutally clear about what matters most — and say no to everything else.</p>
+        <div class="shift-content__cost">Without it: teams chase too many priorities, resources get spread thin, and nothing gets done well.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHIFT 6: COLLECTIVE LEADERSHIP -->
+  <section class="shift-section">
+    <div class="shift-layout shift-layout--reverse reveal">
+      <div class="shift-visual">
+        <div class="shift-hex--placeholder">
+          <span>Leadership</span>
+        </div>
+      </div>
+      <div class="shift-content">
+        <span class="eyebrow">Shift 06</span>
+        <h2>Collective Leadership: Unified Organization</h2>
+        <p>This is where it all comes together. When the leadership team trusts each other, speaks with candor, shares ownership, empowers their people, and aligns around what matters — the organization transforms. Culture stops being a poster on the wall and becomes how people actually behave.</p>
+        <p>Collective leadership means the team leads as one unit. Not six departments with a CEO on top. One team with shared accountability for the whole business.</p>
+        <div class="shift-content__cost">Without it: you have a collection of leaders. Not a leadership team.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="section" style="background: #123e35; padding: 80px 0;">
+    <div class="container">
+      <div class="testimonial-featured reveal" style="text-align: center;">
+        <blockquote>
+          <p style="color: rgba(255,255,255,0.88); font-size: 1.35rem; font-style: italic; line-height: 1.7; max-width: 780px; margin: 0 auto 24px;">"Andy Hite with Scaling Minds has done truly outstanding work with me personally in my role as CEO, as well as with our broader C-Suite leadership team. His ability to challenge, clarify, and elevate leadership thinking — while staying grounded in real-world organizational dynamics — has been incredibly impactful for our organization."</p>
+        </blockquote>
+        <div style="color: var(--gold); font-weight: 600;">Scurry Miller</div>
+        <div style="color: rgba(255,255,255,0.4); font-size: 0.88rem; margin-top: 4px;">President & CEO, Children's Home Association of Illinois</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IS THIS YOUR TEAM -->
   <section class="section">
     <div class="container">
-      <div class="fade-up" style="max-width: 720px; margin: 0 auto;">
-        <span class="eyebrow">The Problem</span>
-        <h2>Why Most Executive Teams Plateau</h2>
-        <div class="divider"></div>
-        <div class="prose">
-          <ul>
-            <li>Real tension gets buried under surface-level agreement.</li>
-            <li>Accountability slips — or stays with one or two people.</li>
-            <li>Strategy execution is inconsistent and reactive.</li>
-            <li>Culture turns into noise instead of a strategic signal.</li>
-          </ul>
+      <div class="fit-section reveal">
+        <div class="section-header" style="text-align: left; margin-bottom: 32px;">
+          <span class="eyebrow">Is this your team?</span>
+          <h2>The Six Shifts™ is built for leadership teams that are done settling.</h2>
         </div>
-        <div class="testimonial mt-32" style="background: var(--cream-light);">
-          <p class="testimonial__text">"Research tells us that at best, 20% of leadership teams are high-performing. It also tells us that more than 50% of teams are underperforming."</p>
-        </div>
+        <h3>It's a fit if:</h3>
+        <p>Your team is smart and capable but struggles to have the honest conversations that actually move things forward. Accountability is inconsistent — some people follow through, others don't, and nobody names it. Trust is mostly polite. The CEO carries too much. And you know that the way you're operating now won't get you where you need to go. You're ready to do the work, not just talk about it.</p>
+        <h3>It's not a fit if:</h3>
+        <p>You're looking for a one-day workshop to fix your leadership team. Or the team isn't aligned on the need for change in the first place. This work requires honesty, commitment, and a willingness to look at yourself as much as the people around you. If that's not where you are, we're not the right partner yet.</p>
       </div>
     </div>
   </section>
 
-  <!-- THE SIX SHIFTS -->
-  <section class="section section--dark">
-    <div class="container">
-      <div class="text-center mb-64 fade-up">
-        <span class="eyebrow" style="color: var(--gold);">The Framework</span>
-        <h2>The Six Shifts™ That Change Everything</h2>
-      </div>
-      <div class="shifts-grid stagger">
-        <div class="shift-card">
-          <div class="shift-card__number">01</div>
-          <h3>Trust</h3>
-          <p>Psychological safety as the foundation.</p>
-        </div>
-        <div class="shift-card">
-          <div class="shift-card__number">02</div>
-          <h3>Candor</h3>
-          <p>Real talk, in the moment creates momentum.</p>
-        </div>
-        <div class="shift-card">
-          <div class="shift-card__number">03</div>
-          <h3>Ownership</h3>
-          <p>Shared leadership. Shared responsibility.</p>
-        </div>
-        <div class="shift-card">
-          <div class="shift-card__number">04</div>
-          <h3>Empowerment</h3>
-          <p>Unlock initiative across the organization.</p>
-        </div>
-        <div class="shift-card">
-          <div class="shift-card__number">05</div>
-          <h3>Alignment</h3>
-          <p>Focus on what matters. Say no to the noise.</p>
-        </div>
-        <div class="shift-card">
-          <div class="shift-card__number">06</div>
-          <h3>Collective Leadership</h3>
-          <p>When the leadership team leads together, the culture follows.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- OPERATING SYSTEM -->
-  <section class="section">
-    <div class="container">
-      <div class="fade-up" style="max-width: 780px; margin: 0 auto;">
-        <span class="eyebrow">Not a Workshop</span>
-        <h2>This Isn't a Workshop. It's a Leadership Operating System.</h2>
-        <div class="divider"></div>
-        <div class="prose">
-          <p><strong>The Six Shifts™</strong> function as a leadership operating system — centered around trust, candor, and alignment. At the core is true leadership. Around it: the behaviors that turn strategy into execution and culture into momentum.</p>
-          <p>This isn't a training. It's a transformation.</p>
-          <p>The Six Shifts™ help executives and their teams:</p>
-          <ul>
-            <li>Stop avoiding hard conversations and start speaking the truth in the room</li>
-            <li>Replace vague roles and siloed decisions with shared accountability</li>
-            <li>Align around what matters most — and follow through</li>
-            <li>Empower more leaders to step up instead of relying on just one or two</li>
-            <li>Make leadership consistent, not reactive</li>
-          </ul>
-          <p>When these six shifts take hold, <strong>the leadership team becomes an engine of clarity, trust, and execution.</strong> And that changes everything.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- IS IT RIGHT FOR YOU -->
+  <!-- HOW IT WORKS -->
   <section class="section section--cream">
     <div class="container">
-      <div class="fade-up" style="max-width: 780px; margin: 0 auto;">
-        <span class="eyebrow">Is It Right For You?</span>
-        <h2>Are The Six Shifts™ Right For Your Team?</h2>
-        <div class="divider"></div>
-        <div class="prose">
-          <p>The Six Shifts™ is built for executive teams who want to lead differently. It's for the group that holds strategic, cultural, and operational leadership across the business.</p>
-          <p><strong>It's a fit if:</strong></p>
-          <ul>
-            <li>Your team is smart and capable — but struggles to have the honest conversations that drive clarity and progress</li>
-            <li>Accountability is inconsistent — some people follow through, others don't, and no one names it</li>
-            <li>You spend more time reacting to issues than driving strategy forward</li>
-            <li>Trust is mostly polite — but hard truths and real feedback don't get said in the room</li>
-            <li>A few leaders carry most of the weight, while others stay passive or disconnected</li>
-            <li>You're committed to growth — not just for the business, but for how you lead together</li>
-          </ul>
-          <p><strong>It's not a fit if:</strong></p>
-          <ul>
-            <li>You're looking for a one-off workshop or retreat to overhaul your leadership team</li>
-            <li>The leadership team isn't aligned on the need for change</li>
-            <li>You're not ready to name what's really happening — or shift how you lead</li>
-          </ul>
-        </div>
+      <div class="section-header reveal">
+        <span class="eyebrow">How It Works</span>
+        <h2>From insight to execution.</h2>
+        <p>The Six Shifts™ isn't a one-off event. It's a structured partnership designed to change how your team works together every day.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- FROM INSIGHT TO EXECUTION -->
-  <section class="section">
-    <div class="container">
-      <div class="text-center mb-64 fade-up">
-        <span class="eyebrow">The Process</span>
-        <h2>From Insight to Execution</h2>
-        <p class="lead" style="margin: 16px auto 0;">The Six Shifts™ isn't a one-off event — it's a structured partnership designed to change how your team works together every day.</p>
-      </div>
-      <div class="services-grid stagger">
-        <div class="service-card">
-          <h3>1. Diagnose</h3>
-          <p>Get a clear view of your team's current leadership habits, dynamics, and alignment gaps.</p>
+      <div class="timeline reveal">
+        <div class="timeline__step">
+          <div class="timeline__dot">1</div>
+          <div class="timeline__label">Diagnose</div>
+          <div class="timeline__desc">A clear view of your team's current habits, dynamics, and alignment gaps.</div>
         </div>
-        <div class="service-card">
-          <h3>2. Immerse</h3>
-          <p>Immersive team sessions that target one shift at a time, built to spark real behavior change.</p>
+        <div class="timeline__step">
+          <div class="timeline__dot">2</div>
+          <div class="timeline__label">Immerse</div>
+          <div class="timeline__desc">Intensive team sessions targeting one shift at a time. Real behavior change.</div>
         </div>
-        <div class="service-card">
-          <h3>3. Sustain</h3>
-          <p>Monthly nudges and practices that turn insight into habit and keep progress visible.</p>
+        <div class="timeline__step">
+          <div class="timeline__dot">3</div>
+          <div class="timeline__label">Sustain</div>
+          <div class="timeline__desc">Monthly practices that turn insight into habit and keep progress visible.</div>
         </div>
-        <div class="service-card">
-          <h3>4. Coach</h3>
-          <p>Private coaching for senior leaders to support growth, confidence, and alignment.</p>
+        <div class="timeline__step">
+          <div class="timeline__dot">4</div>
+          <div class="timeline__label">Coach</div>
+          <div class="timeline__desc">Private coaching for senior leaders to support growth and alignment.</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta-section">
-    <div class="container fade-up">
-      <h2>Your Next Shift Starts Here</h2>
-      <p>You've got the people. You've got the potential. But if the team isn't aligned, accountable, and real with each other — growth will keep stalling. Schedule a 30 minute consultation to explore whether it's the right next move for your team.</p>
-      <a href="https://calendly.com/scalingminds/30-min-discovery-call-sixshifts" class="btn btn--primary" target="_blank">Start The Shift</a>
+  <section class="cta-section" style="background: #123e35;">
+    <div class="container reveal">
+      <h2>Your next shift starts with a conversation.</h2>
+      <p>We take on a limited number of team engagements each year. If your leadership team is ready to operate differently, let's find out if this is the right fit.</p>
+      <a href="/contact" class="btn btn--primary">Schedule a 30-Minute Call</a>
     </div>
   </section>
 
@@ -202,37 +412,37 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <span>Scaling Minds</span>
+          <img src="scaling_minds_logo.png" alt="Scaling Minds" style="height: 40px; width: auto; margin-bottom: 12px;">
           <p>Executive team coaching and leadership development for businesses ready to lead differently.</p>
-          <p style="margin-top: 16px;">Chicago, IL<br>
-          <a href="mailto:andy@scalingminds.com" style="color: var(--gold);">andy@scalingminds.com</a><br>
-          <a href="tel:3127725825" style="color: rgba(255,255,255,0.6);">(312) 772-5825</a></p>
+          <p style="margin-top: 16px;">
+            Chicago, IL<br>
+            <a href="mailto:andy@scalingminds.com">andy@scalingminds.com</a><br>
+            <a href="tel:3127725825">(312) 772-5825</a>
+          </p>
         </div>
         <div>
           <h4>Navigate</h4>
           <ul class="footer__links">
             <li><a href="/">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="six-shifts.html">The Six Shifts™</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="client-praise.html">Client Praise</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/six-shifts">The Six Shifts™</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/client-results">Client Results</a></li>
           </ul>
         </div>
         <div>
           <h4>Connect</h4>
           <ul class="footer__links">
-            <li><a href="contact.html">Let's Talk</a></li>
+            <li><a href="/contact">Let's Talk</a></li>
             <li><a href="https://www.linkedin.com/in/andy-hite/" target="_blank">LinkedIn</a></li>
           </ul>
         </div>
       </div>
       <div class="footer__bottom">
-        <p>© 2025 Scaling Minds LLC. All rights reserved.</p>
-        <div class="footer__social">
-          <a href="https://www.linkedin.com/in/andy-hite/" target="_blank" aria-label="LinkedIn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-        </div>
+        <p>&copy; 2025 Scaling Minds LLC. All rights reserved.</p>
+        <a href="https://www.linkedin.com/in/andy-hite/" target="_blank" aria-label="LinkedIn" class="footer__social">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
       </div>
     </div>
   </footer>
