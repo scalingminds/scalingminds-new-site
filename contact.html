@@ -398,4 +398,20 @@
           document.getElementById('contactForm').style.display = 'none';
           document.getElementById('formSuccess').style.display = 'block';
         } else {
-          window.location.href = 'mailto:andy@scalingminds.com?subject=Inquiry from ' + encodeURIComponent(name) + '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nCompany: ' + company + '\nRole: ' + role + '\nInterest: '
+          window.location.href = 'mailto:andy@scalingminds.com?subject=Inquiry from ' + encodeURIComponent(name) + '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nCompany: ' + company + '\nRole: ' + role + '\nInterest: '+ interest + '
+
+' + message);
+        }
+      }).catch(() => {
+        window.location.href = 'mailto:andy@scalingminds.com?subject=Inquiry from ' + encodeURIComponent(name) + '&body=' + encodeURIComponent('Name: ' + name + '
+Email: ' + email + '
+Company: ' + company + '
+Role: ' + role + '
+Interest: ' + interest + '
+
+' + message);
+      });
+    }
+  </script>
+</body>
+</html>
