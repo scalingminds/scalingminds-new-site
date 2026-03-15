@@ -1,16 +1,16 @@
 /* ========================================
    SCALING MINDS - v2
-   Brand: #123e35 (nav green), #1B4332 (dark green), #B8860B (gold), #D4C5A9 (cream)
-   Fonts: DM Serif Display (display) + Inter (body) — matches logo aesthetic
+   Brand: #123e35 (green), #B8860B (gold), #D4C5A9 (cream)
+   Fonts: Inter
    ======================================== */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --green: #1B4332;
+  --green: #123e35;
   --green-nav: #123e35;
-  --green-light: #2D6A4F;
-  --green-dark: #0F2A1D;
+  --green-light: #1a5446;
+  --green-dark: #123e35;
   --gold: #B8860B;
   --gold-light: #D4A017;
   --cream: #D4C5A9;
