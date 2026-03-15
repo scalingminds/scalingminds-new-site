@@ -117,14 +117,14 @@ p {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255,255,255,0.95);
+  background: #123e35;
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(27,67,50,0.08);
+  border-bottom: 1px solid rgba(0,0,0,0.2);
   transition: all 0.3s ease;
 }
 
 .nav.scrolled {
-  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
 .nav__inner {
@@ -146,7 +146,7 @@ p {
   font-family: var(--font-display);
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--green);
+  color: var(--cream);
   letter-spacing: -0.02em;
 }
 
@@ -160,11 +160,15 @@ p {
 .nav__links a {
   font-size: 0.92rem;
   font-weight: 600;
-  color: var(--green);
+  color: var(--cream);
   letter-spacing: 0.02em;
   text-transform: uppercase;
   position: relative;
   transition: color 0.3s;
+}
+
+.nav__links a:hover {
+  color: var(--gold);
 }
 
 .nav__links a::after {
@@ -184,7 +188,7 @@ p {
 }
 
 .nav__cta {
-  background: var(--green);
+  background: var(--gold);
   color: var(--white) !important;
   padding: 10px 24px;
   border-radius: 6px;
@@ -197,7 +201,7 @@ p {
 .nav__cta::after { display: none !important; }
 
 .nav__cta:hover {
-  background: var(--green-light);
+  background: var(--gold-light);
   transform: translateY(-1px);
 }
 
@@ -214,7 +218,7 @@ p {
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--green);
+  background: var(--cream);
   margin: 6px 0;
   transition: all 0.3s;
 }
@@ -760,11 +764,11 @@ p {
     top: 72px;
     left: 0;
     right: 0;
-    background: var(--white);
+    background: #123e35;
     padding: 24px;
     gap: 16px;
-    border-bottom: 1px solid rgba(27,67,50,0.1);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   }
 
   .hero { min-height: auto; padding: 120px 0 80px; }
