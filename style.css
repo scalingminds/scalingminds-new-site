@@ -82,12 +82,19 @@ p { font-size: 1.05rem; line-height: 1.8; color: #4B5563; }
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   background: var(--green-nav);
   border-bottom: 1px solid rgba(0,0,0,0.15);
-  transition: box-shadow 0.3s;
+  transition: all 0.4s ease;
 }
 .nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
+.nav--glass {
+  background: rgba(18, 62, 53, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.nav--glass .nav__inner { height: 58px; }
 .nav__inner {
   max-width: var(--max-width); margin: 0 auto; padding: 0 24px;
   display: flex; align-items: center; justify-content: space-between; height: 68px;
+  transition: height 0.4s ease;
 }
 .nav__logo img { height: 44px; width: auto; }
 .nav__links { display: flex; align-items: center; gap: 28px; list-style: none; }
@@ -295,6 +302,83 @@ p { font-size: 1.05rem; line-height: 1.8; color: #4B5563; }
 .reveal--delay { transition-delay: 0.15s; }
 .reveal--delay-2 { transition-delay: 0.3s; }
 .js-ready .reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Stagger children */
+.stagger {
+  opacity: 1; transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.js-ready .stagger { opacity: 0; transform: translateY(20px); }
+.js-ready .stagger.visible { opacity: 1; transform: translateY(0); }
+
+/* ========================================
+   2. GRAIN TEXTURE ON DARK SECTIONS
+   ======================================== */
+.section--dark::after,
+.hero::after,
+.ss-hero::after,
+.cta-section::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+}
+.section--dark, .hero, .ss-hero, .cta-section { position: relative; }
+.section--dark > *, .hero > *, .ss-hero > *, .cta-section > * { position: relative; z-index: 2; }
+
+/* ========================================
+   5. TEXT HIGHLIGHT ANIMATION
+   ======================================== */
+.highlight-draw {
+  position: relative;
+  display: inline;
+}
+.highlight-draw::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-delay: 0.3s;
+}
+.highlight-draw.drawn::after {
+  width: 100%;
+}
+
+/* ========================================
+   6. HEX TILT EFFECT
+   ======================================== */
+.hex-tilt {
+  transition: transform 0.15s ease;
+  will-change: transform;
+}
+
+/* ========================================
+   7. PAGE TRANSITIONS
+   ======================================== */
+.page-transition {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.page-transition.page-loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+.page-transition.page-leaving {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
 
 /* ========================================
    RESPONSIVE
