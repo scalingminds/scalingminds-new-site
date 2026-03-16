@@ -339,21 +339,15 @@ p { font-size: 1.05rem; line-height: 1.8; color: #4B5563; }
 .highlight-draw {
   position: relative;
   display: inline;
+  background-image: linear-gradient(var(--gold), var(--gold));
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+  padding-bottom: 2px;
 }
-.highlight-draw::after {
-  content: '';
-  position: absolute;
-  bottom: 2px;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background: var(--gold);
-  border-radius: 2px;
-  transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition-delay: 0.3s;
-}
-.highlight-draw.drawn::after {
-  width: 100%;
+.highlight-draw.drawn {
+  background-size: 100% 3px;
 }
 
 /* ========================================
