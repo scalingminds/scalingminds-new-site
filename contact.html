@@ -390,43 +390,18 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="main.js"></script>
+  <script src="main.js"></script>
   <script>
     function submitForm() {
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const company = document.getElementById('company').value;
-      const role = document.getElementById('role').value;
-      const interest = document.getElementById('interest').value;
-      const message = document.getElementById('message').value;
-
-      if (!name || !email) {
-        alert('Please fill in your name and email.');
-        return;
-      }
-
-      fetch('https://formspree.io/f/xyknngla', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, company, role, interest, message })
-      }).then(response => {
-        if (response.ok) {
-          document.getElementById('contactForm').style.display = 'none';
-          document.getElementById('formSuccess').style.display = 'block';
-        } else {
-          window.location.href = 'mailto:andy@scalingminds.com?subject=Inquiry from ' + encodeURIComponent(name) + '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nCompany: ' + company + '\nRole: ' + role + '\nInterest: '+ interest + '
-
-' + message);
-        }
-      }).catch(() => {
-        window.location.href = 'mailto:andy@scalingminds.com?subject=Inquiry from ' + encodeURIComponent(name) + '&body=' + encodeURIComponent('Name: ' + name + '
-Email: ' + email + '
-Company: ' + company + '
-Role: ' + role + '
-Interest: ' + interest + '
-
-' + message);
-      });
+      var n = document.getElementById('name').value;
+      var e = document.getElementById('email').value;
+      var c = document.getElementById('company').value;
+      var r = document.getElementById('role').value;
+      var i = document.getElementById('interest').value;
+      var m = document.getElementById('message').value;
+      if (!n || !e) { alert('Please fill in your name and email.'); return; }
+      var fallback = 'mailto:andy@scalingminds.com?subject=' + encodeURIComponent('Inquiry from ' + n) + '&body=' + encodeURIComponent('Name: ' + n + ' | Email: ' + e + ' | Company: ' + c + ' | Role: ' + r + ' | Interest: ' + i + ' | Message: ' + m);
+      fetch('https://formspree.io/f/xyknngla', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: n, email: e, company: c, role: r, interest: i, message: m }) }).then(function(res) { if (res.ok) { document.getElementById('contactForm').style.display = 'none'; document.getElementById('formSuccess').style.display = 'block'; } else { window.location.href = fallback; } }).catch(function() { window.location.href = fallback; });
     }
   </script>
 </body>
