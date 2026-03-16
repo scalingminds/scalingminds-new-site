@@ -78,17 +78,64 @@
   <!-- ========== FEATURED TESTIMONIAL ========== -->
   <section class="section">
     <div class="container">
-      <div class="testimonial-featured reveal">
-        <blockquote>
-          <p>"Andy Hite with Scaling Minds has done truly outstanding work with me personally in my role as CEO, as well as with our broader C-Suite leadership team at Children's Home. His ability to challenge, clarify, and elevate leadership thinking — while staying grounded in real-world organizational dynamics — has been incredibly impactful for our organization."</p>
-        </blockquote>
-        <div class="testimonial-featured__author">
-          <strong>Scurry Miller</strong>
-          <span>President & CEO, Children's Home Association of Illinois</span>
+      <div class="testimonial-featured reveal" style="text-align: center;">
+        <div id="typewriter-wrap" style="min-height: 60px; margin-bottom: 24px;">
+          <p id="typewriter" style="font-size: clamp(1.4rem, 3vw, 2rem); font-style: italic; color: var(--gold); font-weight: 600; line-height: 1.4;"></p>
+          <span id="typewriter-cursor" style="display: inline-block; width: 2px; height: 1.2em; background: var(--gold); margin-left: 2px; animation: blink 0.7s infinite; vertical-align: text-bottom;"></span>
+        </div>
+        <div id="typewriter-full" style="opacity: 0; transform: translateY(12px); transition: all 0.8s ease;">
+          <blockquote>
+            <p>"Andy Hite with Scaling Minds has done truly outstanding work with me personally in my role as CEO, as well as with our broader C-Suite leadership team at Children's Home. His ability to challenge, clarify, and elevate leadership thinking — while staying grounded in real-world organizational dynamics — has been incredibly impactful for our organization."</p>
+          </blockquote>
+          <div class="testimonial-featured__author">
+            <strong>Scurry Miller</strong>
+            <span>President & CEO, Children's Home Association of Illinois</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+  <style>
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  </style>
+
+  <script>
+    (function() {
+      const text = '"Incredibly impactful for our entire organization."';
+      const el = document.getElementById('typewriter');
+      const cursor = document.getElementById('typewriter-cursor');
+      const full = document.getElementById('typewriter-full');
+      let typed = false;
+
+      const typeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !typed) {
+            typed = true;
+            let i = 0;
+            const speed = 55;
+            function type() {
+              if (i < text.length) {
+                el.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+              } else {
+                // Done typing - hide cursor, show full quote
+                setTimeout(() => {
+                  cursor.style.display = 'none';
+                  full.style.opacity = '1';
+                  full.style.transform = 'translateY(0)';
+                }, 600);
+              }
+            }
+            setTimeout(type, 400);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      typeObserver.observe(document.getElementById('typewriter-wrap'));
+    })();
+  </script>
 
   <!-- ========== LOGO TICKER ========== -->
   <section class="logo-ticker">
