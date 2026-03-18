@@ -19,6 +19,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
+
+    /* HERO */
     .results-hero {
       background: #123e35;
       padding: 140px 24px 80px;
@@ -38,12 +40,38 @@
       color: rgba(255,255,255,0.65);
     }
 
-    .results-section { padding: 80px 0; }
+    /* TYPOGRAPHIC INTERRUPT */
+    .type-interrupt {
+      padding: 80px 24px;
+      text-align: center;
+      background: var(--white);
+    }
+    .type-interrupt__rule {
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      margin: 0 auto 32px;
+    }
+    .type-interrupt__quote {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-style: italic;
+      color: #123e35;
+      line-height: 1.4;
+      max-width: 760px;
+      margin: 0 auto 24px;
+    }
+    .type-interrupt__attr {
+      font-size: 0.88rem;
+      color: var(--gray);
+      letter-spacing: 0.05em;
+    }
 
+    /* FEATURED QUOTE */
     .quote-featured {
       max-width: var(--max-width);
-      margin: 0 auto 56px;
-      padding: 0 24px;
+      margin: 0 auto 0;
+      padding: 0 24px 80px;
     }
     .quote-featured__inner {
       background: #123e35;
@@ -75,30 +103,42 @@
     .quote-featured__name { font-weight: 700; color: var(--gold); font-size: 1rem; }
     .quote-featured__role { color: rgba(255,255,255,0.45); font-size: 0.88rem; margin-top: 4px; }
 
-    .quote-grid {
+    /* MASONRY GRID */
+    .masonry-section {
+      background: var(--cream-light);
+      padding: 80px 0;
+    }
+    .masonry-grid {
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 24px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      columns: 3;
+      column-gap: 24px;
     }
     .quote-card {
       background: var(--white);
       border-radius: 10px;
-      padding: 36px 32px;
+      padding: 32px 28px;
       border: 1px solid #E5E7EB;
+      break-inside: avoid;
+      margin-bottom: 24px;
       transition: all 0.3s ease;
       position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .quote-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
     .quote-card:hover {
-      transform: translateY(-3px);
       box-shadow: 0 16px 40px rgba(0,0,0,0.07);
       border-color: var(--gold);
     }
     .quote-card::before {
       content: '\201C';
-      font-size: 3.5rem;
+      font-size: 3rem;
       font-family: Georgia, serif;
       color: var(--gold);
       opacity: 0.2;
@@ -106,41 +146,48 @@
       display: block;
       margin-bottom: 4px;
     }
-    .quote-card__text { font-size: 0.98rem; line-height: 1.85; color: #4B5563; font-style: italic; margin-bottom: 20px; }
-    .quote-card__name { font-weight: 700; color: #123e35; font-size: 0.9rem; }
-    .quote-card__role { color: var(--gray); font-size: 0.82rem; margin-top: 2px; }
-    .quote-card--hidden { display: none; }
-
-    .load-more-wrap { text-align: center; margin-top: 40px; padding: 0 24px; }
-    .btn--load-more {
-      display: inline-block;
-      padding: 14px 36px;
-      border: 2px solid #123e35;
-      border-radius: 6px;
-      color: #123e35;
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-      background: transparent;
-      transition: all 0.3s ease;
-      font-family: inherit;
+    .quote-card__text {
+      font-size: 0.96rem;
+      line-height: 1.85;
+      color: #4B5563;
+      font-style: italic;
+      margin-bottom: 18px;
     }
-    .btn--load-more:hover { background: #123e35; color: var(--white); }
+    .quote-card__name { font-weight: 700; color: #123e35; font-size: 0.88rem; }
+    .quote-card__role { color: var(--gray); font-size: 0.8rem; margin-top: 2px; }
 
-    .results-cta {
-      background: var(--white);
+    /* PRE-CTA QUOTE */
+    .pre-cta-quote {
       padding: 80px 24px;
       text-align: center;
-      border-top: 1px solid #E5E7EB;
+      background: var(--white);
     }
-    .results-cta h2 { color: #123e35; max-width: 600px; margin: 0 auto 16px; }
-    .results-cta p { color: var(--gray); font-size: 1.05rem; margin-bottom: 28px; }
+    .pre-cta-quote__text {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      font-style: italic;
+      color: #123e35;
+      max-width: 640px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+    }
+    .pre-cta-quote__name { font-weight: 700; color: #123e35; font-size: 0.9rem; }
+    .pre-cta-quote__role { color: var(--gray); font-size: 0.82rem; margin-top: 4px; }
 
-    @media (max-width: 1024px) { .quote-grid { grid-template-columns: repeat(2, 1fr); } }
+    /* CTA */
+    .results-cta {
+      background: #123e35;
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .results-cta h2 { color: var(--white); max-width: 600px; margin: 0 auto 16px; }
+    .results-cta p { color: rgba(255,255,255,0.6); font-size: 1.05rem; margin-bottom: 28px; }
+
+    @media (max-width: 1024px) { .masonry-grid { columns: 2; } }
     @media (max-width: 640px) {
-      .quote-grid { grid-template-columns: 1fr; }
+      .masonry-grid { columns: 1; }
       .quote-featured__inner { padding: 36px 28px; }
-      .results-section { padding: 56px 0; }
+      .type-interrupt { padding: 56px 24px; }
     }
   </style>
 </head>
@@ -165,6 +212,7 @@
   </nav>
   <div class="page-transition">
 
+  <!-- 1. HERO -->
   <section class="results-hero">
     <div class="reveal">
       <span class="eyebrow" style="color: var(--gold);">Client Results</span>
@@ -173,17 +221,25 @@
     </div>
   </section>
 
-  <section class="results-section">
+  <!-- 2. TYPOGRAPHIC INTERRUPT -->
+  <section class="type-interrupt reveal">
+    <div class="type-interrupt__rule"></div>
+    <p class="type-interrupt__quote">"He is the catalyst not the cause."</p>
+    <p class="type-interrupt__attr">— Dr. S. Sowinski, Director of HAPA, City Schools of Hammond</p>
+  </section>
 
-    <div class="quote-featured reveal">
-      <div class="quote-featured__inner">
-        <p class="quote-featured__text">"Andy Hite with Scaling Minds has done truly outstanding work with me personally in my role as CEO, as well as with our broader C-Suite leadership team at Children's Home. His ability to challenge, clarify, and elevate leadership thinking — while staying grounded in real-world organizational dynamics — has been incredibly impactful for our organization."</p>
-        <div class="quote-featured__name">Scurry Miller</div>
-        <div class="quote-featured__role">President & CEO, Children's Home Association of Illinois</div>
-      </div>
+  <!-- 3. FEATURED QUOTE: SCURRY -->
+  <div class="quote-featured reveal">
+    <div class="quote-featured__inner">
+      <p class="quote-featured__text">"Andy Hite with Scaling Minds has done truly outstanding work with me personally in my role as CEO, as well as with our broader C-Suite leadership team at Children's Home. His ability to challenge, clarify, and elevate leadership thinking — while staying grounded in real-world organizational dynamics — has been incredibly impactful for our organization."</p>
+      <div class="quote-featured__name">Scurry Miller</div>
+      <div class="quote-featured__role">President & CEO, Children's Home Association of Illinois</div>
     </div>
+  </div>
 
-    <div class="quote-grid reveal" id="quote-grid">
+  <!-- 4. MASONRY GRID -->
+  <section class="masonry-section">
+    <div class="masonry-grid" id="masonry-grid">
 
       <div class="quote-card">
         <p class="quote-card__text">"I've worked with a number of coaches over the years, but Andy stands out as the most powerful and profound among them. With Andy's help, I managed to transform my business from a state of no profit to achieving a net profit of over 20%. This remarkable turnaround can be attributed to the work we did together, addressing and overcoming the obstacles that were holding me back."</p>
@@ -210,73 +266,70 @@
       </div>
 
       <div class="quote-card">
-        <p class="quote-card__text">"I was skeptical about the 'coaching' thing. Andy helped me understand that all I ever needed was within me. He is the catalyst not the cause. It is through his understanding, reflection, challenge, commitment, and humanity that I feel more assured as a person than I ever have."</p>
-        <div class="quote-card__name">Dr. S. Sowinski</div>
-        <div class="quote-card__role">Director of HAPA, City Schools of Hammond</div>
-      </div>
-
-      <div class="quote-card">
         <p class="quote-card__text">"In the 15 years I've been leading teams, I've found the same challenges showing up over and over again. It wasn't until working with Andy that I was able to finally overcome the barriers preventing me from becoming the leader I was hoping to be."</p>
         <div class="quote-card__name">Debra Giunta</div>
         <div class="quote-card__role">CEO, The Brainchild Collective</div>
       </div>
 
-      <div class="quote-card quote-card--hidden">
+      <div class="quote-card">
         <p class="quote-card__text">"In the past, I've worked with executive coaches and therapists. But I didn't change. However, with Andy, I have been able to understand my own thought patterns and beliefs. He was able to breakthrough."</p>
         <div class="quote-card__name">CEO</div>
         <div class="quote-card__role">$1B Utilities Company</div>
       </div>
 
-      <div class="quote-card quote-card--hidden">
+      <div class="quote-card">
         <p class="quote-card__text">"Working with Andy has been a game-changer. He has the ability to bring things to the surface that I needed to see — and may have been avoiding — then coach and hold me accountable on how to grow as a leader."</p>
         <div class="quote-card__name">Jared G.</div>
         <div class="quote-card__role">VP of Growth & Marketing, Empower HR</div>
       </div>
 
-      <div class="quote-card quote-card--hidden">
+      <div class="quote-card">
         <p class="quote-card__text">"Andy, through his company Scaling Minds, has changed our organization for the better. Reliable, trustworthy, consistent — I highly recommend him."</p>
         <div class="quote-card__name">Kerrie Stannell</div>
         <div class="quote-card__role">WCCAC</div>
       </div>
 
-      <div class="quote-card quote-card--hidden">
+      <div class="quote-card">
         <p class="quote-card__text">"Andy brought a realness to our sessions that I couldn't find anywhere else. I could bring things to the table that were hard to talk about with other business owners — things I felt like I'd be judged for. We got down to business and hashed out what mattered."</p>
         <div class="quote-card__name">Mackenzie Childs</div>
         <div class="quote-card__role">CEO, Blink & Co.</div>
       </div>
 
-      <div class="quote-card quote-card--hidden">
+      <div class="quote-card">
         <p class="quote-card__text">"I met Andy just before a pivotal point in my career. He helped me dig myself out of a hole. I seriously do not think I would be where I am today if it wasn't for Andy's help."</p>
         <div class="quote-card__name">Cody Vaughn</div>
         <div class="quote-card__role">CEO, Archer Electrical Contracting Co.</div>
       </div>
 
-      <div class="quote-card quote-card--hidden">
+      <div class="quote-card">
         <p class="quote-card__text">"Working with Andy was extremely helpful for my development. His ability to ask quality questions and listen intensely allowed me to explore situations that would have been quite difficult to think through without an external perspective."</p>
         <div class="quote-card__name">Joseph R.</div>
         <div class="quote-card__role">AVP, IP Lending Solutions, Aon</div>
       </div>
 
-      <div class="quote-card quote-card--hidden">
-        <p class="quote-card__text">"There was an immediate connection to Andy. I felt like I was speaking to a wise, judgment-free friend who was ready to support me on any challenge. Investing in myself wasn't an easy decision, but choosing Andy was."</p>
-        <div class="quote-card__name">Sandra S.</div>
-        <div class="quote-card__role">VP of Business Development, Candor Threads</div>
-      </div>
-
-      <div class="quote-card quote-card--hidden">
+      <div class="quote-card">
         <p class="quote-card__text">"Andy was my first coach, and it was a great experience to have his level of support during one of the toughest years of my entrepreneurial journey. I appreciated his understanding of both the business side and the emotional side that comes with being a leader."</p>
         <div class="quote-card__name">Priya Shah</div>
         <div class="quote-card__role">CEO, The Simple Good</div>
       </div>
 
-    </div>
+      <div class="quote-card">
+        <p class="quote-card__text">"I was skeptical about the 'coaching' thing. Andy helped me understand that all I ever needed was within me. He is the catalyst not the cause. It is through his understanding, reflection, challenge, commitment, and humanity that I feel more assured as a person than I ever have."</p>
+        <div class="quote-card__name">Dr. S. Sowinski</div>
+        <div class="quote-card__role">Director of HAPA, City Schools of Hammond</div>
+      </div>
 
-    <div class="load-more-wrap" id="load-more-wrap">
-      <button class="btn--load-more" id="load-more-btn">Read more →</button>
     </div>
-
   </section>
 
+  <!-- 5. PRE-CTA QUOTE: SANDRA -->
+  <section class="pre-cta-quote reveal">
+    <p class="pre-cta-quote__text">"Investing in myself wasn't an easy decision, but choosing Andy was."</p>
+    <div class="pre-cta-quote__name">Sandra S.</div>
+    <div class="pre-cta-quote__role">VP of Business Development, Candor Threads</div>
+  </section>
+
+  <!-- 6. CTA -->
   <section class="results-cta">
     <div class="container reveal">
       <h2>Every one of these started the same way: a conversation.</h2>
@@ -329,26 +382,23 @@
   <script src="main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var btn = document.getElementById('load-more-btn');
-      var wrap = document.getElementById('load-more-wrap');
-      if (btn) {
-        btn.addEventListener('click', function() {
-          var hidden = document.querySelectorAll('.quote-card--hidden');
-          hidden.forEach(function(card, i) {
+      var cards = document.querySelectorAll('.quote-card');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var card = entry.target;
+            var index = Array.from(cards).indexOf(card);
             setTimeout(function() {
-              card.classList.remove('quote-card--hidden');
-              card.style.opacity = '0';
-              card.style.transform = 'translateY(16px)';
-              card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-              setTimeout(function() {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-              }, 20);
-            }, i * 80);
-          });
-          wrap.style.display = 'none';
+              card.classList.add('visible');
+            }, (index % 3) * 100);
+            observer.unobserve(card);
+          }
         });
-      }
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      cards.forEach(function(card) {
+        observer.observe(card);
+      });
     });
   </script>
 </body>
