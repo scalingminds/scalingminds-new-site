@@ -40,68 +40,63 @@
       color: rgba(255,255,255,0.65);
     }
 
-    /* TYPOGRAPHIC INTERRUPT */
-    .type-interrupt {
-      padding: 80px 24px;
-      text-align: center;
+    /* RIVER SECTION */
+    .river-section {
+      padding: 80px 0;
       background: var(--white);
     }
-    .type-interrupt__rule {
-      width: 48px;
-      height: 3px;
-      background: var(--gold);
-      margin: 0 auto 32px;
+    .river-item {
+      padding: 48px 24px;
+      border-bottom: 1px solid #E5E7EB;
+      max-width: 900px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    .type-interrupt__quote {
+    .river-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .river-item:last-child { border-bottom: none; }
+    .river-item--left { text-align: left; padding-left: 48px; }
+    .river-item--right { text-align: right; padding-right: 48px; }
+    .river-item--center { text-align: center; }
+
+    .river-quote {
       font-family: 'Libre Baskerville', Georgia, serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
       font-style: italic;
       color: #123e35;
       line-height: 1.4;
-      max-width: 760px;
-      margin: 0 auto 24px;
+      margin: 0 0 16px;
     }
-    .type-interrupt__attr {
-      font-size: 0.88rem;
+    .river-quote--xl { font-size: clamp(1.8rem, 4vw, 3rem); }
+    .river-quote--lg { font-size: clamp(1.4rem, 3vw, 2.2rem); }
+    .river-quote--md { font-size: clamp(1.2rem, 2.5vw, 1.7rem); }
+
+    .river-attr {
+      font-size: 0.82rem;
       color: var(--gray);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
+    }
+    .river-attr span {
+      color: var(--gold);
+      font-weight: 600;
     }
 
-    /* FEATURED QUOTE */
-    .quote-featured {
-      max-width: var(--max-width);
-      margin: 0 auto 0;
-      padding: 0 24px 80px;
-    }
-    .quote-featured__inner {
+    /* TRANSITION INTO CARDS */
+    .cards-intro {
       background: #123e35;
-      border-radius: 12px;
-      padding: 52px 48px;
-      position: relative;
-      overflow: hidden;
+      padding: 56px 24px;
+      text-align: center;
     }
-    .quote-featured__inner::before {
-      content: '\201C';
-      position: absolute;
-      top: 12px;
-      left: 32px;
-      font-size: 8rem;
-      font-family: Georgia, serif;
-      color: var(--gold);
-      opacity: 0.12;
-      line-height: 1;
-    }
-    .quote-featured__text {
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
+    .cards-intro p {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin: 0 auto;
       line-height: 1.8;
-      color: rgba(255,255,255,0.88);
-      font-style: italic;
-      margin-bottom: 28px;
-      position: relative;
-      z-index: 1;
     }
-    .quote-featured__name { font-weight: 700; color: var(--gold); font-size: 1rem; }
-    .quote-featured__role { color: rgba(255,255,255,0.45); font-size: 0.88rem; margin-top: 4px; }
 
     /* MASONRY GRID */
     .masonry-section {
@@ -122,7 +117,7 @@
       border: 1px solid #E5E7EB;
       break-inside: avoid;
       margin-bottom: 24px;
-      transition: all 0.3s ease;
+      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease, border-color 0.3s ease;
       position: relative;
       opacity: 0;
       transform: translateY(20px);
@@ -130,7 +125,6 @@
     .quote-card.visible {
       opacity: 1;
       transform: translateY(0);
-      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
     .quote-card:hover {
       box-shadow: 0 16px 40px rgba(0,0,0,0.07);
@@ -156,7 +150,7 @@
     .quote-card__name { font-weight: 700; color: #123e35; font-size: 0.88rem; }
     .quote-card__role { color: var(--gray); font-size: 0.8rem; margin-top: 2px; }
 
-    /* PRE-CTA QUOTE */
+    /* PRE-CTA */
     .pre-cta-quote {
       padding: 80px 24px;
       text-align: center;
@@ -184,10 +178,12 @@
     .results-cta p { color: rgba(255,255,255,0.6); font-size: 1.05rem; margin-bottom: 28px; }
 
     @media (max-width: 1024px) { .masonry-grid { columns: 2; } }
+    @media (max-width: 768px) {
+      .river-item--left, .river-item--right { text-align: left; padding-left: 24px; padding-right: 24px; }
+    }
     @media (max-width: 640px) {
       .masonry-grid { columns: 1; }
-      .quote-featured__inner { padding: 36px 28px; }
-      .type-interrupt { padding: 56px 24px; }
+      .river-item { padding: 36px 24px; }
     }
   </style>
 </head>
@@ -212,7 +208,7 @@
   </nav>
   <div class="page-transition">
 
-  <!-- 1. HERO -->
+  <!-- HERO -->
   <section class="results-hero">
     <div class="reveal">
       <span class="eyebrow" style="color: var(--gold);">Client Results</span>
@@ -221,30 +217,64 @@
     </div>
   </section>
 
-  <!-- 2. TYPOGRAPHIC INTERRUPT -->
-  <section class="type-interrupt reveal">
-    <div class="type-interrupt__rule"></div>
-    <p class="type-interrupt__quote">"He is the catalyst not the cause."</p>
-    <p class="type-interrupt__attr">— Dr. S. Sowinski, Director of HAPA, City Schools of Hammond</p>
+  <!-- RIVER -->
+  <section class="river-section">
+
+    <div class="river-item river-item--left">
+      <p class="river-quote river-quote--xl">"Incredibly impactful for our entire organization."</p>
+      <p class="river-attr"><span>Scurry Miller</span> — President & CEO, Children's Home Association of Illinois</p>
+    </div>
+
+    <div class="river-item river-item--right">
+      <p class="river-quote river-quote--lg">"He is the catalyst not the cause."</p>
+      <p class="river-attr"><span>Dr. S. Sowinski</span> — Director of HAPA, City Schools of Hammond</p>
+    </div>
+
+    <div class="river-item river-item--left">
+      <p class="river-quote river-quote--md">"Years passed. I kept tripping over the same problems. Then I met Andy."</p>
+      <p class="river-attr"><span>Matthew J.</span> — Task Insurance Group</p>
+    </div>
+
+    <div class="river-item river-item--center">
+      <p class="river-quote river-quote--xl">"From no profit to a net profit of over 20%."</p>
+      <p class="river-attr"><span>Matt Kuehlhorn</span> — CEO, Kooler Garage Doors</p>
+    </div>
+
+    <div class="river-item river-item--right">
+      <p class="river-quote river-quote--md">"I've worked with coaches and therapists before. I didn't change. With Andy, I did."</p>
+      <p class="river-attr"><span>CEO</span> — $1B Utilities Company</p>
+    </div>
+
+    <div class="river-item river-item--left">
+      <p class="river-quote river-quote--lg">"The same challenges had been showing up for 15 years. Not anymore."</p>
+      <p class="river-attr"><span>Debra Giunta</span> — CEO, The Brainchild Collective</p>
+    </div>
+
+    <div class="river-item river-item--right">
+      <p class="river-quote river-quote--md">"He works at the intersection of the business and the person running it."</p>
+      <p class="river-attr"><span>Founder & CEO</span> — Professional Services</p>
+    </div>
+
+    <div class="river-item river-item--center">
+      <p class="river-quote river-quote--lg">"Investing in myself wasn't an easy decision. Choosing Andy was."</p>
+      <p class="river-attr"><span>Sandra S.</span> — VP of Business Development</p>
+    </div>
+
   </section>
 
-  <!-- 3. FEATURED QUOTE: SCURRY -->
-  <div class="quote-featured reveal">
-    <div class="quote-featured__inner">
-      <p class="quote-featured__text">"Andy Hite with Scaling Minds has done truly outstanding work with me personally in my role as CEO, as well as with our broader C-Suite leadership team at Children's Home. His ability to challenge, clarify, and elevate leadership thinking — while staying grounded in real-world organizational dynamics — has been incredibly impactful for our organization."</p>
-      <div class="quote-featured__name">Scurry Miller</div>
-      <div class="quote-featured__role">President & CEO, Children's Home Association of Illinois</div>
-    </div>
+  <!-- TRANSITION -->
+  <div class="cards-intro">
+    <p>More voices from leaders and teams across industries, roles, and starting points.</p>
   </div>
 
-  <!-- 4. MASONRY GRID -->
+  <!-- MASONRY GRID -->
   <section class="masonry-section">
     <div class="masonry-grid" id="masonry-grid">
 
       <div class="quote-card">
-        <p class="quote-card__text">"I've worked with a number of coaches over the years, but Andy stands out as the most powerful and profound among them. With Andy's help, I managed to transform my business from a state of no profit to achieving a net profit of over 20%. This remarkable turnaround can be attributed to the work we did together, addressing and overcoming the obstacles that were holding me back."</p>
-        <div class="quote-card__name">Matt Kuehlhorn</div>
-        <div class="quote-card__role">CEO, Kooler Garage Doors</div>
+        <p class="quote-card__text">"Andy Hite with Scaling Minds has done truly outstanding work with me personally in my role as CEO, as well as with our broader C-Suite leadership team at Children's Home. His ability to challenge, clarify, and elevate leadership thinking — while staying grounded in real-world organizational dynamics — has been incredibly impactful for our organization."</p>
+        <div class="quote-card__name">Scurry Miller</div>
+        <div class="quote-card__role">President & CEO, Children's Home Association of Illinois</div>
       </div>
 
       <div class="quote-card">
@@ -254,7 +284,19 @@
       </div>
 
       <div class="quote-card">
-        <p class="quote-card__text">"I've worked with Andy during one of the more complex stretches of my professional life. What stands out is that our work was never just tactical — it was holistic. Andy understands that you can't separate the business from the person running it. He works at that intersection. If you're looking for someone who will help you think more clearly and lead more steadily, he's exceptional."</p>
+        <p class="quote-card__text">"I've worked with a number of coaches over the years, but Andy stands out as the most powerful and profound among them. With Andy's help, I managed to transform my business from a state of no profit to achieving a net profit of over 20%."</p>
+        <div class="quote-card__name">Matt Kuehlhorn</div>
+        <div class="quote-card__role">CEO, Kooler Garage Doors</div>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-card__text">"I was skeptical about the 'coaching' thing. Andy helped me understand that all I ever needed was within me. He is the catalyst not the cause. It is through his understanding, reflection, challenge, commitment, and humanity that I feel more assured as a person than I ever have."</p>
+        <div class="quote-card__name">Dr. S. Sowinski</div>
+        <div class="quote-card__role">Director of HAPA, City Schools of Hammond</div>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-card__text">"I've worked with Andy during one of the more complex stretches of my professional life. What stands out is that our work was never just tactical — it was holistic. He works at the intersection of the business and the person running it. He's exceptional."</p>
         <div class="quote-card__name">Founder & CEO</div>
         <div class="quote-card__role">Professional Services</div>
       </div>
@@ -308,28 +350,70 @@
       </div>
 
       <div class="quote-card">
+        <p class="quote-card__text">"His coaching made a powerful, positive shift in my mindset. Andy's authenticity is inspiring and has allowed me to be a more authentic person and more in touch with myself and the people around me."</p>
+        <div class="quote-card__name">Jesse P.</div>
+        <div class="quote-card__role">CFO, SourceScrub</div>
+      </div>
+
+      <div class="quote-card">
         <p class="quote-card__text">"Andy was my first coach, and it was a great experience to have his level of support during one of the toughest years of my entrepreneurial journey. I appreciated his understanding of both the business side and the emotional side that comes with being a leader."</p>
         <div class="quote-card__name">Priya Shah</div>
         <div class="quote-card__role">CEO, The Simple Good</div>
       </div>
 
       <div class="quote-card">
-        <p class="quote-card__text">"I was skeptical about the 'coaching' thing. Andy helped me understand that all I ever needed was within me. He is the catalyst not the cause. It is through his understanding, reflection, challenge, commitment, and humanity that I feel more assured as a person than I ever have."</p>
-        <div class="quote-card__name">Dr. S. Sowinski</div>
-        <div class="quote-card__role">Director of HAPA, City Schools of Hammond</div>
+        <p class="quote-card__text">"Through Andy's coaching, my life has been transformed in such a positive and impactful way. I can't say enough about how beautifully and profoundly my life — both professionally and personally — has been transformed. I would have paid twice as much."</p>
+        <div class="quote-card__name">Sarah D.</div>
+        <div class="quote-card__role">Director, PwC</div>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-card__text">"As a former skeptic of coaching, I have Andy Hite to thank for helping me see how coaching played a pivotal role in improving my overall quality of life. As a full-time working mom with exposure to therapy and mentors, Andy stood out differently as a trusted sounding board and guide."</p>
+        <div class="quote-card__name">Cori R.</div>
+        <div class="quote-card__role">Director, Fresenius Kabi USA</div>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-card__text">"I thought there was a book, podcast or webinar that could give me all the guidance I needed. Years passed — and many mistakes later — I continued to trip over the same problems. Then I met Andy. He is a genuine person who cares about your success and isn't a 'yes' man."</p>
+        <div class="quote-card__name">Matthew J.</div>
+        <div class="quote-card__role">Task Insurance Group</div>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-card__text">"One of the best decisions I made was getting past my fear of being coached. He challenged me to be my authentic self before we even started, and by doing so, allowed Andy to do what he does best — coach me to a level I didn't even know existed."</p>
+        <div class="quote-card__name">Justin B.</div>
+        <div class="quote-card__role">Technology Business Consultant, TriNet</div>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-card__text">"Andy was able to help me see how I was living out of balance with my core values, which was causing a lot of dissonance. Once I was able to see my world through this new lens, my path forward became crystal clear."</p>
+        <div class="quote-card__name">Scott W.</div>
+        <div class="quote-card__role">Real Estate Investor</div>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-card__text">"There was an immediate connection to Andy. I felt like I was speaking to a wise, judgment-free friend who was ready to support me on any challenge. Investing in myself wasn't an easy decision, but choosing Andy was."</p>
+        <div class="quote-card__name">Sandra S.</div>
+        <div class="quote-card__role">VP of Business Development, Candor Threads</div>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-card__text">"As an entrepreneur and business executive, my non-negotiables for a coach: someone who desires to know me just as I am, listens first every time, asks excellent questions, pairs love with challenge, and doesn't accept excuses. Andy is all of these things and many more."</p>
+        <div class="quote-card__name">BJ S.</div>
+        <div class="quote-card__role">Entrepreneur & Director of Sales, AV Chicago</div>
       </div>
 
     </div>
   </section>
 
-  <!-- 5. PRE-CTA QUOTE: SANDRA -->
+  <!-- PRE-CTA -->
   <section class="pre-cta-quote reveal">
-    <p class="pre-cta-quote__text">"Investing in myself wasn't an easy decision, but choosing Andy was."</p>
+    <p class="pre-cta-quote__text">"Investing in myself wasn't an easy decision. Choosing Andy was."</p>
     <div class="pre-cta-quote__name">Sandra S.</div>
     <div class="pre-cta-quote__role">VP of Business Development, Candor Threads</div>
   </section>
 
-  <!-- 6. CTA -->
+  <!-- CTA -->
   <section class="results-cta">
     <div class="container reveal">
       <h2>Every one of these started the same way: a conversation.</h2>
@@ -382,8 +466,19 @@
   <script src="main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      var riverItems = document.querySelectorAll('.river-item');
+      var riverObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            riverObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      riverItems.forEach(function(item) { riverObserver.observe(item); });
+
       var cards = document.querySelectorAll('.quote-card');
-      var observer = new IntersectionObserver(function(entries) {
+      var cardObserver = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             var card = entry.target;
@@ -391,14 +486,11 @@
             setTimeout(function() {
               card.classList.add('visible');
             }, (index % 3) * 100);
-            observer.unobserve(card);
+            cardObserver.unobserve(card);
           }
         });
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-      cards.forEach(function(card) {
-        observer.observe(card);
-      });
+      cards.forEach(function(card) { cardObserver.observe(card); });
     });
   </script>
 </body>
