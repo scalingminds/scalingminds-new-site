@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn how to repair trust after a breakdown. Discover the three types of trust breaks and why repair attempts often fail.">
+    <meta name="author" content="Scaling Minds">
+    <meta property="og:title" content="Trust Repair — After a Breakdown | Scaling Minds">
+    <meta property="og:description" content="When trust breaks, the first thing a leader loses isn't loyalty. It's information. Learn how to repair it.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://scalingminds.com/insights/trust-repair.html">
+    <meta property="og:image" content="https://scalingminds.com/scaling_minds_logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Trust Repair — After a Breakdown | Scaling Minds">
+    <meta name="twitter:description" content="When trust breaks, the first thing a leader loses isn't loyalty. It's information.">
+    <link rel="canonical" href="https://scalingminds.com/insights/trust-repair.html">
+    <title>Trust Repair — After a Breakdown | Scaling Minds</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #1B4332;
+            --green-mid: #2D6A4F;
+            --green-muted: #40916C;
+            --gold: #B8860B;
+            --gold-light: #D4A017;
+            --cream: #D4C5A9;
+            --cream-light: #F0EBE0;
+            --cream-pale: #FAF7F2;
+            --green-tint: #E4F0E8;
+            --warm-tint: #F9E4DC;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { overflow-y: scroll; }
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            color: #222;
+            background: #fff;
+            font-size: 15px;
+            line-height: 1.55;
+            padding-top: 90px;
+            padding-bottom: 56px;
+        }
+
+        /* === HEADER (fixed, content aligned to body width) === */
+        .header {
+            background: var(--green);
+            padding: 1.1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .header-inner {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .header-logo {
+            height: 52px;
+            width: auto;
+            flex-shrink: 0;
+        }
+        .header-text { flex: 1; }
+        .header-series {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.82rem;
+            color: var(--cream-light);
+            margin-bottom: 0.1rem;
+        }
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.15;
+        }
+        .header-category {
+            font-size: 0.76rem;
+            color: var(--gold-light);
+            margin-top: 0.15rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* === PAGE CONTAINER === */
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        /* === SHARED: gold left bar on all content boxes === */
+        .content-block {
+            border-left: 5px solid var(--gold);
+            border-radius: 3px;
+            padding: 1.1rem 1.4rem;
+            margin-bottom: 1rem;
+        }
+        .content-block p {
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 0.7rem;
+            color: #333;
+        }
+        .content-block p:last-child { margin-bottom: 0; }
+
+        /* === SECTION LABEL (plain text, matches PDF) === */
+        .section-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 0.6rem;
+            color: var(--green);
+        }
+        .section-warm .section-label {
+            color: var(--gold);
+        }
+
+        /* === HOOK === */
+        .hook {
+            background: var(--cream-light);
+            margin-top: 2.5rem;
+        }
+        .hook p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #222;
+            line-height: 1.5;
+        }
+
+        /* === WHAT IT IS (white) === */
+        .section-white {
+            background: #fff;
+            border-top: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .section-white .section-label { color: var(--green); }
+
+        /* === GREEN TINT (available for pages that need it) === */
+        .section-green {
+            background: var(--green-tint);
+            border-top: 1px solid #b8d4be;
+            border-right: 1px solid #b8d4be;
+            border-bottom: 1px solid #b8d4be;
+        }
+        .section-green .section-label { color: var(--green); }
+
+        /* === COST / PRACTICE (warm tint) === */
+        .section-warm {
+            background: var(--warm-tint);
+            border-top: 1px solid #e4c4b8;
+            border-right: 1px solid #e4c4b8;
+            border-bottom: 1px solid #e4c4b8;
+        }
+        .section-warm .section-label { color: var(--gold); }
+
+        /* === PRACTICE HEADLINE (serif, matches PDF) === */
+        .practice-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 0.5rem;
+        }
+
+        /* === INLINE HIGHLIGHTS === */
+        .gold-highlight {
+            color: var(--gold);
+            font-weight: 700;
+            font-style: italic;
+        }
+        .bold-highlight {
+            font-weight: 700;
+        }
+        .cta-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        /* === THREE-COLUMN BREAKDOWN === */
+        .breakdown-three {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .breakdown-three-col {
+            border-left: 5px solid var(--gold);
+            background: #fff;
+            border-top: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            border-radius: 3px;
+            padding: 1rem;
+        }
+        .breakdown-three-col h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--green);
+            margin-bottom: 0.6rem;
+        }
+        .breakdown-three-col p {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: #333;
+            margin-bottom: 0;
+        }
+
+        /* === BREAKDOWN TABLE === */
+        .breakdown {
+            border: 1px solid #ccc;
+            border-left: 5px solid var(--gold);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .breakdown-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--green);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        .breakdown-header div { padding: 0.7rem 1rem; }
+        .breakdown-header div:first-child {
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+        .breakdown-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #fff;
+        }
+        .breakdown-col {
+            padding: 0.9rem 1rem;
+            font-size: 0.88rem;
+            color: #333;
+            line-height: 1.55;
+        }
+        .breakdown-col:first-child {
+            border-right: 1px solid #ddd;
+        }
+        .breakdown-col ul { list-style: none; padding: 0; margin: 0; }
+        .breakdown-col li {
+            padding-left: 0.9rem;
+            position: relative;
+            margin-bottom: 0.45rem;
+        }
+        .breakdown-col li::before {
+            content: "\2022";
+            position: absolute;
+            left: 0;
+            color: #555;
+        }
+        .breakdown-col .col-quote {
+            margin-top: 0.6rem;
+            font-style: italic;
+            color: #444;
+        }
+
+        /* === FOOTER === */
+        .footer {
+            border-top: 1px solid #ccc;
+            padding: 0.8rem 0;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        .footer strong { color: var(--green-mid); }
+        .footer .refs { font-style: italic; }
+
+        /* === ACTION BAR (fixed bottom) === */
+        .action-bar {
+            background: var(--green);
+            padding: 0.9rem 2rem;
+            position: fixed !important;
+            bottom: 0 !important;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 9999;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+        }
+        .action-content {
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .btn {
+            padding: 0.55rem 1.6rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+        .btn-cta {
+            background: var(--gold);
+            color: var(--green);
+        }
+        .btn-cta:hover { background: var(--gold-light); }
+        .btn-download {
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid var(--gold);
+        }
+        .btn-download:hover {
+            background: var(--gold);
+            color: var(--green);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 640px) {
+            .header-inner { flex-direction: column; text-align: center; }
+            .header-title { font-size: 1.4rem; }
+            body { padding-top: 110px; }
+            .page { padding: 0 1rem 1.5rem; }
+            .breakdown-three { grid-template-columns: 1fr; }
+            .breakdown-header, .breakdown-body { grid-template-columns: 1fr; }
+            .breakdown-col:first-child { border-right: none; border-bottom: 1px solid #ddd; }
+            .breakdown-header div:first-child { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
+            .action-content { flex-direction: column; gap: 0.5rem; }
+            .btn { width: 100%; text-align: center; }
+        }
+
+        /* === PRINT === */
+        @media print {
+            .action-bar { display: none !important; }
+            .header { position: static; box-shadow: none; }
+            body { padding-top: 0; padding-bottom: 0; font-size: 11pt; }
+            .page { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="header-inner">
+        <img src="https://scalingminds.com/scaling_minds_logo.png" alt="Scaling Minds" class="header-logo">
+        <div class="header-text">
+            <div class="header-series">Leadership Insight Series</div>
+            <h1 class="header-title">Trust Repair — After a Breakdown</h1>
+            <div class="header-category">Teams & Culture</div>
+        </div>
+    </div>
+</header>
+
+<div class="page">
+
+    <!-- HOOK -->
+    <div class="content-block hook">
+        <p>When trust breaks, the first thing a leader loses isn't loyalty. It's information. The team stops telling you what's really happening, and you're the last person to know the repair hasn't started.</p>
+    </div>
+
+    <!-- WHAT IT IS -->
+    <div class="content-block section-green">
+        <div class="section-label">WHAT IT IS</div>
+        <p><span class="gold-highlight">Trust repair is not an apology</span>. An apology opens a door. Repair is what happens after you walk through it.</p>
+        <p>When trust breaks on a team, the damage is rarely about a single event. It's the accumulation of <span class="bold-highlight">commitments not kept, concerns dismissed, or decisions made without input</span>. The breakdown often surfaces as disengagement, silence, or workarounds that bypass the leader entirely.</p>
+        <p>Mayer, Davis, and Schoorman's foundational trust model identifies three dimensions of trustworthiness: ability (can they deliver?), benevolence (do they care about my interests?), and integrity (do they operate from consistent principles?). When leaders attempt repair without diagnosing which dimension failed, the effort feels hollow to the people who lost trust in the first place.</p>
+    </div>
+
+    <!-- THREE TYPES OF TRUST BREAKS -->
+    <div class="breakdown-three">
+        <div class="breakdown-three-col">
+            <h3>Competence</h3>
+            <p>The leader failed to deliver on something within their capability. A missed commitment. A dropped ball. A pattern of overpromising. "They said they'd handle it. Again."</p>
+        </div>
+        <div class="breakdown-three-col">
+            <h3>Benevolence</h3>
+            <p>The team no longer believes the leader has their interests in mind. Decisions feel self-serving. People feel used rather than supported. "They'll protect themselves before they protect us."</p>
+        </div>
+        <div class="breakdown-three-col">
+            <h3>Integrity</h3>
+            <p>The leader's actions contradict their stated values. What they say publicly doesn't match what happens privately. "I can't tell which version of them is real."</p>
+        </div>
+    </div>
+
+    <!-- WHY REPAIR ATTEMPTS FAIL -->
+    <div class="content-block section-white">
+        <div class="section-label">WHY REPAIR ATTEMPTS FAIL</div>
+        <p>Most leaders treat trust repair as a single conversation. They acknowledge the problem, apologize, and expect the team to move forward. Research by Gillespie and Dietz identifies four stages most leaders collapse into one: acknowledge, diagnose, change behavior, and demonstrate that change over time.</p>
+        <p>But the deeper reason repair stalls is discomfort. Sitting in a trust deficit requires tolerating the uncertainty of being watched, evaluated, and not yet believed. Repair asks the opposite of what most leaders have practiced: stay open, stay accountable, and stop managing the outcome.</p>
+        <p>The other failure is repairing the wrong thing. Kim, Ferrin, Cooper, and Dirks found that apology works for competence-based violations but can make things worse for integrity-based ones. When the breach is about character, words carry less weight than sustained behavioral change.</p>
+    </div>
+
+    <!-- WHAT IT COSTS -->
+    <div class="content-block section-warm">
+        <div class="section-label">WHAT IT COSTS</div>
+        <p>Unrepaired trust doesn't sit still. Teams build protective routines around it. Information gets filtered. Decisions get second-guessed. The best people leave, and the people who stay adjust. They learn to work around the breach. They stop bringing up hard topics.</p>
+        <p>The leader ends up isolated in a way they may not recognize. Surrounded by compliance instead of ownership, agreement instead of candor, and a version of reality that's been carefully managed before it reaches them.</p>
+    </div>
+
+    <!-- ONE THING TO PRACTICE -->
+    <div class="content-block section-green">
+        <div class="section-label">ONE THING TO PRACTICE</div>
+        <div class="practice-headline">Name the breach, then listen.</div>
+        <p>Not <span class="cta-quote">"I know trust has been low"</span> but <span class="cta-quote">"I committed to involving you in that decision and I didn't. What was that like for you?"</span> Specificity signals sincerity. A vague acknowledgment feels like reputation management. A precise one feels like accountability. And asking what it cost the other person — then listening without defending, explaining, or minimizing — is what separates a repair attempt from a performance. That response is what the team is watching for.</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Leadership Insight Series&nbsp;&nbsp;|&nbsp;&nbsp;Teams & Culture&nbsp;&nbsp;|&nbsp;&nbsp;&copy; <strong>Scaling Minds</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="refs">References: Mayer, Davis & Schoorman (1995); Kim, Ferrin, Cooper & Dirks (2004); Gillespie & Dietz (2009)</span>
+    </div>
+
+</div>
+
+<!-- ACTION BAR -->
+<div class="action-bar">
+    <div class="action-content">
+        <a href="https://calendly.com/scalingminds/30-min-discovery-call" target="_blank" class="btn btn-cta">Schedule a Discovery Call</a>
+        <button onclick="window.print()" class="btn btn-download">Download as PDF</button>
+    </div>
+</div>
+
+</body>
+</html>

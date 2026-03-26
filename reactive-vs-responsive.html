@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn the difference between reactive and responsive leadership. Discover how the gap between stimulus and response is where your power to choose lies.">
+    <meta name="author" content="Scaling Minds">
+    <meta property="og:title" content="Reactive vs. Responsive Leadership | Scaling Minds">
+    <meta property="og:description" content="Between stimulus and response there is a space. In that space is your power to choose your response. Learn how to find and use that gap.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://scalingminds.com/insights/reactive-vs-responsive.html">
+    <meta property="og:image" content="https://scalingminds.com/scaling_minds_logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Reactive vs. Responsive Leadership | Scaling Minds">
+    <meta name="twitter:description" content="Between stimulus and response there is a space. In that space is your power to choose your response.">
+    <link rel="canonical" href="https://scalingminds.com/insights/reactive-vs-responsive.html">
+    <title>Reactive vs. Responsive Leadership | Scaling Minds</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #1B4332;
+            --green-mid: #2D6A4F;
+            --green-muted: #40916C;
+            --gold: #B8860B;
+            --gold-light: #D4A017;
+            --cream: #D4C5A9;
+            --cream-light: #F0EBE0;
+            --cream-pale: #FAF7F2;
+            --green-tint: #E4F0E8;
+            --warm-tint: #F9E4DC;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { overflow-y: scroll; }
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            color: #222;
+            background: #fff;
+            font-size: 15px;
+            line-height: 1.55;
+            padding-top: 90px;
+            padding-bottom: 56px;
+        }
+
+        /* === HEADER (fixed, content aligned to body width) === */
+        .header {
+            background: var(--green);
+            padding: 1.1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .header-inner {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .header-logo {
+            height: 52px;
+            width: auto;
+            flex-shrink: 0;
+        }
+        .header-text { flex: 1; }
+        .header-series {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.82rem;
+            color: var(--cream-light);
+            margin-bottom: 0.1rem;
+        }
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.15;
+        }
+        .header-category {
+            font-size: 0.76rem;
+            color: var(--gold-light);
+            margin-top: 0.15rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* === PAGE CONTAINER === */
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        /* === SHARED: gold left bar on all content boxes === */
+        .content-block {
+            border-left: 5px solid var(--gold);
+            border-radius: 3px;
+            padding: 1.1rem 1.4rem;
+            margin-bottom: 1rem;
+        }
+        .content-block p {
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 0.7rem;
+            color: #333;
+        }
+        .content-block p:last-child { margin-bottom: 0; }
+
+        /* === SECTION LABEL (plain text, matches PDF) === */
+        .section-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 0.6rem;
+            color: var(--green);
+        }
+        .section-warm .section-label {
+            color: var(--gold);
+        }
+
+        /* === HOOK === */
+        .hook {
+            background: var(--cream-light);
+            margin-top: 2.5rem;
+        }
+        .hook p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #222;
+            line-height: 1.5;
+        }
+
+        /* === WHAT IT IS (white) === */
+        .section-white {
+            background: #fff;
+            border-top: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .section-white .section-label { color: var(--green); }
+
+        /* === GREEN TINT (available for pages that need it) === */
+        .section-green {
+            background: var(--green-tint);
+            border-top: 1px solid #b8d4be;
+            border-right: 1px solid #b8d4be;
+            border-bottom: 1px solid #b8d4be;
+        }
+        .section-green .section-label { color: var(--green); }
+
+        /* === COST / PRACTICE (warm tint) === */
+        .section-warm {
+            background: var(--warm-tint);
+            border-top: 1px solid #e4c4b8;
+            border-right: 1px solid #e4c4b8;
+            border-bottom: 1px solid #e4c4b8;
+        }
+        .section-warm .section-label { color: var(--gold); }
+
+        /* === PRACTICE HEADLINE (serif, matches PDF) === */
+        .practice-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 0.5rem;
+        }
+
+        /* === INLINE HIGHLIGHTS === */
+        .gold-highlight {
+            color: var(--gold);
+            font-weight: 700;
+            font-style: italic;
+        }
+        .bold-highlight {
+            font-weight: 700;
+        }
+        .cta-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        /* === BREAKDOWN TABLE === */
+        .breakdown {
+            border: 1px solid #ccc;
+            border-left: 5px solid var(--gold);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .breakdown-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--green);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        .breakdown-header div { padding: 0.7rem 1rem; }
+        .breakdown-header div:first-child {
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+        .breakdown-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #fff;
+        }
+        .breakdown-col {
+            padding: 0.9rem 1rem;
+            font-size: 0.88rem;
+            color: #333;
+            line-height: 1.55;
+        }
+        .breakdown-col:first-child {
+            border-right: 1px solid #ddd;
+        }
+        .breakdown-col ul { list-style: none; padding: 0; margin: 0; }
+        .breakdown-col li {
+            padding-left: 0.9rem;
+            position: relative;
+            margin-bottom: 0.45rem;
+        }
+        .breakdown-col li::before {
+            content: "\2022";
+            position: absolute;
+            left: 0;
+            color: #555;
+        }
+        .breakdown-col .col-quote {
+            margin-top: 0.6rem;
+            font-style: italic;
+            color: #444;
+        }
+
+        /* === FOOTER === */
+        .footer {
+            border-top: 1px solid #ccc;
+            padding: 0.8rem 0;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        .footer strong { color: var(--green-mid); }
+        .footer .refs { font-style: italic; }
+
+        /* === ACTION BAR (fixed bottom) === */
+        .action-bar {
+            background: var(--green);
+            padding: 0.9rem 2rem;
+            position: fixed !important;
+            bottom: 0 !important;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 9999;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+        }
+        .action-content {
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .btn {
+            padding: 0.55rem 1.6rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+        .btn-cta {
+            background: var(--gold);
+            color: var(--green);
+        }
+        .btn-cta:hover { background: var(--gold-light); }
+        .btn-download {
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid var(--gold);
+        }
+        .btn-download:hover {
+            background: var(--gold);
+            color: var(--green);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 640px) {
+            .header-inner { flex-direction: column; text-align: center; }
+            .header-title { font-size: 1.4rem; }
+            body { padding-top: 110px; }
+            .page { padding: 0 1rem 1.5rem; }
+            .breakdown-header, .breakdown-body { grid-template-columns: 1fr; }
+            .breakdown-col:first-child { border-right: none; border-bottom: 1px solid #ddd; }
+            .breakdown-header div:first-child { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
+            .action-content { flex-direction: column; gap: 0.5rem; }
+            .btn { width: 100%; text-align: center; }
+        }
+
+        /* === PRINT === */
+        @media print {
+            .action-bar { display: none !important; }
+            .header { position: static; box-shadow: none; }
+            body { padding-top: 0; padding-bottom: 0; font-size: 11pt; }
+            .page { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="header-inner">
+        <img src="https://scalingminds.com/scaling_minds_logo.png" alt="Scaling Minds" class="header-logo">
+        <div class="header-text">
+            <div class="header-series">Leadership Insight Series</div>
+            <h1 class="header-title">Reactive vs. Responsive</h1>
+            <div class="header-category">Cognitive & Behavioral</div>
+        </div>
+    </div>
+</header>
+
+<div class="page">
+
+    <!-- HOOK -->
+    <div class="content-block hook">
+        <p>Between stimulus and response there is a space. In that space is our power to choose our response. In our response lies our growth and our freedom. — Viktor Frankl</p>
+    </div>
+
+    <!-- WHAT IT IS -->
+    <div class="content-block section-green">
+        <div class="section-label">WHAT IT IS</div>
+        <p>A <span class="gold-highlight">reactive leader</span> acts from the threat. Amygdala fires, adrenaline spikes, and behavior follows — fast, automatic, and often regretted. A responsive leader notices the threat, finds the space Frankl describes, and chooses. Same situation. Completely different leadership.</p>
+        <p>The <span class="bold-highlight">gap between stimulus and response is real and trainable</span>. Most leaders don't know it exists because they've never slowed down enough to find it.</p>
+    </div>
+
+    <!-- BREAKDOWN TABLE -->
+    <div class="breakdown">
+        <div class="breakdown-header">
+            <div>REACTIVE</div>
+            <div>RESPONSIVE</div>
+        </div>
+        <div class="breakdown-body">
+            <div class="breakdown-col">
+                <ul>
+                    <li>Cuts someone off mid-sentence</li>
+                    <li>Sends the email before thinking twice</li>
+                    <li>Makes a decision to end the discomfort</li>
+                    <li>Raises voice or shuts down completely</li>
+                    <li>Blames the situation or the person</li>
+                    <li>Doubles down when challenged</li>
+                </ul>
+            </div>
+            <div class="breakdown-col">
+                <ul>
+                    <li>Pauses before responding</li>
+                    <li>Names what's happening internally</li>
+                    <li>Asks a question instead of asserting</li>
+                    <li>Stays curious when challenged</li>
+                    <li>Separates the trigger from the decision</li>
+                    <li>Chooses the response that serves the goal</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHY IT HAPPENS -->
+    <div class="content-block section-white">
+        <div class="section-label">WHY IT HAPPENS</div>
+        <p>The brain reads threat the same way it always has — whether the threat is a tiger or a difficult board member. The amygdala fires before the prefrontal cortex has a chance to weigh in. Daniel Goleman calls this "amygdala hijack." You're not being irrational. You're being human.</p>
+        <p>The problem for leaders is that high-stakes environments are constant low-grade threat environments. The nervous system never fully resets. The gap between stimulus and response gets shorter and shorter — until there's no gap at all. That's when leaders do the most damage.</p>
+    </div>
+
+    <!-- WHAT IT COSTS -->
+    <div class="content-block section-warm">
+        <div class="section-label">WHAT IT COSTS</div>
+        <p>A reactive leader doesn't just harm relationships in the moment — they teach their team what's safe. When people see reactivity at the top, they stop bringing bad news. They stop disagreeing. They manage up instead of leading. The reactive leader's behavior becomes the ceiling for everyone else's candor.</p>
+        <p>Reactivity also erodes the leader's own credibility over time. People stop trusting the judgment of someone who can't regulate under pressure — even if they never say so out loud.</p>
+    </div>
+
+    <!-- ONE THING TO PRACTICE -->
+    <div class="content-block section-green">
+        <div class="section-label">ONE THING TO PRACTICE</div>
+        <div class="practice-headline">Name it before you act on it.</div>
+        <p>When you feel the pull to react, pause and name what's happening internally: <span class="cta-quote">"I'm irritated." "I'm threatened." "I'm embarrassed."</span> Neuroscience calls this "affect labeling" — it measurably reduces amygdala activity. Naming the feeling creates the gap. The gap is where the leadership is.</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Leadership Insight Series&nbsp;&nbsp;|&nbsp;&nbsp;Cognitive & Behavioral&nbsp;&nbsp;|&nbsp;&nbsp;&copy; <strong>Scaling Minds</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="refs">References: Frankl (1946); Goleman (2010); Lieberman et al. (2007)</span>
+    </div>
+
+</div>
+
+<!-- ACTION BAR -->
+<div class="action-bar">
+    <div class="action-content">
+        <a href="https://calendly.com/scalingminds/30-min-discovery-call" target="_blank" class="btn btn-cta">Schedule a Discovery Call</a>
+        <button onclick="window.print()" class="btn btn-download">Download as PDF</button>
+    </div>
+</div>
+
+</body>
+</html>

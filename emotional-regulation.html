@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn emotional regulation strategies for leaders under pressure. Understand the window of tolerance and how to stay effective in high-stress situations.">
+    <meta name="author" content="Scaling Minds">
+    <meta property="og:title" content="Emotional Regulation Under Pressure | Scaling Minds">
+    <meta property="og:description" content="You don't get to choose what you feel but you do get to choose what you do with it.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://scalingminds.com/insights/emotional-regulation.html">
+    <meta property="og:image" content="https://scalingminds.com/scaling_minds_logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Emotional Regulation Under Pressure | Scaling Minds">
+    <meta name="twitter:description" content="You don't get to choose what you feel but you do get to choose what you do with it.">
+    <link rel="canonical" href="https://scalingminds.com/insights/emotional-regulation.html">
+    <title>Emotional Regulation Under Pressure | Scaling Minds</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #1B4332;
+            --green-mid: #2D6A4F;
+            --green-muted: #40916C;
+            --gold: #B8860B;
+            --gold-light: #D4A017;
+            --cream: #D4C5A9;
+            --cream-light: #F0EBE0;
+            --cream-pale: #FAF7F2;
+            --green-tint: #E4F0E8;
+            --warm-tint: #F9E4DC;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { overflow-y: scroll; }
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            color: #222;
+            background: #fff;
+            font-size: 15px;
+            line-height: 1.55;
+            padding-top: 90px;
+            padding-bottom: 56px;
+        }
+
+        /* === HEADER (fixed, content aligned to body width) === */
+        .header {
+            background: var(--green);
+            padding: 1.1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .header-inner {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .header-logo {
+            height: 52px;
+            width: auto;
+            flex-shrink: 0;
+        }
+        .header-text { flex: 1; }
+        .header-series {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.82rem;
+            color: var(--cream-light);
+            margin-bottom: 0.1rem;
+        }
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.15;
+        }
+        .header-category {
+            font-size: 0.76rem;
+            color: var(--gold-light);
+            margin-top: 0.15rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* === PAGE CONTAINER === */
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        /* === SHARED: gold left bar on all content boxes === */
+        .content-block {
+            border-left: 5px solid var(--gold);
+            border-radius: 3px;
+            padding: 1.1rem 1.4rem;
+            margin-bottom: 1rem;
+        }
+        .content-block p {
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 0.7rem;
+            color: #333;
+        }
+        .content-block p:last-child { margin-bottom: 0; }
+
+        /* === SECTION LABEL (plain text, matches PDF) === */
+        .section-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 0.6rem;
+            color: var(--green);
+        }
+        .section-warm .section-label {
+            color: var(--gold);
+        }
+
+        /* === HOOK === */
+        .hook {
+            background: var(--cream-light);
+            margin-top: 2.5rem;
+        }
+        .hook p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #222;
+            line-height: 1.5;
+        }
+
+        /* === WHAT IT IS (green tint) === */
+        .section-green {
+            background: var(--green-tint);
+            border-top: 1px solid #b8d4be;
+            border-right: 1px solid #b8d4be;
+            border-bottom: 1px solid #b8d4be;
+        }
+        .section-green .section-label { color: var(--green); }
+
+        /* === WHITE (for Why It Matters) === */
+        .section-white {
+            background: #fff;
+            border-top: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .section-white .section-label { color: var(--green); }
+
+        /* === COST / PRACTICE (warm tint) === */
+        .section-warm {
+            background: var(--warm-tint);
+            border-top: 1px solid #e4c4b8;
+            border-right: 1px solid #e4c4b8;
+            border-bottom: 1px solid #e4c4b8;
+        }
+        .section-warm .section-label { color: var(--gold); }
+
+        /* === PRACTICE HEADLINE (serif, matches PDF) === */
+        .practice-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 0.5rem;
+        }
+
+        /* === INLINE HIGHLIGHTS === */
+        .gold-highlight {
+            color: var(--gold);
+            font-weight: 700;
+            font-style: italic;
+        }
+        .bold-highlight {
+            font-weight: 700;
+        }
+        .cta-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        /* === THREE-COLUMN BREAKDOWN === */
+        .breakdown {
+            border: 1px solid #ccc;
+            border-left: 5px solid var(--gold);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .breakdown-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            background: var(--green);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        .breakdown-header div { padding: 0.7rem 1rem; }
+        .breakdown-header div:not(:last-child) {
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+        .breakdown-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            background: #fff;
+        }
+        .breakdown-col {
+            padding: 0.9rem 1rem;
+            font-size: 0.88rem;
+            color: #333;
+            line-height: 1.55;
+        }
+        .breakdown-col:not(:last-child) {
+            border-right: 1px solid #ddd;
+        }
+        .breakdown-col-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--green);
+            margin-bottom: 0.3rem;
+        }
+        .breakdown-col-title {
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            color: #222;
+        }
+
+        /* === FOOTER === */
+        .footer {
+            border-top: 1px solid #ccc;
+            padding: 0.8rem 0;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        .footer strong { color: var(--green-mid); }
+        .footer .refs { font-style: italic; }
+
+        /* === ACTION BAR (fixed bottom) === */
+        .action-bar {
+            background: var(--green);
+            padding: 0.9rem 2rem;
+            position: fixed !important;
+            bottom: 0 !important;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 9999;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+        }
+        .action-content {
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .btn {
+            padding: 0.55rem 1.6rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+        .btn-cta {
+            background: var(--gold);
+            color: var(--green);
+        }
+        .btn-cta:hover { background: var(--gold-light); }
+        .btn-download {
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid var(--gold);
+        }
+        .btn-download:hover {
+            background: var(--gold);
+            color: var(--green);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 640px) {
+            .header-inner { flex-direction: column; text-align: center; }
+            .header-title { font-size: 1.4rem; }
+            body { padding-top: 110px; }
+            .page { padding: 0 1rem 1.5rem; }
+            .breakdown-header, .breakdown-body { grid-template-columns: 1fr; }
+            .breakdown-col:not(:last-child) { border-right: none; border-bottom: 1px solid #ddd; }
+            .breakdown-header div:not(:last-child) { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
+            .action-content { flex-direction: column; gap: 0.5rem; }
+            .btn { width: 100%; text-align: center; }
+        }
+
+        /* === PRINT === */
+        @media print {
+            .action-bar { display: none !important; }
+            .header { position: static; box-shadow: none; }
+            body { padding-top: 0; padding-bottom: 0; font-size: 11pt; }
+            .page { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="header-inner">
+        <img src="https://scalingminds.com/scaling_minds_logo.png" alt="Scaling Minds" class="header-logo">
+        <div class="header-text">
+            <div class="header-series">Leadership Insight Series</div>
+            <h1 class="header-title">Emotional Regulation Under Pressure</h1>
+            <div class="header-category">Emotional Intelligence</div>
+        </div>
+    </div>
+</header>
+
+<div class="page">
+
+    <!-- HOOK -->
+    <div class="content-block hook">
+        <p>You don't get to choose what you feel but you do get to choose what you do with it.</p>
+    </div>
+
+    <!-- WHAT IT IS -->
+    <div class="content-block section-green">
+        <div class="section-label">WHAT IT IS</div>
+        <p>Emotional regulation is the ability to influence which emotions you have, when you have them, and how they shape your behavior. Stanford psychologist James Gross, whose research on emotion regulation is among the most cited in the field, distinguishes between two primary strategies: <span class="gold-highlight">reappraisal</span> — changing how you think about a situation before the emotion fully forms — and <span class="bold-highlight">suppression</span> — pushing the emotion down after it's already there.</p>
+        <p>Reappraisal works. Suppression doesn't, at least not without cost. Gross's research found that suppression reduces the outward expression of emotion but doesn't reduce the internal experience. The feeling is still there.</p>
+    </div>
+
+    <!-- WINDOW OF TOLERANCE BREAKDOWN -->
+    <div class="breakdown">
+        <div class="breakdown-header">
+            <div>01 HYPERAROUSAL</div>
+            <div>02 WINDOW OF TOLERANCE</div>
+            <div>03 HYPOAROUSAL</div>
+        </div>
+        <div class="breakdown-body">
+            <div class="breakdown-col">
+                <div class="breakdown-col-title">Flooded, reactive, unable to think clearly. Fight or flight. The leader who explodes, shuts down, or becomes rigid under pressure.</div>
+            </div>
+            <div class="breakdown-col">
+                <div class="breakdown-col-title">Emotionally present, cognitively flexible. Can hold complexity, hear hard things, make decisions. This is where effective leadership happens.</div>
+            </div>
+            <div class="breakdown-col">
+                <div class="breakdown-col-title">Shut down, disconnected, numb. The leader who goes flat in a crisis, disengages, or becomes unreachable under sustained pressure.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHY IT MATTERS FOR LEADERS SPECIFICALLY -->
+    <div class="content-block section-white">
+        <div class="section-label">WHY IT MATTERS FOR LEADERS SPECIFICALLY</div>
+        <p>Clinical professor of psychiatry Daniel Siegel developed the window of tolerance framework to describe the zone in which a person can function effectively: processing information, staying present, and responding rather than reacting. Under pressure, leaders get pushed out of that window faster than they realize.</p>
+        <p>The leader's emotional state is not private. A leader's mood tends to spread to the team. This is a phenomenon researchers call emotional contagion. A leader outside their window pulls the team outside theirs. The meeting that goes sideways, the decision made in anger, the silence that follows a leader's shutdown all of it ripples.</p>
+    </div>
+
+    <!-- WHAT DYSREGULATION COSTS -->
+    <div class="content-block section-warm">
+        <div class="section-label">WHAT DYSREGULATION COSTS</div>
+        <p>A leader who can't regulate under pressure makes worse decisions not because they're less intelligent, but because emotional flooding impairs the prefrontal cortex, the part of the brain responsible for reasoning, planning, and judgment. The decisions made outside the window tend to be faster, more certain, and more regretted.</p>
+        <p>Suppression has its own cost. Leaders who chronically suppress rather than regulate tend to report higher exhaustion over time. The effort of containment depletes the very resource needed for regulation.</p>
+    </div>
+
+    <!-- ONE THING TO PRACTICE -->
+    <div class="content-block section-green">
+        <div class="section-label">ONE THING TO PRACTICE</div>
+        <div class="practice-headline">Know your window.</div>
+        <p>Start by learning what it feels like to be inside your window versus outside it. Most leaders can't answer that question precisely. What happens in your body when you're being pushed out? Where do you feel it first? Chest, jaw, shoulders, breathing? That signal is your early warning system. You can't regulate what you haven't noticed.</p>
+        <p><span class="gold-highlight">Reappraisal</span>, Gross's term for changing how you interpret a situation before the emotion fully forms is the most researched and most effective strategy. It starts with a simple question: <span class="cta-quote">Is there another way to read this?</span></p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Leadership Insight Series&nbsp;&nbsp;|&nbsp;&nbsp;Emotional Intelligence&nbsp;&nbsp;|&nbsp;&nbsp;&copy; <strong>Scaling Minds</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="refs">References: Gross (1998); Siegel, The Developing Mind (1999); Hatfield, Cacioppo & Rapson (1993)</span>
+    </div>
+
+</div>
+
+<!-- ACTION BAR -->
+<div class="action-bar">
+    <div class="action-content">
+        <a href="https://calendly.com/scalingminds/30-min-discovery-call" target="_blank" class="btn btn-cta">Schedule a Discovery Call</a>
+        <button onclick="window.print()" class="btn btn-download">Download as PDF</button>
+    </div>
+</div>
+
+</body>
+</html>
