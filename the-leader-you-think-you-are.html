@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Most leaders didn't choose their leadership style. They inherited it. Explore the five leadership defaults and what it costs to stay stuck in one.">
+    <meta name="author" content="Scaling Minds">
+    <meta property="og:title" content="The Leader You Think You Are | Scaling Minds">
+    <meta property="og:description" content="Every leader has a philosophy. Few have asked their team if it's working.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://scalingminds.com/insights/the-leader-you-think-you-are.html">
+    <meta property="og:image" content="https://scalingminds.com/scaling_minds_logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Leader You Think You Are | Scaling Minds">
+    <meta name="twitter:description" content="Every leader has a philosophy. Few have asked their team if it's working.">
+    <link rel="canonical" href="https://scalingminds.com/insights/the-leader-you-think-you-are.html">
+    <title>The Leader You Think You Are | Scaling Minds</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root { --green: #1B4332; --green-mid: #2D6A4F; --green-muted: #40916C; --gold: #B8860B; --gold-light: #D4A017; --cream: #D4C5A9; --cream-light: #F0EBE0; --cream-pale: #FAF7F2; --green-tint: #E4F0E8; --warm-tint: #F9E4DC; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { overflow-y: scroll; }
+        body { font-family: 'Inter', Arial, sans-serif; color: #222; background: #fff; font-size: 15px; line-height: 1.55; padding-top: 90px; padding-bottom: 56px; }
+        .header { background: var(--green); padding: 1.1rem 0; position: fixed; top: 0; left: 0; right: 0; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+        .header-inner { max-width: 820px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; gap: 1.2rem; }
+        .header-logo { height: 52px; width: auto; flex-shrink: 0; }
+        .header-text { flex: 1; }
+        .header-series { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.82rem; color: var(--cream-light); margin-bottom: 0.1rem; }
+        .header-title { font-family: 'Playfair Display', serif; font-size: 1.85rem; font-weight: 700; color: #fff; line-height: 1.15; }
+        .header-category { font-size: 0.76rem; color: var(--gold-light); margin-top: 0.15rem; letter-spacing: 0.3px; }
+        .page { max-width: 820px; margin: 0 auto; padding: 0 1.5rem 1.5rem; }
+        .content-block { border-left: 5px solid var(--gold); border-radius: 3px; padding: 1.1rem 1.4rem; margin-bottom: 1rem; }
+        .content-block p { font-size: 0.92rem; line-height: 1.6; margin-bottom: 0.7rem; color: #333; }
+        .content-block p:last-child { margin-bottom: 0; }
+        .section-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 0.6rem; color: var(--green); }
+        .section-warm .section-label { color: var(--gold); }
+        .hook { background: var(--cream-light); margin-top: 2.5rem; }
+        .hook p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.05rem; color: #222; line-height: 1.5; }
+        .section-white { background: #fff; border-top: 1px solid #e0e0e0; border-right: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0; }
+        .section-green { background: var(--green-tint); border-top: 1px solid #b8d4be; border-right: 1px solid #b8d4be; border-bottom: 1px solid #b8d4be; }
+        .section-warm { background: var(--warm-tint); border-top: 1px solid #e4c4b8; border-right: 1px solid #e4c4b8; border-bottom: 1px solid #e4c4b8; }
+        .practice-headline { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #222; margin-bottom: 0.5rem; }
+        .gold-highlight { color: var(--gold); font-weight: 700; font-style: italic; }
+        .bold-highlight { font-weight: 700; }
+        .cta-quote { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; color: var(--gold); }
+        .defaults-grid { border: 1px solid #ccc; border-left: 5px solid var(--gold); border-radius: 3px; overflow: hidden; margin-bottom: 1rem; }
+        .defaults-label { background: var(--green); color: #fff; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.8px; padding: 0.7rem 1rem; }
+        .defaults-row { display: grid; grid-template-columns: 1fr 1fr 1fr; background: #fff; border-bottom: 1px solid #eee; }
+        .defaults-row-2 { display: grid; grid-template-columns: 1fr 1fr; background: #fff; }
+        .defaults-cell { padding: 0.9rem 1rem; font-size: 0.85rem; color: #333; line-height: 1.5; border-right: 1px solid #ddd; }
+        .defaults-cell:last-child { border-right: none; }
+        .defaults-cell .cell-num { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--gold); }
+        .defaults-cell .cell-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
+        .defaults-cell .cell-quote { font-style: italic; color: #555; margin-top: 0.4rem; }
+        .footer { border-top: 1px solid #ccc; padding: 0.8rem 0; margin-top: 0.5rem; font-size: 0.75rem; color: #666; line-height: 1.5; }
+        .footer strong { color: var(--green-mid); }
+        .footer .refs { font-style: italic; }
+        .action-bar { background: var(--green); padding: 0.9rem 2rem; position: fixed !important; bottom: 0 !important; left: 0; right: 0; width: 100%; z-index: 9999; box-shadow: 0 -2px 8px rgba(0,0,0,0.2); }
+        .action-content { max-width: 820px; margin: 0 auto; display: flex; justify-content: center; align-items: center; gap: 1.2rem; }
+        .btn { padding: 0.55rem 1.6rem; font-size: 0.88rem; font-weight: 600; border: none; border-radius: 3px; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s; }
+        .btn-cta { background: var(--gold); color: var(--green); }
+        .btn-cta:hover { background: var(--gold-light); }
+        .btn-download { background: transparent; color: #fff; border: 1.5px solid var(--gold); }
+        .btn-download:hover { background: var(--gold); color: var(--green); }
+        @media (max-width: 640px) { .header-inner { flex-direction: column; text-align: center; } .header-title { font-size: 1.4rem; } body { padding-top: 110px; } .page { padding: 0 1rem 1.5rem; } .defaults-row { grid-template-columns: 1fr; } .defaults-row-2 { grid-template-columns: 1fr; } .defaults-cell { border-right: none; border-bottom: 1px solid #ddd; } .action-content { flex-direction: column; gap: 0.5rem; } .btn { width: 100%; text-align: center; } }
+        @media print { .action-bar { display: none !important; } .header { position: static; box-shadow: none; } body { padding-top: 0; padding-bottom: 0; font-size: 11pt; } .page { max-width: 100%; } }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <img src="https://scalingminds.com/scaling_minds_logo.png" alt="Scaling Minds" class="header-logo">
+        <div class="header-text">
+            <div class="header-series">Leadership Insight Series</div>
+            <h1 class="header-title">The Leader You Think You Are</h1>
+            <div class="header-category">Leadership Identity</div>
+        </div>
+    </div>
+</header>
+<div class="page">
+    <div class="content-block hook">
+        <p>"Every leader has a philosophy. Few have asked their team if it's working."</p>
+    </div>
+    <div class="content-block section-green">
+        <div class="section-label">WHAT IT IS</div>
+        <p>Most leaders didn't choose their leadership style. They inherited it from a first boss, a parent, or a crisis they survived at 30. Over time the pattern becomes invisible. It's not a philosophy. It's a reflex.</p>
+        <p>79% of executives agree that what got them here won't get them there, but most can't change because their identity is fused to the old approach (Ibarra, 2015). Here are the five defaults leaders fall into.</p>
+    </div>
+    <div class="defaults-grid">
+        <div class="defaults-label">THE FIVE DEFAULTS</div>
+        <div class="defaults-row">
+            <div class="defaults-cell">
+                <div class="cell-num">1. <span class="cell-title">The Fixer</span></div>
+                <p>Solves problems fast. Makes decisions when nobody else will.</p>
+                <p>Solves: Urgency and stalled execution.</p>
+                <p>Costs: Dependency. The team stops solving because you always will.</p>
+                <div class="cell-quote">"If I don't do it, it won't get done."</div>
+            </div>
+            <div class="defaults-cell">
+                <div class="cell-num">2. <span class="cell-title">The Servant</span></div>
+                <p>Puts the team first. Absorbs friction so others can focus.</p>
+                <p>Solves: Loyalty, retention, trust.</p>
+                <p>Costs: Accountability gaps. Hard conversations get avoided.</p>
+                <div class="cell-quote">"My job is to serve the people who serve the customer."</div>
+            </div>
+            <div class="defaults-cell">
+                <div class="cell-num">3. <span class="cell-title">The Visionary</span></div>
+                <p>Inspires with purpose. Rallies people around what's possible.</p>
+                <p>Solves: Alignment, energy, direction.</p>
+                <p>Costs: Execution gaps. Big vision, unclear path to Monday.</p>
+                <div class="cell-quote">"We need to think bigger than this."</div>
+            </div>
+        </div>
+        <div class="defaults-row-2">
+            <div class="defaults-cell">
+                <div class="cell-num">4. <span class="cell-title">The Host</span></div>
+                <p>Creates conditions for others to lead. Convenes rather than commands.</p>
+                <p>Solves: Distributed ownership and team-driven decisions.</p>
+                <p>Costs: Speed. Requires trust in a process that can feel ambiguous.</p>
+                <div class="cell-quote">"The best answer is already in the room."</div>
+            </div>
+            <div class="defaults-cell">
+                <div class="cell-num">5. <span class="cell-title">The Conscious Leader</span></div>
+                <p>Integrates purpose into every decision. Leads through values and impact.</p>
+                <p>Solves: Meaning, culture, sustainability.</p>
+                <p>Costs: Complexity. Requires the most developmental maturity to sustain.</p>
+                <div class="cell-quote">"Profit is the byproduct, not the purpose."</div>
+            </div>
+        </div>
+    </div>
+    <div class="content-block section-white">
+        <div class="section-label">THE REAL QUESTION</div>
+        <p>These aren't personality types. They're patterns you've never questioned. The best leaders don't pick one. They access whichever one the moment demands. Your default reveals your ceiling, not your character.</p>
+        <p>Executives report 87% positive perceptions of psychological safety. Their teams report 69%. That 18-point gap lives inside your default style.</p>
+    </div>
+    <div class="content-block section-warm">
+        <div class="section-label">WHAT IT COSTS TO STAY STUCK</div>
+        <p>When a leadership style becomes an identity, it stops serving the team and starts serving the leader's comfort. The Fixer avoids the vulnerability of letting others fail. The Servant avoids the discomfort of accountability. The Visionary avoids the messiness of execution.</p>
+        <p>Fewer than 1% of leaders reach what Kegan calls the "self-transforming" stage, where they can observe and adapt their own patterns in real time. The other 99% are running on reflex. The question isn't which style is best. It's: what are you protecting by staying in this one?</p>
+    </div>
+    <div class="content-block section-green">
+        <div class="section-label">ONE THING TO PRACTICE</div>
+        <div class="practice-headline">Ask the question your team is waiting for.</div>
+        <p>This week, ask someone who reports to you: <span class="cta-quote">"What kind of leadership does this team need from me right now that it's not getting?"</span></p>
+        <p><span class="cta-quote">Treat the answer as data, not criticism. Your leadership style is a hypothesis. Test it.</span></p>
+    </div>
+    <div class="footer">
+        Leadership Insight Series&nbsp;&nbsp;|&nbsp;&nbsp;Leadership Identity&nbsp;&nbsp;|&nbsp;&nbsp;&copy; <strong>Scaling Minds</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="refs">References: Greenleaf (1970); Burns (1978); Bass (1985); Wheatley &amp; Frieze (2010); Mackey &amp; Sisodia (2014); Ibarra (2015); Kegan &amp; Lahey (2016)</span>
+    </div>
+</div>
+<div class="action-bar">
+    <div class="action-content">
+        <a href="https://calendly.com/scalingminds/30-min-discovery-call" target="_blank" class="btn btn-cta">Schedule a Discovery Call</a>
+        <button onclick="window.print()" class="btn btn-download">Download as PDF</button>
+    </div>
+</div>
+</body>
+</html>

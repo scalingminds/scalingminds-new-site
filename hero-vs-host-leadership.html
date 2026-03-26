@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the difference between Hero and Host Leadership. Learn why distributed decision-making and psychological safety drive higher-performing teams.">
+    <meta name="author" content="Scaling Minds">
+    <meta property="og:title" content="Hero vs. Host Leadership | Scaling Minds">
+    <meta property="og:description" content="Most leaders were promoted because they had answers. The best leaders succeed because they create the conditions for others to find them.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://scalingminds.com/insights/hero-vs-host-leadership.html">
+    <meta property="og:image" content="https://scalingminds.com/scaling_minds_logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hero vs. Host Leadership | Scaling Minds">
+    <meta name="twitter:description" content="Most leaders were promoted because they had answers. The best leaders succeed because they create the conditions for others to find them.">
+    <link rel="canonical" href="https://scalingminds.com/insights/hero-vs-host-leadership.html">
+    <title>Hero vs. Host Leadership | Scaling Minds</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #1B4332;
+            --green-mid: #2D6A4F;
+            --green-muted: #40916C;
+            --gold: #B8860B;
+            --gold-light: #D4A017;
+            --cream: #D4C5A9;
+            --cream-light: #F0EBE0;
+            --cream-pale: #FAF7F2;
+            --green-tint: #E4F0E8;
+            --warm-tint: #F9E4DC;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { overflow-y: scroll; }
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            color: #222;
+            background: #fff;
+            font-size: 15px;
+            line-height: 1.55;
+            padding-top: 90px;
+            padding-bottom: 56px;
+        }
+
+        /* === HEADER (fixed, content aligned to body width) === */
+        .header {
+            background: var(--green);
+            padding: 1.1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .header-inner {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .header-logo {
+            height: 52px;
+            width: auto;
+            flex-shrink: 0;
+        }
+        .header-text { flex: 1; }
+        .header-series {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.82rem;
+            color: var(--cream-light);
+            margin-bottom: 0.1rem;
+        }
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.15;
+        }
+        .header-category {
+            font-size: 0.76rem;
+            color: var(--gold-light);
+            margin-top: 0.15rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* === PAGE CONTAINER === */
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        /* === SHARED: gold left bar on all content boxes === */
+        .content-block {
+            border-left: 5px solid var(--gold);
+            border-radius: 3px;
+            padding: 1.1rem 1.4rem;
+            margin-bottom: 1rem;
+        }
+        .content-block p {
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 0.7rem;
+            color: #333;
+        }
+        .content-block p:last-child { margin-bottom: 0; }
+
+        /* === SECTION LABEL (plain text, matches PDF) === */
+        .section-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 0.6rem;
+            color: var(--green);
+        }
+        .section-warm .section-label {
+            color: var(--gold);
+        }
+
+        /* === HOOK === */
+        .hook {
+            background: var(--cream-light);
+            margin-top: 2.5rem;
+        }
+        .hook p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #222;
+            line-height: 1.5;
+        }
+
+        /* === WHAT IT IS (white) === */
+        .section-white {
+            background: #fff;
+            border-top: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .section-white .section-label { color: var(--green); }
+
+        /* === GREEN TINT (available for pages that need it) === */
+        .section-green {
+            background: var(--green-tint);
+            border-top: 1px solid #b8d4be;
+            border-right: 1px solid #b8d4be;
+            border-bottom: 1px solid #b8d4be;
+        }
+        .section-green .section-label { color: var(--green); }
+
+        /* === COST / PRACTICE (warm tint) === */
+        .section-warm {
+            background: var(--warm-tint);
+            border-top: 1px solid #e4c4b8;
+            border-right: 1px solid #e4c4b8;
+            border-bottom: 1px solid #e4c4b8;
+        }
+        .section-warm .section-label { color: var(--gold); }
+
+        /* === PRACTICE HEADLINE (serif, matches PDF) === */
+        .practice-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 0.5rem;
+        }
+
+        /* === INLINE HIGHLIGHTS === */
+        .gold-highlight {
+            color: var(--gold);
+            font-weight: 700;
+            font-style: italic;
+        }
+        .bold-highlight {
+            font-weight: 700;
+        }
+        .cta-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        /* === BREAKDOWN TABLE === */
+        .breakdown {
+            border: 1px solid #ccc;
+            border-left: 5px solid var(--gold);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .breakdown-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--green);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        .breakdown-header div { padding: 0.7rem 1rem; }
+        .breakdown-header div:first-child {
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+        .breakdown-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #fff;
+        }
+        .breakdown-col {
+            padding: 0.9rem 1rem;
+            font-size: 0.88rem;
+            color: #333;
+            line-height: 1.55;
+        }
+        .breakdown-col:first-child {
+            border-right: 1px solid #ddd;
+        }
+        .breakdown-col ul { list-style: none; padding: 0; margin: 0; }
+        .breakdown-col li {
+            padding-left: 0.9rem;
+            position: relative;
+            margin-bottom: 0.45rem;
+        }
+        .breakdown-col li::before {
+            content: "\2022";
+            position: absolute;
+            left: 0;
+            color: #555;
+        }
+        .breakdown-col .col-quote {
+            margin-top: 0.6rem;
+            font-style: italic;
+            color: #444;
+        }
+
+        /* === FOOTER === */
+        .footer {
+            border-top: 1px solid #ccc;
+            padding: 0.8rem 0;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        .footer strong { color: var(--green-mid); }
+        .footer .refs { font-style: italic; }
+
+        /* === ACTION BAR (fixed bottom) === */
+        .action-bar {
+            background: var(--green);
+            padding: 0.9rem 2rem;
+            position: fixed !important;
+            bottom: 0 !important;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 9999;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+        }
+        .action-content {
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .btn {
+            padding: 0.55rem 1.6rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+        .btn-cta {
+            background: var(--gold);
+            color: var(--green);
+        }
+        .btn-cta:hover { background: var(--gold-light); }
+        .btn-download {
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid var(--gold);
+        }
+        .btn-download:hover {
+            background: var(--gold);
+            color: var(--green);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 640px) {
+            .header-inner { flex-direction: column; text-align: center; }
+            .header-title { font-size: 1.4rem; }
+            body { padding-top: 110px; }
+            .page { padding: 0 1rem 1.5rem; }
+            .breakdown-header, .breakdown-body { grid-template-columns: 1fr; }
+            .breakdown-col:first-child { border-right: none; border-bottom: 1px solid #ddd; }
+            .breakdown-header div:first-child { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
+            .action-content { flex-direction: column; gap: 0.5rem; }
+            .btn { width: 100%; text-align: center; }
+        }
+
+        /* === PRINT === */
+        @media print {
+            .action-bar { display: none !important; }
+            .header { position: static; box-shadow: none; }
+            body { padding-top: 0; padding-bottom: 0; font-size: 11pt; }
+            .page { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="header-inner">
+        <img src="https://scalingminds.com/scaling_minds_logo.png" alt="Scaling Minds" class="header-logo">
+        <div class="header-text">
+            <div class="header-series">Leadership Insight Series</div>
+            <h1 class="header-title">Hero vs. Host Leadership</h1>
+            <div class="header-category">Leadership Identity</div>
+        </div>
+    </div>
+</header>
+
+<div class="page">
+
+    <!-- HOOK -->
+    <div class="content-block hook">
+        <p>Most leaders were promoted because they had answers. The best leaders succeed because they create the conditions for others to find them.</p>
+    </div>
+
+    <!-- WHAT IT IS -->
+    <div class="content-block section-green">
+        <div class="section-label">WHAT IT IS</div>
+        <p>A <span class="gold-highlight">hero leader</span> is the one with all the answers. They carry the weight, make the calls, and step in when things go sideways. It works until the organization outgrows what one person can hold.</p>
+        <p>A <span class="bold-highlight">host leader</span> operates differently. Instead of solving every problem, they design the conditions for others to contribute. They convene, listen, and invite the room to think, not just execute. As Wheatley and Frieze argued, complex organizations need leadership distributed across many people, not concentrated in a few. The host model is harder, not softer. It demands that leaders stay accountable for the environment while letting go of being the answer.</p>
+        <p>Most leadership cultures still reward the hero. The person who stays latest, answers fastest, and never admits a mistake is the one who gets promoted. But that model builds dependency, not capability and it hides the real leaders already on your team.</p>
+    </div>
+
+    <!-- BREAKDOWN TABLE -->
+    <div class="breakdown">
+        <div class="breakdown-header">
+            <div>THE HERO</div>
+            <div>THE HOST</div>
+        </div>
+        <div class="breakdown-body">
+            <div class="breakdown-col">
+                <ul>
+                    <li>Makes the final call on most decisions</li>
+                    <li>Answers questions and solves problems for the team</li>
+                    <li>Carries institutional knowledge personally</li>
+                    <li>Earns trust by being reliable and always available</li>
+                </ul>
+                <div class="col-quote">"I'll handle it."</div>
+            </div>
+            <div class="breakdown-col">
+                <ul>
+                    <li>Builds the space for the right people to decide together</li>
+                    <li>Asks questions that surface better thinking from the team</li>
+                    <li>Designs systems so knowledge lives beyond any one person</li>
+                    <li>Earns trust by making others more capable</li>
+                </ul>
+                <div class="col-quote">"What do you see that I might be missing?"</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHAT THE RESEARCH SHOWS -->
+    <div class="content-block section-white">
+        <div class="section-label">WHAT THE RESEARCH SHOWS</div>
+        <p>A meta-analysis of more than 3,000 teams found that shared leadership models outperform traditional top-down structures, with the effect growing stronger as work becomes more complex (D'Innocenzo et al., 2016). Distributed decision-making draws on more perspectives, reduces bias, and increases commitment to follow through.</p>
+        <p>Google's Project Aristotle studied 180 teams and identified psychological safety as the single most important factor in team performance. Host leadership builds that safety. When a leader invites contribution rather than directing it, people speak up earlier, surface problems faster, and take ownership.</p>
+    </div>
+
+    <!-- WHAT IT COSTS -->
+    <div class="content-block section-warm">
+        <div class="section-label">WHAT IT COSTS TO STAY THE HERO</div>
+        <p>Hero leaders burn out. Their teams disengage. When every decision runs through one person, the organization develops a bottleneck it mistakes for leadership. Problems get solved individually rather than systemically, so the same issues return in new forms. And when the hero leaves, the system stalls.</p>
+        <p>The hardest part is that hero leadership often feels like strength even like generosity. The leader is needed, visible, central. But the team learns something dangerous: wait for the leader. That passivity compounds and becomes the culture.</p>
+    </div>
+
+    <!-- ONE THING TO PRACTICE -->
+    <div class="content-block section-green">
+        <div class="section-label">ONE THING TO PRACTICE</div>
+        <div class="practice-headline">Ask before you answer.</div>
+        <p>The next time someone brings you a problem, resist the pull to solve it. Ask: <span class="cta-quote">"What would you do if I weren't in the room?"</span> Then listen. If they struggle, share your thinking as one perspective, not the final word. You are not abdicating responsibility. You are building the kind of team that solves problems without a single point of failure. The goal is not to be needed less. The goal is to be needed for the right things.</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Leadership Insight Series&nbsp;&nbsp;|&nbsp;&nbsp;Leadership Identity&nbsp;&nbsp;|&nbsp;&nbsp;&copy; <strong>Scaling Minds</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="refs">References: Wheatley &amp; Frieze (2010); D'Innocenzo et al. (2016); Google re:Work, Project Aristotle (2016)</span>
+    </div>
+
+</div>
+
+<!-- ACTION BAR -->
+<div class="action-bar">
+    <div class="action-content">
+        <a href="https://calendly.com/scalingminds/30-min-discovery-call" target="_blank" class="btn btn-cta">Schedule a Discovery Call</a>
+        <button onclick="window.print()" class="btn btn-download">Download as PDF</button>
+    </div>
+</div>
+
+</body>
+</html>
