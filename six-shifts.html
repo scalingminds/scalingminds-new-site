@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Six Shifts™ Leadership Operating System | Scaling Minds</title>
-  <meta name="description" content="The Six Shifts™ is a proprietary executive team performance framework built on Trust, Candor, Ownership, Empowerment, Alignment, and Collective Leadership. Only 1 in 5 leadership teams is high-performing. This is how you become one.">
+  <meta name="description" content="The Six Shifts™ is a proprietary executive team performance framework built on Trust, Candor, Ownership, Empowerment, Alignment, and Collective Leadership. Bain found only 1 in 5 leadership teams is high-performing. This is how you become one.">
   <meta property="og:title" content="The Six Shifts™ | Scaling Minds">
   <meta property="og:description" content="A leadership operating system for executive teams that are done performing below their potential.">
   <meta property="og:image" content="https://scalingminds.com/og-image.png">
@@ -16,125 +16,51 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
-    /* === BASE STYLES (inlined from style.css for standalone preview) === */
     :root {
-      --white: #FFFFFF;
+      --green: #123E35;
       --gold: #C4973B;
-      --gold-light: #D4A017;
-      --cream: #D4C5A9;
-      --cream-light: #F5F0E8;
-      --dark: #111111;
+      --cream: #F5F0E8;
+      --white: #FFFFFF;
+      --text-dark: #111111;
+      --text-muted: #4B5563;
       --max-width: 1200px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', 'Segoe UI', sans-serif;
-      font-size: 16px;
-      color: var(--dark);
-      background: var(--white);
-      -webkit-font-smoothing: antialiased;
-    }
-    h1, h2, h3 {
-      font-family: 'Libre Baskerville', Georgia, serif;
-      font-weight: 700;
-      line-height: 1.15;
-    }
-    h1 { font-size: clamp(2rem, 5vw, 3.6rem); }
-    h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+    body { font-family: 'Inter', sans-serif; color: var(--text-dark); background: var(--white); }
+    h1, h2, h3, h4 { font-family: 'Libre Baskerville', serif; }
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+    .eyebrow { font-family: 'Inter', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); font-weight: 600; display: block; }
+    .section { padding: 80px 0; }
+    .section--cream { background: var(--cream); }
+    .btn { display: inline-block; padding: 14px 32px; border-radius: 5px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; cursor: pointer; }
+    .btn--primary { background: var(--gold); color: var(--green); }
+    .btn--primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
 
-    /* Nav */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: #123e35; border-bottom: 1px solid rgba(0,0,0,0.15);
-    }
-    .nav__inner {
-      max-width: var(--max-width); margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 24px; height: 69px;
-    }
-    .nav__links {
-      display: flex; gap: 28px; list-style: none; align-items: center;
-    }
-    .nav__links a {
-      color: rgba(255,255,255,0.7); font-size: 0.88rem; font-weight: 500;
-      transition: color 0.3s;
-    }
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--green); padding: 0 24px; }
+    .nav__inner { max-width: var(--max-width); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav__links { display: flex; list-style: none; gap: 28px; align-items: center; }
+    .nav__links a { color: rgba(255,255,255,0.7); font-size: 0.9rem; transition: color 0.2s; }
     .nav__links a:hover { color: #fff; }
-    .nav__cta {
-      background: var(--gold) !important; color: #fff !important;
-      padding: 8px 20px; border-radius: 5px; font-weight: 600 !important;
-    }
+    .nav__cta { background: var(--gold) !important; color: var(--green) !important; padding: 8px 20px; border-radius: 5px; font-weight: 600; }
     .nav__toggle { display: none; background: none; border: none; cursor: pointer; }
     .nav__toggle span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; }
 
-    /* Containers */
-    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
-    .section { padding: 80px 0; }
-    .section--cream { background: var(--cream-light); }
-
-    /* Eyebrow */
-    .eyebrow {
-      display: inline-block; font-size: 0.78rem; font-weight: 600;
-      color: var(--gold); letter-spacing: 0.15em;
-      text-transform: uppercase; margin-bottom: 8px;
-    }
-
-    /* Buttons */
-    .btn { display: inline-block; font-weight: 600; border-radius: 5px; transition: all 0.3s; font-family: inherit; }
-    .btn--primary {
-      background: var(--gold); color: #fff; padding: 14px 32px;
-      font-size: 0.88rem; border: none; cursor: pointer;
-    }
-    .btn--primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196,151,59,0.3); }
-
-    /* CTA Section */
-    .cta-section { text-align: center; padding: 80px 0; }
-    .cta-section h2 { color: #fff; max-width: 700px; margin: 0 auto 16px; }
-    .cta-section p { color: rgba(255,255,255,0.65); font-size: 1.05rem; line-height: 1.85; max-width: 600px; margin: 0 auto 24px; }
-
-    /* Footer */
-    .footer { background: #0f332b; color: rgba(255,255,255,0.6); padding: 64px 0 32px; }
-    .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
-    .footer__brand p { font-size: 0.9rem; line-height: 1.7; margin-top: 8px; }
-    .footer h4 { color: #fff; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
-    .footer__links { list-style: none; }
-    .footer__links li { margin-bottom: 10px; }
-    .footer__links a { color: rgba(255,255,255,0.5); font-size: 0.88rem; transition: color 0.3s; }
-    .footer__links a:hover { color: var(--gold); }
-    .footer__bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
-    .footer__bottom p { font-size: 0.8rem; }
-    .footer__social { color: rgba(255,255,255,0.4); transition: color 0.3s; }
-    .footer__social:hover { color: var(--gold); }
-
-    /* Reveal placeholder (main.js handles this) */
-    .reveal { opacity: 1; }
-    .page-transition { opacity: 1; }
-
-    @media (max-width: 900px) {
-      .nav__links { display: none; }
-      .nav__toggle { display: block; }
-      .footer__grid { grid-template-columns: 1fr; gap: 32px; }
-      .footer__bottom { flex-direction: column; gap: 12px; text-align: center; }
-    }
-
-    /* === HERO === */
+    /* HERO */
     .ss-hero {
-      background: #123e35;
+      background: var(--green);
       padding: 100px 24px 56px;
       text-align: center;
       color: var(--white);
     }
-    .ss-hero h1 { color: var(--white); margin-bottom: 12px; }
-    .ss-hero h1 em { color: var(--gold); font-style: normal; }
-    .ss-hero__sub { font-size: 1.05rem; color: rgba(255,255,255,0.6); max-width: 560px; margin: 0 auto 20px; }
-    .ss-hero__stat { font-size: 1.05rem; color: var(--gold); font-style: italic; max-width: 520px; margin: 0 auto 40px; font-weight: 500; }
+    .ss-hero h1 { color: var(--white); margin-bottom: 12px; font-size: clamp(2rem, 4vw, 3rem); }
+    .ss-hero__sub { font-size: 1.15rem; color: rgba(255,255,255,0.7); max-width: 620px; margin: 0 auto 24px; line-height: 1.8; }
+    .ss-hero__stat { font-size: 1.05rem; color: var(--gold); font-style: italic; max-width: 560px; margin: 0 auto 40px; font-weight: 500; }
 
-    /* === HONEYCOMB GRID — exact site positions === */
+    /* HEX GRID */
     .hex-grid {
       position: relative;
       width: 500px;
@@ -147,24 +73,20 @@
       width: 155px;
       height: 155px;
       cursor: pointer;
-      transition: all 0.4s ease;
+      transition: opacity 0.4s ease, transform 0.4s ease;
       opacity: 0;
       transform: scale(0.7);
-      z-index: 1;
     }
     .hex-item.visible { opacity: 1; transform: scale(1); }
+    .hex-item.animating {
+      transition: none !important;
+      -webkit-transition: none !important;
+    }
     .hex-item:hover { transform: scale(1.08); z-index: 10; filter: brightness(1.15); }
     .hex-item.active { transform: scale(1.15); z-index: 10; filter: drop-shadow(0 8px 24px rgba(196,151,59,0.5)); }
     .hex-item img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
 
-    .hex-pos-top    { left: 172px; top: 0; }
-    .hex-pos-tr     { left: 302px; top: 78px; }
-    .hex-pos-br     { left: 302px; top: 228px; }
-    .hex-pos-bottom { left: 172px; top: 306px; }
-    .hex-pos-bl     { left: 42px;  top: 228px; }
-    .hex-pos-tl     { left: 42px;  top: 78px; }
-    .hex-pos-center { left: 172px; top: 152px; }
-
+    /* Center piece */
     .hex-center-piece {
       position: absolute;
       width: 155px;
@@ -172,10 +94,21 @@
       opacity: 0;
       transform: scale(0.7);
       transition: all 0.5s ease;
-      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .hex-center-piece.visible { opacity: 1; transform: scale(1); }
     .hex-center-piece img { width: 100%; height: 100%; object-fit: contain; }
+
+    /* Honeycomb positions */
+    .hex-pos-top    { left: 172px; top: 0; }
+    .hex-pos-tr     { left: 302px; top: 78px; }
+    .hex-pos-br     { left: 302px; top: 228px; }
+    .hex-pos-bottom { left: 172px; top: 306px; }
+    .hex-pos-bl     { left: 42px;  top: 228px; }
+    .hex-pos-tl     { left: 42px;  top: 78px; }
+    .hex-pos-center { left: 172px; top: 152px; }
 
     /* Staggered entrance */
     .hex-item:nth-child(1) { transition-delay: 0.2s; }
@@ -186,312 +119,205 @@
     .hex-item:nth-child(6) { transition-delay: 1.2s; }
     .hex-center-piece { transition-delay: 1.5s; }
 
-    .hex-grid .click-hint {
-      position: absolute;
-      bottom: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.7rem;
-      color: var(--gold);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      font-weight: 700;
-      opacity: 0;
-      transition: opacity 0.8s ease 2s;
-      white-space: nowrap;
+    /* Exploded row mode */
+    .hex-grid.exploded { width: 100%; max-width: 100%; height: 230px; }
+    .hex-grid.exploded .hex-item {
+      transform: scale(0.85);
+      transition: none;
     }
-    .hex-grid.loaded .click-hint { opacity: 1; }
-
-    /* === ROW MODE (after explode) === */
-    .hex-grid.exploded {
-      width: 1200px;
-      max-width: 100%;
-      height: 230px;
-    }
-    .hex-grid.exploded .click-hint { opacity: 0 !important; }
+    .hex-grid.exploded .hex-item.active { transform: scale(1.05); filter: drop-shadow(0 8px 24px rgba(196,151,59,0.5)); }
+    .hex-grid.exploded .hex-item:hover:not(.active) { transform: scale(0.95); filter: brightness(1.15); }
     .hex-grid.exploded .hex-center-piece {
       opacity: 0 !important;
       transform: scale(0) !important;
-      pointer-events: none;
       transition: opacity 0.5s ease, transform 0.5s ease !important;
       transition-delay: 0s !important;
     }
-    .hex-grid.exploded .hex-item {
-      transition: transform 0.35s ease, filter 0.35s ease !important;
-      transition-delay: 0s !important;
-      transform: scale(0.85);
+
+    /* Click prompt */
+    .hex-click-prompt {
+      text-align: center;
+      padding: 16px 0 0;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      animation: pulsePrompt 2.5s ease-in-out infinite;
     }
-    .hex-grid.exploded .hex-item.active {
-      transform: scale(1.05);
+    .hex-click-prompt.visible { opacity: 1; }
+    .hex-click-prompt span {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.05em;
     }
-    .hex-grid.exploded .hex-item:hover:not(.active) {
-      transform: scale(0.95);
+    .hex-click-prompt .arrow {
+      display: inline-block;
+      margin-right: 6px;
+      animation: bounceArrow 1.5s ease-in-out infinite;
     }
-    .hex-grid.exploded .shift-number-label {
-      opacity: 1;
+    @keyframes pulsePrompt {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    @keyframes bounceArrow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
     }
 
-    .shift-number-label {
+    /* Shift number labels */
+    .hex-number {
       position: absolute;
       font-family: 'Inter', sans-serif;
-      font-weight: 800;
-      font-size: 0.6rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--white, #fff);
-      background: #123e35;
-      padding: 3px 10px;
-      border-radius: 3px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--gold);
       text-align: center;
-      pointer-events: none;
       opacity: 0;
-      white-space: nowrap;
-      z-index: 20;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+      width: 155px;
+    }
+    .hex-grid.exploded .hex-number { opacity: 1; }
+
+    /* Detail card */
+    .shift-detail-card {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
+    }
+    .shift-detail-card.visible { max-height: 800px; opacity: 1; }
+    .shift-detail-inner {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      align-items: start;
+      padding: 48px 0;
+    }
+    .shift-detail-icon { text-align: center; }
+    .shift-detail-icon img { width: 200px; height: 200px; object-fit: contain; }
+    .shift-detail-content .eyebrow { margin-bottom: 8px; }
+    .shift-detail-content h2 { color: var(--green); margin-bottom: 16px; font-size: clamp(1.5rem, 3vw, 2.2rem); }
+    .shift-detail-content p { font-size: 1.05rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 12px; }
+    .shift-detail-content .shift-cost {
+      font-size: 0.95rem; color: var(--green); font-weight: 600;
+      margin-top: 28px; padding: 16px 20px; border-left: 3px solid var(--gold);
+      background: var(--cream); border-radius: 0 6px 6px 0;
+    }
+    .shift-detail-content .shift-next {
+      font-size: 0.9rem; color: var(--gold); font-style: italic; margin-top: 20px;
+      padding-top: 16px; border-top: 1px solid rgba(196,151,59,0.2);
     }
 
-    /* === PROGRESS BAR === */
-    .progress-section {
+    /* Progress tracker */
+    .progress-tracker {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 20px 0 0;
-      flex-wrap: wrap;
+      gap: 8px;
+      padding: 24px 0 8px;
       opacity: 0;
-      transition: opacity 0.6s ease;
+      transition: opacity 0.4s ease;
     }
-    .progress-section.visible { opacity: 1; }
-    .progress-label {
-      font-size: 0.65rem;
-      font-weight: 700;
-      color: rgba(255,255,255,0.5);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-    .progress-dots { display: flex; gap: 5px; }
+    .progress-tracker.visible { opacity: 1; }
+    .progress-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); }
+    .progress-label.active { color: var(--gold); }
     .progress-dot {
-      width: 9px; height: 9px; border-radius: 50%;
-      background: rgba(255,255,255,0.15); transition: all 0.4s;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      transition: background 0.3s ease;
     }
-    .progress-dot.filled {
-      background: var(--gold, #C4973B);
-      box-shadow: 0 2px 8px rgba(196,151,59,0.4);
-    }
-    .progress-count { font-size: 0.7rem; font-weight: 700; color: var(--gold, #C4973B); }
+    .progress-dot.filled { background: var(--gold); }
 
-    /* === DETAIL CARD === */
-    .detail-card-wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .detail-card {
-      border-radius: 5px;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      box-shadow: 0 8px 40px rgba(18, 62, 53, 0.08);
-      max-height: 0;
-      margin-top: 24px;
-    }
-    .detail-card.visible { opacity: 1; transform: translateY(0); max-height: 2000px; }
-
-    .detail-top {
-      background: #123e35;
-      padding: 48px 48px 40px;
-      color: white;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      gap: 28px;
-      align-items: flex-start;
-    }
-    .detail-top::before {
-      content: '';
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 240px; height: 240px;
-      background: radial-gradient(circle, rgba(196,151,59,0.08) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .detail-top .shift-svg {
-      width: 200px; height: 200px; flex-shrink: 0;
-      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.25));
-    }
-    .detail-top .shift-info { flex: 1; }
-    .detail-top .shift-number-badge {
-      display: inline-block;
-      background: var(--gold, #C4973B);
-      color: #fff;
-      font-weight: 700; font-size: 0.65rem;
-      padding: 4px 14px; border-radius: 5px;
-      letter-spacing: 1.5px; margin-bottom: 14px;
-      text-transform: uppercase;
-    }
-    .detail-top h2 {
-      font-family: 'Libre Baskerville', Georgia, serif;
-      font-size: clamp(1.4rem, 3.5vw, 2.2rem);
-      font-weight: 700; margin-bottom: 4px; color: #fff;
-    }
-    .detail-top .shift-subtitle {
-      font-size: 0.75rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 2.5px;
-      color: #D4C5A9; margin-bottom: 16px;
-    }
-    .detail-top .tagline {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.85);
-      line-height: 1.8; max-width: 640px;
-    }
-
-    .detail-body {
-      background: var(--cream-light, #F5F0E8);
-      padding: 36px 48px 44px;
-    }
-    .detail-body .description {
-      font-size: 1.05rem; line-height: 1.85;
-      color: #4B5563; margin-bottom: 20px;
-    }
-    .detail-body .next-shift {
-      font-size: 0.95rem; line-height: 1.6;
-      color: #123e35; font-weight: 600;
-      margin-bottom: 20px; padding-left: 16px;
-      border-left: 3px solid var(--gold, #C4973B);
-    }
-    .detail-body .warning {
-      font-size: 0.95rem; line-height: 1.6;
-      color: #8b3a3a; background: #fef5f5;
-      border: 1px solid #f0dede; border-radius: 5px;
-      padding: 14px 18px; font-style: italic;
-    }
-    .detail-body .warning strong { font-style: normal; color: #6b2020; }
-
-    @media (max-width: 680px) {
-      .detail-body { padding: 24px 20px 30px; }
-      .detail-top { padding: 28px 20px 24px; flex-direction: column; gap: 14px; }
-      .detail-top .shift-svg { width: 140px; height: 140px; }
-    }
-
-    /* === BOTTOM CONTENT — reveals on interaction === */
+    /* Bottom sections - hidden until interaction */
     .bottom-content {
       opacity: 0;
       max-height: 0;
       overflow: hidden;
-      transition: opacity 0.8s ease, max-height 0.8s ease;
+      transition: opacity 0.6s ease, max-height 0.8s ease;
     }
-    .bottom-content.revealed {
-      opacity: 1;
-      max-height: 8000px;
-    }
+    .bottom-content.revealed { opacity: 1; max-height: 5000px; }
 
-    /* === DIAGNOSIS === */
-    .diagnosis-section {
-      padding: 80px 0;
+    /* Self-diagnosis section */
+    .self-diagnosis {
       text-align: center;
-      display: none;
+      padding: 48px 24px;
+      background: var(--cream);
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.6s ease, max-height 0.6s ease;
     }
-    .diagnosis-section.visible { display: block; }
-    .diagnosis-section h3 {
-      font-family: 'Libre Baskerville', Georgia, serif;
-      font-size: clamp(1.3rem, 3vw, 1.8rem);
-      font-weight: 700; color: #123e35; margin-bottom: 10px;
-    }
-    .diagnosis-section > .container > p {
-      font-size: 1rem; color: #4B5563;
-      margin-bottom: 24px; line-height: 1.6;
-    }
-    .diagnosis-options { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-    .diagnosis-btn {
-      background: #fff; border: 2px solid #D4C5A9;
-      color: #123e35; padding: 12px 22px; border-radius: 5px;
-      font-family: 'Inter', sans-serif; font-weight: 600;
-      font-size: 0.85rem; cursor: pointer; transition: all 0.3s;
-    }
-    .diagnosis-btn:hover { background: var(--gold, #C4973B); color: #fff; border-color: var(--gold, #C4973B); }
-    .diagnosis-result {
-      margin-top: 24px; padding: 24px 28px;
-      background: #123e35; border-radius: 5px;
-      color: #fff; display: none;
-      max-width: 700px; margin-left: auto; margin-right: auto;
-      text-align: left;
-    }
-    .diagnosis-result.visible { display: block; }
-    .diagnosis-result p { font-size: 1rem; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 16px; }
-    .diagnosis-result .result-cta { font-weight: 700; color: var(--gold, #C4973B); font-size: 0.95rem; text-decoration: none; }
-    .diagnosis-result .result-cta:hover { text-decoration: underline; }
+    .self-diagnosis.visible { opacity: 1; max-height: 600px; }
+    .self-diagnosis h3 { color: var(--green); margin-bottom: 12px; }
+    .self-diagnosis p { color: var(--text-muted); max-width: 600px; margin: 0 auto 24px; line-height: 1.7; }
 
-    /* Shift sections (existing layout) */
-    .shift-section { padding: 80px 0; }
-    .shift-section:nth-child(even) { background: var(--cream-light); }
-    .shift-layout {
-      display: grid; grid-template-columns: 1fr 1.5fr; gap: 56px; align-items: center;
-      max-width: var(--max-width); margin: 0 auto; padding: 0 24px;
+    /* Testimonial */
+    .testimonial-section { background: var(--green); padding: 80px 0; }
+    .testimonial-section p.quote {
+      color: rgba(255,255,255,0.88); font-size: 1.35rem; font-style: italic;
+      line-height: 1.7; max-width: 780px; margin: 0 auto 24px; text-align: center;
     }
-    .shift-layout--reverse { grid-template-columns: 1.5fr 1fr; }
-    .shift-layout--reverse .shift-visual { order: 2; }
-    .shift-layout--reverse .shift-content { order: 1; }
-    .shift-visual { text-align: center; }
-    .shift-visual img { width: 180px; height: 180px; margin: 0 auto; object-fit: contain; transition: transform 0.4s; }
-    .shift-visual img:hover { transform: scale(1.05); }
-    .shift-content .eyebrow { margin-bottom: 8px; }
-    .shift-content h2 { color: #123e35; margin-bottom: 16px; font-size: clamp(1.5rem, 3vw, 2.2rem); }
-    .shift-content p { font-size: 1.05rem; line-height: 1.85; color: #4B5563; margin-bottom: 12px; }
-    .shift-content__cost {
-      font-size: 0.95rem; color: #123e35; font-weight: 600;
-      margin-top: 16px; padding-left: 16px; border-left: 3px solid var(--gold);
-    }
+    .testimonial-section .attribution { text-align: center; }
+    .testimonial-section .name { color: var(--gold); font-weight: 600; }
+    .testimonial-section .title { color: rgba(255,255,255,0.4); font-size: 0.88rem; margin-top: 4px; }
 
+    /* Recognition section */
+    .recognition-section { padding: 80px 0; }
     .fit-section { max-width: 760px; margin: 0 auto; }
-    .fit-section h3 { color: #123e35; font-size: 1.2rem; margin-bottom: 12px; font-weight: 700; }
-    .fit-section p { font-size: 1.05rem; line-height: 1.85; color: #4B5563; margin-bottom: 24px; }
+    .fit-section h2 { color: var(--green); margin-bottom: 24px; }
+    .fit-section p { font-size: 1.05rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 24px; }
 
-    /* Share row in CTA */
-    .share-row { display: flex; justify-content: center; gap: 16px; margin-top: 20px; }
-    .share-btn {
-      font-size: 0.7rem; font-weight: 600;
-      color: rgba(255,255,255,0.4); text-decoration: none;
-      letter-spacing: 0.5px; transition: color 0.3s;
-      cursor: pointer; background: none; border: none;
-      font-family: 'Inter', sans-serif;
-    }
-    .share-btn:hover { color: var(--gold, #C4973B); }
+    /* How It Works */
+    .how-section { padding: 80px 0; background: var(--cream); }
+    .how-inner { max-width: 760px; margin: 0 auto; }
+    .how-inner h2 { color: var(--green); margin-bottom: 8px; }
+    .how-inner p { font-size: 1.05rem; line-height: 1.9; color: var(--text-muted); margin-bottom: 12px; }
 
+    /* CTA */
+    .cta-section { background: var(--green); padding: 80px 0; text-align: center; }
+    .cta-section h2 { color: var(--white); margin-bottom: 16px; font-size: clamp(1.5rem, 3vw, 2.2rem); max-width: 700px; margin-left: auto; margin-right: auto; margin-bottom: 16px; }
+    .cta-section p { color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 32px; line-height: 1.7; font-size: 1.05rem; }
+
+    /* Footer */
+    .footer { background: var(--green); padding: 56px 0 32px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; }
+    .footer__brand p { color: rgba(255,255,255,0.5); font-size: 0.9rem; line-height: 1.6; }
+    .footer__brand a { color: rgba(255,255,255,0.5); }
+    .footer h4 { color: var(--gold); font-family: 'Inter', sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+    .footer__links { list-style: none; }
+    .footer__links li { margin-bottom: 10px; }
+    .footer__links a { color: rgba(255,255,255,0.5); font-size: 0.9rem; transition: color 0.2s; }
+    .footer__links a:hover { color: #fff; }
+    .footer__bottom { margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; }
+    .footer__bottom p { color: rgba(255,255,255,0.3); font-size: 0.8rem; }
+    .footer__social { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer__social:hover { color: var(--gold); }
+
+    /* Mobile */
     @media (max-width: 900px) {
-      .hex-grid { transform: scale(0.65); transform-origin: top center; height: 300px; }
-      .hex-grid.exploded { transform: none; width: 100%; height: 180px; }
-      .shift-layout, .shift-layout--reverse { grid-template-columns: 1fr; gap: 32px; text-align: center; }
-      .shift-layout--reverse .shift-visual { order: 1; }
-      .shift-layout--reverse .shift-content { order: 2; }
-      .ss-hero { padding: 90px 24px 40px; }
+      .nav__links { display: none; }
+      .nav__toggle { display: block; }
+      .hex-grid { transform: scale(0.6); transform-origin: top center; height: 280px; }
+      .footer__grid { grid-template-columns: 1fr; gap: 32px; }
+      .shift-detail-inner { grid-template-columns: 1fr; text-align: center; }
+      .shift-detail-icon img { width: 140px; height: 140px; }
     }
     @media (max-width: 600px) {
       .hex-grid.exploded { height: 330px; }
       .hex-grid.exploded .hex-item { transform: scale(0.6); }
       .hex-grid.exploded .hex-item.active { transform: scale(0.75); }
-      .hex-grid.exploded .hex-item:hover:not(.active) { transform: scale(0.68); }
-      .hex-grid.exploded .shift-number-label { font-size: 0.5rem; }
-    }
-    @media (max-width: 500px) {
-      .hex-grid { transform: scale(0.5); height: 240px; }
-      .hex-grid.exploded { transform: none; width: 100%; height: 310px; }
     }
   </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3Z835JNMP"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-C3Z835JNMP');
-  </script>
 </head>
 <body>
 
   <!-- NAV -->
   <nav class="nav">
     <div class="nav__inner">
-      <a href="/" class="nav__logo" style="display: flex; align-items: center; gap: 10px;">
+      <a href="/" style="display: flex; align-items: center; gap: 10px;">
         <img src="scaling_minds_logo.png" alt="Scaling Minds" style="height: 44px; width: auto;">
       </a>
       <ul class="nav__links">
@@ -506,17 +332,16 @@
       <button class="nav__toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
     </div>
   </nav>
-  <div class="page-transition">
 
   <!-- HERO -->
   <section class="ss-hero">
-    <div class="reveal">
+    <div>
       <h1>The Six Shifts™</h1>
-      <p class="ss-hero__sub">The leadership operating system that turns a group of executives into one team.</p>
-      <p class="ss-hero__stat">"Only 1 in 5 executive teams is high-performing. Most leaders already know which side of that line they're on."</p>
+      <p class="ss-hero__sub">Your leadership team knows something is off. The meetings that end in agreement but change nothing. The conversations that happen after the room clears. The weight the CEO carries that the team should share.</p>
+      <p class="ss-hero__stat">Bain &amp; Company found that only 1 in 5 executive teams is high-performing. Most leaders already know which side of that line they're on.</p>
     </div>
 
-    <!-- HONEYCOMB — exact site positions -->
+    <!-- Interactive Hex Grid -->
     <div class="hex-grid" id="hexGrid">
       <div class="hex-item hex-pos-top" data-shift="trust"><img src="trust.svg" alt="Trust"></div>
       <div class="hex-item hex-pos-tr" data-shift="candor"><img src="candor.svg" alt="Candor"></div>
@@ -524,108 +349,91 @@
       <div class="hex-item hex-pos-bottom" data-shift="empowerment"><img src="empowerment.svg" alt="Empowerment"></div>
       <div class="hex-item hex-pos-bl" data-shift="alignment"><img src="alignment.svg" alt="Alignment"></div>
       <div class="hex-item hex-pos-tl" data-shift="leadership"><img src="leadership.svg" alt="Leadership"></div>
-
       <div class="hex-center-piece hex-pos-center" id="hexCenter">
-        <img src="sixshifts.svg" alt="The Six Shifts Leadership Operating System">
+        <img src="sixshifts.svg" alt="The Six Shifts">
       </div>
-
-      <span class="click-hint">Click any shift to explore</span>
     </div>
 
-    <!-- Progress -->
-    <div class="progress-section" id="progressSection">
-      <span class="progress-label">Foundation</span>
-      <div class="progress-dots" id="progressDots"></div>
-      <span class="progress-label">Transformation</span>
-      <span class="progress-count" id="progressCount">0 / 6</span>
+    <!-- Click prompt -->
+    <div class="hex-click-prompt" id="clickPrompt">
+      <span><span class="arrow">&#9650;</span> Click any shift to explore</span>
+    </div>
+
+    <!-- Progress tracker -->
+    <div class="progress-tracker" id="progressTracker">
+      <span class="progress-label" id="progLabelStart">Foundation</span>
+      <span class="progress-dot" data-prog="0"></span>
+      <span class="progress-dot" data-prog="1"></span>
+      <span class="progress-dot" data-prog="2"></span>
+      <span class="progress-dot" data-prog="3"></span>
+      <span class="progress-dot" data-prog="4"></span>
+      <span class="progress-dot" data-prog="5"></span>
+      <span class="progress-label" id="progLabelEnd">Transformation</span>
     </div>
   </section>
 
-  <!-- DETAIL CARD (appears below hero on click) -->
-  <div class="detail-card-wrapper">
-    <div class="detail-card" id="detailCard"></div>
+  <!-- Detail Card (populated by JS) -->
+  <div class="shift-detail-card" id="shiftDetail"></div>
+
+  <!-- Self-diagnosis (appears after all 6 explored) -->
+  <div class="self-diagnosis" id="selfDiagnosis">
+    <h3>You've explored all six shifts.</h3>
+    <p>Most teams start strong on one or two of these and struggle with the rest. The question is: which shifts does your team need most?</p>
+    <a href="/contact" class="btn btn--primary">Find Out Where Your Team Stands →</a>
   </div>
 
-  <!-- BOTTOM CONTENT — hidden until first shift clicked -->
+  <!-- Bottom content: hidden until user interacts -->
   <div class="bottom-content" id="bottomContent">
 
-    <!-- Self-diagnosis (after all 6 explored) -->
-    <section class="diagnosis-section section" id="diagnosisSection">
-      <div class="container">
-        <h3>Which of these hits hardest for your team?</h3>
-        <p>Most leaders know immediately. That instinct is worth paying attention to.</p>
-        <div class="diagnosis-options" id="diagnosisOptions"></div>
-        <div class="diagnosis-result" id="diagnosisResult">
-          <p id="diagnosisText"></p>
-          <a href="/contact" class="result-cta">Let's talk about what that's costing you →</a>
-        </div>
-      </div>
-    </section>
-
     <!-- TESTIMONIAL -->
-    <section class="section" style="background: #123e35; padding: 80px 0;">
+    <section class="testimonial-section">
       <div class="container">
-        <div class="reveal" style="text-align: center;">
-          <p style="color: rgba(255,255,255,0.88); font-size: 1.35rem; font-style: italic; line-height: 1.7; max-width: 780px; margin: 0 auto 24px;">"Andy has partnered closely with us to strengthen communication, deepen trust, enhance collaboration, and improve overall team cohesion — ultimately positioning us to operate as a higher-performing leadership group."</p>
-          <div style="color: var(--gold); font-weight: 600;">Robert Tucker</div>
-          <div style="color: rgba(255,255,255,0.4); font-size: 0.88rem; margin-top: 4px;">President, Chicago Community Loan Fund</div>
+        <p class="quote">"Andy has partnered closely with us to strengthen communication, deepen trust, enhance collaboration, and improve overall team cohesion, ultimately positioning us to operate as a higher-performing leadership group."</p>
+        <div class="attribution">
+          <div class="name">Robert Tucker</div>
+          <div class="title">President, Chicago Community Loan Fund</div>
         </div>
       </div>
     </section>
 
-    <!-- COST OF INACTION -->
-    <section class="section">
+    <!-- SOUND FAMILIAR -->
+    <section class="recognition-section">
       <div class="container">
-        <div class="reveal" style="max-width: 760px; margin: 0 auto;">
-          <span class="eyebrow">The cost of waiting</span>
-          <h2 style="color: #123e35; margin-bottom: 16px;">What happens when teams don't fix this?</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: #4B5563; margin-bottom: 12px;">Executive teams that avoid these shifts don't stay the same — they get worse. <strong style="color: #123e35;">Replacing a senior leader costs approximately 200% of their annual salary</strong> (Center for American Progress). Decision bottlenecks slow execution by months. And the best people — the ones who see the dysfunction clearly — leave first.</p>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: #4B5563; margin-bottom: 12px;">But the biggest cost isn't financial — it's carrying the whole thing alone. The loneliness of knowing something's broken and not trusting anyone to help fix it.</p>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: #4B5563;">Teams typically report noticeable change within <strong style="color: #123e35;">the first 4-6 weeks</strong>. Not because the work is easy, but because someone finally named what everyone already felt.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- IS THIS YOUR TEAM -->
-    <section class="section section--cream">
-      <div class="container">
-        <div class="fit-section reveal">
-          <div style="margin-bottom: 32px;">
-            <span class="eyebrow">Is this your team?</span>
-            <h2 style="color: #123e35;">The Six Shifts™ is built for leadership teams that are done settling.</h2>
-          </div>
-          <h3>It's a fit if:</h3>
-          <p>Your team is smart and capable but struggles to have the honest conversations that actually move things forward. Accountability is inconsistent — some people follow through, others don't, and nobody names it. Trust is mostly polite. The CEO carries too much. And you know that the way you're operating now won't get you where you need to go. You're ready to do the work, not just talk about it.</p>
-          <h3>It's not a fit if:</h3>
-          <p>You're looking for a one-day workshop to fix your leadership team. Or the team isn't aligned on the need for change in the first place. This work requires honesty, commitment, and a willingness to look at yourself as much as the people around you. If that's not where you are, we're not the right partner yet.</p>
+        <div class="fit-section">
+          <span class="eyebrow">Sound Familiar?</span>
+          <h2>These are the patterns I see in almost every leadership team I work with.</h2>
+          <p>Your meetings end with head nods and nothing changes by the following week. You're the first call for every decision, even the ones your team should own. Accountability depends on who's in the room, not what was agreed to. Your best people have stopped pushing back. They just execute and stay quiet. The real conversations happen after the meeting, in the hallway or on Slack. You've tried offsites and personality assessments. The energy lasted a week.</p>
+          <p>This work requires honesty, commitment, and a willingness to look at yourself as much as the people around you. If that sounds like relief rather than a burden, we should talk.</p>
         </div>
       </div>
     </section>
 
     <!-- HOW IT WORKS -->
-    <section class="section">
+    <section class="how-section">
       <div class="container">
-        <div class="reveal" style="max-width: 760px; margin: 0 auto;">
+        <div class="how-inner">
           <span class="eyebrow">How It Works</span>
-          <p style="font-size: 1.1rem; line-height: 1.9; color: #4B5563; margin-top: 16px;">This isn't a workshop. It's a structured partnership. We work with your leadership team over months, not hours, moving through each shift in sequence because they build on each other. It starts with a clear diagnosis of where your team actually is — not where they think they are. Then we go deep on each shift through intensive team sessions designed to change real behavior, not just generate insight. Along the way, senior leaders get private coaching to support their individual growth. And we build monthly practices that keep the work alive long after we leave the room.</p>
+          <h2>A structured partnership, not a workshop.</h2>
+          <p style="margin-top: 16px;">We work with your leadership team over months, moving through each shift in sequence because they build on each other. Here's what the engagement looks like:</p>
+          <p style="margin-top: 12px;"><strong style="color: var(--green);">Diagnose.</strong> A clear picture of where your team actually stands. Interviews, assessments, and a baseline that cuts through assumptions.</p>
+          <p><strong style="color: var(--green);">Monthly Intensives.</strong> Team sessions designed to change real behavior. Each session targets a specific shift, in sequence.</p>
+          <p><strong style="color: var(--green);">1:1 Coaching.</strong> Private coaching for senior leaders to support individual growth and reinforce what's happening in the room.</p>
+          <p><strong style="color: var(--green);">Playbook Handoff.</strong> Leadership agreements, decision frameworks, and installed rhythms that keep the work alive long after we leave.</p>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="cta-section" style="background: #123e35;">
-      <div class="container reveal">
+    <section class="cta-section">
+      <div class="container">
         <h2>If your leadership team is ready to stop settling, this is where it starts.</h2>
         <p>We work with a small number of executive teams at a time because this work requires our full attention and yours. If you're serious about changing how your team operates, let's talk.</p>
-        <p style="font-size: 0.85rem; font-weight: 700; color: var(--gold); margin-bottom: 20px;">We work with four teams per quarter.</p>
-        <a href="/contact" class="btn btn--primary">Schedule a 30-Minute Call →</a>
+        <a href="/contact" class="btn btn--primary">Find Out Where Your Team Stands →</a>
       </div>
     </section>
-
-  </div><!-- /bottom-content -->
+  </div>
 
   <!-- FOOTER -->
-  </div>
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
@@ -658,7 +466,7 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; 2025 Scaling Minds LLC. All rights reserved.</p>
+        <p>&copy; 2026 Scaling Minds LLC. All rights reserved.</p>
         <a href="https://www.linkedin.com/in/andy-hite/" target="_blank" aria-label="LinkedIn" class="footer__social">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
@@ -666,352 +474,418 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
   <script>
-  // ======================================================================
-  // SHIFT DATA
-  // ======================================================================
-  var shifts = {
-    trust: {
-      number: 1, name: "Trust", subtitle: "Psychological Safety", icon: "trust.svg",
-      tagline: "100% of the time, the CEO thinks psychological safety is higher than the team reports. Every. Single. Time. That gap is where every problem starts — and nobody's talking about it.",
-      description: "Everything starts here. If your team doesn't feel safe enough to be honest — about what's working, what's failing, and what they really think — nothing else matters. We build the kind of trust where people say what they actually think, admit what they don't know, and stop performing confidence they don't feel.",
-      nextShift: "Without trust, candor becomes aggression. That's why this is always Shift 1.",
-      warning: "Your best people are staying quiet. Your worst decisions are going unchallenged. And you're the last to know."
-    },
-    candor: {
-      number: 2, name: "Candor", subtitle: "Courageous Truth", icon: "candor.svg",
-      tagline: "Your team isn't having the hard conversations in the room. They're having them in the parking lot, on Slack, and over drinks. And those conversations are way less productive. If not destructive.",
-      description: "Candor is saying the hard thing in the moment — not after the meeting, not in a side conversation, not in a carefully worded email two days later. We help teams build the muscle to speak directly, give feedback in real time, and disagree without it turning personal.",
-      nextShift: "Candor without ownership is just venting. Shift 3 turns truth-telling into action.",
-      warning: "Tension goes underground. Resentment builds. Your best leader just updated their LinkedIn — they're not telling you yet."
-    },
-    ownership: {
-      number: 3, name: "Ownership", subtitle: "Shared Accountability", icon: "ownership.svg",
-      tagline: "On most leadership teams, accountability lives with one or two people. Everyone else is waiting — for direction, for permission, for someone else to go first.",
-      description: "Ownership means every leader takes responsibility for the whole company — not just their function. When something breaks, nobody points at another department. They fix it. We help teams move from nodding in meetings to actually owning outcomes.",
-      nextShift: "Once leaders own outcomes, they need the authority to act on them. That's Shift 4.",
-      warning: "The CEO becomes the bottleneck. Every decision flows through one person. Execution depends entirely on their energy — and that's not sustainable."
-    },
-    empowerment: {
-      number: 4, name: "Empowerment", subtitle: "Distributed Leadership", icon: "empowerment.svg",
-      tagline: "Most organizations have an empowerment gap — leaders are told to own outcomes but aren't given the authority to make real decisions. The result: initiative dies quietly.",
-      description: "We help leadership teams push decision-making down — and actually trust the people below them to own outcomes. The goal is an organization where the CEO isn't the single point of failure. Where leaders at every level step up without waiting for permission.",
-      nextShift: "Empowered leaders pulling in different directions is chaos. Shift 5 focuses the energy.",
-      warning: "Your best leaders get frustrated and leave. The rest learn to wait for permission. You hired smart people and turned them into expensive executors."
-    },
-    alignment: {
-      number: 5, name: "Alignment", subtitle: "Strategic Clarity", icon: "alignment.svg",
-      tagline: "Alignment isn't everyone agreeing. Agreement is nodding in a meeting. Alignment is walking out of the room and executing like you mean it — even when it wasn't your first choice.",
-      description: "We help teams get brutally clear about what matters most — and say no to everything else. Real alignment means every leader can articulate the same three priorities without checking a document. It means the team commits publicly, even on decisions they initially opposed.",
-      nextShift: "Aligned leaders become something more than a group. Shift 6 makes the system self-sustaining.",
-      warning: "Too many priorities. Resources spread thin. Six departments, six strategies, zero traction. The organization feels busy but nothing actually moves."
-    },
-    leadership: {
-      number: 6, name: "Collective Leadership", subtitle: "Unified Organization", icon: "leadership.svg",
-      tagline: "This is where it clicks. The team stops being six leaders who happen to meet every week — and starts leading as one unit. The organization feels it immediately.",
-      description: "Collective leadership means the team operates as a single system. Not six departments with a CEO on top. One mission, one set of norms, one way of making decisions — that persists even when the facilitator leaves the room. This is the shift from a collection of leaders to a leadership team that sustains itself.",
-      nextShift: "",
-      warning: "You have a collection of leaders. Not a leadership team. And the organization mirrors exactly what they see at the top."
+  (function() {
+    // Shift data with updated copy (Fiona + Nadia)
+    var shifts = {
+      trust: {
+        number: 1, name: "Trust", subtitle: "Psychological Safety", icon: "trust.svg",
+        tagline: "100% of the time, the CEO thinks psychological safety is higher than the team reports. Every. Single. Time.",
+        description: "Everything starts here. If your team doesn't feel safe enough to be honest about what's working, what's failing, and what they're struggling with, nothing else moves. Strategy sessions become theater. Feedback becomes performance. And here's the pattern I see every time: the CEO thinks trust on the team is solid. The team tells a different story. The first sign of breakdown is silence. People stop pushing back, stop raising concerns, stop telling you what you need to hear. That silence feels like alignment. It's actually self-preservation.",
+        detail: "We build the kind of trust where people say what they actually think, admit what they don't know, and challenge each other without fear of retaliation. The foundation that makes everything else possible.",
+        cost: "Without it: your best people stay quiet, your worst decisions go unchallenged, and you're leading with half the information you need.",
+        nextShift: "Without trust, candor becomes aggression. That's why this is always Shift 1."
+      },
+      candor: {
+        number: 2, name: "Candor", subtitle: "Courageous Truth", icon: "candor.svg",
+        tagline: "Your team's real conversations are happening in the parking lot, on Slack, and over drinks. And those conversations are way less productive. If not destructive.",
+        description: "Trust without candor is just politeness. And polite teams make slow, safe, mediocre decisions. Candor is the willingness to say the hard thing in the moment. In the room. While it still matters. Most leaders tell me they value direct feedback. Then I watch their team meetings and nobody says what they're actually thinking.",
+        detail: "We help teams build the muscle to speak directly, give feedback in real time, and disagree productively. When candor becomes a habit, meetings get shorter, decisions get better, and problems stop festering.",
+        cost: "Without it: problems fester for months, resentment builds quietly, and the team makes safe decisions instead of smart ones. That costs you speed, talent, and eventually trust.",
+        nextShift: "Candor without ownership is just complaining. That's why Shift 3 comes next."
+      },
+      ownership: {
+        number: 3, name: "Ownership", subtitle: "Shared Accountability", icon: "ownership.svg",
+        tagline: "Your most reliable leader might be the most dangerous one on the team. Reliability without initiative is just sophisticated compliance.",
+        description: "On most leadership teams, one or two people carry the weight. Everyone else waits. They wait to be told, defer to the CEO, or quietly let commitments slide between meetings. You end up with a group of individuals who report to the same person, and that's different from a team. The hard part: some of your \"best\" leaders have mastered the appearance of ownership without ever actually taking a risk on behalf of the business. They execute what's asked. They never step into what's needed.",
+        detail: "Ownership means every leader takes responsibility for the whole, not just their function. When something breaks, the response is \"what can I do?\" instead of \"that's not my department.\"",
+        cost: "Without it: decisions stall, commitments slip between meetings, and execution depends on whoever happens to care the most. The business moves at the speed of follow-through, and nobody owns follow-through.",
+        nextShift: "Ownership creates the conditions for empowerment. You can't distribute what nobody owns."
+      },
+      empowerment: {
+        number: 4, name: "Empowerment", subtitle: "Distributed Leadership", icon: "empowerment.svg",
+        tagline: "Everyone on the team agrees they want more ownership. Then a hard call comes up, and everyone looks at the same person.",
+        description: "The intention to empower is everywhere. The follow-through is rare. CEOs tell their leaders to step up, then override them the first time something goes sideways. The message that sends is clear: \"I trust you, unless it matters.\" So the team learns to bring every decision back to you. The short-term cost of a wrong decision feels more real than the long-term cost of a disempowered team. That's the trap. And the longer you stay in it, the more your best leaders stop trying and the rest learn to wait.",
+        detail: "We help leadership teams push decision-making down, trust their people to own outcomes, and build the systems that make distributed leadership sustainable. This requires a behavior change at the top first.",
+        cost: "Without it: your best leaders get frustrated and leave. The rest learn to wait for permission. Your organization can only move as fast as you can personally approve.",
+        nextShift: "Empowerment without alignment creates chaos. That's why clarity comes next."
+      },
+      alignment: {
+        number: 5, name: "Alignment", subtitle: "Strategic Clarity", icon: "alignment.svg",
+        tagline: "Ask each of your leaders to name the top three priorities. If you get six different answers, that's your alignment problem.",
+        description: "Agreement is easy. You can get agreement in any meeting. Heads nod, people say \"makes sense,\" and everyone walks out with a different interpretation of what was decided. Alignment means every leader can walk into a room and make the same decision without checking with you first, because they understand the priorities, the tradeoffs, and the reasoning behind both. Most teams confuse sitting through the same presentation with being aligned. Then they spend months pulling in different directions and wondering why nothing gets finished.",
+        detail: "We help teams get brutally clear about what matters most, say no to everything else, and build the shared context that lets leaders make decisions independently.",
+        cost: "Without it: teams chase too many priorities, resources get spread thin, initiatives compete with each other, and nothing gets done well. Every quarter feels busy and nothing moves forward.",
+        nextShift: "Alignment makes leadership possible. Without it, the team fractures under pressure."
+      },
+      leadership: {
+        number: 6, name: "Leadership", subtitle: "Coaching It Through the Organization", icon: "leadership.svg",
+        tagline: "The work doesn't live in the executive suite. It moves through every level of the organization, carried by the leaders who learned it first.",
+        description: "This is where the first five shifts stop being something the executive team practices and become something the organization runs on. The leadership team doesn't just embody trust, candor, ownership, empowerment, and alignment. They coach it into their direct reports. Those leaders carry it to their teams. The shifts become the operating language of the whole company. Most leaders believe culture is set at the top and trickles down on its own. It doesn't. Culture spreads through deliberate, repeated coaching conversations at every level. That's what this shift installs.",
+        detail: "The executive team becomes a coaching body for the organization. Shared language, shared standards, shared accountability for how people lead at every level. Culture stops being a poster on the wall and becomes how decisions get made three levels down.",
+        cost: "Without it: the shifts stay locked in one room. The executive team operates differently than the rest of the organization, and everyone below them notices the gap. When the engagement ends, the old patterns creep back.",
+        nextShift: ""
+      }
+    };
+
+    var shiftOrder = ['trust','candor','ownership','empowerment','alignment','leadership'];
+    var grid = document.getElementById('hexGrid');
+    var hexItems = grid.querySelectorAll('.hex-item[data-shift]');
+    var centerPiece = document.getElementById('hexCenter');
+    var detailCard = document.getElementById('shiftDetail');
+    var progressTracker = document.getElementById('progressTracker');
+    var bottomContent = document.getElementById('bottomContent');
+    var selfDiagnosis = document.getElementById('selfDiagnosis');
+    var explored = {};
+    var isExploded = false;
+    var currentShift = null;
+    var halfHex = 77.5;
+
+    // Store original honeycomb positions (from CSS classes, safe to read immediately)
+    var honeycombPositions = {};
+    hexItems.forEach(function(el) {
+      var key = el.getAttribute('data-shift');
+      honeycombPositions[key] = {
+        left: el.offsetLeft,
+        top: el.offsetTop
+      };
+    });
+
+    // Entrance animation (after positions captured)
+    setTimeout(function() {
+      hexItems.forEach(function(el) { el.classList.add('visible'); });
+      centerPiece.classList.add('visible');
+      // Show click prompt after hexes finish entering
+      setTimeout(function() {
+        var clickPrompt = document.getElementById('clickPrompt');
+        if (clickPrompt) clickPrompt.classList.add('visible');
+      }, 1400);
+    }, 300);
+
+    // Animation engine v5 — curved arc, constant speed
+    //
+    // Quadratic bezier curve with arc-length parameterization.
+    // Each hex flies up in an arc then sweeps down into its row position.
+    // Constant speed along the curve. No slow starts, no zipping.
+
+    function animateHex(el, fromX, fromY, toX, toY, duration, done) {
+      // Force-kill ANY css transition on this element
+      el.classList.add('animating');
+      el.style.transition = 'none';
+      el.style.webkitTransition = 'none';
+      void el.offsetWidth;
+
+      // Control point: above and between start/end, pulling the path into an arc.
+      // Arc rises 120px above whichever endpoint is higher.
+      var cpX = (fromX + toX) * 0.5;
+      var cpY = Math.min(fromY, toY) - 120;
+
+      // Sample the bezier into 200 points and build a cumulative length table
+      var N = 200;
+      var pts = [];
+      var lens = [0];
+      for (var i = 0; i <= N; i++) {
+        var t = i / N;
+        var u = 1 - t;
+        var px = u * u * fromX + 2 * u * t * cpX + t * t * toX;
+        var py = u * u * fromY + 2 * u * t * cpY + t * t * toY;
+        pts.push({ x: px, y: py });
+        if (i > 0) {
+          var dx = px - pts[i - 1].x;
+          var dy = py - pts[i - 1].y;
+          lens.push(lens[i - 1] + Math.sqrt(dx * dx + dy * dy));
+        }
+      }
+      var totalLen = lens[N];
+
+      // Given a distance along the curve, find the x,y position
+      function posAt(d) {
+        var lo = 0, hi = N;
+        while (lo < hi - 1) {
+          var m = (lo + hi) >> 1;
+          if (lens[m] <= d) lo = m; else hi = m;
+        }
+        var seg = lens[hi] - lens[lo];
+        var f = seg > 0 ? (d - lens[lo]) / seg : 0;
+        return {
+          x: pts[lo].x + (pts[hi].x - pts[lo].x) * f,
+          y: pts[lo].y + (pts[hi].y - pts[lo].y) * f
+        };
+      }
+
+      var startTime = performance.now();
+
+      function tick(now) {
+        var elapsed = now - startTime;
+        var progress = Math.min(elapsed / duration, 1);
+
+        // Linear progress in time = constant speed along the curve
+        var pos = posAt(progress * totalLen);
+        el.style.left = pos.x + 'px';
+        el.style.top = pos.y + 'px';
+
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          el.style.left = toX + 'px';
+          el.style.top = toY + 'px';
+          if (done) done();
+        }
+      }
+
+      requestAnimationFrame(tick);
     }
-  };
 
-  var diagnosisResponses = {
-    trust: "Trust gaps don't close on their own. They widen. Every month you wait, your best people are recalculating whether to stay. The CEO always thinks trust is higher than the team reports — and that blind spot is costing you decisions, speed, and talent right now.",
-    candor: "If candor is the issue, your team is having the real conversations everywhere except where it matters — parking lots, Slack DMs, after-hours drinks. That tension compounds. And the longer it stays underground, the more expensive the eventual explosion.",
-    ownership: "When ownership is the gap, everything flows through the CEO. That bottleneck gets worse as you grow — not better. You're one bad quarter away from burnout or a key departure. The shift from passive agreement to active ownership changes everything.",
-    empowerment: "Empowerment breaks down when leaders say they want initiative but the system punishes risk. Your best people learn the lesson fast: wait for permission. That's not a leadership team — it's an expensive group of executors.",
-    alignment: "Alignment issues feel like execution problems, but they're really clarity problems. When six leaders walk out of a meeting with six different priorities, the organization doesn't just slow down — it pulls itself apart.",
-    leadership: "If the whole team dynamic feels off, it usually means the first five shifts need work. Collective leadership is the outcome, not the starting point. But here's what matters: the fact that you can name it means you're closer than most."
-  };
+    // Calculate row positions based on container width
+    function getRowPositions() {
+      var hero = document.querySelector('.ss-hero');
+      var heroW = hero ? hero.offsetWidth : 1200;
+      var w = Math.min(1200, heroW - 48);
+      var n = shiftOrder.length;
 
-  var shiftOrder = ['trust', 'candor', 'ownership', 'empowerment', 'alignment', 'leadership'];
-  var shiftKeys = { trust: 0, candor: 1, ownership: 2, empowerment: 3, alignment: 4, leadership: 5 };
-  var visited = new Set();
-  var activeShift = null;
-  var exploded = false;
+      // Narrow screens: 2 rows of 3
+      if (w < 560) {
+        var cols = 3;
+        var edgePad = halfHex * 0.65;
+        var colSpacing = (w - 2 * edgePad) / (cols - 1);
+        var rowSpacing = 140;
+        var positions = [];
+        for (var i = 0; i < n; i++) {
+          var row = Math.floor(i / cols);
+          var col = i % cols;
+          positions.push({
+            left: edgePad + col * colSpacing - halfHex,
+            top: 20 + row * rowSpacing
+          });
+        }
+        return positions;
+      }
 
-  // Honeycomb positions (matching CSS classes)
-  var honeycombPos = [
-    { left: 172, top: 0 },    // trust (hex-pos-top)
-    { left: 302, top: 78 },   // candor (hex-pos-tr)
-    { left: 302, top: 228 },  // ownership (hex-pos-br)
-    { left: 172, top: 306 },  // empowerment (hex-pos-bottom)
-    { left: 42,  top: 228 },  // alignment (hex-pos-bl)
-    { left: 42,  top: 78 }    // leadership (hex-pos-tl)
-  ];
-
-  // ======================================================================
-  // ANIMATION MATH
-  // ======================================================================
-  function cubicBezier(t, p0, p1, p2, p3) {
-    var u = 1 - t;
-    return u*u*u*p0 + 3*u*u*t*p1 + 3*u*t*t*p2 + t*t*t*p3;
-  }
-
-  function easeInOutQuart(t) {
-    return t < 0.5 ? 8*t*t*t*t : 1 - Math.pow(-2*t + 2, 4) / 2;
-  }
-
-  function animatePiece(el, fx, fy, tx, ty, c1x, c1y, c2x, c2y, dur, done) {
-    var start = null;
-    function tick(ts) {
-      if (!start) start = ts;
-      var raw = Math.min((ts - start) / dur, 1);
-      var t = easeInOutQuart(raw);
-      el.style.left = cubicBezier(t, fx, c1x, c2x, tx) + 'px';
-      el.style.top = cubicBezier(t, fy, c1y, c2y, ty) + 'px';
-      if (raw < 1) requestAnimationFrame(tick);
-      else { el.style.left = tx + 'px'; el.style.top = ty + 'px'; if (done) done(); }
-    }
-    requestAnimationFrame(tick);
-  }
-
-  // ======================================================================
-  // ROW POSITIONS
-  // ======================================================================
-  function getRowPositions() {
-    // Compute target width directly — don't read offsetWidth during animation
-    var hero = document.querySelector('.ss-hero');
-    var heroW = hero ? hero.offsetWidth : 1200;
-    var w = Math.min(1200, heroW - 48); // 1200px max, minus hero padding
-    var n = 6;
-    var halfHex = 77.5; // 155 / 2
-
-    // Narrow screens: 2 rows of 3
-    if (w < 560) {
-      var cols = 3;
-      var edgePad = halfHex * 0.65;
-      var colSpacing = (w - 2 * edgePad) / (cols - 1);
-      var rowSpacing = 140;
+      // Desktop: single row of 6
+      var edgePad = halfHex;
+      var spacing = (w - 2 * edgePad) / (n - 1);
       var positions = [];
       for (var i = 0; i < n; i++) {
-        var row = Math.floor(i / cols);
-        var col = i % cols;
         positions.push({
-          left: Math.round(edgePad + col * colSpacing - halfHex),
-          top: 10 + row * rowSpacing
+          left: (heroW - w) / 2 + edgePad + i * spacing - halfHex,
+          top: 30
         });
       }
       return positions;
     }
 
-    // Desktop: single row of 6
-    var edgePad = halfHex;
-    var spacing = (w - 2 * edgePad) / (n - 1);
-    var minSpacing = 112;
-    if (spacing < minSpacing) spacing = minSpacing;
-
-    var positions = [];
-    for (var i = 0; i < n; i++) {
-      positions.push({
-        left: Math.round(edgePad + i * spacing - halfHex),
-        top: 20
-      });
-    }
-    return positions;
-  }
-
-  // ======================================================================
-  // EXPLODE ANIMATION
-  // ======================================================================
-  function explode(clickedKey) {
-    if (exploded) return;
-    exploded = true;
-
-    var grid = document.getElementById('hexGrid');
-    var hexItems = document.querySelectorAll('.hex-item');
-
-    // Snapshot current positions before CSS changes
-    var startPos = [];
-    hexItems.forEach(function(el, i) {
-      startPos.push({ left: honeycombPos[i].left, top: honeycombPos[i].top });
-    });
-
-    // Switch each hex to inline positioning (remove CSS class positions)
-    hexItems.forEach(function(el, i) {
-      el.style.left = honeycombPos[i].left + 'px';
-      el.style.top = honeycombPos[i].top + 'px';
-      el.className = el.className.replace(/hex-pos-\w+/g, '').trim();
-    });
-
-    // Mark grid as exploded (triggers CSS width/height change)
-    grid.classList.add('exploded');
-
-    // Wait one frame for the grid to resize, then compute row targets
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        var rowPos = getRowPositions();
-
-        var completed = 0;
-        hexItems.forEach(function(el, i) {
-          var fx = startPos[i].left;
-          var fy = startPos[i].top;
-          var tx = rowPos[i].left;
-          var ty = rowPos[i].top;
-
-          // Control points: arc upward for a nice curved path
-          var c1x = fx + (tx - fx) * 0.3;
-          var c1y = fy - 70 - Math.random() * 30;
-          var c2x = fx + (tx - fx) * 0.7;
-          var c2y = ty - 40 - Math.random() * 20;
-
-          animatePiece(el, fx, fy, tx, ty, c1x, c1y, c2x, c2y, 850 + i * 70, function() {
-            completed++;
-            if (completed === 6) {
-              addNumberLabels(rowPos);
-              showShift(clickedKey);
-            }
-          });
-        });
-      });
-    });
-  }
-
-  // ======================================================================
-  // NUMBER LABELS (under each hex in row)
-  // ======================================================================
-  function addNumberLabels(positions) {
-    var grid = document.getElementById('hexGrid');
-    var isMobile = window.innerWidth <= 600;
-    var hexScale = isMobile ? 0.6 : 0.85;
-
-    for (var i = 0; i < 6; i++) {
+    // Create number labels
+    var numberLabels = [];
+    shiftOrder.forEach(function(key, i) {
       var label = document.createElement('div');
-      label.className = 'shift-number-label';
+      label.className = 'hex-number';
       label.textContent = 'Shift ' + (i + 1);
-      label.style.left = (positions[i].left + 77.5) + 'px';
-      label.style.top = (positions[i].top + 77.5 + 77.5 * hexScale + 14) + 'px';
-      label.style.transform = 'translateX(-50%)';
-      label.style.opacity = '0';
       grid.appendChild(label);
+      numberLabels.push(label);
+    });
 
-      (function(lbl, delay) {
-        setTimeout(function() {
-          lbl.style.transition = 'opacity 0.4s ease';
-          lbl.style.opacity = '1';
-        }, delay);
-      })(label, i * 60);
+    function positionNumberLabels() {
+      if (!isExploded) return;
+      var positions = getRowPositions();
+      var hexScale = window.innerWidth < 600 ? 0.6 : 0.85;
+      shiftOrder.forEach(function(key, i) {
+        var pos = positions[i];
+        numberLabels[i].style.left = pos.left + 'px';
+        numberLabels[i].style.top = (pos.top + halfHex + halfHex * hexScale + 14) + 'px';
+      });
     }
-  }
 
-  // ======================================================================
-  // INIT
-  // ======================================================================
-  document.addEventListener('DOMContentLoaded', function() {
-    var hexItems = document.querySelectorAll('.hex-item');
-    var hexCenter = document.getElementById('hexCenter');
-    var grid = document.getElementById('hexGrid');
+    // Explode honeycomb into row
+    function explodeToRow(clickedKey) {
+      if (isExploded) return;
+      isExploded = true;
 
-    // Entrance animation
-    setTimeout(function() {
-      hexItems.forEach(function(el) { el.classList.add('visible'); });
-      hexCenter.classList.add('visible');
-      setTimeout(function() { grid.classList.add('loaded'); }, 800);
-    }, 300);
+      // Hide click prompt
+      var clickPrompt = document.getElementById('clickPrompt');
+      if (clickPrompt) clickPrompt.style.opacity = '0';
 
-    // Build progress dots
-    var dotsContainer = document.getElementById('progressDots');
-    shiftOrder.forEach(function(key) {
-      var d = document.createElement('div');
-      d.className = 'progress-dot';
-      d.dataset.shift = key;
-      dotsContainer.appendChild(d);
-    });
+      // Fade out center piece
+      centerPiece.style.opacity = '0';
+      centerPiece.style.transform = 'scale(0)';
+      centerPiece.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
 
-    // Build diagnosis buttons
-    var diagOpts = document.getElementById('diagnosisOptions');
-    shiftOrder.forEach(function(key) {
-      var btn = document.createElement('button');
-      btn.className = 'diagnosis-btn';
-      btn.textContent = shifts[key].name;
-      btn.onclick = function() {
-        var result = document.getElementById('diagnosisResult');
-        document.getElementById('diagnosisText').textContent = diagnosisResponses[key];
-        result.classList.add('visible');
-        result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      };
-      diagOpts.appendChild(btn);
-    });
+      // ---------------------------------------------------------------
+      // FIX: The honeycomb lives in a 500px centered grid, but the row
+      // positions are calculated for a full-width grid. We need BOTH
+      // sets of coordinates in the SAME space. So:
+      //   1. Snapshot where each hex is on screen RIGHT NOW (absolute px)
+      //   2. Expand the grid to full width
+      //   3. Calculate where each hex needs to END UP (in the now-wider grid)
+      //   4. Convert the "before" screen positions into the new grid's coords
+      //   5. Animate from old → new, all in the same coordinate system
+      // ---------------------------------------------------------------
 
-    // Click handler — first click triggers explode, subsequent clicks show shift
-    hexItems.forEach(function(hex) {
-      hex.addEventListener('click', function(e) {
-        e.stopPropagation();
-        var key = hex.dataset.shift;
-        if (!exploded) {
-          explode(key);
+      // Step 1: Where is each hex on screen right now?
+      var gridRect = grid.getBoundingClientRect();
+      var screenPositions = {};
+      hexItems.forEach(function(el) {
+        var r = el.getBoundingClientRect();
+        screenPositions[el.getAttribute('data-shift')] = {
+          screenLeft: r.left,
+          screenTop: r.top
+        };
+      });
+
+      // Step 2: Kill transitions and expand grid to full width NOW
+      hexItems.forEach(function(el) {
+        el.classList.add('animating');
+        el.style.transition = 'none';
+        el.style.webkitTransition = 'none';
+      });
+      grid.classList.add('exploded');
+      void grid.offsetWidth; // force reflow so grid is full-width
+
+      // Step 3: Where should each hex end up? (row positions in the new grid)
+      var toPositions = getRowPositions();
+
+      // Step 4: Where is the grid NOW on screen? Convert old screen positions
+      // into the new grid's coordinate system
+      var newGridRect = grid.getBoundingClientRect();
+      var fromPositions = {};
+      hexItems.forEach(function(el) {
+        var key = el.getAttribute('data-shift');
+        var sp = screenPositions[key];
+        fromPositions[key] = {
+          left: sp.screenLeft - newGridRect.left,
+          top: sp.screenTop - newGridRect.top
+        };
+        // Place hex at its old visual position within the new grid
+        el.style.left = fromPositions[key].left + 'px';
+        el.style.top = fromPositions[key].top + 'px';
+      });
+      void grid.offsetWidth; // force reflow
+
+      // Step 5: Animate from old position → row position (same coord system!)
+      var staggerDelay = 150;
+      var completed = 0;
+      var SPEED = 0.6; // px per ms
+      var MIN_DUR = 400;
+      var MAX_DUR = 1000;
+
+      shiftOrder.forEach(function(key, idx) {
+        var el = null;
+        hexItems.forEach(function(h) {
+          if (h.getAttribute('data-shift') === key) el = h;
+        });
+        if (!el) return;
+
+        var from = fromPositions[key];
+        var to = toPositions[idx];
+
+        var dx = to.left - from.left;
+        var dy = to.top - from.top;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        var dur = Math.max(MIN_DUR, Math.min(MAX_DUR, dist / SPEED));
+
+        setTimeout(function() {
+          animateHex(el,
+            from.left, from.top,
+            to.left, to.top,
+            dur,
+            function() {
+              completed++;
+              if (completed === shiftOrder.length) {
+                positionNumberLabels();
+                progressTracker.classList.add('visible');
+                bottomContent.classList.add('revealed');
+              }
+            }
+          );
+        }, idx * staggerDelay);
+      });
+    }
+
+    // Show shift detail
+    function showShift(key) {
+      var shift = shifts[key];
+      if (!shift) return;
+
+      // Track explored
+      explored[key] = true;
+      var exploredCount = Object.keys(explored).length;
+
+      // Update progress dots
+      var dots = document.querySelectorAll('.progress-dot');
+      dots.forEach(function(dot, i) {
+        if (explored[shiftOrder[i]]) dot.classList.add('filled');
+      });
+      if (exploredCount > 0) document.getElementById('progLabelStart').classList.add('active');
+      if (exploredCount >= 6) document.getElementById('progLabelEnd').classList.add('active');
+
+      // Update active hex
+      hexItems.forEach(function(el) { el.classList.remove('active'); });
+      hexItems.forEach(function(el) {
+        if (el.getAttribute('data-shift') === key) el.classList.add('active');
+      });
+      currentShift = key;
+
+      // Build detail HTML
+      var html = '<div class="shift-detail-inner">' +
+        '<div class="shift-detail-icon"><img src="' + shift.icon + '" alt="' + shift.name + '"></div>' +
+        '<div class="shift-detail-content">' +
+          '<span class="eyebrow">Shift 0' + shift.number + '</span>' +
+          '<h2>' + shift.name + ': ' + shift.subtitle + '</h2>' +
+          '<p>' + shift.description + '</p>' +
+          '<p>' + shift.detail + '</p>' +
+          '<div class="shift-cost">' + shift.cost + '</div>' +
+          (shift.nextShift ? '<div class="shift-next">' + shift.nextShift + '</div>' : '') +
+        '</div></div>';
+
+      var alreadyVisible = detailCard.classList.contains('visible');
+
+      if (alreadyVisible) {
+        // Swap content without collapsing
+        detailCard.innerHTML = html;
+      } else {
+        detailCard.innerHTML = html;
+        requestAnimationFrame(function() {
+          detailCard.classList.add('visible');
+          detailCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+      }
+
+      // Show self-diagnosis after all 6 explored
+      if (exploredCount >= 6) {
+        selfDiagnosis.classList.add('visible');
+      }
+    }
+
+    // Click handler for hexes
+    hexItems.forEach(function(el) {
+      el.addEventListener('click', function() {
+        var key = el.getAttribute('data-shift');
+        if (!isExploded) {
+          explodeToRow(key);
+          setTimeout(function() { showShift(key); }, 1600);
         } else {
           showShift(key);
         }
       });
     });
-  });
 
-  // ======================================================================
-  // SHOW SHIFT
-  // ======================================================================
-  function showShift(key) {
-    var s = shifts[key];
-
-    // Update active hex — scale it up
-    document.querySelectorAll('.hex-item').forEach(function(el) {
-      el.classList.remove('active');
+    // Reposition on resize
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        if (!isExploded) return;
+        var positions = getRowPositions();
+        hexItems.forEach(function(el) {
+          var key = el.getAttribute('data-shift');
+          var idx = shiftOrder.indexOf(key);
+          el.style.left = positions[idx].left + 'px';
+          el.style.top = positions[idx].top + 'px';
+        });
+        positionNumberLabels();
+      }, 100);
     });
-    var hexItems = document.querySelectorAll('.hex-item');
-    var idx = shiftKeys[key];
-    hexItems[idx].classList.add('active');
-    activeShift = key;
 
-    // Track visited
-    visited.add(key);
-    document.querySelectorAll('.progress-dot').forEach(function(d) {
-      if (visited.has(d.dataset.shift)) d.classList.add('filled');
-    });
-    document.getElementById('progressCount').textContent = visited.size + ' / 6';
-    document.getElementById('progressSection').classList.add('visible');
-
-    // Show diagnosis after all 6
-    if (visited.size === 6) {
-      document.getElementById('diagnosisSection').classList.add('visible');
-    }
-
-    // Reveal bottom content on first click
-    document.getElementById('bottomContent').classList.add('revealed');
-
-    // Build detail card
-    var card = document.getElementById('detailCard');
-    var alreadyVisible = card.classList.contains('visible');
-    var nextHtml = s.nextShift ? '<div class="next-shift">' + s.nextShift + '</div>' : '';
-
-    var html =
-      '<div class="detail-top">' +
-        '<img class="shift-svg" src="' + s.icon + '" alt="' + s.name + '">' +
-        '<div class="shift-info">' +
-          '<span class="shift-number-badge">Shift ' + String(s.number).padStart(2, '0') + '</span>' +
-          '<h2>' + s.name + '</h2>' +
-          '<div class="shift-subtitle">' + s.subtitle + '</div>' +
-          '<p class="tagline">' + s.tagline + '</p>' +
-        '</div>' +
-      '</div>' +
-      '<div class="detail-body">' +
-        '<p class="description">' + s.description + '</p>' +
-        nextHtml +
-        '<div class="warning"><strong>Without it:</strong> ' + s.warning + '</div>' +
-      '</div>';
-
-    if (alreadyVisible) {
-      // Swap content in place — no collapse/expand, no scroll jump
-      card.innerHTML = html;
-    } else {
-      // First time: animate in and scroll to it
-      card.innerHTML = html;
-      requestAnimationFrame(function() {
-        card.classList.add('visible');
-        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      });
-    }
-  }
+  })();
   </script>
 </body>
 </html>
