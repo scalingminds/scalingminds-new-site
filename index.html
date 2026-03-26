@@ -3,189 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Executive Coaching Results & Testimonials | Scaling Minds</title>
-  <meta name="description" content="Real results from CEOs, executive teams, and senior leaders who have worked with Andy Hite and Scaling Minds. See what changes when leadership teams commit to doing the actual work.">
-  <meta property="og:title" content="Client Results | Scaling Minds">
-  <meta property="og:description" content="Real results from real leaders. See what happens when executive teams commit to trust, candor, and shared accountability.">
+  <title>Executive Team Coaching Chicago | Scaling Minds</title>
+  <meta name="description" content="Scaling Minds provides executive team coaching and leadership development for CEOs and their teams in Chicago and across the US. When your leadership team is ready to operate differently, this is where it starts.">
+  <meta property="og:title" content="Scaling Minds | Executive Team Coaching &amp; Leadership Development">
+  <meta property="og:description" content="We work with executive teams and senior leaders to build the trust, accountability, and honest conversations that turn good leadership into real performance.">
   <meta property="og:image" content="https://scalingminds.com/og-image.png">
-  <meta property="og:url" content="https://scalingminds.com/client-results">
+  <meta property="og:url" content="https://scalingminds.com">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-
-    /* HERO */
-    .results-hero {
-      background: #123e35;
-      padding: 140px 24px 80px;
-      text-align: center;
-    }
-    .results-hero h1 {
-      color: var(--white);
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 24px;
-      line-height: 1.2;
-    }
-    .results-hero p {
-      max-width: 680px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      line-height: 1.85;
-      color: rgba(255,255,255,0.65);
-    }
-
-    /* RIVER SECTION */
-    .river-section {
-      padding: 80px 0;
-      background: var(--white);
-    }
-    .river-item {
-      padding: 48px 24px;
-      border-bottom: 1px solid #E5E7EB;
-      max-width: 900px;
-      margin: 0 auto;
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .river-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .river-item:last-child { border-bottom: none; }
-    .river-item--left { text-align: left; padding-left: 48px; }
-    .river-item--right { text-align: right; padding-right: 48px; }
-    .river-item--center { text-align: center; }
-
-    .river-quote {
-      font-family: 'Libre Baskerville', Georgia, serif;
-      font-style: italic;
-      color: #123e35;
-      line-height: 1.4;
-      margin: 0 0 16px;
-    }
-    .river-quote--xl { font-size: clamp(1.8rem, 4vw, 3rem); }
-    .river-quote--lg { font-size: clamp(1.4rem, 3vw, 2.2rem); }
-    .river-quote--md { font-size: clamp(1.2rem, 2.5vw, 1.7rem); }
-
-    .river-attr {
-      font-size: 0.82rem;
-      color: var(--gray);
-      letter-spacing: 0.04em;
-    }
-    .river-attr span {
-      color: var(--gold);
-      font-weight: 600;
-    }
-
-    /* TRANSITION INTO CARDS */
-    .cards-intro {
-      background: #123e35;
-      padding: 56px 24px;
-      text-align: center;
-    }
-    .cards-intro p {
-      color: rgba(255,255,255,0.65);
-      font-size: 1.05rem;
-      max-width: 560px;
-      margin: 0 auto;
-      line-height: 1.8;
-    }
-
-    /* MASONRY GRID */
-    .masonry-section {
-      background: var(--cream-light);
-      padding: 80px 0;
-    }
-    .masonry-grid {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 24px;
-      columns: 3;
-      column-gap: 24px;
-    }
-    .quote-card {
-      background: var(--white);
-      border-radius: 10px;
-      padding: 32px 28px;
-      border: 1px solid #E5E7EB;
-      break-inside: avoid;
-      margin-bottom: 24px;
-      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      position: relative;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .quote-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .quote-card:hover {
-      box-shadow: 0 16px 40px rgba(0,0,0,0.07);
-      border-color: var(--gold);
-    }
-    .quote-card::before {
-      content: '\201C';
-      font-size: 3rem;
-      font-family: Georgia, serif;
-      color: var(--gold);
-      opacity: 0.2;
-      line-height: 1;
-      display: block;
-      margin-bottom: 4px;
-    }
-    .quote-card__text {
-      font-size: 0.96rem;
-      line-height: 1.85;
-      color: #4B5563;
-      font-style: italic;
-      margin-bottom: 18px;
-    }
-    .quote-card__name { font-weight: 700; color: #123e35; font-size: 0.88rem; }
-    .quote-card__role { color: var(--gray); font-size: 0.8rem; margin-top: 2px; }
-
-    /* PRE-CTA */
-    .pre-cta-quote {
-      padding: 80px 24px;
-      text-align: center;
-      background: var(--white);
-    }
-    .pre-cta-quote__text {
-      font-family: 'Libre Baskerville', Georgia, serif;
-      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-      font-style: italic;
-      color: #123e35;
-      max-width: 640px;
-      margin: 0 auto 20px;
-      line-height: 1.6;
-    }
-    .pre-cta-quote__name { font-weight: 700; color: #123e35; font-size: 0.9rem; }
-    .pre-cta-quote__role { color: var(--gray); font-size: 0.82rem; margin-top: 4px; }
-
-    /* CTA */
-    .results-cta {
-      background: #123e35;
-      padding: 80px 24px;
-      text-align: center;
-    }
-    .results-cta h2 { color: var(--white); max-width: 600px; margin: 0 auto 16px; }
-    .results-cta p { color: rgba(255,255,255,0.6); font-size: 1.05rem; margin-bottom: 28px; }
-
-    @media (max-width: 1024px) { .masonry-grid { columns: 2; } }
-    @media (max-width: 768px) {
-      .river-item--left, .river-item--right { text-align: left; padding-left: 24px; padding-right: 24px; }
-    }
-    @media (max-width: 640px) {
-      .masonry-grid { columns: 1; }
-      .river-item { padding: 36px 24px; }
-    }
-  </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3Z835JNMP"></script>
   <script>
@@ -197,6 +32,7 @@
 </head>
 <body>
 
+  <!-- ========== NAVIGATION ========== -->
   <nav class="nav">
     <div class="nav__inner">
       <a href="/" class="nav__logo" style="display: flex; align-items: center; gap: 10px;">
@@ -211,212 +47,281 @@
         <li><a href="https://portal.scalingminds.com" target="_blank" style="font-size: 0.85rem; opacity: 0.7;">Client Login</a></li>
         <li><a href="/contact" class="nav__cta">Start Here</a></li>
       </ul>
-      <button class="nav__toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      <button class="nav__toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
   <div class="page-transition">
 
-  <!-- HERO -->
-  <section class="results-hero">
-    <div class="reveal">
-      <span class="eyebrow" style="color: var(--gold);">Client Results</span>
-      <h1>The work speaks for itself.<br>So do the people who've done it.</h1>
-      <p>Every engagement we take on looks different — different team, different industry, different set of problems nobody wants to name out loud. But the pattern underneath is almost always the same: leaders who are good enough to know something isn't working and honest enough to do something about it. Here's what they have to say about what happened next.</p>
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__content reveal">
+        <h1>You're doing the work.<br><em class="highlight-draw">Something's still not working.</em></h1>
+        <p class="hero__lead">Maybe it's your leadership team. Maybe it's you. Probably both.</p>
+        <p class="hero__sub">We work with executive teams and senior leaders to build the trust, accountability, and honest conversations that turn good leadership into real performance.</p>
+        <div class="hero__actions">
+          <a href="/contact" class="btn btn--primary">Start the Conversation</a>
+          <a href="/six-shifts" class="btn btn--ghost">Explore The Six Shifts™ →</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- RIVER -->
-  <section class="river-section">
-
-    <div class="river-item river-item--left">
-      <p class="river-quote river-quote--xl">"Incredibly impactful for our entire organization."</p>
-      <p class="river-attr"><span>Scurry Miller</span> — President & CEO, Children's Home Association of Illinois</p>
+  <!-- ========== SERVICE BAR ========== -->
+  <div class="service-bar">
+    <div class="container">
+      <div class="service-bar__grid">
+        <div class="service-bar__item">
+          <span class="service-bar__label">Executive Teams</span>
+          <span class="service-bar__desc">Team alignment, trust & accountability</span>
+        </div>
+        <div class="service-bar__item">
+          <span class="service-bar__label">Individual Leaders</span>
+          <span class="service-bar__desc">1:1 coaching for high-stakes leadership</span>
+        </div>
+        <div class="service-bar__item">
+          <span class="service-bar__label">Events & Retreats</span>
+          <span class="service-bar__desc">Speaking, offsites & facilitation</span>
+        </div>
+      </div>
     </div>
-
-    <div class="river-item river-item--right">
-      <p class="river-quote river-quote--lg">"He is the catalyst not the cause."</p>
-      <p class="river-attr"><span>Dr. S. Sowinski</span> — Director of HAPA, City Schools of Hammond</p>
-    </div>
-
-    <div class="river-item river-item--left">
-      <p class="river-quote river-quote--md">"Years passed. I kept tripping over the same problems. Then I met Andy."</p>
-      <p class="river-attr"><span>Matthew J.</span> — Task Insurance Group</p>
-    </div>
-
-    <div class="river-item river-item--center">
-      <p class="river-quote river-quote--xl">"From no profit to a net profit of over 20%."</p>
-      <p class="river-attr"><span>Matt Kuehlhorn</span> — CEO, Kooler Garage Doors</p>
-    </div>
-
-    <div class="river-item river-item--right">
-      <p class="river-quote river-quote--md">"I've worked with coaches and therapists before. I didn't change. With Andy, I did."</p>
-      <p class="river-attr"><span>CEO</span> — $1B Utilities Company</p>
-    </div>
-
-    <div class="river-item river-item--left">
-      <p class="river-quote river-quote--lg">"The same challenges had been showing up for 15 years. Not anymore."</p>
-      <p class="river-attr"><span>Debra Giunta</span> — CEO, The Brainchild Collective</p>
-    </div>
-
-    <div class="river-item river-item--right">
-      <p class="river-quote river-quote--md">"He works at the intersection of the business and the person running it."</p>
-      <p class="river-attr"><span>Founder & CEO</span> — Professional Services</p>
-    </div>
-
-    <div class="river-item river-item--center">
-      <p class="river-quote river-quote--lg">"Investing in myself wasn't an easy decision. Choosing Andy was."</p>
-      <p class="river-attr"><span>Sandra S.</span> — VP of Business Development</p>
-    </div>
-
-  </section>
-
-  <!-- TRANSITION -->
-  <div class="cards-intro">
-    <p>More voices from leaders and teams across industries, roles, and starting points.</p>
   </div>
 
-  <!-- MASONRY GRID -->
-  <section class="masonry-section">
-    <div class="masonry-grid" id="masonry-grid">
-
-      <!-- ROW 1: Credibility anchors -->
-      <div class="quote-card">
-        <p class="quote-card__text">"Andy Hite with Scaling Minds has done truly outstanding work with me personally in my role as CEO, as well as with our broader C-Suite leadership team at Children's Home. His ability to challenge, clarify, and elevate leadership thinking — while staying grounded in real-world organizational dynamics — has been incredibly impactful for our organization."</p>
-        <div class="quote-card__name">Scurry Miller</div>
-        <div class="quote-card__role">President & CEO, Children's Home Association of Illinois</div>
+  <!-- ========== FEATURED TESTIMONIAL ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="testimonial-featured reveal" style="text-align: center;">
+        <div id="typewriter-wrap" style="min-height: 60px; margin-bottom: 24px;">
+          <p id="typewriter" style="font-size: clamp(1.4rem, 3vw, 2rem); font-style: italic; color: var(--gold); font-weight: 600; line-height: 1.4;"></p>
+          <span id="typewriter-cursor" style="display: inline-block; width: 2px; height: 1.2em; background: var(--gold); margin-left: 2px; animation: blink 0.7s infinite; vertical-align: text-bottom;"></span>
+        </div>
+        <div id="typewriter-full" style="opacity: 0; transform: translateY(12px); transition: all 0.8s ease;">
+          <blockquote>
+            <p>"Andy Hite with Scaling Minds has done truly outstanding work with me personally in my role as CEO, as well as with our broader C-Suite leadership team at Children's Home. His ability to challenge, clarify, and elevate leadership thinking — while staying grounded in real-world organizational dynamics — has been incredibly impactful for our organization."</p>
+          </blockquote>
+          <div class="testimonial-featured__author">
+            <strong>Scurry Miller</strong>
+            <span>President & CEO, Children's Home Association of Illinois</span>
+          </div>
+        </div>
       </div>
-
-      <div class="quote-card">
-        <p class="quote-card__text">"Andy has partnered closely with us to strengthen communication, deepen trust, enhance collaboration, and improve overall team cohesion — ultimately positioning us to operate as a higher-performing leadership group."</p>
-        <div class="quote-card__name">Robert Tucker</div>
-        <div class="quote-card__role">President, Chicago Community Loan Fund</div>
-      </div>
-
-      <div class="quote-card">
-        <p class="quote-card__text">"Through Andy's coaching, my life has been transformed in such a positive and impactful way. I can't say enough about how beautifully and profoundly my life — both professionally and personally — has been transformed. I would have paid twice as much."</p>
-        <div class="quote-card__name">Sarah D.</div>
-        <div class="quote-card__role">Director, PwC</div>
-      </div>
-
-      <!-- ROW 2: Outcome proof -->
-      <div class="quote-card">
-        <p class="quote-card__text">"I've worked with a number of coaches over the years, but Andy stands out as the most powerful and profound among them. With Andy's help, I managed to transform my business from a state of no profit to achieving a net profit of over 20%."</p>
-        <div class="quote-card__name">Matt Kuehlhorn</div>
-        <div class="quote-card__role">CEO, Kooler Garage Doors</div>
-      </div>
-
-      <div class="quote-card">
-        <p class="quote-card__text">"In the past, I've worked with executive coaches and therapists. But I didn't change. However, with Andy, I have been able to understand my own thought patterns and beliefs. He was able to breakthrough."</p>
-        <div class="quote-card__name">CEO</div>
-        <div class="quote-card__role">$1B Utilities Company</div>
-      </div>
-
-      <div class="quote-card">
-        <p class="quote-card__text">"While I saw tangible business results such as revenue growth and increased profitability, the even bigger takeaway was the transformation I saw in myself — to show up in a different capacity, both as a leader and in my personal life."</p>
-        <div class="quote-card__name">CJ Walstrom</div>
-        <div class="quote-card__role">Founder, Digital Marketing Leader</div>
-      </div>
-
-      <!-- ROWS 3-4: Depth and variety -->
-      <div class="quote-card">
-        <p class="quote-card__text">"I've worked with Andy during one of the more complex stretches of my professional life. What stands out is that our work was never just tactical — it was holistic. He works at the intersection of the business and the person running it. He's exceptional."</p>
-        <div class="quote-card__name">Founder & CEO</div>
-        <div class="quote-card__role">Professional Services</div>
-      </div>
-
-      <div class="quote-card">
-        <p class="quote-card__text">"As a former skeptic of coaching, I have Andy Hite to thank for helping me see how coaching played a pivotal role in improving my overall quality of life. As a full-time working mom with exposure to therapy and mentors, Andy stood out differently as a trusted sounding board and guide."</p>
-        <div class="quote-card__name">Cori R.</div>
-        <div class="quote-card__role">Director, Fresenius Kabi USA</div>
-      </div>
-
-      <div class="quote-card">
-        <p class="quote-card__text">"One of the best decisions I made was getting past my fear of being coached. He challenged me to be my authentic self before we even started, and by doing so, allowed Andy to do what he does best — coach me to a level I didn't even know existed."</p>
-        <div class="quote-card__name">Justin B.</div>
-        <div class="quote-card__role">Technology Business Consultant, TriNet</div>
-      </div>
-
-      <div class="quote-card">
-        <p class="quote-card__text">"In the 15 years I've been leading teams, I've found the same challenges showing up over and over again. It wasn't until working with Andy that I was able to finally overcome the barriers preventing me from becoming the leader I was hoping to be."</p>
-        <div class="quote-card__name">Debra Giunta</div>
-        <div class="quote-card__role">CEO, The Brainchild Collective</div>
-      </div>
-
-      <div class="quote-card">
-        <p class="quote-card__text">"Andy is helping us intentionally build our culture — how we operate day-to-day and the systems that support it. His work is enabling peer-to-peer accountability, stronger quality standards, and a filter for future hires."</p>
-        <div class="quote-card__name">Alex Stoller</div>
-        <div class="quote-card__role">Founder & CEO, True Health</div>
-      </div>
-
-      <div class="quote-card">
-        <p class="quote-card__text">"Working with Andy was extremely helpful for my development. His ability to ask quality questions and listen intensely allowed me to explore situations that would have been quite difficult to think through without an external perspective."</p>
-        <div class="quote-card__name">Joseph R.</div>
-        <div class="quote-card__role">AVP, IP Lending Solutions, Aon</div>
-      </div>
-
-      <div class="quote-card">
-        <p class="quote-card__text">"I thought there was a book, podcast or webinar that could give me all the guidance I needed. Years passed — and many mistakes later — I continued to trip over the same problems. Then I met Andy. He is a genuine person who cares about your success and isn't a 'yes' man."</p>
-        <div class="quote-card__name">Matthew J.</div>
-        <div class="quote-card__role">Task Insurance Group</div>
-      </div>
-
-      <!-- ROWS 5-7: Volume and texture -->
-      <div class="quote-card">
-        <p class="quote-card__text">"I was skeptical about the 'coaching' thing. Andy helped me understand that all I ever needed was within me. He is the catalyst not the cause. It is through his understanding, reflection, challenge, commitment, and humanity that I feel more assured as a person than I ever have."</p>
-        <div class="quote-card__name">Dr. S. Sowinski</div>
-        <div class="quote-card__role">Director of HAPA, City Schools of Hammond</div>
-      </div>
-
-      <div class="quote-card">
-        <p class="quote-card__text">"Working with Andy has been a game-changer. He has the ability to bring things to the surface that I needed to see — and may have been avoiding — then coach and hold me accountable on how to grow as a leader."</p>
-        <div class="quote-card__name">Jared G.</div>
-        <div class="quote-card__role">VP of Growth & Marketing, Empower HR</div>
-      </div>
-
-      <div class="quote-card">
-        <p class="quote-card__text">"Andy, through his company Scaling Minds, has changed our organization for the better. Reliable, trustworthy, consistent — I highly recommend him."</p>
-        <div class="quote-card__name">Kerrie Stannell</div>
-        <div class="quote-card__role">WCCAC</div>
-      </div>
-
-
-      <div class="quote-card">
-        <p class="quote-card__text">"Andy brought a realness to our sessions that I couldn't find anywhere else. I could bring things to the table that were hard to talk about with other business owners — things I felt like I'd be judged for. We got down to business and hashed out what mattered."</p>
-        <div class="quote-card__name">Mackenzie Childs</div>
-        <div class="quote-card__role">CEO, Blink & Co.</div>
-      </div>
-
-      <div class="quote-card">
-        <p class="quote-card__text">"I met Andy just before a pivotal point in my career. He helped me dig myself out of a hole. I seriously do not think I would be where I am today if it wasn't for Andy's help."</p>
-        <div class="quote-card__name">Cody Vaughn</div>
-        <div class="quote-card__role">CEO, Archer Electrical Contracting Co.</div>
-      </div>
-
-      <div class="quote-card">
-        <p class="quote-card__text">"There was an immediate connection to Andy. I felt like I was speaking to a wise, judgment-free friend who was ready to support me on any challenge. Investing in myself wasn't an easy decision, but choosing Andy was."</p>
-        <div class="quote-card__name">Sandra S.</div>
-        <div class="quote-card__role">VP of Business Development, Candor Threads</div>
-      </div>
-
     </div>
   </section>
 
-  <!-- PRE-CTA -->
-  <section class="pre-cta-quote reveal">
-    <p class="pre-cta-quote__text">"The same challenges had been showing up for 15 years. Not anymore."</p>
-    <div class="pre-cta-quote__name">Debra Giunta</div>
-    <div class="pre-cta-quote__role">CEO, The Brainchild Collective</div>
+  <style>
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  </style>
+
+  <script>
+    (function() {
+      const text = '"Incredibly impactful for our entire organization."';
+      const el = document.getElementById('typewriter');
+      const cursor = document.getElementById('typewriter-cursor');
+      const full = document.getElementById('typewriter-full');
+      let typed = false;
+
+      const typeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !typed) {
+            typed = true;
+            let i = 0;
+            const speed = 55;
+            function type() {
+              if (i < text.length) {
+                el.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+              } else {
+                // Done typing - hide cursor, show full quote
+                setTimeout(() => {
+                  cursor.style.display = 'none';
+                  full.style.opacity = '1';
+                  full.style.transform = 'translateY(0)';
+                }, 600);
+              }
+            }
+            setTimeout(type, 400);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      typeObserver.observe(document.getElementById('typewriter-wrap'));
+    })();
+  </script>
+
+  <!-- ========== LOGO TICKER ========== -->
+  <section class="logo-ticker">
+    <div class="logo-ticker__label">Trusted by leaders at</div>
+    <div class="logo-ticker__track">
+      <div class="logo-ticker__scroll">
+        <span class="logo-ticker__item">Intuit</span>
+        <span class="logo-ticker__item">Northwestern Medicine</span>
+        <span class="logo-ticker__item">Aon</span>
+        <span class="logo-ticker__item">Boys &amp; Girls Clubs</span>
+        <span class="logo-ticker__item">PwC</span>
+        <span class="logo-ticker__item">Children's Home Association</span>
+        <span class="logo-ticker__item">Merrill Lynch</span>
+        <span class="logo-ticker__item">Empower HR</span>
+        <span class="logo-ticker__item">Discover</span>
+        <span class="logo-ticker__item">Chicago Community Loan Fund</span>
+        <span class="logo-ticker__item">ORBA</span>
+        <span class="logo-ticker__item">TrueHealth</span>
+        <span class="logo-ticker__item">McHenry County Department of Health</span>
+        <span class="logo-ticker__item">Chicago Investment Corp.</span>
+        <span class="logo-ticker__item">The Kidz Club</span>
+        <!-- duplicate for seamless loop -->
+        <span class="logo-ticker__item">Intuit</span>
+        <span class="logo-ticker__item">Northwestern Medicine</span>
+        <span class="logo-ticker__item">Aon</span>
+        <span class="logo-ticker__item">Boys &amp; Girls Clubs</span>
+        <span class="logo-ticker__item">PwC</span>
+        <span class="logo-ticker__item">Children's Home Association</span>
+        <span class="logo-ticker__item">Merrill Lynch</span>
+        <span class="logo-ticker__item">Empower HR</span>
+        <span class="logo-ticker__item">Discover</span>
+        <span class="logo-ticker__item">Chicago Community Loan Fund</span>
+        <span class="logo-ticker__item">ORBA</span>
+        <span class="logo-ticker__item">TrueHealth</span>
+        <span class="logo-ticker__item">McHenry County Department of Health</span>
+        <span class="logo-ticker__item">Chicago Investment Corp.</span>
+        <span class="logo-ticker__item">The Kidz Club</span>
+      </div>
+    </div>
   </section>
 
-  <!-- CTA -->
-  <section class="results-cta">
+  <!-- ========== INTRO / ANDY ========== -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="bio-grid">
+        <div class="bio-image reveal">
+          <img src="andy-headshot.jpg" alt="Andy Hite, Founder of Scaling Minds" style="border-radius: 12px; width: 100%; height: auto; object-fit: cover;">
+        </div>
+        <div class="reveal reveal--delay">
+          <span class="eyebrow">Meet Andy</span>
+          <h2>I ran a theater for 15 years before I ever coached an executive.</h2>
+          <div class="divider"></div>
+          <p>That's not a quirky backstory, it's the reason the work actually works. As Artistic Director at The Marriott Theatre for 15 years, I wasn't performing. I was responsible for the people who were. You learn to read a room the way most people read a spreadsheet. You learn that talented people don't automatically become a great ensemble, that trust isn't a soft skill but the infrastructure everything else runs on, and that the conversation nobody wants to have is almost always the one that changes everything. Most executive coaches come from business. I came from a world where you couldn't hide behind a slide deck. It's why a CEO like Scurry Miller at Children's Home trusted me with her entire C-Suite, and why their team operates differently now.</p>
+          <p>I brought all of that into executive team coaching because I kept watching leadership teams make the same mistake: investing in strategy while ignoring the fact that the people at the top couldn't be honest with each other. I work with CEOs and their teams to fix that, and I work with individual leaders who are ready to stop performing confidence and find out what's possible when the people around them finally trust what they say.</p>
+          <a href="/six-shifts" class="btn btn--green" style="margin-top: 24px;">See How It Works &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHO WE WORK WITH ========== -->
+  <section class="section" style="background: #123e35; padding: 56px 0;">
+    <div class="container">
+      <div class="reveal" style="max-width: 700px; margin: 0 auto; text-align: center;">
+        <span class="eyebrow" style="color: var(--gold);">Who We Work With</span>
+        <h2 style="color: var(--white); margin-bottom: 16px;">This work isn't for everyone.</h2>
+        <p style="color: rgba(255,255,255,0.65); font-size: 1.05rem;">It's for leaders who already know something needs to change. We partner with executive teams and senior leaders at privately held businesses and nonprofits, typically between 20 and 500 employees, in healthcare, professional services, tech, construction, and nonprofits serving children. We keep our client roster intentionally small because this work requires real attention, not a revolving door of engagements where nobody remembers your name.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">What We Do</span>
+        <h2>How we work with leaders and their teams.</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <h3>Executive Team Coaching</h3>
+          <p>Most leadership teams are a collection of strong individuals who happen to report to the same person, and that's the whole problem. We work with the CEO and their team together through The Six Shifts™ to rebuild how they trust each other, fight productively, share ownership of outcomes, and make decisions that actually stick. This is the engagement that changes the trajectory of a company, not because we bring some magic framework, but because we force the conversations that should have happened two years ago.</p>
+          <a href="/six-shifts" class="service-card__link">Learn more →</a>
+        </div>
+        <div class="service-card reveal reveal--delay">
+          <h3>1:1 Executive Coaching</h3>
+          <p>Some leaders have a growth edge they can feel but can't quite name, the thing that keeps showing up in every hard conversation, every personnel decision, every moment where the stakes get real. We work one-on-one with senior leaders to surface those patterns, challenge them directly, and build new ways of operating that show up in actual business results. This isn't therapy, and it isn't cheerleading. It's structured, honest partnership with someone who will tell you what your team won't.</p>
+          <a href="/services" class="service-card__link">Learn more →</a>
+        </div>
+        <div class="service-card reveal reveal--delay-2">
+          <h3>Speaking & Facilitation</h3>
+          <p>Every keynote and offsite we run is built from scratch for your team, your context, and the specific challenge you're trying to solve. We don't recycle slide decks or deliver generic leadership content that could apply to any room. If you're bringing your leadership team together, we'll make sure they leave with something that actually shifts how they think and work, not just a good feeling that fades by Monday.</p>
+          <a href="/services" class="service-card__link">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECOND TESTIMONIAL ========== -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="testimonial-featured reveal">
+        <blockquote>
+          <p>"With Andy's help, I managed to transform my business from a state of no profit to achieving a net profit of over 20%. This remarkable turnaround can be attributed to the work we did together, addressing and overcoming the obstacles that were holding me back."</p>
+        </blockquote>
+        <div class="testimonial-featured__author">
+          <strong>Matt Kuehlhorn</strong>
+          <span>CEO, Kooler Garage Doors</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SIX SHIFTS PREVIEW ========== -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-header section-header--light reveal">
+        <span class="eyebrow" style="color: var(--gold);">The Six Shifts™</span>
+        <h2>The leadership operating system that changes everything.</h2>
+      </div>
+      <div class="hex-row" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; max-width: 900px; margin: 0 auto;">
+        <div class="reveal" style="text-align: center;" class="hex-tilt">
+          <img src="trust.svg" alt="Trust" style="width: 100%; height: auto; transition: transform 0.3s; cursor: pointer;"  onclick="window.location='/six-shifts#shift-trust'">
+        </div>
+        <div class="reveal reveal--delay" style="text-align: center;" class="hex-tilt">
+          <img src="candor.svg" alt="Candor" style="width: 100%; height: auto; transition: transform 0.3s; cursor: pointer;"  onclick="window.location='/six-shifts#shift-candor'">
+        </div>
+        <div class="reveal reveal--delay-2" style="text-align: center;" class="hex-tilt">
+          <img src="ownership.svg" alt="Ownership" style="width: 100%; height: auto; transition: transform 0.3s; cursor: pointer;"  onclick="window.location='/six-shifts#shift-ownership'">
+        </div>
+        <div class="reveal" style="text-align: center;" class="hex-tilt">
+          <img src="empowerment.svg" alt="Empowerment" style="width: 100%; height: auto; transition: transform 0.3s; cursor: pointer;"  onclick="window.location='/six-shifts#shift-empowerment'">
+        </div>
+        <div class="reveal reveal--delay" style="text-align: center;" class="hex-tilt">
+          <img src="alignment.svg" alt="Alignment" style="width: 100%; height: auto; transition: transform 0.3s; cursor: pointer;"  onclick="window.location='/six-shifts#shift-alignment'">
+        </div>
+        <div class="reveal reveal--delay-2" style="text-align: center;" class="hex-tilt">
+          <img src="leadership.svg" alt="Collective Leadership" style="width: 100%; height: auto; transition: transform 0.3s; cursor: pointer;"  onclick="window.location='/six-shifts#shift-leadership'">
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 36px;">
+        <a href="/six-shifts" class="btn btn--primary">Explore The Six Shifts™</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== THIRD TESTIMONIAL ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="testimonial-featured reveal">
+        <blockquote>
+          <p>"While I saw tangible business results such as revenue growth and increased profitability, the even bigger takeaway was the transformation I saw in myself to show up in a different capacity, both as a leader and in my personal life."</p>
+        </blockquote>
+        <div class="testimonial-featured__author">
+          <strong>CJ Walstrom</strong>
+          <span>Founder, Digital Marketing & Social Media Leader</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="cta-section">
     <div class="container reveal">
-      <h2>Every one of these started the same way: a conversation.</h2>
-      <p>If something on this page resonated, let's find out if working together makes sense.</p>
-      <a href="/contact" class="btn btn--primary">Start the Conversation →</a>
+      <p>Most leaders focus on managing the people below them. We believe the real leverage is the team at the top.</p>
+      <h2>The team you're on is more important than the team you lead.</h2>
+      <p>If your leadership team is ready to operate differently, let's talk about what that looks like.</p>
+      <a href="/contact" class="btn btn--primary">Start the Conversation</a>
     </div>
   </section>
 
+  <!-- ========== FOOTER ========== -->
   </div>
   <footer class="footer">
     <div class="container">
@@ -426,7 +331,7 @@
           <p>Executive team coaching and leadership development for businesses ready to lead differently.</p>
           <p style="margin-top: 16px;">
             Chicago, IL<br>
-            <a href="mailto:andy@scalingminds.com">andy@scalingminds.com</a><br>
+            <a href="/cdn-cgi/l/email-protection#88e9e6ecf1c8fbebe9e4e1e6efe5e1e6ecfba6ebe7e5"><span class="__cf_email__" data-cfemail="5b3a353f221b28383a3732353c3632353f2875383436">[email&#160;protected]</span></a><br>
             <a href="tel:3127725825">(312) 772-5825</a>
           </p>
         </div>
@@ -459,34 +364,5 @@
   </footer>
 
   <script src="main.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var riverItems = document.querySelectorAll('.river-item');
-      var riverObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            riverObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-      riverItems.forEach(function(item) { riverObserver.observe(item); });
-
-      var cards = document.querySelectorAll('.quote-card');
-      var cardObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            var card = entry.target;
-            var index = Array.from(cards).indexOf(card);
-            setTimeout(function() {
-              card.classList.add('visible');
-            }, (index % 3) * 100);
-            cardObserver.unobserve(card);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-      cards.forEach(function(card) { cardObserver.observe(card); });
-    });
-  </script>
 </body>
 </html>
