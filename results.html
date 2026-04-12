@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Ownership Results</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f9f6f1;
+      color: #1a1a1a;
+      min-height: 100vh;
+      padding: 40px 16px 80px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      border: 1px solid #e8e0d4;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #b8860b;
+    }
+
+    .card-subtitle {
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 2px;
+    }
+
+    .band-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .band-low      { background: #fde8e8; color: #c0392b; }
+    .band-developing { background: #fef3cd; color: #856404; }
+    .band-strong   { background: #d4edda; color: #155724; }
+    .band-anchored { background: #cce5ff; color: #004085; }
+
+    .score-bar-wrap {
+      margin-bottom: 8px;
+    }
+
+    .score-bar-bg {
+      height: 10px;
+      background: #f0ebe3;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .score-bar-fill {
+      height: 100%;
+      background: #b8860b;
+      border-radius: 8px;
+      transition: width 0.8s ease;
+    }
+
+    .score-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .band-description {
+      font-size: 0.88rem;
+      color: #444;
+      line-height: 1.5;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #f0ebe3;
+    }
+
+    .notice {
+      background: #fffbf0;
+      border: 1px solid #e8d5a3;
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-size: 0.88rem;
+      color: #5a4a1a;
+      line-height: 1.5;
+      margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>Your Results</h1>
+    <p>Here's how you scored across the three dimensions of ownership. Keep these in mind for the team conversation.</p>
+  </header>
+
+  <div id="results-cards"></div>
+
+  <div class="notice">
+    These scores are for your reflection only — they won't be shared with the group without your input. The team conversation will use aggregate patterns, not individual scores.
+  </div>
+
+</div>
+
+<script>
+  // ─── SCORING BANDS ────────────────────────────────────────────────────────
+  const BANDS = [
+    { max: 8,  label: "Low",        cls: "band-low",        desc: "This is a meaningful growth area. The conversation today will give you a clearer picture of what owning this dimension more fully could look like for you." },
+    { max: 13, label: "Developing", cls: "band-developing",  desc: "You're aware and making progress, but the behavior isn't consistent yet. Identifying one specific situation where you hold back will be the most useful starting point." },
+    { max: 17, label: "Strong",     cls: "band-strong",      desc: "This is a reliable pattern for you. The edge question: where do you still pull back, and what's underneath that?" },
+    { max: 20, label: "Anchored",   cls: "band-anchored",    desc: "You model this for the team. The coaching question shifts from 'how do I do this?' to 'how do I help others get here?'" },
+  ];
+
+  const DIMENSIONS = [
+    { key: "is",  label: "Inner Stance", subtitle: "How I Think" },
+    { key: "b",   label: "Behavior",     subtitle: "How I Act" },
+    { key: "tw",  label: "The Whole",    subtitle: "How I Relate" },
+  ];
+
+  // ─── READ SCORES FROM URL PARAMS ─────────────────────────────────────────
+  const params = new URLSearchParams(window.location.search);
+
+  function getBand(score) {
+    return BANDS.find(b => score <= b.max) || BANDS[BANDS.length - 1];
+  }
+
+  const container = document.getElementById("results-cards");
+
+  DIMENSIONS.forEach(dim => {
+    const score = parseInt(params.get(dim.key) || "0", 10);
+    const band = getBand(score);
+    const pct = ((score - 4) / 16) * 100; // 4 = min, 20 = max → normalize to 0–100
+
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="card-header">
+        <div>
+          <div class="card-title">${dim.label}</div>
+          <div class="card-subtitle">${dim.subtitle}</div>
+        </div>
+        <span class="band-badge ${band.cls}">${band.label}</span>
+      </div>
+      <div class="score-bar-wrap">
+        <div class="score-bar-bg">
+          <div class="score-bar-fill" style="width: 0%" data-pct="${pct}"></div>
+        </div>
+        <div class="score-label">
+          <span>Low</span>
+          <span>Score: ${score} / 20</span>
+          <span>Anchored</span>
+        </div>
+      </div>
+      <p class="band-description">${band.desc}</p>
+    `;
+    container.appendChild(card);
+  });
+
+  // Animate bars after render
+  requestAnimationFrame(() => {
+    document.querySelectorAll(".score-bar-fill").forEach(el => {
+      el.style.width = el.dataset.pct + "%";
+    });
+  });
+</script>
+<script>
+(function(){
+  var mirrorUrl = 'https://leadership-mirror.netlify.app';
+  var isHome = (window.location.pathname === '/' || window.location.pathname === '');
+  var isSixShifts = window.location.pathname.indexOf('six-shifts') !== -1;
+
+  /* HOMEPAGE: Replace "Explore The Six Shifts" link with a gold diagnostic button */
+  if(isHome){
+    document.querySelectorAll('a').forEach(function(a){
+      var txt = a.textContent.trim();
+      if(txt.indexOf('Explore The Six Shifts') === 0){
+        a.href = mirrorUrl;
+        a.target = '_blank';
+        a.textContent = 'Take the Free Team Diagnostic \u2192';
+        a.style.cssText = 'display:inline-block;background:#C4973B;color:#fff;padding:14px 32px;border-radius:5px;font-family:Inter,sans-serif;font-size:0.95rem;font-weight:600;text-decoration:none;letter-spacing:0.3px;margin-left:12px;transition:background 0.2s;';
+        a.onmouseenter = function(){ a.style.background='#b08832'; };
+        a.onmouseleave = function(){ a.style.background='#C4973B'; };
+      }
+    });
+  }
+
+  /* SIX SHIFTS PAGE: Rewire "Find Out Where Your Team Stands" CTAs */
+  if(isSixShifts){
+    document.querySelectorAll('a').forEach(function(a){
+      if(a.textContent.trim().indexOf('Find Out Where Your Team Stands') === 0){
+        a.href = mirrorUrl;
+        a.target = '_blank';
+      }
+    });
+  }
+})();
+</script></body>
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facilitator Dashboard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f9f6f1;
+      color: #1a1a1a;
+      min-height: 100vh;
+      padding: 32px 16px 80px;
+    }
+
+    .container { max-width: 780px; margin: 0 auto; }
+
+    /* ── AUTH GATE ── */
+    #auth-gate {
+      max-width: 360px;
+      margin: 80px auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 32px;
+      border: 1px solid #e8e0d4;
+      text-align: center;
+    }
+    #auth-gate h2 { font-size: 1.2rem; margin-bottom: 8px; color: #1a1a1a; }
+    #auth-gate p  { font-size: 0.85rem; color: #555; margin-bottom: 24px; }
+    #auth-gate input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: 1px solid #d0c8bc;
+      background: #f9f6f1;
+      color: #1a1a1a;
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+    #auth-gate button {
+      width: 100%;
+      padding: 10px;
+      background: #b8860b;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    #auth-gate button:hover { background: #9a6f09; }
+    #auth-error { color: #e74c3c; font-size: 0.82rem; margin-top: 8px; display: none; }
+
+    /* ── DASHBOARD ── */
+    #dashboard { display: none; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    header h1 { font-size: 1.4rem; font-weight: 700; }
+    header p  { font-size: 0.85rem; color: #555; margin-top: 4px; }
+
+    .refresh-btn {
+      background: #fff;
+      color: #1a1a1a;
+      border: 1px solid #d0c8bc;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .refresh-btn:hover { background: #f0ebe3; }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 16px 20px;
+      border: 1px solid #e8e0d4;
+      text-align: center;
+    }
+
+    .stat-num  { font-size: 2rem; font-weight: 700; color: #b8860b; }
+    .stat-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #888; margin-top: 4px; }
+
+    .section-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #b8860b;
+      margin-bottom: 14px;
+    }
+
+    .dim-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      border: 1px solid #e8e0d4;
+    }
+
+    .dim-card.flagged { border-color: #e67e22; }
+
+    .dim-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .dim-name { font-size: 1rem; font-weight: 600; }
+    .dim-sub  { font-size: 0.8rem; color: #555; margin-top: 2px; }
+
+    .dim-band {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 16px;
+    }
+
+    .band-low       { background: #fde8e8; color: #c0392b; }
+    .band-developing { background: #fef3cd; color: #856404; }
+    .band-strong    { background: #d4edda; color: #155724; }
+    .band-anchored  { background: #cce5ff; color: #004085; }
+
+    .bar-bg {
+      height: 8px;
+      background: #f0ebe3;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .bar-fill {
+      height: 100%;
+      background: #b8860b;
+      border-radius: 6px;
+      transition: width 0.8s ease;
+    }
+
+    .bar-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #888;
+    }
+
+    .spread-flag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: #e67e22;
+      margin-top: 10px;
+    }
+
+    .dist-row {
+      display: flex;
+      gap: 4px;
+      margin-top: 12px;
+    }
+
+    .dist-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .dist-bar-wrap {
+      width: 100%;
+      height: 48px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .dist-bar {
+      width: 100%;
+      background: #b8860b;
+      border-radius: 3px 3px 0 0;
+      min-height: 2px;
+      transition: height 0.6s ease;
+    }
+
+    .dist-label {
+      font-size: 0.7rem;
+      color: #888;
+    }
+
+    /* ── ITEMS TABLE ── */
+    .items-section { margin-top: 28px; }
+
+    .item-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #e8e0d4;
+    }
+
+    .item-row:last-child { border-bottom: none; }
+
+    .item-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #f0ebe3;
+      color: #888;
+      min-width: 26px;
+      text-align: center;
+    }
+
+    .item-text { flex: 1; font-size: 0.82rem; color: #444; line-height: 1.4; }
+    .item-score { font-size: 0.9rem; font-weight: 700; min-width: 36px; text-align: right; }
+    .item-score.low { color: #c0392b; }
+    .item-score.ok  { color: #856404; }
+    .item-score.good{ color: #155724; }
+
+    .loading { text-align: center; padding: 80px 0; color: #888; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- AUTH GATE -->
+  <div id="auth-gate">
+    <h2>Facilitator Dashboard</h2>
+    <p>Enter the dashboard password to continue.</p>
+    <input type="password" id="pwd-input" placeholder="Password" />
+    <button onclick="checkPassword()">Enter</button>
+    <p id="auth-error">Incorrect password.</p>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard">
+    <header>
+      <div>
+        <h1>Ownership Assessment</h1>
+        <p id="session-label">Loading…</p>
+      </div>
+      <button class="refresh-btn" onclick="loadData()">↻ Refresh</button>
+    </header>
+
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-num" id="stat-n">—</div>
+        <div class="stat-label">Responses</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-avg">—</div>
+        <div class="stat-label">Avg Total Score</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-spread-dim">—</div>
+        <div class="stat-label">Highest Spread</div>
+      </div>
+    </div>
+
+    <div class="section-title">Team Scores by Dimension</div>
+    <div id="dim-cards"></div>
+
+    <div class="items-section">
+      <div class="section-title">Item Means — Lowest to Highest</div>
+      <div id="items-list"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // ─── CONFIG ───────────────────────────────────────────────────────────────
+  // Password stored in the HTML — change this before deploying.
+  // For higher security, replace with a Supabase authenticated session.
+  const DASHBOARD_PASSWORD = "scaling2026";
+
+  const SUPABASE_URL = "https://rlooznqhjwgrukjozdfc.supabase.co";
+  // Use the anon key here — RLS allows authenticated reads.
+  // To use anon key for dashboard, temporarily adjust RLS or use service role via a proxy.
+  // For simplicity in a workshop context, we use the service role key directly.
+  // WARNING: In production, proxy through a serverless function instead.
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJsb296bnFoandncnVram96ZGZjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ1NzQxMjQsImV4cCI6MjA5MDE1MDEyNH0.tQcI6a-Gtl3ZokCrHEiYgpXvCqpZz9a9saZWg0XfR6c";
+
+  const BANDS = [
+    { max: 8,  label: "Low",        cls: "band-low" },
+    { max: 13, label: "Developing", cls: "band-developing" },
+    { max: 17, label: "Strong",     cls: "band-strong" },
+    { max: 20, label: "Anchored",   cls: "band-anchored" },
+  ];
+
+  const DIMS = [
+    { key: "score_inner_stance", label: "Inner Stance", sub: "How I Think",  items: ["a1","a2","a3","a4"] },
+    { key: "score_behavior",     label: "Behavior",     sub: "How I Act",    items: ["b1","b2","b3","b4"] },
+    { key: "score_the_whole",    label: "The Whole",    sub: "How I Relate", items: ["c1","c2","c3","c4"] },
+  ];
+
+  const ITEM_LABELS = {
+    a1: "First instinct to look at what I could have done differently.",
+    a2: "Say something when team heads wrong direction, even if not most senior.",
+    a3: "Take initiative even when no one asked.",
+    a4: "Done something outside job description because team needed it.",
+    b1: "Team knows they can count on me without being reminded.",
+    b2: "Close a gap even if not technically my job.",
+    b3: "Do what I said, by when I said.",
+    b4: "Raise problems early rather than waiting.",
+    c1: "Address teammate's slipping commitment directly.",
+    c2: "Acknowledge missed commitments without being prompted.",
+    c3: "Consider team commitments before making decisions.",
+    c4: "Speak up even when uncomfortable.",
+  };
+
+  // ─── AUTH ─────────────────────────────────────────────────────────────────
+  function checkPassword() {
+    const val = document.getElementById("pwd-input").value;
+    if (val === DASHBOARD_PASSWORD) {
+      document.getElementById("auth-gate").style.display = "none";
+      document.getElementById("dashboard").style.display = "block";
+      loadData();
+    } else {
+      document.getElementById("auth-error").style.display = "block";
+    }
+  }
+
+  document.getElementById("pwd-input").addEventListener("keydown", e => {
+    if (e.key === "Enter") checkPassword();
+  });
+
+  // ─── DATA LOADING ─────────────────────────────────────────────────────────
+  const params = new URLSearchParams(window.location.search);
+  const sessionId = params.get("session") || "default";
+
+  async function loadData() {
+    document.getElementById("session-label").textContent = `Session: ${sessionId} — Loading…`;
+    document.getElementById("dim-cards").innerHTML = `<p class="loading">Fetching responses…</p>`;
+
+    const url = `${SUPABASE_URL}/rest/v1/ownership_assessments?session_id=eq.${encodeURIComponent(sessionId)}&select=*`;
+
+    let rows;
+    try {
+      const res = await fetch(url, {
+        headers: {
+          "apikey": SUPABASE_ANON_KEY,
+          "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+        }
+      });
+      rows = await res.json();
+    } catch (err) {
+      document.getElementById("dim-cards").innerHTML = `<p style="color:#e74c3c">Failed to load data. Check your Supabase key and RLS settings.</p>`;
+      return;
+    }
+
+    if (!rows.length) {
+      document.getElementById("session-label").textContent = `Session: ${sessionId} — No responses yet.`;
+      document.getElementById("dim-cards").innerHTML = `<p class="loading">Waiting for responses…</p>`;
+      return;
+    }
+
+    const n = rows.length;
+    document.getElementById("session-label").textContent = `Session: ${sessionId}`;
+    document.getElementById("stat-n").textContent = n;
+
+    // Compute means and stddevs per dimension
+    const dimStats = DIMS.map(dim => {
+      const scores = rows.map(r => r[dim.key]);
+      const mean = scores.reduce((a,b) => a+b, 0) / n;
+      const variance = scores.reduce((a,b) => a + Math.pow(b - mean, 2), 0) / n;
+      const stddev = Math.sqrt(variance);
+      return { ...dim, mean, stddev, scores };
+    });
+
+    // Total avg
+    const totalMeans = rows.map(r => r.score_total);
+    const avgTotal = totalMeans.reduce((a,b) => a+b, 0) / n;
+    document.getElementById("stat-avg").textContent = avgTotal.toFixed(1);
+
+    // Highest spread dimension
+    const maxSpread = dimStats.reduce((a,b) => b.stddev > a.stddev ? b : a);
+    document.getElementById("stat-spread-dim").textContent = maxSpread.label;
+
+    // Render dimension cards
+    const dimContainer = document.getElementById("dim-cards");
+    dimContainer.innerHTML = "";
+
+    dimStats.forEach(dim => {
+      const band = BANDS.find(b => dim.mean <= b.max) || BANDS[BANDS.length - 1];
+      const pct = ((dim.mean - 4) / 16) * 100;
+      const isFlagged = dim.key === maxSpread.key;
+
+      // Score distribution: count how many scored in each band bucket (4-8, 9-13, 14-17, 18-20)
+      const buckets = [0,0,0,0];
+      dim.scores.forEach(s => {
+        if (s <= 8) buckets[0]++;
+        else if (s <= 13) buckets[1]++;
+        else if (s <= 17) buckets[2]++;
+        else buckets[3]++;
+      });
+      const maxBucket = Math.max(...buckets, 1);
+
+      const card = document.createElement("div");
+      card.className = `dim-card${isFlagged ? " flagged" : ""}`;
+      card.innerHTML = `
+        <div class="dim-header">
+          <div>
+            <div class="dim-name">${dim.label}</div>
+            <div class="dim-sub">${dim.sub}</div>
+          </div>
+          <span class="dim-band ${band.cls}">${band.label}</span>
+        </div>
+        <div class="bar-bg"><div class="bar-fill" style="width:0%" data-pct="${pct.toFixed(1)}"></div></div>
+        <div class="bar-meta">
+          <span>Avg: ${dim.mean.toFixed(1)} / 20</span>
+          <span>Spread (SD): ${dim.stddev.toFixed(1)}</span>
+        </div>
+        ${isFlagged ? `<div class="spread-flag">⚡ Highest disagreement — start the conversation here</div>` : ""}
+        <div class="dist-row">
+          ${["Low","Developing","Strong","Anchored"].map((l,i) => `
+            <div class="dist-col">
+              <div class="dist-bar-wrap">
+                <div class="dist-bar" style="height:${(buckets[i]/maxBucket*48).toFixed(0)}px"></div>
+              </div>
+              <div class="dist-label">${l}<br>${buckets[i]}</div>
+            </div>
+          `).join("")}
+        </div>
+      `;
+      dimContainer.appendChild(card);
+    });
+
+    // Animate bars
+    requestAnimationFrame(() => {
+      document.querySelectorAll(".bar-fill").forEach(el => {
+        el.style.width = el.dataset.pct + "%";
+      });
+    });
+
+    // Per-item means, sorted low → high
+    const allItemKeys = ["a1","a2","a3","a4","b1","b2","b3","b4","c1","c2","c3","c4"];
+    const itemMeans = allItemKeys.map(k => ({
+      key: k,
+      mean: rows.reduce((a,r) => a + r[k], 0) / n,
+      label: ITEM_LABELS[k],
+    })).sort((a,b) => a.mean - b.mean);
+
+    const itemsList = document.getElementById("items-list");
+    itemsList.innerHTML = "";
+    itemMeans.forEach(item => {
+      const cls = item.mean < 3 ? "low" : item.mean < 4 ? "ok" : "good";
+      const row = document.createElement("div");
+      row.className = "item-row";
+      row.innerHTML = `
+        <span class="item-tag">${item.key.toUpperCase()}</span>
+        <span class="item-text">${item.label}</span>
+        <span class="item-score ${cls}">${item.mean.toFixed(1)}</span>
+      `;
+      itemsList.appendChild(row);
+    });
+  }
+</script>
+<script>
+(function(){
+  var mirrorUrl = 'https://leadership-mirror.netlify.app';
+  var isHome = (window.location.pathname === '/' || window.location.pathname === '');
+  var isSixShifts = window.location.pathname.indexOf('six-shifts') !== -1;
+
+  /* HOMEPAGE: Replace "Explore The Six Shifts" link with a gold diagnostic button */
+  if(isHome){
+    document.querySelectorAll('a').forEach(function(a){
+      var txt = a.textContent.trim();
+      if(txt.indexOf('Explore The Six Shifts') === 0){
+        a.href = mirrorUrl;
+        a.target = '_blank';
+        a.textContent = 'Take the Free Team Diagnostic \u2192';
+        a.style.cssText = 'display:inline-block;background:#C4973B;color:#fff;padding:14px 32px;border-radius:5px;font-family:Inter,sans-serif;font-size:0.95rem;font-weight:600;text-decoration:none;letter-spacing:0.3px;margin-left:12px;transition:background 0.2s;';
+        a.onmouseenter = function(){ a.style.background='#b08832'; };
+        a.onmouseleave = function(){ a.style.background='#C4973B'; };
+      }
+    });
+  }
+
+  /* SIX SHIFTS PAGE: Rewire "Find Out Where Your Team Stands" CTAs */
+  if(isSixShifts){
+    document.querySelectorAll('a').forEach(function(a){
+      if(a.textContent.trim().indexOf('Find Out Where Your Team Stands') === 0){
+        a.href = mirrorUrl;
+        a.target = '_blank';
+      }
+    });
+  }
+})();
+</script></body>
+</html>

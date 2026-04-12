@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f9f6f1; color: #1a1a1a; min-height: 100vh; padding: 40px 16px 80px; }
+.container { max-width: 680px; margin: 0 auto; }
+header { margin-bottom: 40px; }
+header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 8px; }
+header p { font-size: 0.95rem; color: #555; line-height: 1.5; }
+.question-block { background: #fff; border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; border: 1px solid #e8e0d4; transition: border-color 0.2s; }
+.question-block.answered { border-color: #b8860b; }
+.question-text { font-size: 0.95rem; line-height: 1.5; margin-bottom: 16px; }
+.scale-row { display: flex; gap: 8px; align-items: center; }
+.scale-label { font-size: 0.72rem; color: #888; white-space: nowrap; min-width: 80px; }
+.scale-label.right { text-align: right; }
+.radio-group { display: flex; gap: 8px; flex: 1; justify-content: center; }
+.radio-option { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+.radio-option input[type="radio"] { display: none; }
+.dot { width: 36px; height: 36px; border-radius: 50%; border: 2px solid #d0c8bc; background: #f9f6f1; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600; color: #888; transition: all 0.15s; }
+.radio-option input[type="radio"]:checked + .dot { background: #b8860b; border-color: #b8860b; color: #fff; }
+.radio-option:hover .dot { border-color: #b8860b; color: #b8860b; }
+.section-gap { margin-bottom: 32px; }
+.progress-bar { height: 4px; background: #e8e0d4; border-radius: 4px; margin-bottom: 32px; overflow: hidden; }
+.progress-fill { height: 100%; background: #b8860b; border-radius: 4px; transition: width 0.3s ease; width: 0%; }
+.commitment-block { background: #fff; border-radius: 10px; padding: 24px; margin-bottom: 12px; border: 1px solid #e8e0d4; margin-top: 8px; }
+.commitment-block .question-text { font-weight: 600; font-size: 0.95rem; line-height: 1.5; margin-bottom: 12px; }
+.commitment-block textarea { width: 100%; border: 1px solid #e8e0d4; border-radius: 6px; padding: 12px; font-size: 0.9rem; font-family: inherit; resize: vertical; outline: none; min-height: 80px; color: #1a1a1a; background: #f9f6f1; transition: border-color 0.2s; }
+.commitment-block textarea:focus { border-color: #b8860b; }
+.submit-wrap { margin-top: 32px; text-align: center; }
+button[type="submit"] { background: #b8860b; color: #fff; border: none; padding: 14px 48px; font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: background 0.2s, opacity 0.2s; }
+button[type="submit"]:disabled { opacity: 0.4; cursor: not-allowed; }
+button[type="submit"]:not(:disabled):hover { background: #9a6f09; }
+.submit-note { font-size: 0.8rem; color: #999; margin-top: 10px; }
+#error-msg { color: #c0392b; font-size: 0.9rem; margin-top: 12px; display: none; }
+@media (max-width: 480px) { .scale-label { display: none; } .dot { width: 30px; height: 30px; font-size: 0.75rem; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Ownership Self-Assessment</h1>
+    <p>Rate each statement honestly based on how you actually behave — not how you'd like to behave. There are no right answers.</p>
+  </header>
+  <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+  <form id="assessment-form">
+
+    <div class="section-gap">
+      <div class="question-block" data-field="a1">
+        <div class="question-text">When something goes wrong on my team, I look at what I could have done differently before looking at what others missed.</div>
+        <div class="scale-row">
+          <span class="scale-label">Almost Never</span>
+          <div class="radio-group" id="group-a1"></div>
+          <span class="scale-label right">Almost Always</span>
+        </div>
+      </div>
+      <div class="question-block" data-field="a2">
+        <div class="question-text">When I see the team heading in the wrong direction, I say something — even if I'm not the most senior person in the room.</div>
+        <div class="scale-row">
+          <span class="scale-label">Almost Never</span>
+          <div class="radio-group" id="group-a2"></div>
+          <span class="scale-label right">Almost Always</span>
+        </div>
+      </div>
+      <div class="question-block" data-field="a3">
+        <div class="question-text">I take initiative on things that matter even when no one has asked me to.</div>
+        <div class="scale-row">
+          <span class="scale-label">Almost Never</span>
+          <div class="radio-group" id="group-a3"></div>
+          <span class="scale-label right">Almost Always</span>
+        </div>
+      </div>
+      <div class="question-block" data-field="a4">
+        <div class="question-text">In the last month, I've done something that wasn't in my job description because the team needed it.</div>
+        <div class="scale-row">
+          <span class="scale-label">Almost Never</span>
+          <div class="radio-group" id="group-a4"></div>
+          <span class="scale-label right">Almost Always</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-gap">
+      <div class="question-block" data-field="b1">
+        <div class="question-text">People on this team know they can count on me to do what I said without being reminded.</div>
+        <div class="scale-row">
+          <span class="scale-label">Almost Never</span>
+          <div class="radio-group" id="group-b1"></div>
+          <span class="scale-label right">Almost Always</span>
+        </div>
+      </div>
+      <div class="question-block" data-field="b2">
+        <div class="question-text">When I see a gap, I close it — even if it's not technically my job.</div>
+        <div class="scale-row">
+          <span class="scale-label">Almost Never</span>
+          <div class="radio-group" id="group-b2"></div>
+          <span class="scale-label right">Almost Always</span>
+        </div>
+      </div>
+      <div class="question-block" data-field="b3">
+        <div class="question-text">I do what I said I'd do, by when I said I'd do it.</div>
+        <div class="scale-row">
+          <span class="scale-label">Almost Never</span>
+          <div class="radio-group" id="group-b3"></div>
+          <span class="scale-label right">Almost Always</span>
+        </div>
+      </div>
+      <div class="question-block" data-field="b4">
+        <div class="question-text">I raise problems early rather than waiting to see if someone else handles them.</div>
+        <div class="scale-row">
+          <span class="scale-label">Almost Never</span>
+          <div class="radio-group" id="group-b4"></div>
+          <span class="scale-label right">Almost Always</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-gap">
+      <div class="question-block" data-field="c1">
+        <div class="question-text">When a teammate's commitment is slipping, I address it directly rather than waiting for leadership to step in.</div>
+        <div class="scale-row">
+          <span class="scale-label">Almost Never</span>
+          <div class="radio-group" id="group-c1"></div>
+          <span class="scale-label right">Almost Always</span>
+        </div>
+      </div>
+      <div class="question-block" data-field="c2">
+        <div class="question-text">When I miss a commitment, I acknowledge it to the team without being prompted.</div>
+        <div class="scale-row">
+          <span class="scale-label">Almost Never</span>
+          <div class="radio-group" id="group-c2"></div>
+          <span class="scale-label right">Almost Always</span>
+        </div>
+      </div>
+      <div class="question-block" data-field="c3">
+        <div class="question-text">Before I make a decision, I think about how it affects what the team has committed to together.</div>
+        <div class="scale-row">
+          <span class="scale-label">Almost Never</span>
+          <div class="radio-group" id="group-c3"></div>
+          <span class="scale-label right">Almost Always</span>
+        </div>
+      </div>
+      <div class="question-block" data-field="c4">
+        <div class="question-text">I speak up when I see something that affects the team — even when it's uncomfortable.</div>
+        <div class="scale-row">
+          <span class="scale-label">Almost Never</span>
+          <div class="radio-group" id="group-c4"></div>
+          <span class="scale-label right">Almost Always</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="commitment-block">
+      <div class="question-text">Based on your responses, what's one thing you want to own differently starting Monday?</div>
+      <textarea id="commitment" placeholder="Write your commitment here…"></textarea>
+    </div>
+
+    <div class="submit-wrap">
+      <button type="submit" id="submit-btn" disabled>Submit My Assessment</button>
+      <div id="submit-note" class="submit-note">Answer all 12 questions to continue</div>
+      <div id="error-msg"></div>
+    </div>
+
+  </form>
+</div>
+
+<script>
+const EDGE_FUNCTION_URL = "https://rlooznqhjwgrukjozdfc.supabase.co/functions/v1/submit-ownership-assessment";
+const FIELDS = ["a1","a2","a3","a4","b1","b2","b3","b4","c1","c2","c3","c4"];
+const LABELS = ["Almost Never","Rarely","Sometimes","Usually","Almost Always"];
+const answers = {};
+const params = new URLSearchParams(window.location.search);
+const sessionId = params.get("session") || "default";
+const respondentId = params.get("name") || null;
+
+FIELDS.forEach(field => {
+  const group = document.getElementById("group-" + field);
+  for (let v = 1; v <= 5; v++) {
+    const label = document.createElement("label");
+    label.className = "radio-option";
+    label.title = LABELS[v - 1];
+    label.innerHTML = '<input type="radio" name="' + field + '" value="' + v + '" />' +
+                      '<span class="dot">' + v + '</span>';
+    label.querySelector("input").addEventListener("change", () => {
+      answers[field] = v;
+      document.querySelector('[data-field="' + field + '"]').classList.add("answered");
+      updateProgress();
+    });
+    group.appendChild(label);
+  }
+});
+
+function updateProgress() {
+  const count = Object.keys(answers).length;
+  document.getElementById("progress").style.width = (count / 12 * 100) + "%";
+  const allDone = count === 12;
+  document.getElementById("submit-btn").disabled = !allDone;
+  document.getElementById("submit-note").style.display = allDone ? "none" : "block";
+}
+
+document.getElementById("assessment-form").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById("submit-btn");
+  const errMsg = document.getElementById("error-msg");
+  btn.disabled = true;
+  btn.textContent = "Submitting…";
+  errMsg.style.display = "none";
+
+  const payload = { session_id: sessionId, respondent_id: respondentId };
+  FIELDS.forEach(function(f) { payload[f] = answers[f]; });
+
+  try {
+    const res = await fetch(EDGE_FUNCTION_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.success) throw new Error(data.error || "Submission failed");
+    const s = data.scores;
+    const commitment = encodeURIComponent(document.getElementById("commitment").value.trim());
+    window.location.href = "results.html?is=" + s.inner_stance +
+                           "&b=" + s.behavior +
+                           "&tw=" + s.the_whole +
+                           "&t=" + s.total +
+                           (commitment ? "&commitment=" + commitment : "");
+  } catch (err) {
+    errMsg.textContent = "Something went wrong. Please try again.";
+    errMsg.style.display = "block";
+    btn.disabled = false;
+    btn.textContent = "Submit My Assessment";
+  }
+});
+
+(function(){
+  var mirrorUrl = 'https://leadership-mirror.netlify.app';
+  var isHome = (window.location.pathname === '/' || window.location.pathname === '');
+  var isSixShifts = window.location.pathname.indexOf('six-shifts') !== -1;
+  if(isHome){
+    document.querySelectorAll('a').forEach(function(a){
+      var txt = a.textContent.trim();
+      if(txt.indexOf('Explore The Six Shifts') === 0){
+        a.href = mirrorUrl;
+        a.target = '_blank';
+        a.textContent = 'Take the Free Team Diagnostic →';
+        a.style.cssText = 'display:inline-block;background:#C4973B;color:#fff;padding:14px 32px;border-radius:5px;font-family:Inter,sans-serif;font-size:0.95rem;font-weight:600;text-decoration:none;letter-spacing:0.3px;margin-left:12px;transition:background 0.2s;';
+        a.onmouseenter = function(){ a.style.background='#b08832'; };
+        a.onmouseleave = function(){ a.style.background='#C4973B'; };
+      }
+    });
+  }
+  if(isSixShifts){
+    document.querySelectorAll('a').forEach(function(a){
+      if(a.textContent.trim().indexOf('Find Out Where Your Team Stands') === 0){
+        a.href = mirrorUrl;
+        a.target = '_blank';
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
