@@ -277,7 +277,9 @@
         <div class="form-card reveal">
           <h3>Tell me what's going on.</h3>
           <p class="form-card__sub">I'll get back to you within 24 hours.</p>
-          <div class="contact-form" id="contactForm">
+          <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="event.preventDefault();submitForm();return false;">
+            <input type="hidden" name="form-name" value="contact">
+            <p hidden aria-hidden="true" style="display:none"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
             <div class="form-row">
               <div>
                 <label for="name">Name</label>
@@ -312,8 +314,8 @@
               <label for="message">What's happening?</label>
               <textarea id="message" name="message" placeholder="What's working? What's not? What are you hoping to change?"></textarea>
             </div>
-            <button type="button" onclick="submitForm()">Send Message</button>
-          </div>
+            <button type="submit">Send Message</button>
+          </form>
           <div id="formSuccess">
             <div style="text-align: center; padding: 40px 20px;">
               <div style="font-size: 3rem; margin-bottom: 16px;">✓</div>
@@ -410,7 +412,7 @@
       var m = document.getElementById('message').value;
       if (!n || !e) { alert('Please fill in your name and email.'); return; }
       var fallback = 'mailto:andy@scalingminds.com?subject=' + encodeURIComponent('Inquiry from ' + n) + '&body=' + encodeURIComponent('Name: ' + n + ' | Email: ' + e + ' | Company: ' + c + ' | Role: ' + r + ' | Interest: ' + i + ' | Message: ' + m);
-      fetch('https://formspree.io/f/xyknngla', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: n, email: e, company: c, role: r, interest: i, message: m }) }).then(function(res) { if (res.ok) { document.getElementById('contactForm').style.display = 'none'; document.getElementById('formSuccess').style.display = 'block'; } else { window.location.href = fallback; } }).catch(function() { window.location.href = fallback; });
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ 'form-name': 'contact', name: n, email: e, company: c, role: r, interest: i, message: m }).toString() }).then(function(res) { if (res.ok) { document.getElementById('contactForm').style.display = 'none'; document.getElementById('formSuccess').style.display = 'block'; } else { window.location.href = fallback; } }).catch(function() { window.location.href = fallback; });
     }
   </script>
 </body>
