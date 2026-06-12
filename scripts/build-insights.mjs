@@ -376,7 +376,7 @@ function formatDate(d) {
 
 /* ----------------------------- index page ----------------------------- */
 
-function renderIndex(articles) {
+function renderIndex(articles, onePagers = []) {
   const cards = articles
     .map(
       (a) => `      <a class="insight-card" href="${escapeAttr('/' + a.slug)}">
@@ -387,6 +387,31 @@ function renderIndex(articles) {
       </a>`
     )
     .join('\n');
+
+  const quickCards = onePagers
+    .map(
+      (p) => `      <a class="qr-card" href="${escapeAttr('/' + p.slug)}">
+        <span class="qr-card__cat">${escapeAttr(p.category)}</span>
+        <h3 class="qr-card__title">${escapeAttr(p.title)}</h3>
+        <p class="qr-card__hook">${escapeAttr(p.hook)}</p>
+      </a>`
+    )
+    .join('\n');
+
+  const quickReadsSection = onePagers.length
+    ? `    <section class="quick-reads">
+      <div class="quick-reads__inner">
+        <div class="quick-reads__head">
+          <span class="eyebrow">Quick Reads</span>
+          <h2>One-page references</h2>
+          <p>Single-page breakdowns of the patterns that shape executive teams — scan one in about two minutes.</p>
+        </div>
+        <div class="qr-grid">
+${quickCards}
+        </div>
+      </div>
+    </section>`
+    : '';
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -412,15 +437,33 @@ ${FONT_LINKS}
     @keyframes insights-underline { to { background-size: 100% 3px; } }
     @media (prefers-reduced-motion: reduce) { .insights-hero h1 em { animation: none; background-size: 100% 3px; } }
     .insights-hero p { color: rgba(255,255,255,0.72); max-width: 600px; margin: 0 auto; font-size: 1.12rem; line-height: 1.7; }
-    .insights-grid { max-width: 840px; margin: 0 auto; padding: 56px 24px 80px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-    .insight-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid #e7e2d6; border-radius: 8px; padding: 28px; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
-    .insight-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(18,62,53,0.1); border-color: var(--gold); }
+    .section-head { max-width: 600px; margin: 0 auto 40px; text-align: center; }
+    .section-head .eyebrow { color: var(--gold); }
+    .section-head h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--green); margin: 10px 0 12px; }
+    .section-head p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; }
+    .insights-section { padding: 64px 24px 24px; }
+    .insights-grid { max-width: 880px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    .insight-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid #e7e2d6; border-radius: 8px; padding: 30px; box-shadow: 0 1px 2px rgba(18,62,53,0.05); transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+    .insight-card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(18,62,53,0.12); border-color: var(--gold); }
     .insight-card__cat { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; color: var(--gold); margin-bottom: 12px; }
     .insight-card__title { font-family: 'Libre Baskerville', serif; font-size: 1.3rem; line-height: 1.3; color: var(--green); margin-bottom: 12px; }
     .insight-card__desc { font-size: 0.98rem; line-height: 1.6; color: var(--text-muted); flex: 1; margin-bottom: 18px; }
     .insight-card__more { font-size: 0.9rem; font-weight: 600; color: var(--green); }
     .insights-empty { max-width: 600px; margin: 64px auto; text-align: center; color: var(--text-muted); }
-    @media (max-width: 640px) { .insights-hero { padding: 104px 20px 48px; } .insights-grid { grid-template-columns: 1fr; padding: 44px 20px 64px; } }
+    .quick-reads { background: var(--cream); padding: 76px 24px 92px; }
+    .quick-reads__inner { max-width: 1000px; margin: 0 auto; }
+    .quick-reads__head { max-width: 620px; margin: 0 auto 40px; text-align: center; }
+    .quick-reads__head .eyebrow { color: var(--gold); }
+    .quick-reads__head h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--green); margin: 10px 0 12px; }
+    .quick-reads__head p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; }
+    .qr-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .qr-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid #e7e2d6; border-top: 3px solid var(--gold); border-radius: 6px; padding: 22px; box-shadow: 0 1px 2px rgba(18,62,53,0.05); transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+    .qr-card:hover { transform: translateY(-4px); box-shadow: 0 12px 26px rgba(18,62,53,0.12); border-color: var(--gold); }
+    .qr-card__cat { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; color: var(--gold); margin-bottom: 8px; }
+    .qr-card__title { font-family: 'Libre Baskerville', serif; font-size: 1.05rem; line-height: 1.3; color: var(--green); margin-bottom: 8px; }
+    .qr-card__hook { font-size: 0.88rem; line-height: 1.55; color: var(--text-muted); margin: 0; }
+    @media (max-width: 880px) { .qr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .insights-hero { padding: 104px 20px 48px; } .insights-section { padding: 48px 20px 8px; } .insights-grid { grid-template-columns: 1fr; } .qr-grid { grid-template-columns: 1fr; } .quick-reads { padding: 56px 20px 64px; } }
   </style>
 ${GTAG}
 </head>
@@ -433,9 +476,17 @@ ${NAV}
     <p>Practical reading on executive team performance, leadership transitions, and the work of building teams that don't need you in the room.</p>
   </header>
   <main>
-    ${articles.length
-      ? `<div class="insights-grid">\n${cards}\n    </div>`
-      : `<div class="insights-empty"><p>New insights are on the way. Check back soon.</p></div>`}
+    <section class="insights-section">
+      <div class="section-head">
+        <span class="eyebrow">Essays</span>
+        <h2>In-depth reads</h2>
+        <p>Long-form deep dives on the patterns that make or break executive teams.</p>
+      </div>
+      ${articles.length
+        ? `<div class="insights-grid">\n${cards}\n      </div>`
+        : `<div class="insights-empty"><p>New insights are on the way. Check back soon.</p></div>`}
+    </section>
+${quickReadsSection}
   </main>
 ${FOOTER}
   </div>
@@ -494,6 +545,55 @@ function loadArticle(file) {
   };
 }
 
+/* ----------------------------- one-pagers (Quick Reads) ----------------------------- */
+
+/**
+ * Scan root-level *.html for the standalone "Insight" one-pagers and pull the bits the
+ * Quick Reads grid needs. A one-pager is any root .html carrying class="header-series"
+ * (hand-authored pages like /about don't have it). The one-pager files are the source of
+ * truth — there is no per-page markdown.
+ *
+ * Adding one-pager #28: drop a new <slug>.html at the repo root (built from the same
+ * template, so it carries class="header-series"), run scripts/integrate-onepagers.mjs to
+ * wire in the brand shell, add its clean-URL + legacy redirects to _redirects, and it
+ * shows up here automatically on the next build. No edits to this file required.
+ */
+const ONEPAGER_MARKER = 'class="header-series"';
+
+function pickMeta(re, html, fallback = '') {
+  const m = html.match(re);
+  return m ? m[1].trim() : fallback;
+}
+
+const decodeEntities = (s = '') =>
+  s.replace(/&amp;/g, '&').replace(/&#8217;|&rsquo;/g, '’').replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+
+function trimHook(s = '', max = 90) {
+  const t = s.trim();
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max);
+  const lastSpace = cut.lastIndexOf(' ');
+  return (lastSpace > 40 ? cut.slice(0, lastSpace) : cut).replace(/[\s.,;:—-]+$/, '') + '…';
+}
+
+function scanOnePagers() {
+  const out = [];
+  for (const file of readdirSync(ROOT)) {
+    if (!file.endsWith('.html')) continue;
+    const html = readFileSync(join(ROOT, file), 'utf8');
+    if (!html.includes(ONEPAGER_MARKER)) continue;
+    const slug = file.replace(/\.html$/, '');
+    const rawTitle = pickMeta(/<title>([^<]*)<\/title>/, html);
+    const title = decodeEntities(rawTitle.replace(/\s*\|\s*Scaling Minds\s*$/, ''));
+    const category = decodeEntities(pickMeta(/class="header-category">([^<]*)</, html, 'Insight'));
+    const description = decodeEntities(pickMeta(/name="description"\s+content="([^"]*)"/, html));
+    out.push({ slug, title, category, hook: trimHook(description) });
+  }
+  // Group the Leadership series first, then any others (e.g. Wellbeing); alpha within.
+  out.sort((a, b) => a.title.localeCompare(b.title));
+  return out;
+}
+
 function build() {
   if (!existsSync(ARTICLES_DIR)) {
     console.warn(`[insights] No articles dir at ${ARTICLES_DIR} — writing empty index.`);
@@ -537,9 +637,10 @@ function build() {
     console.log(`[insights] built /${article.slug}`);
   }
 
+  const onePagers = scanOnePagers();
   mkdirSync(INSIGHTS_DIR, { recursive: true });
-  writeFileSync(join(INSIGHTS_DIR, 'index.html'), renderIndex(articles));
-  console.log(`[insights] built /insights index (${articles.length} article${articles.length === 1 ? '' : 's'})`);
+  writeFileSync(join(INSIGHTS_DIR, 'index.html'), renderIndex(articles, onePagers));
+  console.log(`[insights] built /insights index (${articles.length} article${articles.length === 1 ? '' : 's'}, ${onePagers.length} quick reads)`);
 
   updateGitignore(articles.map((a) => a.slug));
 }

@@ -49,6 +49,8 @@ You can't order people to trust each other, and you can't outsource it to a faci
 
 So here's the test. The next time one of your executives says something hard, about the plan, about a peer, about you, watch what you do in the following five seconds. The team certainly will. That five seconds is the trust strategy.
 
+**Related:** [Trust Repair — After a Breakdown](/trust-repair)
+
 ## Common Questions
 
 ### Will a team-building offsite fix trust on an executive team?
