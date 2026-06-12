@@ -31,6 +31,8 @@ Nobody builds a decision bottleneck on purpose. It's the leftover of what made t
 
 Early on, your judgment was the edge. You knew every customer, made every call, and your speed was the advantage. The organization grew up around your involvement because your involvement was the best thing it had. Right design at 10 people. At 80, it's strangling you.
 
+I learned this years before I ever coached a CEO. For seventeen years I oversaw productions at The Marriott Theatre, and every director and designer came to me for approval on everything, which felt like quality control right up until I got seriously ill during the week we moved a production into the theater, the highest-stakes stretch of the whole process. With me out, the production essentially halted. My team did everything they could, the best they could, and the honest truth is they didn't have the practice of trusting their own calls, because I'd taken that practice away from them by controlling every decision.
+
 The hard part to accept is that your people learned this from you. Every time a decision went sideways and you grabbed it back, the lesson got louder: the safe move is to check with the boss.
 
 A test you can run Monday without telling anyone. Watch where people's eyes go when a hard question lands in your leadership meeting. If every set of eyes finds your chair, you have a group of smart people waiting to find out what you think.

@@ -17,6 +17,8 @@ Founder-led isn't about who holds the CEO title. It's a decision structure: one 
 
 And here's the part that surprises people: founder-led can outlive the founder. Plenty of succession CEOs inherit a founder-led company, complete with a team trained for years to route everything to the corner office. They take the seat and the routing just redirects to them. Or worse, it keeps going to the founder, who is technically retired and somehow still in the building every Tuesday. If that's you, this transition is still yours to lead. The structure is the same even though you didn't build it.
 
+I watched this up close at a family company where the father founded the business and the son carried the CEO title. Then the son made a call on a new service offering and the father overruled him in front of the entire C-suite: "We're not doing this, period." It completely undermined the son's authority, and everyone in the room knew it. From then on, the consequential calls waited on a man who held no formal role at all.
+
 ## When should a company move from founder-led to team-led?
 
 Later than is ideal and earlier than feels comfortable. For most companies that's somewhere between 50 and 150 people. Below that, founder-led is often genuinely the best system you have. Past it, the math stops working: there are more important decisions per week than one person has hours.

@@ -43,6 +43,8 @@ A CEO I work with opened a Monday meeting like this: "I've been avoiding a conve
 
 Notice the order of operations in that room. Nobody could be that honest until the CEO made honesty survivable, and the honest conversation is what let the team own the problem together instead of waiting out the boss. Candor is the second of [the Six Shifts](/six-shifts), and it sits second on purpose: skip the trust underneath it and demands for honesty just teach people to perform agreement more convincingly.
 
+I've had to take my own medicine on this. In the final session of a year-long engagement, the CFO asked me a question I'm pretty sure was asked so the CEO would hear the answer: "What grade would you give us for this past year?" I looked around the table and told the truth: probably a C, because not everyone had committed fully to the work. The room went quiet, because they knew, and the CEO looked embarrassed. Nobody argued with the grade. If I'd handed them the B-plus the room was hoping for, I'd have been doing the exact avoiding this whole article is about.
+
 Then comes the part most CEOs miss: the second hard conversation matters more than the first. When the next person takes the risk, what you do in that moment decides everything. Thank them in the room, even if they're wrong. Especially if it's about you. Your team will study that moment like film.
 
 ## Where this leaves you
