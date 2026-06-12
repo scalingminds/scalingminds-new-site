@@ -12,8 +12,11 @@ npm-debug.log*
 /insights/index.html
 
 # BEGIN generated-insights (auto-managed by scripts/build-insights.mjs)
+/does-my-leadership-team-need-a-coach/
 /executive-team-trust/
 /founder-bottleneck/
 /founder-led-to-team-led/
+/leaders-wont-take-ownership/
 /leadership-team-hard-conversations/
+/psychological-safety-executive-team/
 # END generated-insights
