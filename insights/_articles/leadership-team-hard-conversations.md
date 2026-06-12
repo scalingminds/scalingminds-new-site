@@ -41,7 +41,7 @@ You go first, you go specific, and you protect the first person who follows you.
 
 A CEO I work with opened a Monday meeting like this: "I've been avoiding a conversation with this team for six months. I don't think our new market strategy is working, I'm the one who pushed it, and I've been hoping the numbers would save me from having to admit it." Then he stayed quiet. What followed was the most productive 90 minutes that team ever had, including one VP finally voicing doubts she'd been sitting on since the strategy launched.
 
-Notice the order of operations in that room. Nobody could be that honest until the CEO made honesty survivable, and the honest conversation is what let the team own the problem together instead of waiting out the boss. Trust, then candor, then ownership. Skip the first step and demands for candor just teach people to perform agreement more convincingly. That sequence is the core of [the Six Shifts](/six-shifts).
+Notice the order of operations in that room. Nobody could be that honest until the CEO made honesty survivable, and the honest conversation is what let the team own the problem together instead of waiting out the boss. Candor is the second of [the Six Shifts](/six-shifts), and it sits second on purpose: skip the trust underneath it and demands for honesty just teach people to perform agreement more convincingly.
 
 Then comes the part most CEOs miss: the second hard conversation matters more than the first. When the next person takes the risk, what you do in that moment decides everything. Thank them in the room, even if they're wrong. Especially if it's about you. Your team will study that moment like film.
 

@@ -39,7 +39,7 @@ There's also a quieter reason: pricing the dysfunction means pricing the cost of
 
 ## Where this leaves you
 
-The fix isn't a mystery, and I've written about it elsewhere on this site. That pricing company got its number back: once the Sales and Finance leads could actually have the fight, openly, with the data on the table, the fifth pricing decision took eleven days and held. Getting there meant building, in order, a team where that fight was safe to have, then having it for real, then letting the two of them own the outcome instead of escalating it. Trust, then candor, then ownership, which is the sequence at the center of [the Six Shifts](/six-shifts).
+The fix isn't a mystery, and I've written about it elsewhere on this site. That pricing company got its number back: once the Sales and Finance leads could actually have the fight, openly, with the data on the table, the fifth pricing decision took eleven days and held. Getting there meant building, in order, a team where that fight was safe to have, then having it for real, then letting the two of them own the outcome. The method behind that progression is [the Six Shifts](/six-shifts), and the eleven-day pricing decision was the payoff.
 
 But before any of that, just get your number. One afternoon: latency on your last ten big decisions, decisions made more than once, executives lost in two years, initiatives that died in the middle. Add it up. Most CEOs who run this exercise find a number with two commas in it, and the conversation about whether team dysfunction is worth addressing tends to end right there.
 

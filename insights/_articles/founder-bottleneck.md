@@ -49,7 +49,7 @@ The bottleneck breaks when your executive team becomes a real team. That happens
 
 It starts with trust, and I mean something specific. Trust is when your CFO can tell your VP of Sales the forecast is fantasy, in the meeting, with you sitting right there, and the relationship gets stronger. Most executive teams can't do that. In years of measuring this, I have never met a CEO who underestimated how honest the team is with each other. Every one guessed high. Probably including you.
 
-Once a team can tell the truth in the room, ownership becomes possible. Leaders hold their own numbers and their own problems instead of escalating them. Alignment becomes how decisions get made instead of a poster in the break room. Trust before candor before ownership. The order is the whole ballgame. That sequence is the spine of [the Six Shifts](/six-shifts), and it exists because skipping steps is the most common way this work fails.
+Once a team can tell the truth in the room, ownership becomes possible. Leaders hold their own numbers and their own problems instead of escalating them. Alignment becomes how decisions get made instead of a poster in the break room. Trust before candor before ownership. The order is the whole ballgame. I built [the Six Shifts](/six-shifts) around that order because every failed attempt I get called in to clean up skipped a step in it.
 
 ## Where this leaves you
 
