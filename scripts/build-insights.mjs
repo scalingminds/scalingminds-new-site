@@ -412,7 +412,7 @@ ${FONT_LINKS}
     @keyframes insights-underline { to { background-size: 100% 3px; } }
     @media (prefers-reduced-motion: reduce) { .insights-hero h1 em { animation: none; background-size: 100% 3px; } }
     .insights-hero p { color: rgba(255,255,255,0.72); max-width: 600px; margin: 0 auto; font-size: 1.12rem; line-height: 1.7; }
-    .insights-grid { max-width: 1000px; margin: 0 auto; padding: 64px 24px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+    .insights-grid { max-width: 840px; margin: 0 auto; padding: 56px 24px 80px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
     .insight-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid #e7e2d6; border-radius: 8px; padding: 28px; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
     .insight-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(18,62,53,0.1); border-color: var(--gold); }
     .insight-card__cat { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; color: var(--gold); margin-bottom: 12px; }
@@ -420,7 +420,7 @@ ${FONT_LINKS}
     .insight-card__desc { font-size: 0.98rem; line-height: 1.6; color: var(--text-muted); flex: 1; margin-bottom: 18px; }
     .insight-card__more { font-size: 0.9rem; font-weight: 600; color: var(--green); }
     .insights-empty { max-width: 600px; margin: 64px auto; text-align: center; color: var(--text-muted); }
-    @media (max-width: 640px) { .insights-hero { padding: 104px 20px 48px; } .insights-grid { padding: 44px 20px 64px; } }
+    @media (max-width: 640px) { .insights-hero { padding: 104px 20px 48px; } .insights-grid { grid-template-columns: 1fr; padding: 44px 20px 64px; } }
   </style>
 ${GTAG}
 </head>
