@@ -45,7 +45,7 @@ With evidence, supplied first by the most powerful person in the room, at real p
 
 Here's the moment I think about. In a leadership meeting at a $60M company, the CFO said: "I need to say something uncomfortable. I don't fully understand how we make money on our largest account." Eight seconds of silence. This was a serious CFO admitting confusion about the company's biggest customer, in front of everyone. The CEO said, "Walk us through what you do see." It turned out two other executives shared the confusion and had each privately assumed they were the only one. The account got repriced within the quarter. It had been quietly losing money for two years.
 
-That CFO didn't speak up because of a values poster. He spoke up because months of groundwork had made it survivable, starting with the CEO admitting his own misses first. Safety is built in exactly those moments, one piece of evidence at a time, and it's the first shift for a reason: candor, ownership, everything downstream depends on it. That order is the foundation of [the Six Shifts](/six-shifts). Teams that demand honesty before building safety get silence with better production values.
+That CFO didn't speak up because of a values poster. He spoke up because months of groundwork had made it survivable, starting with the CEO admitting his own misses first. Safety is built in exactly those moments, one piece of evidence at a time. In [the Six Shifts](/six-shifts) this is the work of the first shift, and everything I've watched teams build afterward stood or fell on it. Teams that demand honesty before building safety get silence with better production values.
 
 ## Where this leaves you
 

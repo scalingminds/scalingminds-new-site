@@ -37,7 +37,7 @@ The CEO is in every session, receiving feedback like everyone else, and goes fir
 
 The team commits real time. Sessions are typically a half-day to a full day every month or so, plus the behavior work in between. Teams that treat sessions as appointments to survive get appointment-level results.
 
-And everyone tells the truth to the coach, which sounds obvious until month two, when the coach starts hearing the things people want relayed to the CEO without their fingerprints on them. A good coach refuses the courier job and pushes the conversation back into the room, because the room is where the muscle gets built. Trust first, so the truth is survivable. Then candor, so the truth gets said directly. Then ownership, so what's said turns into commitments people actually keep. That hiring-plan meeting above was a candor intervention sitting on months of trust work, and the sequence it follows is the structure of [the Six Shifts](/six-shifts).
+And everyone tells the truth to the coach, which sounds obvious until month two, when the coach starts hearing the things people want relayed to the CEO without their fingerprints on them. A good coach refuses the courier job and pushes the conversation back into the room, because the room is where the muscle gets built. Trust first, so the truth is survivable. Then candor, so the truth gets said directly. Then ownership, so what's said turns into commitments people actually keep. That hiring-plan meeting was a candor intervention sitting on months of trust work, which is [the Six Shifts](/six-shifts) operating the way it's supposed to: in your real meetings, one earned stage at a time.
 
 ## How do you know it's working?
 
