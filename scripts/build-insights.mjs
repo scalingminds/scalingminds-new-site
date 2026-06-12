@@ -377,7 +377,21 @@ function formatDate(d) {
 /* ----------------------------- index page ----------------------------- */
 
 function renderIndex(articles, onePagers = []) {
-  const cards = articles
+  // Lead with one cornerstone essay (frontmatter `featured: true`, else the
+  // first by order) — adds hierarchy and leaves an even grid below (no orphan).
+  const featured = articles.find((a) => a.featured) || articles[0] || null;
+  const rest = featured ? articles.filter((a) => a !== featured) : articles;
+
+  const featuredCard = featured
+    ? `      <a class="featured-essay" href="${escapeAttr('/' + featured.slug)}">
+        <span class="featured-essay__label">Start here</span>
+        <h2 class="featured-essay__title">${escapeAttr(featured.title)}</h2>
+        <p class="featured-essay__desc">${escapeAttr(featured.description)}</p>
+        <span class="featured-essay__more">Read the essay →</span>
+      </a>`
+    : '';
+
+  const cards = rest
     .map(
       (a) => `      <a class="insight-card" href="${escapeAttr('/' + a.slug)}">
         <span class="insight-card__cat">${escapeAttr(a.category || 'Insight')}</span>
@@ -388,13 +402,33 @@ function renderIndex(articles, onePagers = []) {
     )
     .join('\n');
 
-  const quickCards = onePagers
+  // Group one-pagers by category (richest groups first) so the 27 read as a
+  // handful of scannable clusters rather than one wall. The group label carries
+  // the category, so the cards drop their per-card category eyebrow.
+  const groups = new Map();
+  for (const p of onePagers) {
+    const key = p.category || 'More';
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(p);
+  }
+  const orderedGroups = [...groups.entries()].sort(
+    (a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0])
+  );
+  const quickGroupsHtml = orderedGroups
     .map(
-      (p) => `      <a class="qr-card" href="${escapeAttr('/' + p.slug)}">
-        <span class="qr-card__cat">${escapeAttr(p.category)}</span>
-        <h3 class="qr-card__title">${escapeAttr(p.title)}</h3>
-        <p class="qr-card__hook">${escapeAttr(p.hook)}</p>
-      </a>`
+      ([cat, items]) => `        <div class="qr-group">
+          <div class="qr-group__label">${escapeAttr(cat)}</div>
+          <div class="qr-grid">
+${items
+  .map(
+    (p) => `            <a class="qr-card" href="${escapeAttr('/' + p.slug)}">
+              <h3 class="qr-card__title">${escapeAttr(p.title)}</h3>
+              <p class="qr-card__hook">${escapeAttr(p.hook)}</p>
+            </a>`
+  )
+  .join('\n')}
+          </div>
+        </div>`
     )
     .join('\n');
 
@@ -406,9 +440,7 @@ function renderIndex(articles, onePagers = []) {
           <h2>One-page references</h2>
           <p>Single-page breakdowns of the patterns that shape executive teams — scan one in about two minutes.</p>
         </div>
-        <div class="qr-grid">
-${quickCards}
-        </div>
+${quickGroupsHtml}
       </div>
     </section>`
     : '';
@@ -442,6 +474,12 @@ ${FONT_LINKS}
     .section-head h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--green); margin: 10px 0 12px; }
     .section-head p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; }
     .insights-section { padding: 64px 24px 24px; }
+    .featured-essay { display: block; max-width: 880px; margin: 0 auto 28px; background: var(--cream); border: 1px solid #e7ddc8; border-top: 4px solid var(--gold); border-radius: 10px; padding: 40px 44px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .featured-essay:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(18,62,53,0.14); }
+    .featured-essay__label { display: inline-block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; color: var(--gold); margin-bottom: 14px; }
+    .featured-essay__title { font-family: 'Libre Baskerville', serif; font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.25; color: var(--green); margin-bottom: 14px; }
+    .featured-essay__desc { font-size: 1.08rem; line-height: 1.7; color: var(--text-muted); max-width: 70ch; margin-bottom: 20px; }
+    .featured-essay__more { font-size: 0.95rem; font-weight: 600; color: var(--green); }
     .insights-grid { max-width: 880px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
     .insight-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid #e7e2d6; border-radius: 8px; padding: 30px; box-shadow: 0 1px 2px rgba(18,62,53,0.05); transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
     .insight-card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(18,62,53,0.12); border-color: var(--gold); }
@@ -456,6 +494,9 @@ ${FONT_LINKS}
     .quick-reads__head .eyebrow { color: var(--gold); }
     .quick-reads__head h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--green); margin: 10px 0 12px; }
     .quick-reads__head p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; }
+    .qr-group { margin-bottom: 44px; }
+    .qr-group:last-child { margin-bottom: 0; }
+    .qr-group__label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; color: var(--green); padding-bottom: 10px; margin-bottom: 20px; border-bottom: 1px solid #e2d8c4; }
     .qr-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
     .qr-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid #e7e2d6; border-top: 3px solid var(--gold); border-radius: 6px; padding: 22px; box-shadow: 0 1px 2px rgba(18,62,53,0.05); transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
     .qr-card:hover { transform: translateY(-4px); box-shadow: 0 12px 26px rgba(18,62,53,0.12); border-color: var(--gold); }
@@ -463,7 +504,7 @@ ${FONT_LINKS}
     .qr-card__title { font-family: 'Libre Baskerville', serif; font-size: 1.05rem; line-height: 1.3; color: var(--green); margin-bottom: 8px; }
     .qr-card__hook { font-size: 0.88rem; line-height: 1.55; color: var(--text-muted); margin: 0; }
     @media (max-width: 880px) { .qr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 640px) { .insights-hero { padding: 104px 20px 48px; } .insights-section { padding: 48px 20px 8px; } .insights-grid { grid-template-columns: 1fr; } .qr-grid { grid-template-columns: 1fr; } .quick-reads { padding: 56px 20px 64px; } }
+    @media (max-width: 640px) { .insights-hero { padding: 104px 20px 48px; } .insights-section { padding: 48px 20px 8px; } .featured-essay { padding: 28px 24px; } .insights-grid { grid-template-columns: 1fr; } .qr-grid { grid-template-columns: 1fr; } .quick-reads { padding: 56px 20px 64px; } }
   </style>
 ${GTAG}
 </head>
@@ -483,7 +524,7 @@ ${NAV}
         <p>Long-form deep dives on the patterns that make or break executive teams.</p>
       </div>
       ${articles.length
-        ? `<div class="insights-grid">\n${cards}\n      </div>`
+        ? `${featuredCard}\n      <div class="insights-grid">\n${cards}\n      </div>`
         : `<div class="insights-empty"><p>New insights are on the way. Check back soon.</p></div>`}
     </section>
 ${quickReadsSection}
@@ -539,6 +580,7 @@ function loadArticle(file) {
     author: data.author || 'Andy Hite',
     ogImage: data.ogImage || data.image || null,
     order: typeof data.order === 'number' ? data.order : null,
+    featured: data.featured === true,
     bodyHtml,
     faq,
     url,
