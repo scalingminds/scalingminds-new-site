@@ -51,6 +51,8 @@ Stop asking why your team avoids hard conversations and start asking what the av
 
 One thing to try this week. Pick the conversation you've been avoiding, the one that came to mind in the first paragraph, and open your next leadership meeting with it. Imperfectly is fine. What you say will matter less than the fact that you said it, in the room, with everyone watching. Your team needs one demonstrated piece of evidence that the rules changed, and you're the only one who can supply it.
 
+**Related:** [The Cost of Silence](/cost-of-silence) · [Candor vs. Politeness](/candor-vs-politeness)
+
 ## Common Questions
 
 ### What if I'm the reason people avoid hard conversations?

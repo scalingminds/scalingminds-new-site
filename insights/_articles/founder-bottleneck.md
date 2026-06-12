@@ -59,6 +59,8 @@ One thing to try. Ask each of your executives, one on one: what conversation doe
 
 The bottleneck took years to build. It doesn't break in a month, but it breaks. The CEOs who've done it describe the change the same way: I stopped being the place where decisions go and started building the place where decisions happen.
 
+**Related:** [Micromanagement](/micromanagement)
+
 ## Common Questions
 
 ### Is the founder bottleneck the same as a delegation problem?
