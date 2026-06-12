@@ -408,7 +408,9 @@ ${FONT_LINKS}
     .insights-hero { background: var(--green); color: var(--white); padding: 120px 24px 64px; text-align: center; }
     .insights-hero .eyebrow { color: var(--gold); margin-bottom: 16px; }
     .insights-hero h1 { color: var(--white); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 16px; }
-    .insights-hero h1 em { color: var(--gold); font-style: normal; }
+    .insights-hero h1 em { color: var(--gold); font-style: normal; display: inline; background-image: linear-gradient(var(--gold), var(--gold)); background-repeat: no-repeat; background-position: left bottom; background-size: 0% 3px; padding-bottom: 2px; animation: insights-underline 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards; }
+    @keyframes insights-underline { to { background-size: 100% 3px; } }
+    @media (prefers-reduced-motion: reduce) { .insights-hero h1 em { animation: none; background-size: 100% 3px; } }
     .insights-hero p { color: rgba(255,255,255,0.72); max-width: 600px; margin: 0 auto; font-size: 1.12rem; line-height: 1.7; }
     .insights-grid { max-width: 1000px; margin: 0 auto; padding: 64px 24px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
     .insight-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid #e7e2d6; border-radius: 8px; padding: 28px; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
@@ -427,7 +429,7 @@ ${NAV}
   <div class="page-transition">
   <header class="insights-hero">
     <span class="eyebrow">Insights</span>
-    <h1>Field Notes on <em class="highlight-draw">Leadership That Holds</em></h1>
+    <h1>Field Notes on <em>Leadership That Holds</em></h1>
     <p>Practical reading on executive team performance, leadership transitions, and the work of building teams that don't need you in the room.</p>
   </header>
   <main>
