@@ -1,0 +1,19 @@
+# Node
+node_modules/
+npm-debug.log*
+
+# Local tooling
+.claude/
+.DS_Store
+
+# Generated Insights output (built at deploy time by scripts/build-insights.mjs).
+# Source of truth is insights/_articles/*.md — generated HTML is never committed.
+# The index page, plus per-article top-level dirs (auto-listed in the block below).
+/insights/index.html
+
+# BEGIN generated-insights (auto-managed by scripts/build-insights.mjs)
+/executive-team-trust/
+/founder-bottleneck/
+/founder-led-to-team-led/
+/leadership-team-hard-conversations/
+# END generated-insights
