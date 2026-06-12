@@ -12,5 +12,8 @@ npm-debug.log*
 /insights/index.html
 
 # BEGIN generated-insights (auto-managed by scripts/build-insights.mjs)
+/executive-team-trust/
 /founder-bottleneck/
+/founder-led-to-team-led/
+/leadership-team-hard-conversations/
 # END generated-insights
