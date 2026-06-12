@@ -29,6 +29,8 @@ A VP challenged the strategy in front of the team and got cut off at the knees. 
 
 The other source is history between specific people. Sales blew the forecast two years ago and Finance has treated their numbers like fiction ever since. Operations got burned by a launch date once and now builds a secret buffer into everything. Each of these is a rational response to a real event. That's why you can't talk a team out of them.
 
+A couple of years ago I worked with a CEO who was certain trust was his team's strong suit. The diagnostic said otherwise: three of his executives were running backchannel arguments and barely functioning together, and underneath it all three were competing for his attention. He'd been reading that competition as buy-in, because each of them kept coming to him individually and agreeing enthusiastically. We spent about three months repairing those relationships, and once the repair took hold it was like the engine stopped seizing. The team covered so much more ground.
+
 ## Can you fix executive team trust one relationship at a time?
 
 Most advice treats this as a series of one-on-one repairs. Get the CFO and the VP of Sales in a room, clear the air, shake hands. Sometimes worth doing. It won't fix the team.
