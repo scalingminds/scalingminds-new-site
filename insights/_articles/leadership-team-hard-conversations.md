@@ -1,77 +1,80 @@
 ---
 slug: leadership-team-hard-conversations
-title: "How to Get Your Leadership Team to Stop Avoiding Hard Conversations"
-titleTag: "How to Get Your Leadership Team to Stop Avoiding Hard Conversations | Scaling Minds"
-description: "Your leadership team avoids hard conversations because honesty got expensive. Why training doesn't fix it and how CEOs make truth-telling normal again."
+title: "Why Your Leadership Team Avoids Hard Conversations"
+titleTag: "Why Your Leadership Team Avoids Hard Conversations | Scaling Minds"
+description: "More than 80% of workers are holding back from at least one hard conversation right now. Here's what a candor problem actually looks like on a leadership team and what the CEO controls."
 author: "Andy Hite"
+datePublished: 2026-06-23
 order: 4
 ---
 
-Your leadership team avoids hard conversations because avoidance is working for them. Somewhere along the way, telling the truth in your company got expensive, and your team did the math. They'll stop avoiding when honesty gets cheaper than silence, and the person who sets that price is you.
+Something is off and you can't quite name it. The meetings feel fine, nobody's fighting, decisions get made. But somewhere between the conference room and the work actually getting done, things go sideways in ways that are hard to trace. You have a sense that you're not getting the full picture, but you can't prove it, and you're not sure who to ask.
 
-This is for CEOs watching smart, senior, well-paid leaders tiptoe around the obvious. The underperforming VP everyone manages around. The strategy half the room doesn't believe in. The tension between two executives that's been "fine" for three years.
+That gap is almost always a candor problem. And it almost never starts with a dramatic blowup or a bad actor. It starts with honesty getting expensive, quietly, over time, until the team learns that the safe move is to keep the hard thing to themselves.
 
-## Why does your leadership team avoid hard conversations?
+## What it looks like from the inside
 
-Because at some point it was the smart move.
+The research on organizational silence, the formal name for what happens when teams systematically withhold information from leadership, describes a pattern that most CEOs recognize when they hear it, even if they couldn't have named it before.
 
-Conflict avoidance on a leadership team is learned behavior, usually from a small number of vivid events. Someone gave the CEO honest feedback and watched it go badly. Someone else named a peer's performance problem and got labeled political for it. Your team is full of pattern-recognition machines. They saw what happened, they adjusted, and now the adjustment runs on autopilot.
+Fewer questions in meetings. Shorter answers when you ask for input. Less volunteering for new initiatives. Vague agreement in the room, real conversation in the hallway afterward. Decisions that seem to get made but somehow don't stick. Problems that surface fully formed, with no warning, after they've been obvious to everyone else for months.
 
-There's a softer version too, common in companies with genuinely good cultures: people avoid hard conversations because they like each other. The COO knows the marketing budget is bloated and says nothing because the CMO is going through a divorce. Kindness and avoidance get blended until nobody can tell them apart. You end up with a team that would rather miss the quarter than make a colleague's bad week worse, which sounds almost noble until you price it out.
+The one that tends to land hardest: leaders who soften their actual position in the meeting, say what they think you want to hear, and then act on what they actually believe once they're out of the room. That's not a communication problem. That's a trust problem. And it means the decisions you think you're making together aren't the decisions that are actually getting made.
 
-## What does conflict avoidance look like on a leadership team?
+## Why it happens
 
-Mostly it looks like agreement.
+It rarely starts with something dramatic. It starts with a small moment. A leader raises a concern and the CEO pushes back hard. Not maliciously, just defensively. Or someone names a problem and the response is to fix the messenger rather than the problem. Or a dissenting voice gets talked over enough times that the person stops dissenting.
 
-Meetings end with nods and action items. Then comes the meeting after the meeting, the parking-lot calls and side Slack threads where people say what they actually think. If the real conversation in your company happens in twos after the official conversation happens in tens, you have an avoidance problem, whatever the engagement survey says.
+Nobody announces that honesty is now expensive. The team figures it out through observation, and once they have, the behavior change is immediate and durable. People stop bringing the hard thing. They bring the safe version instead, or they bring nothing at all and wait for the hallway.
 
-Other tells. Feedback travels through you instead of between peers: your CRO complains to you about your COO and would never say a word to her directly. Hard topics get scheduled, then rescheduled, then quietly dropped. And the most expensive one, decisions that everyone privately doubts sail through unchallenged, because challenging them would require a hard conversation, and the team already has a system for those: don't.
+The research on organizational silence identifies five reasons people go quiet. The most common is the fear of being labeled negatively, the calculation that speaking up risks how you're perceived, as a complainer, a troublemaker, someone who doesn't read the room. Close behind it is fear of retaliation, which is more specific: the belief that honesty will be punished directly, through lost access, diminished status, or being quietly sidelined. Third is the norm that agreement is a virtue, that a team that doesn't fight is a team that's working, which gets internalized so completely that people stop seeing their silence as a choice. Fourth is the belief that management has already decided, that input is being solicited for the appearance of inclusion, not because it will change anything.
 
-## Why don't communication trainings fix this?
+And then there's futility. This one is the hardest to see and the most dangerous to have. It's not fear. It's the accumulated conclusion, built from watching what happened the last time someone said something, that speaking up doesn't change anything. People who've gone quiet from futility don't look afraid. They look disengaged, checked out, apathetic. What they actually are is tired of trying. The difference matters because fear responds to safety. Futility responds to evidence. You can't talk someone out of futility by making the room feel safer. You have to show them, over time, that raising something actually changes something.
 
-Because the team's problem was never skill.
+## Why the brain makes it worse
 
-Your executives know how to have difficult conversations. They have them at home, with vendors, in negotiations where millions move. They are demonstrably capable of saying hard things to other humans. They're choosing to skip it here, with each other, because here it isn't safe, and the workshop didn't change that.
+When [psychological safety](/psychological-safety-executive-team) is low, the brain processes social threat the same way it processes physical pain. The amygdala fires, the prefrontal cortex goes offline, and the very part of the brain needed for clear thinking and measured communication is the one that's been hijacked.
 
-This is why the crucial-conversations training produces two weeks of careful "I statements" and then total reversion. Skill was never the constraint. The constraint is the team's lived answer to one question: what happens to people who tell the truth in this room? Change that answer and the skills show up on their own. People get remarkably articulate when honesty stops being dangerous.
+Which creates a painful irony: the higher the stakes of the conversation, the less capable the brain becomes of having it. The person across from you isn't being cowardly. They're being human. Their nervous system made a calculation about what's safe and came up with an answer before they consciously thought about it.
 
-## How do you make hard conversations normal?
+HBR research found that 69% of managers report feeling uncomfortable communicating directly with employees. Only 30% feel confident managing conflict. Those numbers aren't measuring character. They're measuring what happens when people have learned, usually from experience, that the risk of speaking up is real.
 
-You go first, you go specific, and you protect the first person who follows you.
+## What the CEO actually controls
 
-A CEO I work with opened a Monday meeting like this: "I've been avoiding a conversation with this team for six months. I don't think our new market strategy is working, I'm the one who pushed it, and I've been hoping the numbers would save me from having to admit it." Then he stayed quiet. What followed was the most productive 90 minutes that team ever had, including one VP finally voicing doubts she'd been sitting on since the strategy launched.
+Here's where it lands for the leaders I work with: the team is not the problem. The conditions are the problem. And the conditions are set almost entirely by the person at the top of the room.
 
-Notice the order of operations in that room. Nobody could be that honest until the CEO made honesty survivable, and the honest conversation is what let the team own the problem together instead of waiting out the boss. Candor is the second of [the Six Shifts](/six-shifts), and it sits second on purpose: skip the trust underneath it and demands for honesty just teach people to perform agreement more convincingly.
+Amy Edmondson's research on psychological safety found that teams speak up to leaders whose reactions they can predict and trust. Not leaders who are always right, not leaders who are always smooth, but leaders who are consistent and willing to engage with what's true. The CEO who responds to bad news with curiosity, who names their own mistakes in the room, who visibly rewards the person who raised the uncomfortable thing. That CEO is building a team where hard conversations happen. The one who does the opposite is building a team that's very good at [pretending everything is fine](/cost-of-silence).
 
-I've had to take my own medicine on this. In the final session of a year-long engagement, the CFO asked me a question I'm pretty sure was asked so the CEO would hear the answer: "What grade would you give us for this past year?" I looked around the table and told the truth: probably a C, because not everyone had committed fully to the work. The room went quiet, because they knew, and the CEO looked embarrassed. Nobody argued with the grade. If I'd handed them the B-plus the room was hoping for, I'd have been doing the exact avoiding this whole article is about.
+More than 80% of workers say they are holding back from at least one challenging conversation at work right now. That's not a people problem. That's a culture problem, and culture on an executive team runs through the behavior of the person who called the meeting.
 
-Then comes the part most CEOs miss: the second hard conversation matters more than the first. When the next person takes the risk, what you do in that moment decides everything. Thank them in the room, even if they're wrong. Especially if it's about you. Your team will study that moment like film.
+The question worth sitting with isn't whether your team avoids hard conversations. They do. Every team does, to some degree. The question is what they're avoiding, and whether you'd actually want to know the answer.
 
-## Where this leaves you
-
-Stop asking why your team avoids hard conversations and start asking what the avoidance is currently buying them. Safety from you? Or protection of a peace everyone knows is fake?
-
-One thing to try this week. Pick the conversation you've been avoiding, the one that came to mind in the first paragraph, and open your next leadership meeting with it. Imperfectly is fine. What you say will matter less than the fact that you said it, in the room, with everyone watching. Your team needs one demonstrated piece of evidence that the rules changed, and you're the only one who can supply it.
-
-**Related:** [The Cost of Silence](/cost-of-silence) · [Candor vs. Politeness](/candor-vs-politeness)
+I've found that the most telling signal isn't what gets said in the leadership meeting. It's what gets said in the parking lot afterward. If that conversation is different from the one that just happened in the room, you have a candor problem. And it started before the parking lot.
 
 ## Common Questions
 
-### What if I'm the reason people avoid hard conversations?
+### Why does my leadership team avoid hard conversations?
 
-You probably are, at least partly, and asking the question puts you ahead of most CEOs. Leaders underestimate their own wattage: a frown from you in a meeting carries the force of a formal reprimand from anyone else. Ask your team one on one, "When was the last time you watched honesty go badly in this company?" Then don't defend whatever they tell you. The answer is data, even when it stings.
+Almost never a skill problem. The research points to safety. Somewhere along the way, honesty got expensive in that room, and the team quietly learned the price. It shows up as vague agreement in meetings, real conversations happening in the hallway, and problems surfacing fully formed after everyone else already knew. The five documented reasons, in order of how they develop: fear of being labeled negatively, fear of retaliation, the belief that agreement is a virtue, the belief that management has already decided, and finally futility, the accumulated conclusion that speaking up doesn't change anything.
 
-### Should I force a conversation between two executives who avoid each other?
+### What is organizational silence?
 
-Put them in a room together, yes, with you present the first time, and frame it as their problem to solve, with you there as a witness instead of a referee. If you play judge, you'll get two lawyers. The goal is for them to leave with an agreement they built themselves, and for the rest of the team to learn that the standard here is talking to each other instead of about each other.
+Organizational silence is the formal research term for what happens when teams systematically withhold information from leadership. Morrison and Milliken identified it in 2000 as a collective phenomenon, not individual cowardice, but a shared belief that speaking up is unwise. It tends to be invisible to the CEO and obvious to everyone else.
 
-### Is some conflict avoidance healthy?
+### What does a low-candor leadership team look like?
 
-Picking your battles is judgment. A pattern of silence on things that matter is avoidance. The line between them is consequence. Letting a peer's annoying meeting habit slide costs nothing. Letting a flawed strategy slide costs the company. If the unsaid thing affects results, the bench, or a customer, it's overdue.
+Fewer questions in meetings. Shorter answers when input is requested. Decisions that seem to get made but don't stick. Leaders who agree in the room and act differently once they're out of it. Problems that arrive fully formed with no warning, after they've been obvious to everyone else for months.
 
-### How long until hard conversations feel normal on our team?
+### How much do avoided conversations cost an organization?
 
-A few months to get the first real ones happening, if you go first and protect the people who follow. A year or more before the team self-corrects without you, meaning two executives have it out, productively, and you only hear about it afterward. That moment, hearing about a hard conversation you weren't needed for, is how you'll know it's working.
+VitalSmarts research found the average avoided conversation costs an organization $7,500 and more than seven lost working days. A 2021 follow-up found one in three employees estimated their own silence cost their organization at least $25,000. These are self-reported estimates, but the direction is consistent across multiple studies spanning more than a decade.
+
+### How do you build a culture of candor on a leadership team?
+
+It starts with the CEO's behavior, not a training program. Amy Edmondson's research found teams speak up to leaders whose reactions they can predict and trust. The CEO who responds to bad news with curiosity, names their own mistakes in the room, and visibly rewards the person who raised the uncomfortable thing is the one building a team where hard conversations happen.
+
+### What is the difference between candor and conflict?
+
+Candor is direct, respectful truth-telling in service of better decisions. Conflict is what happens when candor has been suppressed long enough that problems escalate beyond conversation. Most leadership teams aren't choosing between candor and conflict. They're choosing between candor now and a much harder conversation later.
 
 ---
 
