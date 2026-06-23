@@ -182,7 +182,7 @@ const FONT_LINKS = `  <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">`;
 
 const GTAG = `  <!-- Google tag (gtag.js) -->
@@ -378,86 +378,104 @@ function formatDate(d) {
 /* ----------------------------- index page ----------------------------- */
 
 function renderIndex(articles, onePagers = []) {
-  // Lead with one cornerstone essay (frontmatter `featured: true`, else the
-  // first by order) — adds hierarchy and leaves an even grid below (no orphan).
+  // Lead with one cornerstone essay (frontmatter `featured: true`, else the first by order).
   const featured = articles.find((a) => a.featured) || articles[0] || null;
   const rest = featured ? articles.filter((a) => a !== featured) : articles;
 
-  const featuredCard = featured
-    ? `      <a class="featured-essay" href="${escapeAttr('/' + featured.slug)}">
-        <div class="featured-essay__body">
-          <span class="featured-essay__badge">Foundation</span>
-          <h2 class="featured-essay__title">${escapeAttr(featured.title)}</h2>
-          <p class="featured-essay__desc">${escapeAttr(featured.description)}</p>
-          <span class="featured-essay__cta">Read the essay <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </div>
-        <div class="featured-essay__accent">
-          <span class="featured-essay__accent-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 10h20M6 16h14M6 22h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-          <p class="featured-essay__accent-quote">"Trust isn't the destination — it's the foundation everything else is built on."</p>
-        </div>
-      </a>`
-    : '';
+  // Reading times from design spec, keyed by slug (fallback: "6 min read").
+  const readTimes = {
+    'founder-bottleneck': '7 min',
+    'executive-team-trust': '6 min',
+    'founder-led-to-team-led': '8 min',
+    'leadership-team-hard-conversations': '6 min',
+    'leaders-wont-take-ownership': '5 min',
+    'psychological-safety-executive-team': '7 min',
+    'does-my-leadership-team-need-a-coach': '5 min',
+    'working-with-executive-team-coach': '6 min',
+    'cost-of-executive-team-dysfunction': '6 min',
+    'who-helps-executive-teams': '8 min',
+    'leadership-offsite-that-works': '6 min',
+    'nonprofit-leadership-team-coaching': '5 min',
+    'everything-runs-through-me': '5 min',
+    'executive-team-coaching-chicago': '4 min',
+  };
 
-  const cards = rest
+  // Featured card: the "Six Shifts, Explained" cornerstone essay.
+  const featuredUrl = featured ? `/${featured.slug}` : '/six-shifts-explained';
+  const sixShifts = [
+    { num: '01', name: 'Trust', note: 'Foundational for high-performing teams.' },
+    { num: '02', name: 'Candor', note: 'Hard things get said in the room.' },
+    { num: '03', name: 'Ownership', note: 'Problems stop escalating up.' },
+    { num: '04', name: 'Empowerment', note: 'Decisions get made lower down.' },
+    { num: '05', name: 'Alignment', note: 'Everyone rows the same way.' },
+    { num: '06', name: 'Leadership', note: 'The team leads without you.' },
+  ];
+  const sixShiftCells = sixShifts
     .map(
-      (a, i) => `      <a class="essay-card" href="${escapeAttr('/' + a.slug)}">
-        <div class="essay-card__num">${String(i + 1).padStart(2, '0')}</div>
-        <h2 class="essay-card__title">${escapeAttr(a.title)}</h2>
-        <p class="essay-card__desc">${escapeAttr(a.description)}</p>
-        <div class="essay-card__footer">
-          <span class="essay-card__read">Read →</span>
-          <span class="essay-card__arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </div>
-      </a>`
+      (s) => `            <li style="background:#F7FAF8; padding:18px 18px 20px; transition:background 0.18s ease;">
+              <div style="font-family:'Libre Baskerville',serif; font-size:14px; color:#9DB4A9; margin-bottom:8px;">${s.num}</div>
+              <div style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:19px; color:#234A3E; margin-bottom:5px;">${s.name}</div>
+              <div style="font-size:13px; line-height:1.45; color:#6E8A7E;">${s.note}</div>
+            </li>`
     )
     .join('\n');
 
-  // Group one-pagers by category (richest groups first) so the 27 read as a
-  // handful of scannable clusters rather than one wall. The group label carries
-  // the category, so the cards drop their per-card category eyebrow.
-  const groups = new Map();
-  for (const p of onePagers) {
-    const key = p.category || 'More';
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(p);
-  }
-  const orderedGroups = [...groups.entries()].sort(
-    (a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0])
-  );
-  const quickGroupsHtml = orderedGroups
-    .map(
-      ([cat, items]) => `        <div class="qr-group">
-          <div class="qr-group__header">
-            <span class="qr-group__label">${escapeAttr(cat)}</span>
-            <span class="qr-group__line"></span>
-          </div>
-          <div class="qr-grid">
-${items
-  .map(
-    (p) => `            <a class="qr-card" href="${escapeAttr('/' + p.slug)}">
-              <span class="qr-card__dot"></span>
-              <h3 class="qr-card__title">${escapeAttr(p.title)}</h3>
-              <p class="qr-card__hook">${escapeAttr(p.hook)}</p>
-            </a>`
-  )
-  .join('\n')}
-          </div>
-        </div>`
-    )
-    .join('\n');
-
-  const quickReadsSection = onePagers.length
-    ? `    <section class="quick-reads">
-      <div class="quick-reads__inner">
-        <div class="quick-reads__head">
-          <span class="section-label">Quick Reads</span>
-          <h2>One-page references</h2>
-          <p>Single-page breakdowns of the patterns that shape executive teams — scan one in about two minutes.</p>
-        </div>
-${quickGroupsHtml}
+  const featuredSection = `
+    <article data-reveal style="background:#F3F6F2; border:1px solid #D7E2DA; border-left:5px solid #2E5E4E; border-radius:6px; padding:48px clamp(32px,5vw,56px); margin-bottom:52px;">
+      <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px;">
+        <span style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#2E5E4E; background:#DCE8E1; padding:5px 11px; border-radius:3px;">Start Here</span>
+        <span style="font-size:13px; font-weight:600; color:#6E8A7E;">The operating system · 12 min read</span>
       </div>
-    </section>`
-    : '';
+      <h3 style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:clamp(28px,3.4vw,40px); line-height:1.12; margin:0 0 18px; max-width:22ch; text-wrap:balance;">${featured ? escapeAttr(featured.title) : 'The Six Shifts, Explained'}</h3>
+      <p style="font-size:18px; line-height:1.62; color:#4D4A40; margin:0 0 30px; max-width:60ch;">${featured ? escapeAttr(featured.description) : 'A leadership operating system for executive teams. Six shifts, installed in this order — each one only holds once the shift before it does.'}</p>
+      <ol style="list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:#D7E2DA; border:1px solid #D7E2DA; border-radius:6px; overflow:hidden; margin:0 0 32px; padding:0;">
+${sixShiftCells}
+      </ol>
+      <a href="${escapeAttr(featuredUrl)}" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:700; font-size:16px; color:#2E5E4E; transition:gap 0.2s ease;">Read the essay <span class="sm-arrow" style="font-size:18px;">→</span></a>
+    </article>`;
+
+  // Essay grid cards (the non-featured articles).
+  const essayCards = rest
+    .map(
+      (a, i) => `      <a data-reveal href="${escapeAttr('/' + a.slug)}" class="sm-card-essay" style="position:relative; display:flex; flex-direction:column; text-decoration:none; color:inherit; background:#FBF8F1; border:1px solid #E6DDCC; border-radius:6px; padding:30px 30px 26px; overflow:hidden;">
+        <span class="sm-num" style="position:absolute; top:14px; right:22px; font-family:'Libre Baskerville',serif; font-weight:700; font-size:46px; line-height:1; color:#EFE7D6; transition:color 0.22s ease;">${String(i + 1).padStart(2, '0')}</span>
+        <span style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#B08433; margin-bottom:14px;">Insight</span>
+        <h3 style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:22px; line-height:1.26; margin:0 0 13px; max-width:22ch; text-wrap:balance;">${escapeAttr(a.title)}</h3>
+        <p style="font-size:15.5px; line-height:1.56; color:#6B6459; margin:0 0 24px; flex:1;">${escapeAttr(a.description)}</p>
+        <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid #EDE4D2; padding-top:16px;">
+          <span class="sm-read" style="display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:15px; color:#2E5E4E; transition:gap 0.2s ease;">Read <span>→</span></span>
+          <span style="font-size:13px; font-weight:600; color:#A89D88;">${readTimes[a.slug] || '6 min'} read</span>
+        </div>
+      </a>`
+    )
+    .join('\n');
+
+  // Ticker items from quick reads.
+  const tickerItemsHtml = onePagers
+    .map(
+      (p) => `        <a href="${escapeAttr('/' + p.slug)}" class="sm-ticker-item" style="display:inline-flex; align-items:center; gap:18px; text-decoration:none; color:#BACBC3; white-space:nowrap; font-size:13px; font-weight:600; padding:0 18px; transition:color 0.18s ease;">${escapeAttr(p.title)}<span style="color:#5E8A77; font-size:7px;">●</span></a>`
+    )
+    .join('\n');
+
+  // Quick reads cards.
+  const quickCards = onePagers
+    .map(
+      (p) => `        <a data-reveal href="${escapeAttr('/' + p.slug)}" data-category="${escapeAttr(p.category || 'Insight')}" class="sm-card-quick" style="display:block; text-decoration:none; color:inherit; background:#FBF8F1; border:1px solid rgba(216,184,99,0.22); border-radius:5px; padding:22px 22px 20px;">
+          <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#B08433; margin-bottom:9px;">${escapeAttr(p.category || 'Insight')}</div>
+          <h4 class="sm-qtitle" style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:17px; line-height:1.3; margin:0 0 8px; transition:color 0.18s ease;">${escapeAttr(p.title)}</h4>
+          <p style="font-size:14px; line-height:1.5; color:#7A7264; margin:0;">${escapeAttr(p.hook)}</p>
+        </a>`
+    )
+    .join('\n');
+
+  // Filter tab categories.
+  const cats = ['All', ...new Set(onePagers.map((p) => p.category || 'Insight').filter(Boolean))];
+  const filterTabs = cats
+    .map((c) => {
+      const count = c === 'All' ? onePagers.length : onePagers.filter((p) => (p.category || 'Insight') === c).length;
+      return `        <button type="button" class="sm-tab" data-filter="${escapeAttr(c)}" style="display:inline-flex; align-items:center; font-size:14px; font-weight:600; padding:9px 16px; border-radius:999px; cursor:pointer; transition:all 0.18s ease; background:transparent; color:#BACBC3; border:1px solid rgba(216,184,99,0.32);">${escapeAttr(c)}<span style="margin-left:8px; font-size:12px; font-weight:700; color:#7E9389;">${count}</span></button>`;
+    })
+    .join('\n');
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -475,132 +493,147 @@ ${quickGroupsHtml}
   <meta name="twitter:card" content="summary_large_image">
 ${FONT_LINKS}
   <style>
-    :root { --green: #123E35; --green-dark: #0c2e27; --gold: #C4973B; --gold-light: #e0b96a; --cream: #F5F0E8; --white: #FFFFFF; --text-muted: #4B5563; --border: #e2d9c4; }
-    .section-label { display: inline-flex; align-items: center; gap: 10px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
-    .section-label::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--gold); }
-    .insights-hero { position: relative; background: var(--green-dark); color: var(--white); padding: 140px 24px 80px; text-align: center; overflow: hidden; }
-    .insights-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(196,151,59,0.18) 0%, transparent 70%), radial-gradient(circle at 15% 80%, rgba(196,151,59,0.08) 0%, transparent 50%); pointer-events: none; }
-    .insights-hero::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 64px; background: linear-gradient(to bottom right, transparent 49%, var(--white) 50%); pointer-events: none; }
-    .insights-hero__inner { position: relative; max-width: 720px; margin: 0 auto; }
-    .insights-hero .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--gold); font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; margin-bottom: 20px; }
-    .insights-hero .eyebrow::before, .insights-hero .eyebrow::after { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--gold); opacity: 0.6; }
-    .insights-hero h1 { color: var(--white); font-family: 'Libre Baskerville', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.15; margin-bottom: 20px; font-weight: 700; }
-    .insights-hero h1 em { color: var(--gold); font-style: italic; }
-    .insights-hero p { color: rgba(255,255,255,0.68); max-width: 560px; margin: 0 auto; font-size: 1.1rem; line-height: 1.75; font-weight: 300; }
-    .insights-hero__stats { display: flex; justify-content: center; gap: 48px; margin-top: 48px; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.1); }
-    .insights-hero__stat { text-align: center; }
-    .insights-hero__stat strong { display: block; font-family: 'Libre Baskerville', serif; font-size: 2rem; color: var(--gold); line-height: 1; margin-bottom: 4px; }
-    .insights-hero__stat span { font-size: 0.82rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; }
-    .featured-section { background: var(--white); padding: 80px 24px 0; }
-    .featured-section__inner { max-width: 960px; margin: 0 auto; }
-    .featured-section__head { margin-bottom: 36px; }
-    .featured-section__head h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--green); margin-top: 6px; }
-    .featured-essay { display: grid; grid-template-columns: 1fr 320px; gap: 0; background: var(--cream); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: box-shadow 0.25s ease; text-decoration: none; }
-    .featured-essay:hover { box-shadow: 0 20px 48px rgba(18,62,53,0.14); }
-    .featured-essay__body { padding: 48px 52px; }
-    .featured-essay__badge { display: inline-block; background: var(--green); color: var(--gold); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; padding: 5px 12px; border-radius: 3px; margin-bottom: 22px; }
-    .featured-essay__title { font-family: 'Libre Baskerville', serif; font-size: clamp(1.5rem, 2.8vw, 2.1rem); line-height: 1.22; color: var(--green); margin-bottom: 18px; }
-    .featured-essay__desc { font-size: 1.05rem; line-height: 1.75; color: var(--text-muted); margin-bottom: 28px; max-width: 56ch; }
-    .featured-essay__cta { display: inline-flex; align-items: center; gap: 8px; font-size: 0.92rem; font-weight: 600; color: var(--green); border-bottom: 2px solid var(--gold); padding-bottom: 2px; }
-    .featured-essay__accent { background: var(--green); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 48px 36px; text-align: center; gap: 20px; }
-    .featured-essay__accent-quote { font-family: 'Libre Baskerville', serif; font-size: 1.15rem; font-style: italic; color: rgba(255,255,255,0.85); line-height: 1.6; }
-    .featured-essay__accent-icon { color: var(--gold); opacity: 0.6; }
-    .essays-section { background: var(--white); padding: 64px 24px 80px; }
-    .essays-section__inner { max-width: 960px; margin: 0 auto; }
-    .essays-section__head { margin-bottom: 36px; }
-    .essays-section__head h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--green); margin-top: 6px; }
-    .essays-section__head p { color: var(--text-muted); font-size: 0.95rem; margin-top: 6px; }
-    .essays-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .essay-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 28px; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; position: relative; }
-    .essay-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); border-radius: 8px 8px 0 0; transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease; }
-    .essay-card:hover::before { transform: scaleX(1); }
-    .essay-card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(18,62,53,0.1); border-color: rgba(196,151,59,0.3); }
-    .essay-card__num { font-size: 0.7rem; font-weight: 700; color: rgba(18,62,53,0.2); letter-spacing: 0.1em; margin-bottom: 14px; }
-    .essay-card__title { font-family: 'Libre Baskerville', serif; font-size: 1.05rem; line-height: 1.35; color: var(--green); margin-bottom: 12px; flex: 1; }
-    .essay-card__desc { font-size: 0.88rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 20px; flex: 2; }
-    .essay-card__footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
-    .essay-card__read { font-size: 0.85rem; font-weight: 600; color: var(--green); }
-    .essay-card__arrow { width: 28px; height: 28px; border-radius: 50%; background: var(--cream); display: flex; align-items: center; justify-content: center; color: var(--green); transition: background 0.2s ease; }
-    .essay-card:hover .essay-card__arrow { background: var(--gold); color: var(--white); }
-    .insights-empty { max-width: 600px; margin: 64px auto; text-align: center; color: var(--text-muted); }
-    .quick-reads { background: var(--cream); padding: 80px 24px 100px; position: relative; }
-    .quick-reads::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.4; }
-    .quick-reads__inner { max-width: 1020px; margin: 0 auto; }
-    .quick-reads__head { max-width: 600px; margin: 0 auto 60px; text-align: center; }
-    .quick-reads__head h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--green); margin: 10px 0 12px; }
-    .quick-reads__head p { color: var(--text-muted); font-size: 1.0rem; line-height: 1.65; }
-    .qr-group { margin-bottom: 52px; }
-    .qr-group:last-child { margin-bottom: 0; }
-    .qr-group__header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-    .qr-group__label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 700; color: var(--green); white-space: nowrap; }
-    .qr-group__line { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(18,62,53,0.2), transparent); }
-    .qr-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-    .qr-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 22px 24px; text-decoration: none; transition: transform 0.18s ease, box-shadow 0.18s ease; }
-    .qr-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(18,62,53,0.1); }
-    .qr-card__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-bottom: 12px; }
-    .qr-card__title { font-family: 'Libre Baskerville', serif; font-size: 0.97rem; line-height: 1.35; color: var(--green); margin-bottom: 8px; }
-    .qr-card__hook { font-size: 0.83rem; line-height: 1.55; color: var(--text-muted); margin: 0; }
-    .insights-cta { background: var(--green); padding: 72px 24px; text-align: center; position: relative; overflow: hidden; }
-    .insights-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(196,151,59,0.12), transparent); }
-    .insights-cta__inner { position: relative; max-width: 600px; margin: 0 auto; }
-    .insights-cta__eyebrow { color: var(--gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 700; margin-bottom: 16px; }
-    .insights-cta h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--white); margin-bottom: 16px; line-height: 1.25; }
-    .insights-cta p { color: rgba(255,255,255,0.65); font-size: 1.05rem; line-height: 1.65; margin-bottom: 32px; }
-    .insights-cta .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--white); font-weight: 600; font-size: 0.95rem; padding: 14px 28px; border-radius: 5px; text-decoration: none; transition: background 0.2s ease; }
-    .insights-cta .btn-primary:hover { background: var(--gold-light); }
-    @media (max-width: 900px) { .featured-essay { grid-template-columns: 1fr; } .featured-essay__accent { display: none; } .essays-grid { grid-template-columns: repeat(2, 1fr); } .qr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 640px) { .insights-hero { padding: 110px 20px 70px; } .insights-hero__stats { gap: 28px; } .featured-section { padding: 56px 20px 0; } .featured-essay__body { padding: 32px 28px; } .essays-section { padding: 48px 20px 60px; } .essays-grid { grid-template-columns: 1fr; } .quick-reads { padding: 56px 20px 72px; } .qr-grid { grid-template-columns: 1fr; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Karla', -apple-system, sans-serif; color: #23211C; background: #FFFFFF; }
+    h1, h2, h3, h4, p { text-wrap: pretty; }
+    /* card transitions */
+    .sm-card-essay { transition: transform 0.28s cubic-bezier(0.22,0.61,0.36,1), box-shadow 0.28s ease, border-color 0.22s ease !important; }
+    .sm-card-essay:hover { border-color: #2E5E4E !important; transform: translateY(-6px); box-shadow: 0 18px 40px -20px rgba(22,57,43,0.4); }
+    .sm-card-essay:hover .sm-read { gap: 11px !important; }
+    .sm-card-essay:hover .sm-num { color: #E3D6BC !important; }
+    .sm-card-quick { transition: transform 0.26s cubic-bezier(0.22,0.61,0.36,1), background 0.18s ease, border-color 0.18s ease, box-shadow 0.26s ease !important; }
+    .sm-card-quick:hover { background: #FFFFFF !important; border-color: #B08433 !important; transform: translateY(-5px); box-shadow: 0 16px 34px -18px rgba(0,0,0,0.55); }
+    .sm-card-quick:hover .sm-qtitle { color: #16392B !important; }
+    .sm-tab.active { background: #D8B863 !important; color: #16392B !important; border-color: #D8B863 !important; }
+    .sm-tab.active span { color: #6E8A4E !important; }
+    .sm-tab:hover:not(.active) { color: #F7F2E8 !important; border-color: rgba(216,184,99,0.7) !important; }
+    /* ticker */
+    @keyframes sm-ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .sm-ticker-track { display: flex; width: max-content; animation: sm-ticker 95s linear infinite; }
+    .sm-ticker-band:hover .sm-ticker-track { animation-play-state: paused; }
+    .sm-ticker-item:hover { color: #2E5E4E !important; }
+    /* scroll reveal */
+    [data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity 0.7s cubic-bezier(0.22,0.61,0.36,1), transform 0.7s cubic-bezier(0.22,0.61,0.36,1); }
+    [data-reveal].sm-in { opacity: 1; transform: none; }
+    /* ambient glows */
+    @keyframes sm-drift { 0% { transform: translate(-6%,-4%) scale(1); } 100% { transform: translate(8%,6%) scale(1.18); } }
+    @keyframes sm-drift2 { 0% { transform: translate(6%,4%) scale(1.1); } 100% { transform: translate(-8%,-6%) scale(1); } }
+    .sm-glow { position: absolute; border-radius: 50%; filter: blur(30px); pointer-events: none; z-index: 0; }
+    /* arrow nudge */
+    @keyframes sm-nudge { 0%,100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
+    .sm-arrow { display: inline-block; animation: sm-nudge 1.9s ease-in-out infinite; }
+    /* underline draw-on */
+    .sm-underline { background-image: linear-gradient(#C99A40,#C99A40); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 3px; padding-bottom: 6px; animation: sm-draw 1s cubic-bezier(0.22,0.61,0.36,1) 0.55s forwards; }
+    @keyframes sm-draw { to { background-size: 100% 3px; } }
+    /* reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .sm-glow, .sm-arrow, .sm-ticker-track { animation: none !important; }
+      .sm-underline { animation: none !important; background-size: 100% 3px !important; }
+    }
+    @media (max-width: 640px) {
+      .sm-essays-grid { grid-template-columns: 1fr !important; }
+      .sm-quick-grid { grid-template-columns: 1fr !important; }
+    }
   </style>
 ${GTAG}
 </head>
 <body>
 ${NAV}
   <div class="page-transition">
-  <header class="insights-hero">
-    <div class="insights-hero__inner">
-      <span class="eyebrow">Insights</span>
-      <h1>Field Notes on<br><em>Leadership That Holds</em></h1>
-      <p>Practical reading on executive team performance, leadership transitions, and the work of building teams that don't need you in the room.</p>
-      <div class="insights-hero__stats">
-        <div class="insights-hero__stat"><strong>${articles.length}+</strong><span>Essays</span></div>
-        <div class="insights-hero__stat"><strong>30+</strong><span>Quick Reads</span></div>
-        <div class="insights-hero__stat"><strong>9</strong><span>Topics</span></div>
-      </div>
+
+  <!-- MASTHEAD / HERO -->
+  <header style="position:relative; overflow:hidden; background:#16392B;">
+    <div class="sm-glow" style="top:-10%; left:34%; width:46%; height:150%; background:radial-gradient(circle, rgba(201,154,64,0.18), rgba(201,154,64,0) 62%); animation:sm-drift 17s ease-in-out infinite alternate;"></div>
+    <div class="sm-glow" style="top:-30%; left:-8%; width:42%; height:160%; background:radial-gradient(circle, rgba(120,180,150,0.16), rgba(120,180,150,0) 64%); animation:sm-drift2 21s ease-in-out infinite alternate;"></div>
+    <!-- nav is injected by NAV constant above; we re-center content below -->
+    <div style="position:relative; z-index:1; max-width:980px; margin:0 auto; text-align:center; padding:64px 32px 88px;">
+      <div style="font-size:13px; font-weight:700; letter-spacing:0.26em; text-transform:uppercase; color:#C99A40; margin-bottom:26px;">Insights</div>
+      <h1 style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:clamp(40px,5.4vw,64px); line-height:1.08; margin:0 auto 26px; max-width:18ch; letter-spacing:-0.01em; text-wrap:balance; color:#F7F3EA;">Field Notes on <span class="sm-underline" style="font-style:italic; color:#C99A40;">Leadership That Holds</span></h1>
+      <p style="font-size:19px; line-height:1.6; color:#C2CEC7; max-width:56ch; margin:0 auto;">Long-form essays for deep dives. Quick references you can read in two minutes.</p>
     </div>
   </header>
+
+  <!-- TOPIC TICKER -->
+  <div class="sm-ticker-band" style="position:relative; overflow:hidden; padding:11px 0; background:#16392B; border-top:1px solid rgba(216,184,99,0.3); border-bottom:1px solid rgba(216,184,99,0.3);">
+    <div style="position:absolute; left:0; top:0; bottom:0; z-index:2; display:flex; align-items:center; padding:0 22px 0 max(32px,calc((100vw - 1120px)/2 + 32px)); white-space:nowrap; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#D8B863; background:linear-gradient(90deg,#16392B 72%,rgba(22,57,43,0));">Across the library</div>
+    <div style="position:absolute; right:0; top:0; bottom:0; z-index:2; width:80px; background:linear-gradient(270deg,#16392B 30%,rgba(22,57,43,0));"></div>
+    <div class="sm-ticker-track">
+${tickerItemsHtml}
+${tickerItemsHtml}
+    </div>
+  </div>
+
+  <!-- ESSAYS SECTION -->
   <main>
-    <section class="featured-section">
-      <div class="featured-section__inner">
-        <div class="featured-section__head">
-          <span class="section-label">Start Here</span>
-          <h2>The essential read</h2>
-        </div>
-        ${featured ? featuredCard : `<div class="insights-empty"><p>New insights are on the way. Check back soon.</p></div>`}
+  <section style="max-width:1120px; margin:0 auto; padding:72px 32px 80px;">
+    <div data-reveal style="display:flex; align-items:baseline; gap:18px; border-bottom:1px solid #E6DDCC; padding-bottom:18px; margin-bottom:44px;">
+      <h2 style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:26px; margin:0; letter-spacing:-0.01em;">Essays</h2>
+      <span style="font-size:15px; color:#8A8273;">Long-form deep dives on the patterns that make or break executive teams.</span>
+    </div>
+    ${featuredSection}
+    <div class="sm-essays-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:24px;">
+${essayCards}
+    </div>
+  </section>
+
+  <!-- QUICK READS SECTION -->
+  <section style="background:#16392B; border-top:3px solid #C99A40;">
+    <div style="max-width:1120px; margin:0 auto; padding:84px 32px 100px;">
+      <div data-reveal style="font-size:13px; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:#D8B863; margin-bottom:14px;">Quick Reads</div>
+      <h2 data-reveal style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:30px; margin:0 0 10px; letter-spacing:-0.01em; color:#F7F2E8;">One-page references</h2>
+      <p data-reveal style="font-size:17px; line-height:1.6; color:#BACBC3; max-width:56ch; margin:0 0 32px;">Single-page breakdowns of the patterns that shape executive teams — scan one in about two minutes.</p>
+      <div data-reveal id="sm-filter-tabs" style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:40px;">
+${filterTabs}
       </div>
-    </section>
-    <section class="essays-section">
-      <div class="essays-section__inner">
-        <div class="essays-section__head">
-          <span class="section-label">Essays</span>
-          <h2>In-depth reads</h2>
-          <p>Long-form deep dives on the patterns that make or break executive teams.</p>
-        </div>
-        ${rest.length ? `<div class="essays-grid">\n${cards}\n        </div>` : ''}
+      <div class="sm-quick-grid" id="sm-quick-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px;">
+${quickCards}
       </div>
-    </section>
-${quickReadsSection}
-    <section class="insights-cta">
-      <div class="insights-cta__inner">
-        <p class="insights-cta__eyebrow">Ready to go deeper?</p>
-        <h2>See what this work looks like in practice</h2>
-        <p>If the patterns described here are showing up on your team, let's talk about what's actually getting in the way — and whether working together makes sense.</p>
-        <a href="/contact" class="btn-primary">Start the conversation <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </div>
-    </section>
+    </div>
+  </section>
   </main>
+
 ${FOOTER}
   </div>
   <script src="/main.js"></script>
+  <script>
+    (function() {
+      // Scroll reveal
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(en) {
+          if (en.isIntersecting) { en.target.classList.add('sm-in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      function observeAll() {
+        requestAnimationFrame(function() {
+          document.querySelectorAll('[data-reveal]:not(.sm-in)').forEach(function(el) { io.observe(el); });
+        });
+      }
+      observeAll();
+
+      // Filter tabs
+      var tabs = document.querySelectorAll('.sm-tab');
+      var cards = document.querySelectorAll('#sm-quick-grid .sm-card-quick');
+      function setActive(tab) {
+        tabs.forEach(function(t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        var filter = tab.getAttribute('data-filter');
+        cards.forEach(function(card) {
+          if (filter === 'All' || card.getAttribute('data-category') === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        observeAll();
+      }
+      if (tabs.length > 0) {
+        tabs[0].classList.add('active');
+        tabs.forEach(function(tab) {
+          tab.addEventListener('click', function() { setActive(tab); });
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
 `;
