@@ -428,7 +428,7 @@ function renderIndex(articles, onePagers = []) {
       </div>
       <h3 style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:clamp(28px,3.4vw,40px); line-height:1.12; margin:0 0 18px; max-width:22ch; text-wrap:balance;">${featured ? escapeAttr(featured.title) : 'The Six Shifts, Explained'}</h3>
       <p style="font-size:18px; line-height:1.62; color:#4D4A40; margin:0 0 30px; max-width:60ch;">${featured ? escapeAttr(featured.description) : 'A leadership operating system for executive teams. Six shifts, installed in this order — each one only holds once the shift before it does.'}</p>
-      <ol style="list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(165px,1fr)); gap:1px; background:#D7E2DA; border:1px solid #e2d9c4; border-radius:6px; overflow:hidden; margin:0 0 32px; padding:0;">
+      <ol style="list-style:none; display:grid; grid-template-columns:repeat(6,1fr); gap:1px; background:#D7E2DA; border:1px solid #e2d9c4; border-radius:6px; overflow:hidden; margin:0 0 32px; padding:0;">
 ${sixShiftCells}
       </ol>
       <a href="${escapeAttr(featuredUrl)}" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:700; font-size:16px; color:#1a4339; transition:gap 0.2s ease;">Read the essay <span class="sm-arrow" style="font-size:18px;">→</span></a>
