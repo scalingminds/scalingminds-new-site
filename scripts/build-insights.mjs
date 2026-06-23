@@ -182,7 +182,7 @@ const FONT_LINKS = `  <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">`;
 
 const GTAG = `  <!-- Google tag (gtag.js) -->
@@ -421,29 +421,29 @@ function renderIndex(articles, onePagers = []) {
     .join('\n');
 
   const featuredSection = `
-    <article data-reveal style="background:#F3F6F2; border:1px solid #D7E2DA; border-left:5px solid #2E5E4E; border-radius:6px; padding:48px clamp(32px,5vw,56px); margin-bottom:52px;">
+    <article data-reveal style="background:#f5f0e8; border:1px solid #e2d9c4; border-left:5px solid #1a4339; border-radius:6px; padding:48px clamp(32px,5vw,56px); margin-bottom:52px;">
       <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px;">
-        <span style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#2E5E4E; background:#DCE8E1; padding:5px 11px; border-radius:3px;">Start Here</span>
+        <span style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#1a4339; background:#e8ede8; padding:5px 11px; border-radius:3px;">Start Here</span>
         <span style="font-size:13px; font-weight:600; color:#6E8A7E;">The operating system · 12 min read</span>
       </div>
       <h3 style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:clamp(28px,3.4vw,40px); line-height:1.12; margin:0 0 18px; max-width:22ch; text-wrap:balance;">${featured ? escapeAttr(featured.title) : 'The Six Shifts, Explained'}</h3>
       <p style="font-size:18px; line-height:1.62; color:#4D4A40; margin:0 0 30px; max-width:60ch;">${featured ? escapeAttr(featured.description) : 'A leadership operating system for executive teams. Six shifts, installed in this order — each one only holds once the shift before it does.'}</p>
-      <ol style="list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:#D7E2DA; border:1px solid #D7E2DA; border-radius:6px; overflow:hidden; margin:0 0 32px; padding:0;">
+      <ol style="list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:#D7E2DA; border:1px solid #e2d9c4; border-radius:6px; overflow:hidden; margin:0 0 32px; padding:0;">
 ${sixShiftCells}
       </ol>
-      <a href="${escapeAttr(featuredUrl)}" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:700; font-size:16px; color:#2E5E4E; transition:gap 0.2s ease;">Read the essay <span class="sm-arrow" style="font-size:18px;">→</span></a>
+      <a href="${escapeAttr(featuredUrl)}" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:700; font-size:16px; color:#1a4339; transition:gap 0.2s ease;">Read the essay <span class="sm-arrow" style="font-size:18px;">→</span></a>
     </article>`;
 
   // Essay grid cards (the non-featured articles).
   const essayCards = rest
     .map(
-      (a, i) => `      <a data-reveal href="${escapeAttr('/' + a.slug)}" class="sm-card-essay" style="position:relative; display:flex; flex-direction:column; text-decoration:none; color:inherit; background:#FBF8F1; border:1px solid #E6DDCC; border-radius:6px; padding:30px 30px 26px; overflow:hidden;">
+      (a, i) => `      <a data-reveal href="${escapeAttr('/' + a.slug)}" class="sm-card-essay" style="position:relative; display:flex; flex-direction:column; text-decoration:none; color:inherit; background:#f5f0e8; border:1px solid #E6DDCC; border-radius:6px; padding:30px 30px 26px; overflow:hidden;">
         <span class="sm-num" style="position:absolute; top:14px; right:22px; font-family:'Libre Baskerville',serif; font-weight:700; font-size:46px; line-height:1; color:#EFE7D6; transition:color 0.22s ease;">${String(i + 1).padStart(2, '0')}</span>
-        <span style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#B08433; margin-bottom:14px;">Insight</span>
+        <span style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#c4973b; margin-bottom:14px;">Insight</span>
         <h3 style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:22px; line-height:1.26; margin:0 0 13px; max-width:22ch; text-wrap:balance;">${escapeAttr(a.title)}</h3>
         <p style="font-size:15.5px; line-height:1.56; color:#6B6459; margin:0 0 24px; flex:1;">${escapeAttr(a.description)}</p>
         <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid #EDE4D2; padding-top:16px;">
-          <span class="sm-read" style="display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:15px; color:#2E5E4E; transition:gap 0.2s ease;">Read <span>→</span></span>
+          <span class="sm-read" style="display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:15px; color:#1a4339; transition:gap 0.2s ease;">Read <span>→</span></span>
           <span style="font-size:13px; font-weight:600; color:#A89D88;">${readTimes[a.slug] || '6 min'} read</span>
         </div>
       </a>`
@@ -460,8 +460,8 @@ ${sixShiftCells}
   // Quick reads cards.
   const quickCards = onePagers
     .map(
-      (p) => `        <a data-reveal href="${escapeAttr('/' + p.slug)}" data-category="${escapeAttr(p.category || 'Insight')}" class="sm-card-quick" style="display:block; text-decoration:none; color:inherit; background:#FBF8F1; border:1px solid rgba(216,184,99,0.22); border-radius:5px; padding:22px 22px 20px;">
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#B08433; margin-bottom:9px;">${escapeAttr(p.category || 'Insight')}</div>
+      (p) => `        <a data-reveal href="${escapeAttr('/' + p.slug)}" data-category="${escapeAttr(p.category || 'Insight')}" class="sm-card-quick" style="display:block; text-decoration:none; color:inherit; background:#f5f0e8; border:1px solid rgba(216,184,99,0.22); border-radius:5px; padding:22px 22px 20px;">
+          <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#c4973b; margin-bottom:9px;">${escapeAttr(p.category || 'Insight')}</div>
           <h4 class="sm-qtitle" style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:17px; line-height:1.3; margin:0 0 8px; transition:color 0.18s ease;">${escapeAttr(p.title)}</h4>
           <p style="font-size:14px; line-height:1.5; color:#7A7264; margin:0;">${escapeAttr(p.hook)}</p>
         </a>`
@@ -494,24 +494,24 @@ ${sixShiftCells}
 ${FONT_LINKS}
   <style>
     * { box-sizing: border-box; }
-    body { margin: 0; font-family: 'Karla', -apple-system, sans-serif; color: #23211C; background: #FFFFFF; }
+    body { margin: 0; font-family: 'Inter', -apple-system, sans-serif; color: #23211C; background: #FFFFFF; }
     h1, h2, h3, h4, p { text-wrap: pretty; }
     /* card transitions */
     .sm-card-essay { transition: transform 0.28s cubic-bezier(0.22,0.61,0.36,1), box-shadow 0.28s ease, border-color 0.22s ease !important; }
-    .sm-card-essay:hover { border-color: #2E5E4E !important; transform: translateY(-6px); box-shadow: 0 18px 40px -20px rgba(22,57,43,0.4); }
+    .sm-card-essay:hover { border-color: #1a4339 !important; transform: translateY(-6px); box-shadow: 0 18px 40px -20px rgba(26,67,57,0.4); }
     .sm-card-essay:hover .sm-read { gap: 11px !important; }
     .sm-card-essay:hover .sm-num { color: #E3D6BC !important; }
     .sm-card-quick { transition: transform 0.26s cubic-bezier(0.22,0.61,0.36,1), background 0.18s ease, border-color 0.18s ease, box-shadow 0.26s ease !important; }
-    .sm-card-quick:hover { background: #FFFFFF !important; border-color: #B08433 !important; transform: translateY(-5px); box-shadow: 0 16px 34px -18px rgba(0,0,0,0.55); }
-    .sm-card-quick:hover .sm-qtitle { color: #16392B !important; }
-    .sm-tab.active { background: #D8B863 !important; color: #16392B !important; border-color: #D8B863 !important; }
+    .sm-card-quick:hover { background: #FFFFFF !important; border-color: #c4973b !important; transform: translateY(-5px); box-shadow: 0 16px 34px -18px rgba(0,0,0,0.55); }
+    .sm-card-quick:hover .sm-qtitle { color: #1a4339 !important; }
+    .sm-tab.active { background: #c4973b !important; color: #1a4339 !important; border-color: #c4973b !important; }
     .sm-tab.active span { color: #6E8A4E !important; }
     .sm-tab:hover:not(.active) { color: #F7F2E8 !important; border-color: rgba(216,184,99,0.7) !important; }
     /* ticker */
     @keyframes sm-ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .sm-ticker-track { display: flex; width: max-content; animation: sm-ticker 95s linear infinite; }
     .sm-ticker-band:hover .sm-ticker-track { animation-play-state: paused; }
-    .sm-ticker-item:hover { color: #2E5E4E !important; }
+    .sm-ticker-item:hover { color: #1a4339 !important; }
     /* scroll reveal */
     [data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity 0.7s cubic-bezier(0.22,0.61,0.36,1), transform 0.7s cubic-bezier(0.22,0.61,0.36,1); }
     [data-reveal].sm-in { opacity: 1; transform: none; }
@@ -523,7 +523,7 @@ ${FONT_LINKS}
     @keyframes sm-nudge { 0%,100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
     .sm-arrow { display: inline-block; animation: sm-nudge 1.9s ease-in-out infinite; }
     /* underline draw-on */
-    .sm-underline { background-image: linear-gradient(#C99A40,#C99A40); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 3px; padding-bottom: 6px; animation: sm-draw 1s cubic-bezier(0.22,0.61,0.36,1) 0.55s forwards; }
+    .sm-underline { background-image: linear-gradient(#c4973b,#c4973b); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 3px; padding-bottom: 6px; animation: sm-draw 1s cubic-bezier(0.22,0.61,0.36,1) 0.55s forwards; }
     @keyframes sm-draw { to { background-size: 100% 3px; } }
     /* reduced motion */
     @media (prefers-reduced-motion: reduce) {
@@ -542,21 +542,21 @@ ${NAV}
   <div class="page-transition">
 
   <!-- MASTHEAD / HERO -->
-  <header style="position:relative; overflow:hidden; background:#16392B;">
-    <div class="sm-glow" style="top:-10%; left:34%; width:46%; height:150%; background:radial-gradient(circle, rgba(201,154,64,0.18), rgba(201,154,64,0) 62%); animation:sm-drift 17s ease-in-out infinite alternate;"></div>
+  <header style="position:relative; overflow:hidden; background:#1a4339;">
+    <div class="sm-glow" style="top:-10%; left:34%; width:46%; height:150%; background:radial-gradient(circle, rgba(196,151,59,0.18), rgba(196,151,59,0) 62%); animation:sm-drift 17s ease-in-out infinite alternate;"></div>
     <div class="sm-glow" style="top:-30%; left:-8%; width:42%; height:160%; background:radial-gradient(circle, rgba(120,180,150,0.16), rgba(120,180,150,0) 64%); animation:sm-drift2 21s ease-in-out infinite alternate;"></div>
     <!-- nav is injected by NAV constant above; we re-center content below -->
     <div style="position:relative; z-index:1; max-width:980px; margin:0 auto; text-align:center; padding:64px 32px 88px;">
-      <div style="font-size:13px; font-weight:700; letter-spacing:0.26em; text-transform:uppercase; color:#C99A40; margin-bottom:26px;">Insights</div>
-      <h1 style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:clamp(40px,5.4vw,64px); line-height:1.08; margin:0 auto 26px; max-width:18ch; letter-spacing:-0.01em; text-wrap:balance; color:#F7F3EA;">Field Notes on <span class="sm-underline" style="font-style:italic; color:#C99A40;">Leadership That Holds</span></h1>
+      <div style="font-size:13px; font-weight:700; letter-spacing:0.26em; text-transform:uppercase; color:#c4973b; margin-bottom:26px;">Insights</div>
+      <h1 style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:clamp(40px,5.4vw,64px); line-height:1.08; margin:0 auto 26px; max-width:18ch; letter-spacing:-0.01em; text-wrap:balance; color:#F7F3EA;">Field Notes on <span class="sm-underline" style="font-style:italic; color:#c4973b;">Leadership That Holds</span></h1>
       <p style="font-size:19px; line-height:1.6; color:#C2CEC7; max-width:56ch; margin:0 auto;">Long-form essays for deep dives. Quick references you can read in two minutes.</p>
     </div>
   </header>
 
   <!-- TOPIC TICKER -->
-  <div class="sm-ticker-band" style="position:relative; overflow:hidden; padding:11px 0; background:#16392B; border-top:1px solid rgba(216,184,99,0.3); border-bottom:1px solid rgba(216,184,99,0.3);">
-    <div style="position:absolute; left:0; top:0; bottom:0; z-index:2; display:flex; align-items:center; padding:0 22px 0 max(32px,calc((100vw - 1120px)/2 + 32px)); white-space:nowrap; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#D8B863; background:linear-gradient(90deg,#16392B 72%,rgba(22,57,43,0));">Across the library</div>
-    <div style="position:absolute; right:0; top:0; bottom:0; z-index:2; width:80px; background:linear-gradient(270deg,#16392B 30%,rgba(22,57,43,0));"></div>
+  <div class="sm-ticker-band" style="position:relative; overflow:hidden; padding:11px 0; background:#1a4339; border-top:1px solid rgba(216,184,99,0.3); border-bottom:1px solid rgba(216,184,99,0.3);">
+    <div style="position:absolute; left:0; top:0; bottom:0; z-index:2; display:flex; align-items:center; padding:0 22px 0 max(32px,calc((100vw - 1120px)/2 + 32px)); white-space:nowrap; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#c4973b; background:linear-gradient(90deg,#1a4339 72%,rgba(26,67,57,0));">Across the library</div>
+    <div style="position:absolute; right:0; top:0; bottom:0; z-index:2; width:80px; background:linear-gradient(270deg,#1a4339 30%,rgba(26,67,57,0));"></div>
     <div class="sm-ticker-track">
 ${tickerItemsHtml}
 ${tickerItemsHtml}
@@ -577,9 +577,9 @@ ${essayCards}
   </section>
 
   <!-- QUICK READS SECTION -->
-  <section style="background:#16392B; border-top:3px solid #C99A40;">
+  <section style="background:#1a4339; border-top:3px solid #c4973b;">
     <div style="max-width:1120px; margin:0 auto; padding:84px 32px 100px;">
-      <div data-reveal style="font-size:13px; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:#D8B863; margin-bottom:14px;">Quick Reads</div>
+      <div data-reveal style="font-size:13px; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:#c4973b; margin-bottom:14px;">Quick Reads</div>
       <h2 data-reveal style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:30px; margin:0 0 10px; letter-spacing:-0.01em; color:#F7F2E8;">One-page references</h2>
       <p data-reveal style="font-size:17px; line-height:1.6; color:#BACBC3; max-width:56ch; margin:0 0 32px;">Single-page breakdowns of the patterns that shape executive teams — scan one in about two minutes.</p>
       <div data-reveal id="sm-filter-tabs" style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:40px;">
