@@ -281,6 +281,7 @@ ${faq
     },
     datePublished: datePublished || undefined,
     dateModified: dateModified || datePublished || undefined,
+    url,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   };
 

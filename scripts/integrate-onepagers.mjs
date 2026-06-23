@@ -190,6 +190,7 @@ function buildSchema(slug, html) {
       name: 'Scaling Minds',
       logo: { '@type': 'ImageObject', url: `${SITE}/scaling_minds_logo.png` },
     },
+    url,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   };
   const breadcrumb = {
