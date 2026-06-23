@@ -385,20 +385,29 @@ function renderIndex(articles, onePagers = []) {
 
   const featuredCard = featured
     ? `      <a class="featured-essay" href="${escapeAttr('/' + featured.slug)}">
-        <span class="featured-essay__label">Start here</span>
-        <h2 class="featured-essay__title">${escapeAttr(featured.title)}</h2>
-        <p class="featured-essay__desc">${escapeAttr(featured.description)}</p>
-        <span class="featured-essay__more">Read the essay →</span>
+        <div class="featured-essay__body">
+          <span class="featured-essay__badge">Foundation</span>
+          <h2 class="featured-essay__title">${escapeAttr(featured.title)}</h2>
+          <p class="featured-essay__desc">${escapeAttr(featured.description)}</p>
+          <span class="featured-essay__cta">Read the essay <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="featured-essay__accent">
+          <span class="featured-essay__accent-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 10h20M6 16h14M6 22h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <p class="featured-essay__accent-quote">"Trust isn't the destination — it's the foundation everything else is built on."</p>
+        </div>
       </a>`
     : '';
 
   const cards = rest
     .map(
-      (a) => `      <a class="insight-card" href="${escapeAttr('/' + a.slug)}">
-        <span class="insight-card__cat">${escapeAttr(a.category || 'Insight')}</span>
-        <h2 class="insight-card__title">${escapeAttr(a.title)}</h2>
-        <p class="insight-card__desc">${escapeAttr(a.description)}</p>
-        <span class="insight-card__more">Read →</span>
+      (a, i) => `      <a class="essay-card" href="${escapeAttr('/' + a.slug)}">
+        <div class="essay-card__num">${String(i + 1).padStart(2, '0')}</div>
+        <h2 class="essay-card__title">${escapeAttr(a.title)}</h2>
+        <p class="essay-card__desc">${escapeAttr(a.description)}</p>
+        <div class="essay-card__footer">
+          <span class="essay-card__read">Read →</span>
+          <span class="essay-card__arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
       </a>`
     )
     .join('\n');
@@ -418,11 +427,15 @@ function renderIndex(articles, onePagers = []) {
   const quickGroupsHtml = orderedGroups
     .map(
       ([cat, items]) => `        <div class="qr-group">
-          <div class="qr-group__label">${escapeAttr(cat)}</div>
+          <div class="qr-group__header">
+            <span class="qr-group__label">${escapeAttr(cat)}</span>
+            <span class="qr-group__line"></span>
+          </div>
           <div class="qr-grid">
 ${items
   .map(
     (p) => `            <a class="qr-card" href="${escapeAttr('/' + p.slug)}">
+              <span class="qr-card__dot"></span>
               <h3 class="qr-card__title">${escapeAttr(p.title)}</h3>
               <p class="qr-card__hook">${escapeAttr(p.hook)}</p>
             </a>`
@@ -437,7 +450,7 @@ ${items
     ? `    <section class="quick-reads">
       <div class="quick-reads__inner">
         <div class="quick-reads__head">
-          <span class="eyebrow">Quick Reads</span>
+          <span class="section-label">Quick Reads</span>
           <h2>One-page references</h2>
           <p>Single-page breakdowns of the patterns that shape executive teams — scan one in about two minutes.</p>
         </div>
@@ -462,50 +475,81 @@ ${quickGroupsHtml}
   <meta name="twitter:card" content="summary_large_image">
 ${FONT_LINKS}
   <style>
-    :root { --green: #123E35; --gold: #C4973B; --cream: #F5F0E8; --white: #FFFFFF; --text-muted: #4B5563; }
-    .insights-hero { background: var(--green); color: var(--white); padding: 120px 24px 64px; text-align: center; }
-    .insights-hero .eyebrow { color: var(--gold); margin-bottom: 16px; }
-    .insights-hero h1 { color: var(--white); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 16px; }
-    .insights-hero h1 em { color: var(--gold); font-style: normal; display: inline; background-image: linear-gradient(var(--gold), var(--gold)); background-repeat: no-repeat; background-position: left bottom; background-size: 0% 3px; padding-bottom: 2px; animation: insights-underline 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards; }
-    @keyframes insights-underline { to { background-size: 100% 3px; } }
-    @media (prefers-reduced-motion: reduce) { .insights-hero h1 em { animation: none; background-size: 100% 3px; } }
-    .insights-hero p { color: rgba(255,255,255,0.72); max-width: 600px; margin: 0 auto; font-size: 1.12rem; line-height: 1.7; }
-    .section-head { max-width: 600px; margin: 0 auto 40px; text-align: center; }
-    .section-head .eyebrow { color: var(--gold); }
-    .section-head h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--green); margin: 10px 0 12px; }
-    .section-head p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; }
-    .insights-section { padding: 64px 24px 24px; }
-    .featured-essay { display: block; max-width: 880px; margin: 0 auto 28px; background: var(--cream); border: 1px solid #e7ddc8; border-top: 4px solid var(--gold); border-radius: 10px; padding: 40px 44px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .featured-essay:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(18,62,53,0.14); }
-    .featured-essay__label { display: inline-block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; color: var(--gold); margin-bottom: 14px; }
-    .featured-essay__title { font-family: 'Libre Baskerville', serif; font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.25; color: var(--green); margin-bottom: 14px; }
-    .featured-essay__desc { font-size: 1.08rem; line-height: 1.7; color: var(--text-muted); max-width: 70ch; margin-bottom: 20px; }
-    .featured-essay__more { font-size: 0.95rem; font-weight: 600; color: var(--green); }
-    .insights-grid { max-width: 880px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-    .insight-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid #e7e2d6; border-radius: 8px; padding: 30px; box-shadow: 0 1px 2px rgba(18,62,53,0.05); transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
-    .insight-card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(18,62,53,0.12); border-color: var(--gold); }
-    .insight-card__cat { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; color: var(--gold); margin-bottom: 12px; }
-    .insight-card__title { font-family: 'Libre Baskerville', serif; font-size: 1.3rem; line-height: 1.3; color: var(--green); margin-bottom: 12px; }
-    .insight-card__desc { font-size: 0.98rem; line-height: 1.6; color: var(--text-muted); flex: 1; margin-bottom: 18px; }
-    .insight-card__more { font-size: 0.9rem; font-weight: 600; color: var(--green); }
+    :root { --green: #123E35; --green-dark: #0c2e27; --gold: #C4973B; --gold-light: #e0b96a; --cream: #F5F0E8; --white: #FFFFFF; --text-muted: #4B5563; --border: #e2d9c4; }
+    .section-label { display: inline-flex; align-items: center; gap: 10px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+    .section-label::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--gold); }
+    .insights-hero { position: relative; background: var(--green-dark); color: var(--white); padding: 140px 24px 80px; text-align: center; overflow: hidden; }
+    .insights-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(196,151,59,0.18) 0%, transparent 70%), radial-gradient(circle at 15% 80%, rgba(196,151,59,0.08) 0%, transparent 50%); pointer-events: none; }
+    .insights-hero::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 64px; background: linear-gradient(to bottom right, transparent 49%, var(--white) 50%); pointer-events: none; }
+    .insights-hero__inner { position: relative; max-width: 720px; margin: 0 auto; }
+    .insights-hero .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--gold); font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; margin-bottom: 20px; }
+    .insights-hero .eyebrow::before, .insights-hero .eyebrow::after { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--gold); opacity: 0.6; }
+    .insights-hero h1 { color: var(--white); font-family: 'Libre Baskerville', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.15; margin-bottom: 20px; font-weight: 700; }
+    .insights-hero h1 em { color: var(--gold); font-style: italic; }
+    .insights-hero p { color: rgba(255,255,255,0.68); max-width: 560px; margin: 0 auto; font-size: 1.1rem; line-height: 1.75; font-weight: 300; }
+    .insights-hero__stats { display: flex; justify-content: center; gap: 48px; margin-top: 48px; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .insights-hero__stat { text-align: center; }
+    .insights-hero__stat strong { display: block; font-family: 'Libre Baskerville', serif; font-size: 2rem; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+    .insights-hero__stat span { font-size: 0.82rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; }
+    .featured-section { background: var(--white); padding: 80px 24px 0; }
+    .featured-section__inner { max-width: 960px; margin: 0 auto; }
+    .featured-section__head { margin-bottom: 36px; }
+    .featured-section__head h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--green); margin-top: 6px; }
+    .featured-essay { display: grid; grid-template-columns: 1fr 320px; gap: 0; background: var(--cream); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: box-shadow 0.25s ease; text-decoration: none; }
+    .featured-essay:hover { box-shadow: 0 20px 48px rgba(18,62,53,0.14); }
+    .featured-essay__body { padding: 48px 52px; }
+    .featured-essay__badge { display: inline-block; background: var(--green); color: var(--gold); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; padding: 5px 12px; border-radius: 3px; margin-bottom: 22px; }
+    .featured-essay__title { font-family: 'Libre Baskerville', serif; font-size: clamp(1.5rem, 2.8vw, 2.1rem); line-height: 1.22; color: var(--green); margin-bottom: 18px; }
+    .featured-essay__desc { font-size: 1.05rem; line-height: 1.75; color: var(--text-muted); margin-bottom: 28px; max-width: 56ch; }
+    .featured-essay__cta { display: inline-flex; align-items: center; gap: 8px; font-size: 0.92rem; font-weight: 600; color: var(--green); border-bottom: 2px solid var(--gold); padding-bottom: 2px; }
+    .featured-essay__accent { background: var(--green); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 48px 36px; text-align: center; gap: 20px; }
+    .featured-essay__accent-quote { font-family: 'Libre Baskerville', serif; font-size: 1.15rem; font-style: italic; color: rgba(255,255,255,0.85); line-height: 1.6; }
+    .featured-essay__accent-icon { color: var(--gold); opacity: 0.6; }
+    .essays-section { background: var(--white); padding: 64px 24px 80px; }
+    .essays-section__inner { max-width: 960px; margin: 0 auto; }
+    .essays-section__head { margin-bottom: 36px; }
+    .essays-section__head h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--green); margin-top: 6px; }
+    .essays-section__head p { color: var(--text-muted); font-size: 0.95rem; margin-top: 6px; }
+    .essays-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .essay-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 28px; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; position: relative; }
+    .essay-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); border-radius: 8px 8px 0 0; transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease; }
+    .essay-card:hover::before { transform: scaleX(1); }
+    .essay-card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(18,62,53,0.1); border-color: rgba(196,151,59,0.3); }
+    .essay-card__num { font-size: 0.7rem; font-weight: 700; color: rgba(18,62,53,0.2); letter-spacing: 0.1em; margin-bottom: 14px; }
+    .essay-card__title { font-family: 'Libre Baskerville', serif; font-size: 1.05rem; line-height: 1.35; color: var(--green); margin-bottom: 12px; flex: 1; }
+    .essay-card__desc { font-size: 0.88rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 20px; flex: 2; }
+    .essay-card__footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+    .essay-card__read { font-size: 0.85rem; font-weight: 600; color: var(--green); }
+    .essay-card__arrow { width: 28px; height: 28px; border-radius: 50%; background: var(--cream); display: flex; align-items: center; justify-content: center; color: var(--green); transition: background 0.2s ease; }
+    .essay-card:hover .essay-card__arrow { background: var(--gold); color: var(--white); }
     .insights-empty { max-width: 600px; margin: 64px auto; text-align: center; color: var(--text-muted); }
-    .quick-reads { background: var(--cream); padding: 76px 24px 92px; }
-    .quick-reads__inner { max-width: 1000px; margin: 0 auto; }
-    .quick-reads__head { max-width: 620px; margin: 0 auto 40px; text-align: center; }
-    .quick-reads__head .eyebrow { color: var(--gold); }
-    .quick-reads__head h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--green); margin: 10px 0 12px; }
-    .quick-reads__head p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; }
-    .qr-group { margin-bottom: 44px; }
+    .quick-reads { background: var(--cream); padding: 80px 24px 100px; position: relative; }
+    .quick-reads::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.4; }
+    .quick-reads__inner { max-width: 1020px; margin: 0 auto; }
+    .quick-reads__head { max-width: 600px; margin: 0 auto 60px; text-align: center; }
+    .quick-reads__head h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--green); margin: 10px 0 12px; }
+    .quick-reads__head p { color: var(--text-muted); font-size: 1.0rem; line-height: 1.65; }
+    .qr-group { margin-bottom: 52px; }
     .qr-group:last-child { margin-bottom: 0; }
-    .qr-group__label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; color: var(--green); padding-bottom: 10px; margin-bottom: 20px; border-bottom: 1px solid #e2d8c4; }
-    .qr-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-    .qr-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid #e7e2d6; border-top: 3px solid var(--gold); border-radius: 6px; padding: 22px; box-shadow: 0 1px 2px rgba(18,62,53,0.05); transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
-    .qr-card:hover { transform: translateY(-4px); box-shadow: 0 12px 26px rgba(18,62,53,0.12); border-color: var(--gold); }
-    .qr-card__cat { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; color: var(--gold); margin-bottom: 8px; }
-    .qr-card__title { font-family: 'Libre Baskerville', serif; font-size: 1.05rem; line-height: 1.3; color: var(--green); margin-bottom: 8px; }
-    .qr-card__hook { font-size: 0.88rem; line-height: 1.55; color: var(--text-muted); margin: 0; }
-    @media (max-width: 880px) { .qr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 640px) { .insights-hero { padding: 104px 20px 48px; } .insights-section { padding: 48px 20px 8px; } .featured-essay { padding: 28px 24px; } .insights-grid { grid-template-columns: 1fr; } .qr-grid { grid-template-columns: 1fr; } .quick-reads { padding: 56px 20px 64px; } }
+    .qr-group__header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .qr-group__label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 700; color: var(--green); white-space: nowrap; }
+    .qr-group__line { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(18,62,53,0.2), transparent); }
+    .qr-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .qr-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 22px 24px; text-decoration: none; transition: transform 0.18s ease, box-shadow 0.18s ease; }
+    .qr-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(18,62,53,0.1); }
+    .qr-card__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-bottom: 12px; }
+    .qr-card__title { font-family: 'Libre Baskerville', serif; font-size: 0.97rem; line-height: 1.35; color: var(--green); margin-bottom: 8px; }
+    .qr-card__hook { font-size: 0.83rem; line-height: 1.55; color: var(--text-muted); margin: 0; }
+    .insights-cta { background: var(--green); padding: 72px 24px; text-align: center; position: relative; overflow: hidden; }
+    .insights-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(196,151,59,0.12), transparent); }
+    .insights-cta__inner { position: relative; max-width: 600px; margin: 0 auto; }
+    .insights-cta__eyebrow { color: var(--gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 700; margin-bottom: 16px; }
+    .insights-cta h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--white); margin-bottom: 16px; line-height: 1.25; }
+    .insights-cta p { color: rgba(255,255,255,0.65); font-size: 1.05rem; line-height: 1.65; margin-bottom: 32px; }
+    .insights-cta .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--white); font-weight: 600; font-size: 0.95rem; padding: 14px 28px; border-radius: 5px; text-decoration: none; transition: background 0.2s ease; }
+    .insights-cta .btn-primary:hover { background: var(--gold-light); }
+    @media (max-width: 900px) { .featured-essay { grid-template-columns: 1fr; } .featured-essay__accent { display: none; } .essays-grid { grid-template-columns: repeat(2, 1fr); } .qr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .insights-hero { padding: 110px 20px 70px; } .insights-hero__stats { gap: 28px; } .featured-section { padding: 56px 20px 0; } .featured-essay__body { padding: 32px 28px; } .essays-section { padding: 48px 20px 60px; } .essays-grid { grid-template-columns: 1fr; } .quick-reads { padding: 56px 20px 72px; } .qr-grid { grid-template-columns: 1fr; } }
   </style>
 ${GTAG}
 </head>
@@ -513,22 +557,46 @@ ${GTAG}
 ${NAV}
   <div class="page-transition">
   <header class="insights-hero">
-    <span class="eyebrow">Insights</span>
-    <h1>Field Notes on <em>Leadership That Holds</em></h1>
-    <p>Practical reading on executive team performance, leadership transitions, and the work of building teams that don't need you in the room.</p>
+    <div class="insights-hero__inner">
+      <span class="eyebrow">Insights</span>
+      <h1>Field Notes on<br><em>Leadership That Holds</em></h1>
+      <p>Practical reading on executive team performance, leadership transitions, and the work of building teams that don't need you in the room.</p>
+      <div class="insights-hero__stats">
+        <div class="insights-hero__stat"><strong>${articles.length}+</strong><span>Essays</span></div>
+        <div class="insights-hero__stat"><strong>30+</strong><span>Quick Reads</span></div>
+        <div class="insights-hero__stat"><strong>9</strong><span>Topics</span></div>
+      </div>
+    </div>
   </header>
   <main>
-    <section class="insights-section">
-      <div class="section-head">
-        <span class="eyebrow">Essays</span>
-        <h2>In-depth reads</h2>
-        <p>Long-form deep dives on the patterns that make or break executive teams.</p>
+    <section class="featured-section">
+      <div class="featured-section__inner">
+        <div class="featured-section__head">
+          <span class="section-label">Start Here</span>
+          <h2>The essential read</h2>
+        </div>
+        ${featured ? featuredCard : `<div class="insights-empty"><p>New insights are on the way. Check back soon.</p></div>`}
       </div>
-      ${articles.length
-        ? `${featuredCard}\n      <div class="insights-grid">\n${cards}\n      </div>`
-        : `<div class="insights-empty"><p>New insights are on the way. Check back soon.</p></div>`}
+    </section>
+    <section class="essays-section">
+      <div class="essays-section__inner">
+        <div class="essays-section__head">
+          <span class="section-label">Essays</span>
+          <h2>In-depth reads</h2>
+          <p>Long-form deep dives on the patterns that make or break executive teams.</p>
+        </div>
+        ${rest.length ? `<div class="essays-grid">\n${cards}\n        </div>` : ''}
+      </div>
     </section>
 ${quickReadsSection}
+    <section class="insights-cta">
+      <div class="insights-cta__inner">
+        <p class="insights-cta__eyebrow">Ready to go deeper?</p>
+        <h2>See what this work looks like in practice</h2>
+        <p>If the patterns described here are showing up on your team, let's talk about what's actually getting in the way — and whether working together makes sense.</p>
+        <a href="/contact" class="btn-primary">Start the conversation <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </section>
   </main>
 ${FOOTER}
   </div>
