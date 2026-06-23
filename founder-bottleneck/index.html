@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Founder Bottleneck: Why Everything Runs Through You | Scaling Minds</title>
+  <meta name="description" content="The founder bottleneck is when a company grows but its decisions don't. How to know if you're the bottleneck as a CEO, why delegation won't fix it, and what does.">
+  <meta name="author" content="Andy Hite">
+  <link rel="canonical" href="https://scalingminds.com/founder-bottleneck">
+  <meta property="og:title" content="The Founder Bottleneck: Why Everything Runs Through You | Scaling Minds">
+  <meta property="og:description" content="The founder bottleneck is when a company grows but its decisions don't. How to know if you're the bottleneck as a CEO, why delegation won't fix it, and what does.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://scalingminds.com/founder-bottleneck">
+  <meta property="og:image" content="https://scalingminds.com/og-image.png">
+  <meta property="og:site_name" content="Scaling Minds">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Founder Bottleneck: Why Everything Runs Through You | Scaling Minds">
+  <meta name="twitter:description" content="The founder bottleneck is when a company grows but its decisions don't. How to know if you're the bottleneck as a CEO, why delegation won't fix it, and what does.">
+  <meta name="twitter:image" content="https://scalingminds.com/og-image.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    :root { --green: #123E35; --gold: #C4973B; --gold-deep: #B08832; --cream: #F5F0E8; --white: #FFFFFF; --text-dark: #111111; --text-muted: #4B5563; }
+    .article-hero { background: var(--green); color: var(--white); padding: 120px 24px 56px; text-align: center; }
+    .article-hero__inner { max-width: 760px; margin: 0 auto; }
+    .article-hero .eyebrow { color: var(--gold); margin-bottom: 18px; }
+    .article-hero h1 { color: var(--white); font-size: clamp(1.9rem, 4vw, 2.9rem); line-height: 1.2; margin-bottom: 18px; }
+    .article-hero__dek { font-size: 1.15rem; line-height: 1.7; color: rgba(255,255,255,0.72); max-width: 620px; margin: 0 auto; }
+    .article-hero__meta { margin-top: 24px; font-size: 0.85rem; letter-spacing: 0.04em; color: rgba(255,255,255,0.55); }
+    .article-wrap { padding: 64px 24px 24px; }
+    .article-prose { max-width: 68ch; margin: 0 auto; font-size: 1.075rem; line-height: 1.78; color: #1d2521; }
+    .article-prose > *:first-child { margin-top: 0; }
+    .article-prose h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.4rem, 2.6vw, 1.8rem); line-height: 1.3; color: var(--green); margin: 2.4em 0 0.7em; }
+    .article-prose h3 { font-family: 'Libre Baskerville', serif; font-size: 1.25rem; color: var(--green); margin: 1.8em 0 0.6em; }
+    .article-prose p { margin: 0 0 1.25em; }
+    .article-prose a { color: var(--gold-deep); text-decoration: underline; text-underline-offset: 2px; }
+    .article-prose a:hover { color: var(--gold); }
+    .article-prose ul, .article-prose ol { margin: 0 0 1.25em 1.3em; }
+    .article-prose li { margin-bottom: 0.5em; }
+    .article-prose blockquote { margin: 1.6em 0; padding: 0.4em 0 0.4em 1.4em; border-left: 4px solid var(--gold); font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 1.2rem; line-height: 1.6; color: var(--green); }
+    .article-prose blockquote p { margin-bottom: 0.4em; }
+    .article-prose hr { border: none; border-top: 1px solid #e2ddd2; margin: 2.6em 0; }
+    .article-prose strong { color: var(--green); }
+    .article-prose img { max-width: 100%; height: auto; border-radius: 6px; }
+    .article-faq { max-width: 68ch; margin: 56px auto 0; padding-top: 40px; border-top: 1px solid #e2ddd2; }
+    .article-faq h2 { font-family: 'Libre Baskerville', serif; font-size: 1.6rem; color: var(--green); margin-bottom: 24px; }
+    .faq-item { border-bottom: 1px solid #e9e4d9; padding: 18px 0; }
+    .faq-item summary { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1.08rem; color: var(--green); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; color: var(--gold); font-size: 1.4rem; font-weight: 400; line-height: 1; flex-shrink: 0; }
+    .faq-item[open] summary::after { content: '\2013'; }
+    .faq-item__answer { padding-top: 12px; line-height: 1.75; color: #2a322e; }
+    .faq-item__answer p { margin: 0 0 0.8em; }
+    .faq-item__answer p:last-child { margin-bottom: 0; }
+    .article-cta { background: var(--cream); margin-top: 64px; padding: 64px 24px; text-align: center; }
+    .article-cta__inner { max-width: 640px; margin: 0 auto; }
+    .article-cta h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--green); margin-bottom: 14px; }
+    .article-cta p { color: var(--text-muted); font-size: 1.08rem; line-height: 1.7; margin-bottom: 28px; }
+    @media (max-width: 640px) {
+      .article-hero { padding: 104px 20px 44px; }
+      .article-wrap { padding: 44px 20px 8px; }
+      .article-prose { font-size: 1.02rem; }
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Founder Bottleneck: Why Everything in Your Company Runs Through You",
+  "description": "The founder bottleneck is when a company grows but its decisions don't. How to know if you're the bottleneck as a CEO, why delegation won't fix it, and what does.",
+  "image": [
+    "https://scalingminds.com/og-image.png"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Andy Hite",
+    "url": "https://scalingminds.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scaling Minds",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://scalingminds.com/scaling_minds_logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://scalingminds.com/founder-bottleneck"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the founder bottleneck the same as a delegation problem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Delegation is handing off tasks. The bottleneck is about decisions, and it survives delegation because your people hand the decisions right back the first time something gets hard. You can delegate every task in the building and still be the only place a real call gets made."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a non-founder CEO be the bottleneck?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it&#39;s just as common. Succession CEOs and hired CEOs inherit teams trained to route everything upward, sometimes to a predecessor who&#39;s still in the parking lot. The pattern is the same. The extra wrinkle is that the team&#39;s habit predates you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to fix?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Longer than a quarter, shorter than forever. The honest answer is that the first visible change, hard conversations starting to happen in the room instead of the hallway, usually shows up within a few months of real work. The full shift, where the team runs the company and you run the team, is a year or more. Anyone promising it faster is selling you an offsite."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does hiring a COO solve it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not by itself. A strong COO inside an unchanged structure becomes one more person standing in line outside your office. Fix how the team makes decisions first, and then a COO multiplies it. Andy Hite is the founder of Scaling Minds and creator of the Six Shifts, a leadership operating system for executive teams at growing privately held companies. © Scaling Minds"
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Insights",
+      "item": "https://scalingminds.com/insights"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "The Founder Bottleneck: Why Everything in Your Company Runs Through You",
+      "item": "https://scalingminds.com/founder-bottleneck"
+    }
+  ]
+}
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3Z835JNMP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C3Z835JNMP');
+  </script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo" style="display: flex; align-items: center; gap: 10px;">
+        <img src="/scaling_minds_logo.png" alt="Scaling Minds" style="height: 44px; width: auto;">
+      </a>
+      <ul class="nav__links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/six-shifts">The Six Shifts™</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/client-results">Client Results</a></li>
+        <li><a href="/insights">Insights</a></li>
+        <li><a href="https://portal.scalingminds.com" target="_blank" style="font-size: 0.85rem; opacity: 0.7;">Client Login</a></li>
+        <li><a href="/contact" class="nav__cta">Start Here</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="page-transition">
+  <header class="article-hero">
+    <div class="article-hero__inner">
+      <span class="eyebrow">Insights</span>
+      <h1>The Founder Bottleneck: Why Everything in Your Company Runs Through You</h1>
+      
+    </div>
+  </header>
+  <main class="article-wrap">
+    <article class="article-prose">
+<p>The founder bottleneck is when a company grows but its decisions don&#39;t. Everything important still comes to you, so the business moves at the speed of your calendar. People call it the founder bottleneck, but you don&#39;t have to be the founder. Any CEO can become the choke point, including the one who inherited the company and the one who was hired into it. Same pattern, same fix.</p>
+<p>You&#39;ve already tried delegating, and you know it isn&#39;t the fix. The fix is a leadership team that carries weight when you&#39;re not in the room.</p>
+<p>This is for CEOs of privately held companies, 50 to 200 people, who have a nagging feeling they&#39;re the reason it can&#39;t go faster.</p>
+<p>You&#39;re probably right.</p>
+<h2>How do you know if you&#39;re the bottleneck?</h2>
+<p>Your leaders bring you decisions instead of making them. They call it keeping you in the loop. It&#39;s asking permission with extra steps.</p>
+<p>You take a week off and the important stuff waits. Your team meets without you and produces a summary of things that will be decided when you&#39;re back.</p>
+<p>Here&#39;s the one I see most. Two of your executives disagree about something that matters. Instead of hashing it out with each other, they each come to you, separately, and make their case. You&#39;ve become the courier for a conversation two adults should be having across a table.</p>
+<p>And the one that stings: you hired good people. Expensive people. You&#39;re still the one catching every ball.</p>
+<h2>Why does everything run through the CEO?</h2>
+<p>Nobody builds a decision bottleneck on purpose. It&#39;s the leftover of what made the company work.</p>
+<p>Early on, your judgment was the edge. You knew every customer, made every call, and your speed was the advantage. The organization grew up around your involvement because your involvement was the best thing it had. It was the right design at 10 people, and at 80 it&#39;s strangling you.</p>
+<p>I learned this years before I ever coached a CEO. For seventeen years I oversaw productions at The Marriott Theatre, and every director and designer came to me for approval on everything, which felt like quality control right up until I got seriously ill during the week we moved a production into the theater, the highest-stakes stretch of the whole process. With me out, the production essentially halted. My team did everything they could, the best they could, and the honest truth is they didn&#39;t have the practice of trusting their own calls, because I&#39;d taken that practice away from them by controlling every decision.</p>
+<p>The hard part to accept is that your people learned this from you. Every time a decision went sideways and you grabbed it back, the lesson got louder: the safe move is to check with the boss.</p>
+<p>A test you can run Monday without telling anyone. Watch where people&#39;s eyes go when a hard question lands in your leadership meeting. If every set of eyes finds your chair, you have a group of smart people waiting to find out what you think.</p>
+<h2>Why delegation doesn&#39;t fix the bottleneck</h2>
+<p>Delegation advice doesn&#39;t work. You&#39;ve handed things off, some came back wrong, and now you have evidence that letting go means dropped balls. &quot;Trust your people more&quot; is useless against evidence.</p>
+<p>Hiring a big-title COO doesn&#39;t work by itself either. I&#39;ve watched companies bring in a strong senior leader, and inside six months the new person is standing in the same line outside the CEO&#39;s office as everyone else.</p>
+<p>Working harder definitely doesn&#39;t work, because you&#39;re already the hardest-working person in the building. Your effort is what&#39;s hiding the structural problem, and it&#39;ll keep hiding it until the month it can&#39;t.</p>
+<h2>How do you actually fix a CEO bottleneck?</h2>
+<p>The bottleneck breaks when your executive team becomes a real team. That happens in an order, and most attempts fail because somebody skipped ahead.</p>
+<p>It starts with trust, and I mean something specific. Trust is when your CFO can tell your VP of Sales the forecast is fantasy, in the meeting, with you sitting right there, and the relationship gets stronger. Most executive teams can&#39;t do that. In years of measuring this, I have never met a CEO who underestimated how honest the team is with each other. Every one guessed high. Probably including you.</p>
+<p>Once a team can tell the truth in the room, ownership becomes possible. Leaders hold their own numbers and their own problems instead of escalating them. Alignment becomes how decisions get made instead of a poster in the break room. Trust before candor before ownership. The order is the whole ballgame. I built <a href="/six-shifts">the Six Shifts</a> around that order because every failed attempt I get called in to clean up skipped a step in it.</p>
+<h2>Where this leaves you</h2>
+<p>No three-step plan. You&#39;ve read plenty and you&#39;re still the bottleneck.</p>
+<p>One thing to try. Ask each of your executives, one on one: what conversation does this team most need to have that we&#39;re not having? Five different answers is your starting point. Five versions of &quot;honestly, we&#39;re pretty good&quot; is a worse one.</p>
+<p>The bottleneck took years to build. It doesn&#39;t break in a month, but it breaks. The CEOs who&#39;ve done it describe the change the same way: I stopped being the place where decisions go and started building the place where decisions happen.</p>
+<p><strong>Related:</strong> <a href="/micromanagement">Micromanagement</a></p>
+    </article>
+  <section class="article-faq">
+    <h2>Common Questions</h2>
+    <details class="faq-item">
+      <summary>Is the founder bottleneck the same as a delegation problem?</summary>
+      <div class="faq-item__answer"><p>No. Delegation is handing off tasks. The bottleneck is about decisions, and it survives delegation because your people hand the decisions right back the first time something gets hard. You can delegate every task in the building and still be the only place a real call gets made.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Can a non-founder CEO be the bottleneck?</summary>
+      <div class="faq-item__answer"><p>Yes, and it&#39;s just as common. Succession CEOs and hired CEOs inherit teams trained to route everything upward, sometimes to a predecessor who&#39;s still in the parking lot. The pattern is the same. The extra wrinkle is that the team&#39;s habit predates you.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>How long does it take to fix?</summary>
+      <div class="faq-item__answer"><p>Longer than a quarter, shorter than forever. The honest answer is that the first visible change, hard conversations starting to happen in the room instead of the hallway, usually shows up within a few months of real work. The full shift, where the team runs the company and you run the team, is a year or more. Anyone promising it faster is selling you an offsite.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Does hiring a COO solve it?</summary>
+      <div class="faq-item__answer"><p>Not by itself. A strong COO inside an unchanged structure becomes one more person standing in line outside your office. Fix how the team makes decisions first, and then a COO multiplies it.</p>
+<hr>
+<p><em>Andy Hite is the founder of Scaling Minds and creator of the Six Shifts, a leadership operating system for executive teams at growing privately held companies. © Scaling Minds</em></p></div>
+    </details>
+  </section>
+    <section class="article-cta">
+      <div class="article-cta__inner">
+        <h2>Is your leadership team performing below its potential?</h2>
+        <p>The Six Shifts Diagnostic shows you exactly where your executive team is stuck — and how to close the gap.</p>
+        <a href="/contact" class="btn btn--primary">Start the Conversation</a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="/scaling_minds_logo.png" alt="Scaling Minds" style="height: 40px; width: auto; margin-bottom: 12px;">
+          <p>Executive team performance for privately held companies and mission-driven nonprofits.</p>
+          <p style="margin-top: 16px;">
+            Chicago, IL<br>
+            <a href="tel:3127725825">(312) 772-5825</a>
+          </p>
+        </div>
+        <div>
+          <h4>Navigate</h4>
+          <ul class="footer__links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/six-shifts">The Six Shifts™</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/insights">Insights</a></li>
+            <li><a href="/client-results">Client Results</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <ul class="footer__links">
+            <li><a href="/contact">Start Here</a></li>
+            <li><a href="https://www.linkedin.com/in/andy-hite/" target="_blank">LinkedIn</a></li>
+            <li><a href="https://portal.scalingminds.com" target="_blank">Client Login</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Scaling Minds LLC. All rights reserved.</p>
+        <a href="https://www.linkedin.com/in/andy-hite/" target="_blank" aria-label="LinkedIn" class="footer__social">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+  </div>
+  <script src="/main.js"></script>
+</body>
+</html>

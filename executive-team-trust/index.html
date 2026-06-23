@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>When Your Executive Team Doesn't Trust Each Other | Scaling Minds</title>
+  <meta name="description" content="Low trust on an executive team looks like polite meetings and hallway truth. Why offsites don't fix it, why team trust beats 1:1 repairs, and what does work.">
+  <meta name="author" content="Andy Hite">
+  <link rel="canonical" href="https://scalingminds.com/executive-team-trust">
+  <meta property="og:title" content="When Your Executive Team Doesn't Trust Each Other | Scaling Minds">
+  <meta property="og:description" content="Low trust on an executive team looks like polite meetings and hallway truth. Why offsites don't fix it, why team trust beats 1:1 repairs, and what does work.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://scalingminds.com/executive-team-trust">
+  <meta property="og:image" content="https://scalingminds.com/og-image.png">
+  <meta property="og:site_name" content="Scaling Minds">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="When Your Executive Team Doesn't Trust Each Other | Scaling Minds">
+  <meta name="twitter:description" content="Low trust on an executive team looks like polite meetings and hallway truth. Why offsites don't fix it, why team trust beats 1:1 repairs, and what does work.">
+  <meta name="twitter:image" content="https://scalingminds.com/og-image.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    :root { --green: #123E35; --gold: #C4973B; --gold-deep: #B08832; --cream: #F5F0E8; --white: #FFFFFF; --text-dark: #111111; --text-muted: #4B5563; }
+    .article-hero { background: var(--green); color: var(--white); padding: 120px 24px 56px; text-align: center; }
+    .article-hero__inner { max-width: 760px; margin: 0 auto; }
+    .article-hero .eyebrow { color: var(--gold); margin-bottom: 18px; }
+    .article-hero h1 { color: var(--white); font-size: clamp(1.9rem, 4vw, 2.9rem); line-height: 1.2; margin-bottom: 18px; }
+    .article-hero__dek { font-size: 1.15rem; line-height: 1.7; color: rgba(255,255,255,0.72); max-width: 620px; margin: 0 auto; }
+    .article-hero__meta { margin-top: 24px; font-size: 0.85rem; letter-spacing: 0.04em; color: rgba(255,255,255,0.55); }
+    .article-wrap { padding: 64px 24px 24px; }
+    .article-prose { max-width: 68ch; margin: 0 auto; font-size: 1.075rem; line-height: 1.78; color: #1d2521; }
+    .article-prose > *:first-child { margin-top: 0; }
+    .article-prose h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.4rem, 2.6vw, 1.8rem); line-height: 1.3; color: var(--green); margin: 2.4em 0 0.7em; }
+    .article-prose h3 { font-family: 'Libre Baskerville', serif; font-size: 1.25rem; color: var(--green); margin: 1.8em 0 0.6em; }
+    .article-prose p { margin: 0 0 1.25em; }
+    .article-prose a { color: var(--gold-deep); text-decoration: underline; text-underline-offset: 2px; }
+    .article-prose a:hover { color: var(--gold); }
+    .article-prose ul, .article-prose ol { margin: 0 0 1.25em 1.3em; }
+    .article-prose li { margin-bottom: 0.5em; }
+    .article-prose blockquote { margin: 1.6em 0; padding: 0.4em 0 0.4em 1.4em; border-left: 4px solid var(--gold); font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 1.2rem; line-height: 1.6; color: var(--green); }
+    .article-prose blockquote p { margin-bottom: 0.4em; }
+    .article-prose hr { border: none; border-top: 1px solid #e2ddd2; margin: 2.6em 0; }
+    .article-prose strong { color: var(--green); }
+    .article-prose img { max-width: 100%; height: auto; border-radius: 6px; }
+    .article-faq { max-width: 68ch; margin: 56px auto 0; padding-top: 40px; border-top: 1px solid #e2ddd2; }
+    .article-faq h2 { font-family: 'Libre Baskerville', serif; font-size: 1.6rem; color: var(--green); margin-bottom: 24px; }
+    .faq-item { border-bottom: 1px solid #e9e4d9; padding: 18px 0; }
+    .faq-item summary { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1.08rem; color: var(--green); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; color: var(--gold); font-size: 1.4rem; font-weight: 400; line-height: 1; flex-shrink: 0; }
+    .faq-item[open] summary::after { content: '\2013'; }
+    .faq-item__answer { padding-top: 12px; line-height: 1.75; color: #2a322e; }
+    .faq-item__answer p { margin: 0 0 0.8em; }
+    .faq-item__answer p:last-child { margin-bottom: 0; }
+    .article-cta { background: var(--cream); margin-top: 64px; padding: 64px 24px; text-align: center; }
+    .article-cta__inner { max-width: 640px; margin: 0 auto; }
+    .article-cta h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--green); margin-bottom: 14px; }
+    .article-cta p { color: var(--text-muted); font-size: 1.08rem; line-height: 1.7; margin-bottom: 28px; }
+    @media (max-width: 640px) {
+      .article-hero { padding: 104px 20px 44px; }
+      .article-wrap { padding: 44px 20px 8px; }
+      .article-prose { font-size: 1.02rem; }
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What to Do When Your Executive Team Doesn't Trust Each Other",
+  "description": "Low trust on an executive team looks like polite meetings and hallway truth. Why offsites don't fix it, why team trust beats 1:1 repairs, and what does work.",
+  "image": [
+    "https://scalingminds.com/og-image.png"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Andy Hite",
+    "url": "https://scalingminds.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scaling Minds",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://scalingminds.com/scaling_minds_logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://scalingminds.com/executive-team-trust"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will a team-building offsite fix trust on an executive team?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, though it can kick something off. The offsite problem is reentry. People are open on a Thursday in the mountains and back to old patterns by Tuesday, because the conditions that made truth expensive are waiting at the office, unchanged. If the offsite produces one real conversation that continues in the regular Monday meeting, it was worth it. If it produces a poster, it wasn&#39;t."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the trust problem is really about one person?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sometimes it is. One executive who punishes honesty, hoards information, or plays politics can hold a whole team&#39;s trust hostage, and you need to address that directly, because the team is watching whether you will. But check the pattern first. If people only behave that way when you&#39;re out of the room, or if the &quot;one person&quot; changes depending on who you ask, the problem is the room."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to rebuild trust on an executive team?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "First signs show up fast, within a couple of months, if the senior person genuinely goes first. Somebody disagrees in the meeting instead of after it. A miss gets surfaced early instead of managed. Making it the team&#39;s default takes a year or more of accumulated evidence. There&#39;s no shortcut, but the first honest meeting pays for itself immediately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a new executive hire reset team trust?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A strong hire helps and is never enough by itself. New people adopt the room&#39;s rules within about a quarter, because they&#39;re smart and the rules are easy to read. I&#39;ve watched candid, direct executives go quiet within months of joining a low-trust team. Change the rules and a good hire accelerates everything. Skip that and the team absorbs the hire. Andy Hite is the founder of Scaling Minds and creator of the Six Shifts, a leadership operating system for executive teams at growing privately held companies. © Scaling Minds"
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Insights",
+      "item": "https://scalingminds.com/insights"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "What to Do When Your Executive Team Doesn't Trust Each Other",
+      "item": "https://scalingminds.com/executive-team-trust"
+    }
+  ]
+}
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3Z835JNMP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C3Z835JNMP');
+  </script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo" style="display: flex; align-items: center; gap: 10px;">
+        <img src="/scaling_minds_logo.png" alt="Scaling Minds" style="height: 44px; width: auto;">
+      </a>
+      <ul class="nav__links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/six-shifts">The Six Shifts™</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/client-results">Client Results</a></li>
+        <li><a href="/insights">Insights</a></li>
+        <li><a href="https://portal.scalingminds.com" target="_blank" style="font-size: 0.85rem; opacity: 0.7;">Client Login</a></li>
+        <li><a href="/contact" class="nav__cta">Start Here</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="page-transition">
+  <header class="article-hero">
+    <div class="article-hero__inner">
+      <span class="eyebrow">Insights</span>
+      <h1>What to Do When Your Executive Team Doesn't Trust Each Other</h1>
+      
+    </div>
+  </header>
+  <main class="article-wrap">
+    <article class="article-prose">
+<p>When your executive team doesn&#39;t trust each other, you fix it in the room, during real work, in front of the whole team. Trust between executives gets rebuilt through evidence: somebody takes a risk, the room handles it well, and everyone recalculates what&#39;s safe here. That&#39;s the whole mechanism. The rest is repetition.</p>
+<p>This is for CEOs who can feel it. The meetings are polite and efficient. The real conversations happen afterward, in twos. Everyone is professional with each other and nothing important moves.</p>
+<h2>What does low trust on an executive team look like?</h2>
+<p>It almost never looks like conflict, because conflict means people still think arguing is worth it. Low trust looks like good manners instead.</p>
+<p>Watch your next leadership meeting. Someone presents a plan with a hole in it, a hole at least three people at the table can see. Nobody says a word. The meeting ends on time, and within the hour two of those people are on the phone with each other, talking about the hole.</p>
+<p>I call that silent disagreement. The team looks aligned because nobody objected, but nobody actually agreed. The decision walks out of the room with no real support behind it, and three weeks later you&#39;re wondering why execution feels like dragging a sled.</p>
+<p>There are quieter signs too. Your CFO re-verifies numbers your COO already signed off on. Timelines come in padded so nobody can get hung out to dry by another department. And the CC line on emails keeps getting longer, because copying you is insurance. Each one is small. Together they mean your executives are managing risk against each other instead of running the company together.</p>
+<h2>Why don&#39;t executive teams trust each other?</h2>
+<p>Almost never because somebody&#39;s a bad person. Usually because somewhere in the company&#39;s history, honesty got punished and everyone was watching.</p>
+<p>A VP challenged the strategy in front of the team and got cut off at the knees. Somebody admitted a miss and it showed up in their next comp conversation. Nobody writes these moments down, but everyone remembers them, and the lesson compounds: in this room, the truth is expensive.</p>
+<p>The other source is history between specific people. Sales blew the forecast two years ago and Finance has treated their numbers like fiction ever since. Operations got burned by a launch date once and now builds a secret buffer into everything. Each of these is a rational response to a real event. That&#39;s why you can&#39;t talk a team out of them.</p>
+<p>A couple of years ago I worked with a CEO who was certain trust was his team&#39;s strong suit. The diagnostic said otherwise: three of his executives were running backchannel arguments and barely functioning together, and underneath it all three were competing for his attention. He&#39;d been reading that competition as buy-in, because each of them kept coming to him individually and agreeing enthusiastically. We spent about three months repairing those relationships, and once the repair took hold it was like the engine stopped seizing. The team covered so much more ground.</p>
+<h2>Can you fix executive team trust one relationship at a time?</h2>
+<p>Most advice treats this as a series of one-on-one repairs. Get the CFO and the VP of Sales in a room, clear the air, shake hands. Sometimes worth doing. It won&#39;t fix the team.</p>
+<p>A team holds a shared, unspoken agreement about what&#39;s safe to say when everyone is present, and that agreement is different from any individual relationship. I&#39;ve seen teams where every pair got along fine over lunch and the full group still couldn&#39;t surface a single hard truth in a meeting. The room has its own rules. Until the rules of the room change, with everyone watching, the one-on-one repairs evaporate the moment the group reassembles.</p>
+<h2>How do you rebuild trust on an executive team?</h2>
+<p>Somebody has to go first, and it has to be the person with the most power. That&#39;s usually you.</p>
+<p>Here&#39;s what it looked like with one team I worked with. The CEO opened a leadership meeting by walking through a decision he&#39;d made nine months earlier, an acquisition he&#39;d pushed past the team&#39;s objections, and put the real cost on the table: about $2 million and a year of distraction. Then he asked the team what they&#39;d seen at the time that he hadn&#39;t listened to. The room was silent for a long ten seconds. Then his COO spoke up. Then the others. That meeting ran 40 minutes over and was the first honest one they&#39;d had in two years.</p>
+<p>One moment doesn&#39;t rebuild trust, but it starts the ledger. Every time somebody tells the truth and survives, the room recalculates. That CEO&#39;s confession is what the order looks like in practice: nobody on that team was going to be honest until the most powerful person in the room proved it was survivable. Trust is the first of <a href="/six-shifts">the Six Shifts</a> because everything else a team needs gets built on top of it, and teams who skip straight to demanding candor, with no safety underneath, get compliance theater and quieter rooms.</p>
+<h2>Where this leaves you</h2>
+<p>You can&#39;t order people to trust each other, and you can&#39;t outsource it to a facilitator with a deck of icebreaker cards. What you can do is change what happens the next time somebody takes a risk in your presence.</p>
+<p>So here&#39;s the test. The next time one of your executives says something hard, about the plan, about a peer, about you, watch what you do in the following five seconds. The team certainly will. That five seconds is the trust strategy.</p>
+<p><strong>Related:</strong> <a href="/trust-repair">Trust Repair — After a Breakdown</a></p>
+    </article>
+  <section class="article-faq">
+    <h2>Common Questions</h2>
+    <details class="faq-item">
+      <summary>Will a team-building offsite fix trust on an executive team?</summary>
+      <div class="faq-item__answer"><p>No, though it can kick something off. The offsite problem is reentry. People are open on a Thursday in the mountains and back to old patterns by Tuesday, because the conditions that made truth expensive are waiting at the office, unchanged. If the offsite produces one real conversation that continues in the regular Monday meeting, it was worth it. If it produces a poster, it wasn&#39;t.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>What if the trust problem is really about one person?</summary>
+      <div class="faq-item__answer"><p>Sometimes it is. One executive who punishes honesty, hoards information, or plays politics can hold a whole team&#39;s trust hostage, and you need to address that directly, because the team is watching whether you will. But check the pattern first. If people only behave that way when you&#39;re out of the room, or if the &quot;one person&quot; changes depending on who you ask, the problem is the room.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>How long does it take to rebuild trust on an executive team?</summary>
+      <div class="faq-item__answer"><p>First signs show up fast, within a couple of months, if the senior person genuinely goes first. Somebody disagrees in the meeting instead of after it. A miss gets surfaced early instead of managed. Making it the team&#39;s default takes a year or more of accumulated evidence. There&#39;s no shortcut, but the first honest meeting pays for itself immediately.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Can a new executive hire reset team trust?</summary>
+      <div class="faq-item__answer"><p>A strong hire helps and is never enough by itself. New people adopt the room&#39;s rules within about a quarter, because they&#39;re smart and the rules are easy to read. I&#39;ve watched candid, direct executives go quiet within months of joining a low-trust team. Change the rules and a good hire accelerates everything. Skip that and the team absorbs the hire.</p>
+<hr>
+<p><em>Andy Hite is the founder of Scaling Minds and creator of the Six Shifts, a leadership operating system for executive teams at growing privately held companies. © Scaling Minds</em></p></div>
+    </details>
+  </section>
+    <section class="article-cta">
+      <div class="article-cta__inner">
+        <h2>Is your leadership team performing below its potential?</h2>
+        <p>The Six Shifts Diagnostic shows you exactly where your executive team is stuck — and how to close the gap.</p>
+        <a href="/contact" class="btn btn--primary">Start the Conversation</a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="/scaling_minds_logo.png" alt="Scaling Minds" style="height: 40px; width: auto; margin-bottom: 12px;">
+          <p>Executive team performance for privately held companies and mission-driven nonprofits.</p>
+          <p style="margin-top: 16px;">
+            Chicago, IL<br>
+            <a href="tel:3127725825">(312) 772-5825</a>
+          </p>
+        </div>
+        <div>
+          <h4>Navigate</h4>
+          <ul class="footer__links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/six-shifts">The Six Shifts™</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/insights">Insights</a></li>
+            <li><a href="/client-results">Client Results</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <ul class="footer__links">
+            <li><a href="/contact">Start Here</a></li>
+            <li><a href="https://www.linkedin.com/in/andy-hite/" target="_blank">LinkedIn</a></li>
+            <li><a href="https://portal.scalingminds.com" target="_blank">Client Login</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Scaling Minds LLC. All rights reserved.</p>
+        <a href="https://www.linkedin.com/in/andy-hite/" target="_blank" aria-label="LinkedIn" class="footer__social">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+  </div>
+  <script src="/main.js"></script>
+</body>
+</html>
