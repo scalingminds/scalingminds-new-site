@@ -1,75 +1,72 @@
 ---
 slug: psychological-safety-executive-team
-title: "How to Build Psychological Safety on an Executive Team"
-titleTag: "How to Build Psychological Safety on an Executive Team | Scaling Minds"
-description: "Psychological safety on an executive team means the truth gets said with the stakes up. Why it's harder at the top and how CEOs actually build it."
+title: "What Psychological Safety Actually Means for Executive Teams"
+titleTag: "What Psychological Safety Actually Means for Executive Teams | Scaling Minds"
+description: "CEOs consistently overestimate how safe their team feels to speak up. Every single time. Here's what psychological safety actually is, why it's harder to build at the top, and what the research says creates it."
 author: "Andy Hite"
+datePublished: 2026-06-23
 order: 6
 ---
 
-Psychological safety on an executive team means people can say the risky true thing, in the meeting, without paying for it later. That's the whole concept. It is harder to build at the top of a company than anywhere else in it, because executives are the people most practiced at looking certain.
+The term gets used in so many different ways that it has started to mean almost nothing. Team-building workshops invoke it, culture decks cite it, and leaders who have never read Edmondson's original research drop it into conversations as shorthand for a vague aspiration toward niceness.
 
-If the term itself makes you roll your eyes, use the business translation: psychological safety determines how much true information reaches your decisions. Low safety means you're steering a company on filtered data, and you'll find out what got filtered at the worst possible time.
+That's not what it is.
 
-## What is psychological safety on an executive team?
+Amy Edmondson at Harvard defined psychological safety as a shared belief that a team is safe for interpersonal risk-taking. Her 1999 research, later reinforced by Google's Project Aristotle, found it was the strongest predictor of team performance, not because it makes teams comfortable, but because it makes them willing to learn. Teams that felt safe to speak up engaged in more learning behaviors: seeking feedback, experimenting, discussing errors, asking for help. Those behaviors drove performance. The connection wasn't direct. It ran through learning. That matters because it tells you what you're actually building when you build psychological safety: not a pleasant environment, but a team that can tell the truth, adjust, and improve.
 
-It's a shared expectation about what happens when somebody takes a risk out loud. Admits a mistake. Questions the strategy. Says "I don't understand this" in a room full of people paid to understand things.
+Edmondson is explicit that safety without accountability produces a comfort zone, not a learning zone. When psychological safety is high but standards are low, people feel safe to express ideas but don't take ownership of outcomes. The goal is both: high safety and high accountability together, which she calls the learning zone. That's where the best work happens.
 
-The research behind the term is twenty years deep, and the headline finding holds up everywhere it's tested: the teams that perform best are the ones where speaking up is cheap. At the executive level the same finding wears different clothes. A safe executive team argues openly about the forecast. An unsafe one approves it politely and lets reality file the objection in Q3.
+## Why it's harder at the top
 
-One thing the term has never meant is comfort. The safest executive teams I've worked with are the most uncomfortable rooms I sit in, because everything real is on the table. Safety is what makes that level of discomfort possible without anyone bleeding for it afterward.
+Every year I work with executive teams, I ask each CEO to estimate how psychologically safe their team is before I've spoken to any team members. Every single time, the CEO's estimate is higher than what the team actually reports. Not occasionally. Every time.
 
-## Why is psychological safety harder at the executive level?
+This is structural. The CEO controls resources, career trajectories, and the daily experience of every person in that room. The power gradient between the CEO and their direct reports is real, and it shapes every conversation whether anyone acknowledges it or not. Edmondson's research notes that psychological safety is harder to build at senior levels precisely because the stakes of speaking up are higher. An executive who contradicts the CEO in a meeting isn't just voicing a different opinion. They're taking a career risk. The team does that math constantly, whether the CEO knows it or not.
 
-Three forces work against you up here that don't exist further down.
+There's also a selection effect. Everyone in that room got there by projecting competence under pressure. They've spent careers learning how to manage up, how to look certain when they're not, how to read what the powerful person in the room wants to hear. Asking those people to set aside those skills requires more than an open-door invitation.
 
-The stakes are personal. Your executives have titles, equity, reputations, and mortgages built on the story that they're the person who knows. Saying "I was wrong about this market" feels less like feedback and more like handing someone ammunition.
+## What it actually looks like when it exists
 
-The selection effect is real. Everyone at your table got there by projecting competence under pressure. They've spent twenty years getting good at never looking lost. You're asking people to drop the exact skill that built their careers.
+The teams I've been in where psychological safety was real were not comfortable rooms. They were some of the most uncomfortable rooms I've sat in, because everything was on the table. Someone would say the budget projection was fantasy. Someone else would name the flaw in the product strategy everyone had been too polite to address. A third person would admit they didn't understand something they were supposed to be expert in. And none of those moments cost them. The relationships came out stronger. The decisions got better.
 
-And then there's you. CEO wattage distorts every room you're in. Your raised eyebrow does more damage than another manager's formal warning, and you mostly won't know you raised it. Most CEOs believe their team feels safe with them. In years of measuring this, I've never once seen the team's private answer match the CEO's guess.
+That's what safety actually buys you. Not harmony. Not the absence of friction. The ability to surface the real thing in the room, with enough relational trust that the person who said it doesn't pay for it afterward.
 
-## What kills psychological safety on a leadership team?
+Edmondson identified three consistent leader behaviors that build it. Visible vulnerability, meaning publicly acknowledging mistakes, uncertainties, and limitations. Framing problems as learning opportunities rather than occasions to assign blame. And actively inviting dissenting views rather than passively tolerating them. The difference between those last two is meaningful. Passive tolerance says dissent is acceptable. Active invitation says dissent is valuable. Teams read that distinction clearly.
 
-The obvious version is the CEO who shoots messengers. You already know not to do that. The damage mostly comes from subtler moves.
+## The CEO's particular role
 
-Debating to win. When a leader voices doubt and you respond with a five-minute case for why they're wrong, you've technically engaged with the dissent and functionally punished it. Do that three times and dissent stops showing up, and you'll mistake the silence for alignment.
+Because of the power gradient, the CEO's behavior matters more than anyone else's in the room. A CEO who responds to bad news with curiosity gives the team permission to bring bad news. A CEO who gets visibly defensive when challenged gives the team an instruction: challenge carefully, or not at all.
 
-Rewarding confidence over accuracy. If the executive who's certain and wrong fares better in your meetings than the one who's uncertain and right, your team will learn to perform certainty. They'll get very good at it. You'll get very blind.
+I've sat with CEOs who were certain their teams felt safe, and then watched the same CEOs, in a group session ten minutes later, visibly tighten when someone pushed back on their read of a situation. The team saw it. The CEO didn't. That gap, between how leaders think they respond and how they actually respond under mild pressure, is where most of the safety work lives.
 
-Postmortems that turn into trials. The moment a review of what happened becomes a search for who, every leader in the room starts drafting their defense for next time instead of telling you what they saw.
+The CEO who asks for honest input and then debates every dissenting view into submission has taught the team that the input isn't being sought. The confirmation is.
 
-## How do you build psychological safety on an executive team?
-
-With evidence, supplied first by the most powerful person in the room, at real personal cost.
-
-Here's the moment I think about. In a leadership meeting at a $60M company, the CFO said: "I need to say something uncomfortable. I don't fully understand how we make money on our largest account." Eight seconds of silence. This was a serious CFO admitting confusion about the company's biggest customer, in front of everyone. The CEO said, "Walk us through what you do see." It turned out two other executives shared the confusion and had each privately assumed they were the only one. The account got repriced within the quarter. It had been quietly losing money for two years.
-
-That CFO didn't speak up because of a values poster. He spoke up because months of groundwork had made it survivable, starting with the CEO admitting his own misses first. Safety is built in exactly those moments, one piece of evidence at a time. In [the Six Shifts](/six-shifts) this is the work of the first shift, and everything I've watched teams build afterward stood or fell on it. Teams that demand honesty before building safety get silence with better production values.
-
-## Where this leaves you
-
-Your team already knows precisely how safe your room is. They've run the experiments you haven't noticed.
-
-If you want the real reading, ask each executive privately: "What's something you believe about this business that you've never said in our meetings?" Then count the seconds before they answer. The pause is your measurement. The answers, if you can receive them without defending yourself, are the beginning of the fix.
+The most reliable test of [psychological safety on an executive team](/signs-leadership-team-underperforming) isn't a survey. It's this question: when did someone last tell the CEO something the CEO didn't want to hear, and what happened next? The team knows the answer to that question better than the CEO does. And their answer is the operating manual for whether honesty in that room is safe or expensive.
 
 ## Common Questions
 
-### Is psychological safety just lowered standards with a nicer name?
+### What is psychological safety on a leadership team?
 
-The research says the opposite, and so does every strong team I've seen. Safety and standards move together: it takes a safe room for someone to say "this work isn't good enough" to a peer. The teams that confuse safety with niceness end up with neither, because niceness suppresses exactly the conversations that protect the standard. The hardest feedback I've ever watched executives give each other happened on the safest teams.
+Amy Edmondson's definition: a shared belief that the team is safe for interpersonal risk-taking. In practice, people can voice disagreement, admit mistakes, raise concerns, and challenge the ideas of others, including those with higher status, without fear of punishment or embarrassment. Critically, it's not about comfort or niceness. Edmondson is explicit that safety without high accountability produces complacency, not performance. The goal is both: what she calls the learning zone.
 
-### Can a team have too much psychological safety?
+### Why is psychological safety harder to build on executive teams?
 
-What people usually mean by this is a team where anything goes and nothing ships. That's a team missing the later pieces, ownership and alignment, with safety taking the blame. Safety makes truth affordable. It was never supposed to make commitments optional. If your team talks freely and delivers nothing, the gap is downstream of safety, and more pressure on the talking won't close it.
+Because the power gradient is steeper. An executive who contradicts the CEO in a meeting isn't just voicing a different opinion. They're taking a career risk. Edmondson's research specifically notes that safety is harder to build at senior levels for this reason. Add to that a selection effect: everyone in that room got there by learning to project certainty, manage up, and read powerful people. Asking them to abandon those skills requires more than an open-door policy.
 
-### How do you measure psychological safety on an executive team?
+### What does psychological safety actually look like in practice?
 
-Skip the survey, at least at first. Executives are excellent at answering surveys the way smart people should. Watch behavior instead: how often does someone disagree with you in the meeting? When did a leader last admit a real mistake before being caught? Does bad news arrive early or fully cooked? A month of honest observation beats an anonymous questionnaire your team will see through anyway.
+Rarely comfortable. The teams with genuine psychological safety are often the most uncomfortable rooms to be in, because everything is on the table. Someone says the budget projection is fantasy. Someone admits they don't understand something they're supposed to be expert in. None of those moments cost them. The relationship comes out stronger and the next meeting has more truth in it.
 
-### Whose job is it to build this, mine or the team's?
+### What is the difference between psychological safety and a comfort zone?
 
-Yours to start, everyone's to keep. The CEO controls the early evidence: what happens to the first dissenter, the first confession, the first piece of bad news under the new rules. Nobody else can supply that. Once the evidence accumulates, maintenance gets distributed, and a mature team will protect the norm even when you have a bad day. But you go first.
+Edmondson maps it explicitly. High safety combined with low accountability is the comfort zone: people feel safe expressing ideas but don't take ownership of outcomes. The learning zone is what you're actually building toward: high safety combined with high accountability. That's where the best work happens. Most organizations that misapply the concept are building comfort zones, not learning zones.
+
+### How do you build psychological safety on a leadership team?
+
+Edmondson identified three consistent leader behaviors: visible vulnerability, which means publicly acknowledging mistakes and uncertainties; framing problems as learning opportunities rather than occasions to assign blame; and actively inviting dissenting views rather than passively tolerating them. The difference between the last two matters. Teams read it clearly.
+
+### How do you know if your executive team has psychological safety?
+
+The most reliable test isn't a survey. Ask: when did someone last tell you something you didn't want to hear, and what happened next? The team knows the answer to that question better than you do. Their answer is the operating manual for whether honesty in that room is safe or expensive.
 
 ---
 
