@@ -4,7 +4,7 @@ title: "What You Have to Bring"
 titleTag: "What You Have to Bring to Executive Coaching | Scaling Minds"
 description: "The ROI of coaching depends on the coach and on you. Andy Hite on what leaders actually need to show up with, and why nobody talks about this side of the investment."
 author: "Andy Hite"
-datePublished: 2025-06-24
+datePublished: 2026-06-23
 category: "Insight"
 ---
 

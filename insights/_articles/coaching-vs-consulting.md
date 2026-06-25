@@ -4,7 +4,7 @@ title: "Coaching vs. Consulting: What's the Difference and Which One Do You Need
 titleTag: "Coaching vs. Consulting: What's the Difference? | Scaling Minds"
 description: "Coaching and consulting look similar from the outside and produce completely different outcomes. Andy Hite on the actual distinction, and why buying the wrong one is an expensive mistake most organizations make once."
 author: "Andy Hite"
-datePublished: 2025-06-24
+datePublished: 2026-06-23
 category: "Insight"
 ---
 

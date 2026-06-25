@@ -4,7 +4,7 @@ title: "Individual Coaching and Team Coaching Are Not the Same Work"
 titleTag: "Individual Coaching vs. Team Coaching: What's the Difference? | Scaling Minds"
 description: "Individual and team coaching are not bigger and smaller versions of the same thing. Andy Hite explains the real difference, and why buying the wrong one for your situation is a common and expensive mistake."
 author: "Andy Hite"
-datePublished: 2025-06-24
+datePublished: 2026-06-23
 category: "Insight"
 ---
 
