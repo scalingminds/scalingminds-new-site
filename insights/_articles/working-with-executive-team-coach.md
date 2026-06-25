@@ -4,6 +4,7 @@ title: "What Working With an Executive Team Coach Actually Looks Like"
 titleTag: "What Working With an Executive Team Coach Looks Like | Scaling Minds"
 description: "Inside a real team coaching engagement: the diagnostic, what the coach does in your meetings, what's expected of the CEO, and how you know it's working."
 author: "Andy Hite"
+datePublished: 2026-02-27
 order: 8
 ---
 

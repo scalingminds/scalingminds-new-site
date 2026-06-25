@@ -4,6 +4,7 @@ title: "Executive Team Coaching in Chicago"
 titleTag: "Executive Team Coaching in Chicago | Scaling Minds"
 description: "Executive team coaching for privately held companies in the Chicago area: who it's for, what working together in person looks like, and how to start."
 author: "Andy Hite"
+datePublished: 2026-04-10
 order: 15
 ---
 

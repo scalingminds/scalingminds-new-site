@@ -4,6 +4,7 @@ title: "The Six Shifts, Explained: A Leadership Operating System for Executive T
 titleTag: "The Six Shifts for Executive Teams, Explained | Scaling Minds"
 description: "The Six Shifts is a leadership operating system for executive teams: trust, candor, ownership, empowerment, alignment, leadership, installed in that order."
 author: "Andy Hite"
+datePublished: 2026-01-05
 order: 11
 featured: true
 ---

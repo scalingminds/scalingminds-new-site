@@ -4,6 +4,7 @@ title: "Who Helps Executive Teams at Small Companies Work Better Together?"
 titleTag: "Who Helps Executive Teams Work Better Together? | Scaling Minds"
 description: "The honest map of who does this work: team coaches, EOS implementers, peer groups, facilitators, and consultants. What each one is for and how to choose."
 author: "Andy Hite"
+datePublished: 2026-03-13
 order: 10
 ---
 

@@ -4,6 +4,7 @@ title: "How to Run a Leadership Offsite That Actually Changes Anything"
 titleTag: "How to Run a Leadership Offsite That Actually Changes Anything | Scaling Minds"
 description: "Most leadership offsites die at reentry. How to design one around the single conversation your team is avoiding, and what to do the Tuesday after."
 author: "Andy Hite"
+datePublished: 2026-03-20
 order: 12
 ---
 

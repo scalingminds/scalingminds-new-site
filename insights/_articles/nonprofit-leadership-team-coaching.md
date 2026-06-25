@@ -4,6 +4,7 @@ title: "Executive Coaching for Nonprofit Leadership Teams"
 titleTag: "Executive Coaching for Nonprofit Leadership Teams | Scaling Minds"
 description: "Nonprofit leadership teams avoid conflict differently: politeness gets mistaken for mission alignment. What team coaching looks like when the work is the mission."
 author: "Andy Hite"
+datePublished: 2026-03-27
 order: 13
 ---
 

@@ -12,6 +12,7 @@ npm-debug.log*
 /insights/index.html
 
 # BEGIN generated-insights (auto-managed by scripts/build-insights.mjs)
+/coaching-vs-consulting/
 /cost-of-executive-team-dysfunction/
 /does-my-leadership-team-need-a-coach/
 /everything-runs-through-me/
@@ -20,20 +21,27 @@ npm-debug.log*
 /executive-team-trust/
 /founder-bottleneck/
 /founder-led-to-team-led/
+/individual-vs-team-coaching/
 /is-executive-coaching-worth-it/
 /leaders-wont-take-ownership/
 /leadership-offsite-that-works/
 /leadership-team-hard-conversations/
+/leadership-team-looks-good-on-paper/
 /leadership-team-without-you/
 /nonprofit-leadership-team-coaching/
 /one-on-one-meetings/
 /playing-favorites-at-work/
 /psychological-safety-executive-team/
 /signs-leadership-team-underperforming/
+/silence-in-leadership-meetings/
 /six-shifts-explained/
 /the-meeting-after-the-meeting/
+/what-coaching-cant-fix/
+/what-the-leader-has-to-bring/
+/when-a-leader-changes/
 /when-the-ceo-is-the-problem/
 /who-helps-executive-teams/
+/why-best-employees-leave/
 /working-with-executive-team-coach/
 /workplace-civility/
 # END generated-insights

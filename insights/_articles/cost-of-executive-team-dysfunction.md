@@ -4,6 +4,7 @@ title: "What Executive Team Dysfunction Actually Costs"
 titleTag: "What Executive Team Dysfunction Actually Costs | Scaling Minds"
 description: "Executive team dysfunction never appears on a P&L line, which is why it survives. The real costs: decision speed, redone decisions, lost executives, dead initiatives."
 author: "Andy Hite"
+datePublished: 2026-03-06
 order: 9
 ---
 

@@ -4,6 +4,7 @@ title: "My Leaders Won't Take Ownership: Why Everything Escalates to You"
 titleTag: "Why Your Leaders Won't Take Ownership | Scaling Minds"
 description: "When everything escalates to the CEO, look at what a mistake costs in your company. The CEO sets that price. What real ownership takes and how to build it."
 author: "Andy Hite"
+datePublished: 2026-02-06
 order: 5
 ---
 
