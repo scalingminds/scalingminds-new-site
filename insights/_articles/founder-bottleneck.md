@@ -4,6 +4,7 @@ title: "The Founder Bottleneck: Why Everything in Your Company Runs Through You"
 titleTag: "The Founder Bottleneck: Why Everything Runs Through You | Scaling Minds"
 description: "The founder bottleneck is when a company grows but its decisions don't. How to know if you're the bottleneck as a CEO, why delegation won't fix it, and what does."
 author: "Andy Hite"
+datePublished: 2026-01-09
 order: 1
 ---
 

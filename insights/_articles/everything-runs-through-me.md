@@ -4,6 +4,7 @@ title: "Why Everything in My Company Runs Through Me"
 titleTag: "Why Everything in My Company Runs Through Me | Scaling Minds"
 description: "Your calendar is the real org chart. Why every decision routes through the CEO, the part you play in keeping it that way, and what loosening it looks like."
 author: "Andy Hite"
+datePublished: 2026-04-03
 order: 14
 ---
 

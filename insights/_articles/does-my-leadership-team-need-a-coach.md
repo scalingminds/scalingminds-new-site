@@ -4,6 +4,7 @@ title: "How Do I Know If My Leadership Team Needs a Coach?"
 titleTag: "How Do I Know If My Leadership Team Needs a Coach? | Scaling Minds"
 description: "The signs a leadership team needs outside help, the situations where coaching is the wrong answer, and what to look for if you decide to hire someone."
 author: "Andy Hite"
+datePublished: 2026-02-20
 order: 7
 ---
 

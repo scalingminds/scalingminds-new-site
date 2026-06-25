@@ -343,6 +343,7 @@ ${NAV}
       <span class="eyebrow">${escapeAttr(category || SERIES_LABEL)}</span>
       <h1>${escapeAttr(title)}</h1>
       ${dek ? `<p class="article-hero__dek">${escapeAttr(dek)}</p>` : ''}
+      ${datePublished ? `<p class="article-hero__meta"><time datetime="${isoDate(datePublished)}">Published ${formatDate(datePublished)}</time></p>` : ''}
     </div>
   </header>
   <main class="article-wrap">
@@ -370,6 +371,15 @@ function formatDate(d) {
   try {
     const date = typeof d === 'string' ? new Date(d + 'T00:00:00') : new Date(d);
     return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+  } catch {
+    return String(d);
+  }
+}
+
+function isoDate(d) {
+  try {
+    const date = typeof d === 'string' ? new Date(d + 'T00:00:00') : new Date(d);
+    return date.toISOString().split('T')[0];
   } catch {
     return String(d);
   }

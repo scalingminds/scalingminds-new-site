@@ -4,6 +4,7 @@ title: "How to Transition From Founder-Led to Team-Led Leadership"
 titleTag: "How to Go From Founder-Led to Team-Led Leadership | Scaling Minds"
 description: "A company is team-led when big decisions get made well without the CEO in the room. Why most transitions fail and the order that makes the shift stick."
 author: "Andy Hite"
+datePublished: 2026-01-23
 order: 3
 ---
 

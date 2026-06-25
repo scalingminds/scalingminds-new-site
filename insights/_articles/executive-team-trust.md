@@ -4,6 +4,7 @@ title: "What to Do When Your Executive Team Doesn't Trust Each Other"
 titleTag: "When Your Executive Team Doesn't Trust Each Other | Scaling Minds"
 description: "Low trust on an executive team looks like polite meetings and hallway truth. Why offsites don't fix it, why team trust beats 1:1 repairs, and what does work."
 author: "Andy Hite"
+datePublished: 2026-01-16
 order: 2
 ---
 
