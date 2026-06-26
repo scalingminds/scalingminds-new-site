@@ -629,14 +629,20 @@ for (const [slug, { date, title }] of Object.entries(ARTICLES)) {
 
   const faqs = FAQS[slug] || null;
 
-  // 1. Add datePublished + dateModified to existing Article schema
-  html = html.replace(
-    /("@type"\s*:\s*"Article"[\s\S]*?)(\n\s*"url"\s*:)/,
-    (match, before, urlLine) => {
-      if (before.includes('datePublished')) return match; // already has it
-      return `${before},\n  "datePublished": "${date}",\n  "dateModified": "${date}"${urlLine}`;
-    }
-  );
+  // 1. Add datePublished + dateModified as siblings of the author object.
+  //    Insert them immediately before "publisher" (the first top-level Article
+  //    property after author). NOTE: do NOT target the first `"url":` after
+  //    `"@type":"Article"` — that url lives INSIDE the author object, and
+  //    inserting there strands the dates in `author` and produces a double
+  //    comma, which invalidates the whole Article JSON-LD.
+  if (!html.includes('"datePublished"')) {
+    html = html.replace(
+      /(\n(\s*)"publisher"\s*:)/,
+      (full, _whole, indent) =>
+        `\n${indent}"datePublished": "${date}",` +
+        `\n${indent}"dateModified": "${date}",${full}`
+    );
+  }
 
   // 2. Add FAQPage schema block (before </head>)
   if (faqs) {
