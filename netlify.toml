@@ -1,6 +1,6 @@
 [build]
   publish = "."
-  command = "npm install && npm run build:insights"
+  command = "npm install && npm run build"
 
 [[headers]]
   for = "/*"

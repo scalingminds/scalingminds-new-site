@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "build:insights": "node scripts/build-insights.mjs",
-    "build": "node scripts/build-insights.mjs"
+    "build:sitemap": "node scripts/build-sitemap.mjs",
+    "build": "node scripts/build-insights.mjs && node scripts/build-sitemap.mjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
