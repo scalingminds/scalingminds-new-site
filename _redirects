@@ -8,6 +8,14 @@
 /apply-now  /contact.html     200
 /lets-talk  /contact.html     200
 
+# Legacy URLs from the previous (Wix) site — still indexed by Google, now 301'd.
+# Specific paths must precede the /post/* splat so the splat doesn't shadow them.
+/services/1-1-coaching            /services         301
+/services/organization-coaching   /services         301
+/hmbg                             /                 301
+/post/win-lose                    /playing-to-win   301
+/post/*                           /insights         301
+
 # BEGIN one-pagers (clean URLs + legacy /insights/*.html redirects)
 # Clean URL for each Insight one-pager (serve the root .html at the extensionless path)
 /accountability-gap                       /accountability-gap.html      200
