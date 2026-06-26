@@ -302,6 +302,9 @@ p { font-size: 1.05rem; line-height: 1.8; color: #4B5563; }
 .reveal--delay { transition-delay: 0.15s; }
 .reveal--delay-2 { transition-delay: 0.3s; }
 .js-ready .reveal.visible { opacity: 1; transform: translateY(0); }
+/* Above-the-fold hero must paint immediately — the scroll-reveal otherwise
+   keeps it at opacity:0 until JS runs, which was the main mobile-LCP delay. */
+.js-ready .hero .reveal { opacity: 1; transform: none; }
 
 /* Stagger children */
 .stagger {
@@ -362,8 +365,8 @@ p { font-size: 1.05rem; line-height: 1.8; color: #4B5563; }
    7. PAGE TRANSITIONS
    ======================================== */
 .page-transition {
-  opacity: 0;
-  transform: translateY(8px);
+  opacity: 1;
+  transform: none;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .page-transition.page-loaded {
