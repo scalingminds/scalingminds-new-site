@@ -388,11 +388,7 @@ function isoDate(d) {
 /* ----------------------------- index page ----------------------------- */
 
 function renderIndex(articles, onePagers = []) {
-  // Lead with one cornerstone essay (frontmatter `featured: true`, else the first by order).
-  const featured = articles.find((a) => a.featured) || articles[0] || null;
-  const rest = featured ? articles.filter((a) => a !== featured) : articles;
-
-  // Reading times from design spec, keyed by slug (fallback: "6 min read").
+  // Reading times from design spec, keyed by slug (fallback: "6 min").
   const readTimes = {
     'founder-bottleneck': '7 min',
     'executive-team-trust': '6 min',
@@ -409,83 +405,78 @@ function renderIndex(articles, onePagers = []) {
     'everything-runs-through-me': '5 min',
     'executive-team-coaching-chicago': '4 min',
   };
+  const readOf = (a) => readTimes[a.slug] || '6 min';
 
-  // Featured card: the "Six Shifts, Explained" cornerstone essay.
-  const featuredUrl = featured ? `/${featured.slug}` : '/six-shifts-explained';
-  const sixShifts = [
-    { num: '01', name: 'Trust', note: 'Foundational for high-performing teams.' },
-    { num: '02', name: 'Candor', note: 'Hard things get said in the room.' },
-    { num: '03', name: 'Ownership', note: 'Problems stop escalating up.' },
-    { num: '04', name: 'Empowerment', note: 'Decisions get made lower down.' },
-    { num: '05', name: 'Alignment', note: 'Everyone rows the same way.' },
-    { num: '06', name: 'Leadership', note: 'The team leads without you.' },
+  // Editorial topic taxonomy for the All Essays filter (from the redesign spec).
+  // Frontmatter categories are almost all "Insight", so topics are curated here;
+  // anything not listed falls back to its category.
+  const TOPIC_MAP = {
+    'founder-bottleneck': 'CEO Problems',
+    'executive-team-trust': 'Trust',
+    'founder-led-to-team-led': 'CEO Problems',
+    'leadership-team-hard-conversations': 'Candor',
+    'leaders-wont-take-ownership': 'Ownership',
+    'psychological-safety-executive-team': 'Trust',
+    'does-my-leadership-team-need-a-coach': 'Coaching 101',
+    'working-with-executive-team-coach': 'Team Dysfunction',
+    'six-shifts-explained': 'Six Shifts',
+  };
+  const topicOf = (a) => TOPIC_MAP[a.slug] || a.category || 'Insight';
+
+  // ---- START HERE: curated symptom -> essay triage cards (exact, from spec) ----
+  const triageCards = [
+    { slug: 'leadership-team-hard-conversations', symptom: 'If your meetings feel fine but nothing actually changes afterward', title: 'Why Leadership Teams Avoid Hard Conversations' },
+    { slug: 'founder-bottleneck', symptom: 'If everything still runs through you, no matter what you try to delegate', title: 'The Founder Bottleneck' },
+    { slug: 'executive-team-trust', symptom: 'If your team is good enough on paper but somehow not clicking together', title: "When Your Executive Team Doesn't Trust Each Other" },
+    { slug: 'does-my-leadership-team-need-a-coach', symptom: "If you're not sure what's broken — only that something quietly is", title: 'Does My Leadership Team Need a Coach?' },
   ];
-  const sixShiftCells = sixShifts
+  const triageHtml = triageCards
     .map(
-      (s) => `            <li style="background:#F7FAF8; padding:18px 18px 20px; transition:background 0.18s ease;">
-              <div style="font-family:'Libre Baskerville',serif; font-size:14px; color:#9DB4A9; margin-bottom:8px;">${s.num}</div>
-              <div class="sm-shift-name" style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:19px; color:#234A3E; margin-bottom:5px;">${s.name}</div>
-              <div style="font-size:13px; line-height:1.45; color:#6E8A7E;">${s.note}</div>
-            </li>`
-    )
-    .join('\n');
-
-  const featuredSection = `
-    <article data-reveal style="background:#f5f0e8; border:1px solid #e2d9c4; border-left:5px solid #1a4339; border-radius:6px; padding:48px clamp(32px,5vw,56px); margin-bottom:52px;">
-      <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px;">
-        <span style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#1a4339; background:#e8ede8; padding:5px 11px; border-radius:3px;">Start Here</span>
-        <span style="font-size:13px; font-weight:600; color:#6E8A7E;">The operating system · 12 min read</span>
-      </div>
-      <h3 style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:clamp(28px,3.4vw,40px); line-height:1.12; margin:0 0 18px; max-width:22ch; text-wrap:balance;">${featured ? escapeAttr(featured.title) : 'The Six Shifts, Explained'}</h3>
-      <p style="font-size:18px; line-height:1.62; color:#4D4A40; margin:0 0 30px; max-width:60ch;">${featured ? escapeAttr(featured.description) : 'A leadership operating system for executive teams. Six shifts, installed in this order — each one only holds once the shift before it does.'}</p>
-      <ol class="sm-six-shifts" style="list-style:none; display:grid; grid-template-columns:repeat(6,1fr); gap:1px; background:#D7E2DA; border:1px solid #e2d9c4; border-radius:6px; overflow:hidden; margin:0 0 32px; padding:0;">
-${sixShiftCells}
-      </ol>
-      <a href="${escapeAttr(featuredUrl)}" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:700; font-size:16px; color:#1a4339; transition:gap 0.2s ease;">Read the essay <span class="sm-arrow" style="font-size:18px;">→</span></a>
-    </article>`;
-
-  // Essay grid cards (the non-featured articles).
-  const essayCards = rest
-    .map(
-      (a, i) => `      <a data-reveal href="${escapeAttr('/' + a.slug)}" class="sm-card-essay" style="position:relative; display:flex; flex-direction:column; text-decoration:none; color:inherit; background:#f5f0e8; border:1px solid #E6DDCC; border-radius:6px; padding:30px 30px 26px; overflow:hidden;">
-        <span class="sm-num" style="position:absolute; top:14px; right:22px; font-family:'Libre Baskerville',serif; font-weight:700; font-size:46px; line-height:1; color:#EFE7D6; transition:color 0.22s ease;">${String(i + 1).padStart(2, '0')}</span>
-        <span style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#c4973b; margin-bottom:14px;">Insight</span>
-        <h3 style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:22px; line-height:1.26; margin:0 0 13px; max-width:22ch; text-wrap:balance;">${escapeAttr(a.title)}</h3>
-        <p style="font-size:15.5px; line-height:1.56; color:#6B6459; margin:0 0 24px; flex:1;">${escapeAttr(a.description)}</p>
-        <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid #EDE4D2; padding-top:16px;">
-          <span class="sm-read" style="display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:15px; color:#1a4339; transition:gap 0.2s ease;">Read <span>→</span></span>
-          <span style="font-size:13px; font-weight:600; color:#A89D88;">${readTimes[a.slug] || '6 min'} read</span>
-        </div>
-      </a>`
-    )
-    .join('\n');
-
-  // Ticker items from quick reads.
-  const tickerItemsHtml = onePagers
-    .map(
-      (p) => `        <a href="${escapeAttr('/' + p.slug)}" class="sm-ticker-item" style="display:inline-flex; align-items:center; gap:18px; text-decoration:none; color:#BACBC3; white-space:nowrap; font-size:13px; font-weight:600; padding:0 18px; transition:color 0.18s ease;">${escapeAttr(p.title)}<span style="color:#5E8A77; font-size:7px;">●</span></a>`
-    )
-    .join('\n');
-
-  // Quick reads cards.
-  const quickCards = onePagers
-    .map(
-      (p) => `        <a data-reveal href="${escapeAttr('/' + p.slug)}" data-category="${escapeAttr(p.category || 'Insight')}" class="sm-card-quick" style="display:block; text-decoration:none; color:inherit; background:#f5f0e8; border:1px solid rgba(216,184,99,0.22); border-radius:5px; padding:22px 22px 20px;">
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#c4973b; margin-bottom:9px;">${escapeAttr(p.category || 'Insight')}</div>
-          <h4 class="sm-qtitle" style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:17px; line-height:1.3; margin:0 0 8px; transition:color 0.18s ease;">${escapeAttr(p.title)}</h4>
-          <p style="font-size:14px; line-height:1.5; color:#7A7264; margin:0;">${escapeAttr(p.hook)}</p>
+      (c) => `        <a href="${escapeAttr('/' + c.slug)}" class="ins-triage__card">
+          <span class="ins-triage__symptom">${escapeAttr(c.symptom)}</span>
+          <span class="ins-triage__title">${escapeAttr(c.title)} <span class="ins-triage__arrow">→</span></span>
         </a>`
     )
     .join('\n');
 
-  // Filter tab categories.
-  const cats = ['All', ...new Set(onePagers.map((p) => p.category || 'Insight').filter(Boolean))];
-  const filterTabs = cats
-    .map((c) => {
-      const count = c === 'All' ? onePagers.length : onePagers.filter((p) => (p.category || 'Insight') === c).length;
-      return `        <button type="button" class="sm-tab" data-filter="${escapeAttr(c)}" style="display:inline-flex; align-items:center; font-size:14px; font-weight:600; padding:9px 16px; border-radius:999px; cursor:pointer; transition:all 0.18s ease; background:transparent; color:#BACBC3; border:1px solid rgba(216,184,99,0.32);">${escapeAttr(c)}<span style="margin-left:8px; font-size:12px; font-weight:700; color:#7E9389;">${count}</span></button>`;
+  // ---- All Essays: dynamic rows over every essay, with topic tabs ----
+  const essayRows = articles
+    .map((a, i) => {
+      const topic = topicOf(a);
+      return `        <a href="${escapeAttr('/' + a.slug)}" class="ins-essay-row" data-topic="${escapeAttr(topic)}">
+          <span class="ins-essay-num">${String(i + 1).padStart(2, '0')}</span>
+          <span class="ins-essay-body">
+            <span class="ins-essay-title">${escapeAttr(a.title)}</span>
+            <span class="ins-essay-dek">${escapeAttr(trimHook(a.description, 150))}</span>
+          </span>
+          <span class="ins-essay-meta">${escapeAttr(readOf(a))} · ${escapeAttr(topic)}</span>
+        </a>`;
     })
     .join('\n');
+
+  // Topic tabs: curated order first, then any remaining topics alphabetically.
+  const TOPIC_ORDER = ['Trust', 'Candor', 'Ownership', 'CEO Problems', 'Team Dysfunction', 'Coaching 101', 'Six Shifts'];
+  const present = new Set(articles.map(topicOf));
+  const ordered = [
+    ...TOPIC_ORDER.filter((t) => present.has(t)),
+    ...[...present].filter((t) => !TOPIC_ORDER.includes(t)).sort(),
+  ];
+  const tabList = ['All', ...ordered];
+  const tabsHtml = tabList
+    .map(
+      (t, i) => `        <button type="button" class="ins-tab${i === 0 ? ' active' : ''}" data-topic="${escapeAttr(t)}">${escapeAttr(t)}</button>`
+    )
+    .join('\n');
+
+  // ---- Quick References: dynamic dot-link cards over every one-pager ----
+  const quickHtml = onePagers
+    .map(
+      (p) => `      <a href="${escapeAttr('/' + p.slug)}" class="ins-quick-card"><span class="ins-quick-dot"></span>${escapeAttr(p.title)}</a>`
+    )
+    .join('\n');
+
+  const essayCount = articles.length;
+  const quickCount = onePagers.length;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -503,148 +494,275 @@ ${sixShiftCells}
   <meta name="twitter:card" content="summary_large_image">
 ${FONT_LINKS}
   <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: 'Inter', -apple-system, sans-serif; color: #23211C; background: #FFFFFF; }
-    h1, h2, h3, h4, p { text-wrap: pretty; }
-    /* card transitions */
-    .sm-card-essay { transition: transform 0.28s cubic-bezier(0.22,0.61,0.36,1), box-shadow 0.28s ease, border-color 0.22s ease !important; }
-    .sm-card-essay:hover { border-color: #1a4339 !important; transform: translateY(-6px); box-shadow: 0 18px 40px -20px rgba(26,67,57,0.4); }
-    .sm-card-essay:hover .sm-read { gap: 11px !important; }
-    .sm-card-essay:hover .sm-num { color: #E3D6BC !important; }
-    .sm-card-quick { transition: transform 0.26s cubic-bezier(0.22,0.61,0.36,1), background 0.18s ease, border-color 0.18s ease, box-shadow 0.26s ease !important; }
-    .sm-card-quick:hover { background: #FFFFFF !important; border-color: #c4973b !important; transform: translateY(-5px); box-shadow: 0 16px 34px -18px rgba(0,0,0,0.55); }
-    .sm-card-quick:hover .sm-qtitle { color: #1a4339 !important; }
-    .sm-tab.active { background: #c4973b !important; color: #1a4339 !important; border-color: #c4973b !important; }
-    .sm-tab.active span { color: #6E8A4E !important; }
-    .sm-tab:hover:not(.active) { color: #F7F2E8 !important; border-color: rgba(216,184,99,0.7) !important; }
-    /* ticker */
-    @keyframes sm-ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .sm-ticker-track { display: flex; width: max-content; animation: sm-ticker 95s linear infinite; }
-    .sm-ticker-band:hover .sm-ticker-track { animation-play-state: paused; }
-    .sm-ticker-item:hover { color: #1a4339 !important; }
-    /* scroll reveal */
-    [data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity 0.7s cubic-bezier(0.22,0.61,0.36,1), transform 0.7s cubic-bezier(0.22,0.61,0.36,1); }
-    [data-reveal].sm-in { opacity: 1; transform: none; }
-    /* ambient glows */
-    @keyframes sm-drift { 0% { transform: translate(-6%,-4%) scale(1); } 100% { transform: translate(8%,6%) scale(1.18); } }
-    @keyframes sm-drift2 { 0% { transform: translate(6%,4%) scale(1.1); } 100% { transform: translate(-8%,-6%) scale(1); } }
-    .sm-glow { position: absolute; border-radius: 50%; filter: blur(30px); pointer-events: none; z-index: 0; }
-    /* arrow nudge */
-    @keyframes sm-nudge { 0%,100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
-    .sm-arrow { display: inline-block; animation: sm-nudge 1.9s ease-in-out infinite; }
-    /* underline draw-on */
-    .sm-underline { background-image: linear-gradient(#c4973b,#c4973b); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 3px; padding-bottom: 6px; animation: sm-draw 1s cubic-bezier(0.22,0.61,0.36,1) 0.55s forwards; }
-    @keyframes sm-draw { to { background-size: 100% 3px; } }
-    /* reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      .sm-glow, .sm-arrow, .sm-ticker-track { animation: none !important; }
-      .sm-underline { animation: none !important; background-size: 100% 3px !important; }
-    }
-    .sm-shift-name { white-space: nowrap; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    ::selection { background: #c4973b; color: #fff; }
+
+    .ins-body { background: #f5f0e8; color: #1a1a1a; font-family: 'Inter', sans-serif; }
+
+    /* HERO */
+    .ins-hero { background: #1a4339; padding: clamp(56px,8vw,92px) clamp(20px,5vw,56px) clamp(48px,6vw,72px); }
+    .ins-hero__inner { max-width: 1040px; margin: 0 auto; }
+    .ins-hero__eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+    .ins-hero__eyebrow-rule { display: block; width: 34px; height: 1px; background: #c4973b; }
+    .ins-hero__eyebrow-label { color: #c4973b; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; font-weight: 600; }
+    .ins-hero h1 { font-family: 'Libre Baskerville', serif; color: #f5f0e8; font-size: clamp(34px,5.6vw,60px); line-height: 1.12; font-weight: 400; max-width: 880px; letter-spacing: -.01em; }
+    .ins-hero h1 em { font-style: italic; color: #c4973b; }
+    .ins-hero__sub { color: #f5f0e8; opacity: .66; font-size: clamp(16px,1.9vw,19px); max-width: 560px; line-height: 1.7; margin-top: 26px; }
+    .ins-hero__stats { display: flex; gap: 28px; margin-top: 36px; flex-wrap: wrap; align-items: baseline; }
+    .ins-hero__stat { display: flex; align-items: baseline; gap: 8px; }
+    .ins-hero__stat-num { font-family: 'Libre Baskerville', serif; color: #c4973b; font-size: 22px; }
+    .ins-hero__stat-label { color: #f5f0e8; opacity: .55; font-size: 13px; letter-spacing: .04em; }
+    .ins-hero__divider { width: 1px; background: rgba(245,240,232,.2); align-self: stretch; }
+
+    /* START HERE */
+    .ins-triage { background: #ede7d9; border-top: 1px solid #d4cfc5; border-bottom: 1px solid #d4cfc5; padding: clamp(36px,5vw,52px) clamp(20px,5vw,56px); }
+    .ins-triage__inner { max-width: 1040px; margin: 0 auto; }
+    .ins-triage__header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 24px; flex-wrap: wrap; }
+    .ins-triage__header h2 { font-family: 'Libre Baskerville', serif; font-size: 20px; color: #1a4339; font-weight: 700; }
+    .ins-triage__header span { font-size: 13px; color: #5a5a5a; }
+    .ins-triage__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 14px; }
+    .ins-triage__card { background: #fff; border: 1px solid #d4cfc5; border-radius: 2px; padding: 20px; text-decoration: none; display: flex; flex-direction: column; gap: 12px; transition: border-color .2s, box-shadow .2s; }
+    .ins-triage__card:hover { border-color: #1a4339; box-shadow: 0 4px 18px rgba(26,67,57,.1); }
+    .ins-triage__symptom { font-size: 13px; color: #5a5a5a; line-height: 1.5; }
+    .ins-triage__title { font-family: 'Libre Baskerville', serif; color: #1a4339; font-weight: 700; font-size: 15px; line-height: 1.35; margin-top: auto; }
+    .ins-triage__arrow { color: #c4973b; }
+
+    /* MAIN */
+    .ins-main { max-width: 1040px; margin: 0 auto; padding: clamp(48px,6vw,76px) clamp(20px,5vw,56px); }
+    .ins-section-header { display: flex; align-items: baseline; gap: 16px; padding-bottom: 14px; border-bottom: 2px solid #1a4339; margin-bottom: 32px; }
+    .ins-section-header h2 { font-family: 'Libre Baskerville', serif; font-size: 23px; color: #1a4339; font-weight: 700; }
+    .ins-section-header__note { font-size: 13px; color: #5a5a5a; margin-left: auto; }
+
+    /* FEATURED — lead card */
+    .ins-lead { display: grid; grid-template-columns: 1.15fr 1fr; background: #1a4339; border-radius: 2px; overflow: hidden; text-decoration: none; margin-bottom: 20px; transition: box-shadow .25s; }
+    .ins-lead:hover { box-shadow: 0 12px 36px rgba(26,67,57,.22); }
+    .ins-lead__left { padding: clamp(28px,3.4vw,44px); display: flex; flex-direction: column; gap: 16px; }
+    .ins-lead__eyebrow { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #c4973b; font-weight: 700; }
+    .ins-lead h3 { font-family: 'Libre Baskerville', serif; font-size: clamp(24px,3vw,32px); line-height: 1.18; color: #f5f0e8; font-weight: 400; }
+    .ins-lead__dek { font-size: 15px; color: #f5f0e8; opacity: .7; line-height: 1.65; }
+    .ins-lead__meta { display: flex; align-items: center; gap: 12px; font-size: 12px; color: #c4973b; margin-top: auto; }
+    .ins-lead__meta-sep { opacity: .4; color: #f5f0e8; }
+    .ins-lead__meta-topic { color: #f5f0e8; opacity: .6; }
+    .ins-lead__cta { font-size: 13px; color: #c4973b; font-weight: 600; letter-spacing: .02em; }
+    .ins-lead__right { background: #16382f; border-left: 1px solid rgba(196,151,59,.25); display: flex; align-items: center; justify-content: center; padding: 32px; position: relative; }
+    .ins-lead__num { font-family: 'Libre Baskerville', serif; font-size: clamp(80px,12vw,150px); color: rgba(196,151,59,.16); line-height: 1; font-weight: 700; }
+    .ins-lead__caption { position: absolute; bottom: 24px; left: 32px; right: 32px; font-size: 12px; color: #f5f0e8; opacity: .45; line-height: 1.6; border-top: 1px solid rgba(245,240,232,.14); padding-top: 14px; }
+
+    /* FEATURED — 3-up */
+    .ins-3up { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .ins-3up__card { background: #fff; border: 1px solid #d4cfc5; border-top: 3px solid #c4973b; border-radius: 2px; padding: 26px; text-decoration: none; display: flex; flex-direction: column; gap: 11px; transition: box-shadow .2s; }
+    .ins-3up__card:hover { box-shadow: 0 6px 22px rgba(0,0,0,.08); }
+    .ins-3up__eyebrow { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #c4973b; font-weight: 700; }
+    .ins-3up__card h3 { font-family: 'Libre Baskerville', serif; font-size: 18px; line-height: 1.3; color: #1a4339; font-weight: 700; }
+    .ins-3up__dek { font-size: 13.5px; color: #5a5a5a; line-height: 1.6; flex: 1; }
+    .ins-3up__meta { font-size: 12px; color: #5a5a5a; }
+    .ins-3up__cta { font-size: 13px; color: #1a4339; font-weight: 600; }
+
+    .ins-divider { border: none; border-top: 1px solid #d4cfc5; margin: clamp(44px,5vw,60px) 0; }
+
+    /* ALL ESSAYS — tabs + rows */
+    .ins-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+    .ins-tab { background: #fff; color: #5a5a5a; border: 1px solid #d4cfc5; border-radius: 2px; padding: 7px 16px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; cursor: pointer; transition: background .15s, color .15s, border-color .15s; font-family: 'Inter', sans-serif; }
+    .ins-tab:hover { color: #1a4339; border-color: #1a4339; }
+    .ins-tab.active { background: #1a4339; color: #f5f0e8; border-color: #1a4339; }
+    .ins-essays { margin-top: 8px; }
+    .ins-essay-row { display: grid; grid-template-columns: 30px 1fr auto; gap: 20px; padding: 20px 12px; border-bottom: 1px solid #d4cfc5; text-decoration: none; color: inherit; transition: background .15s, box-shadow .15s; border-radius: 2px; }
+    .ins-essay-row:hover { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,.05); }
+    .ins-essay-num { font-family: 'Libre Baskerville', serif; font-size: 13px; color: #c4973b; font-weight: 700; padding-top: 3px; }
+    .ins-essay-body { display: flex; flex-direction: column; gap: 5px; }
+    .ins-essay-title { font-family: 'Libre Baskerville', serif; font-size: 16.5px; color: #1a4339; font-weight: 700; line-height: 1.34; }
+    .ins-essay-dek { font-size: 13px; color: #5a5a5a; line-height: 1.5; }
+    .ins-essay-meta { font-size: 12px; color: #5a5a5a; white-space: nowrap; padding-top: 4px; text-align: right; }
+
+    /* QUICK REFERENCES */
+    .ins-quick-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px,1fr)); gap: 10px; }
+    .ins-quick-card { background: #fff; border: 1px solid #d4cfc5; border-radius: 2px; padding: 13px 16px; text-decoration: none; color: #1a1a1a; font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 10px; transition: border-color .15s, color .15s; }
+    .ins-quick-card:hover { border-color: #1a4339; color: #1a4339; }
+    .ins-quick-dot { width: 6px; height: 6px; background: #c4973b; border-radius: 50%; flex-shrink: 0; }
+
+    /* CTA BAND */
+    .ins-cta { background: #1a4339; border-radius: 2px; padding: clamp(36px,5vw,52px); display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; margin-top: clamp(48px,6vw,72px); }
+    .ins-cta__text { flex: 1; min-width: 280px; }
+    .ins-cta h3 { font-family: 'Libre Baskerville', serif; color: #f5f0e8; font-size: clamp(22px,2.6vw,28px); font-weight: 400; line-height: 1.25; margin-bottom: 12px; }
+    .ins-cta h3 em { font-style: italic; color: #c4973b; }
+    .ins-cta__sub { color: #f5f0e8; opacity: .68; font-size: 15px; max-width: 460px; line-height: 1.65; }
+    .ins-cta__btn { background: #c4973b; color: #f5f0e8; padding: 15px 30px; font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap; border-radius: 2px; letter-spacing: .03em; transition: background .2s; font-family: 'Inter', sans-serif; }
+    .ins-cta__btn:hover { background: #b1862f; }
+
     @media (max-width: 860px) {
-      .sm-six-shifts { grid-template-columns: repeat(3, 1fr) !important; }
+      .ins-lead { grid-template-columns: 1fr; }
+      .ins-lead__right { display: none; }
+      .ins-3up { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 640px) {
-      .sm-essays-grid { grid-template-columns: 1fr !important; }
-      .sm-quick-grid { grid-template-columns: 1fr !important; }
-      .sm-six-shifts { grid-template-columns: repeat(2, 1fr) !important; }
+    @media (max-width: 580px) {
+      .ins-3up { grid-template-columns: 1fr; }
+      .ins-essay-row { grid-template-columns: 24px 1fr; }
+      .ins-essay-meta { display: none; }
     }
   </style>
 ${GTAG}
 </head>
-<body>
+<body class="ins-body">
 ${NAV}
   <div class="page-transition">
 
-  <!-- MASTHEAD / HERO -->
-  <header style="position:relative; overflow:hidden; background:#1a4339;">
-    <div class="sm-glow" style="top:-10%; left:34%; width:46%; height:150%; background:radial-gradient(circle, rgba(196,151,59,0.18), rgba(196,151,59,0) 62%); animation:sm-drift 17s ease-in-out infinite alternate;"></div>
-    <div class="sm-glow" style="top:-30%; left:-8%; width:42%; height:160%; background:radial-gradient(circle, rgba(120,180,150,0.16), rgba(120,180,150,0) 64%); animation:sm-drift2 21s ease-in-out infinite alternate;"></div>
-    <!-- nav is injected by NAV constant above; we re-center content below -->
-    <div style="position:relative; z-index:1; max-width:980px; margin:0 auto; text-align:center; padding:64px 32px 88px;">
-      <div style="font-size:13px; font-weight:700; letter-spacing:0.26em; text-transform:uppercase; color:#c4973b; margin-bottom:26px;">Insights</div>
-      <h1 style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:clamp(40px,5.4vw,64px); line-height:1.08; margin:0 auto 26px; max-width:18ch; letter-spacing:-0.01em; text-wrap:balance; color:#F7F3EA;">Field Notes on <span class="sm-underline" style="font-style:italic; color:#c4973b;">Leadership That Holds</span></h1>
-      <p style="font-size:19px; line-height:1.6; color:#C2CEC7; max-width:56ch; margin:0 auto;">Long-form essays for deep dives. Quick references you can read in two minutes.</p>
+  <!-- HERO -->
+  <header class="ins-hero">
+    <div class="ins-hero__inner">
+      <div class="ins-hero__eyebrow">
+        <span class="ins-hero__eyebrow-rule"></span>
+        <span class="ins-hero__eyebrow-label">Field Notes for CEOs</span>
+      </div>
+      <h1>Your leadership team has the talent.<br><em>This is about the gap.</em></h1>
+      <p class="ins-hero__sub">Long-form essays and quick references for executives who sense something is off with their team — and want to name it precisely before it costs them.</p>
+      <div class="ins-hero__stats">
+        <div class="ins-hero__stat">
+          <span class="ins-hero__stat-num">${essayCount}</span>
+          <span class="ins-hero__stat-label">essays</span>
+        </div>
+        <div class="ins-hero__divider"></div>
+        <div class="ins-hero__stat">
+          <span class="ins-hero__stat-num">${quickCount}</span>
+          <span class="ins-hero__stat-label">quick references</span>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- TOPIC TICKER -->
-  <div class="sm-ticker-band" style="position:relative; overflow:hidden; padding:11px 0; background:#1a4339; border-top:1px solid rgba(216,184,99,0.3); border-bottom:1px solid rgba(216,184,99,0.3);">
-    <div style="position:absolute; left:0; top:0; bottom:0; z-index:2; display:flex; align-items:center; padding:0 22px 0 max(32px,calc((100vw - 1120px)/2 + 32px)); white-space:nowrap; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#c4973b; background:linear-gradient(90deg,#1a4339 72%,rgba(26,67,57,0));">Across the library</div>
-    <div style="position:absolute; right:0; top:0; bottom:0; z-index:2; width:80px; background:linear-gradient(270deg,#1a4339 30%,rgba(26,67,57,0));"></div>
-    <div class="sm-ticker-track">
-${tickerItemsHtml}
-${tickerItemsHtml}
-    </div>
-  </div>
-
-  <!-- ESSAYS SECTION -->
-  <main>
-  <section style="max-width:1120px; margin:0 auto; padding:72px 32px 80px;">
-    <div data-reveal style="display:flex; align-items:baseline; gap:18px; border-bottom:1px solid #E6DDCC; padding-bottom:18px; margin-bottom:44px;">
-      <h2 style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:26px; margin:0; letter-spacing:-0.01em;">Essays</h2>
-      <span style="font-size:15px; color:#8A8273;">Long-form deep dives on the patterns that make or break executive teams.</span>
-    </div>
-    ${featuredSection}
-    <div class="sm-essays-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:24px;">
-${essayCards}
-    </div>
-  </section>
-
-  <!-- QUICK READS SECTION -->
-  <section style="background:#1a4339; border-top:3px solid #c4973b;">
-    <div style="max-width:1120px; margin:0 auto; padding:84px 32px 100px;">
-      <div data-reveal style="font-size:13px; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:#c4973b; margin-bottom:14px;">Quick Reads</div>
-      <h2 data-reveal style="font-family:'Libre Baskerville',serif; font-weight:700; font-size:30px; margin:0 0 10px; letter-spacing:-0.01em; color:#F7F2E8;">One-page references</h2>
-      <p data-reveal style="font-size:17px; line-height:1.6; color:#BACBC3; max-width:56ch; margin:0 0 32px;">Single-page breakdowns of the patterns that shape executive teams — scan one in about two minutes.</p>
-      <div data-reveal id="sm-filter-tabs" style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:40px;">
-${filterTabs}
+  <!-- START HERE -->
+  <section class="ins-triage">
+    <div class="ins-triage__inner">
+      <div class="ins-triage__header">
+        <h2>Start where it hurts</h2>
+        <span>Four ways CEOs find their way in. Pick the one that sounds like you.</span>
       </div>
-      <div class="sm-quick-grid" id="sm-quick-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px;">
-${quickCards}
+      <div class="ins-triage__grid">
+${triageHtml}
       </div>
     </div>
   </section>
+
+  <!-- MAIN -->
+  <main class="ins-main">
+
+    <!-- FEATURED ESSAYS -->
+    <div class="ins-section-header">
+      <h2>Featured Essays</h2>
+      <span class="ins-section-header__note">The highest-stakes reads</span>
+    </div>
+
+    <a href="/founder-bottleneck" class="ins-lead">
+      <div class="ins-lead__left">
+        <span class="ins-lead__eyebrow">Most Read</span>
+        <h3>The Founder Bottleneck: Why Everything Runs Through You</h3>
+        <p class="ins-lead__dek">The founder bottleneck is when a company grows but its decisions don't. Why delegation alone won't fix it — and the sequence that does.</p>
+        <div class="ins-lead__meta">
+          <span>7 min read</span>
+          <span class="ins-lead__meta-sep">·</span>
+          <span class="ins-lead__meta-topic">Ownership</span>
+        </div>
+        <span class="ins-lead__cta">Read the essay →</span>
+      </div>
+      <div class="ins-lead__right">
+        <span class="ins-lead__num">01</span>
+        <span class="ins-lead__caption">The first essay most CEOs read — and the one they send to their COO afterward.</span>
+      </div>
+    </a>
+
+    <div class="ins-3up">
+      <a href="/executive-team-trust" class="ins-3up__card">
+        <span class="ins-3up__eyebrow">Start Here</span>
+        <h3>When Your Executive Team Doesn't Trust Each Other</h3>
+        <p class="ins-3up__dek">Polite meetings, hallway truth. Why offsites don't fix it — and what the research says does.</p>
+        <span class="ins-3up__meta">6 min · Trust</span>
+        <span class="ins-3up__cta">Read →</span>
+      </a>
+      <a href="/working-with-executive-team-coach" class="ins-3up__card">
+        <span class="ins-3up__eyebrow">If You're On the Fence</span>
+        <h3>What Executive Team Dysfunction Actually Costs</h3>
+        <p class="ins-3up__dek">It never shows up on a P&amp;L. The real cost is decision speed, redone work, and lost executives.</p>
+        <span class="ins-3up__meta">6 min · CEO Problems</span>
+        <span class="ins-3up__cta">Read →</span>
+      </a>
+      <a href="/six-shifts-explained" class="ins-3up__card">
+        <span class="ins-3up__eyebrow">Framework Overview</span>
+        <h3>The Six Shifts, Explained: A Leadership Operating System</h3>
+        <p class="ins-3up__dek">Trust, candor, ownership, empowerment, alignment, leadership — installed in sequence. Why order matters.</p>
+        <span class="ins-3up__meta">12 min · Six Shifts</span>
+        <span class="ins-3up__cta">Read →</span>
+      </a>
+    </div>
+
+    <hr class="ins-divider">
+
+    <!-- ALL ESSAYS -->
+    <div class="ins-section-header">
+      <h2>All Essays</h2>
+      <span class="ins-section-header__note" id="ins-count-label">${essayCount} essays</span>
+    </div>
+
+    <div class="ins-tabs" id="ins-tabs">
+${tabsHtml}
+    </div>
+
+    <div class="ins-essays" id="ins-essays">
+${essayRows}
+    </div>
+
+    <hr class="ins-divider">
+
+    <!-- QUICK REFERENCES -->
+    <div class="ins-section-header" style="margin-bottom:28px;">
+      <h2>Quick References</h2>
+      <span class="ins-section-header__note">Concepts worth knowing · 2–4 min each</span>
+    </div>
+
+    <div class="ins-quick-grid">
+${quickHtml}
+    </div>
+
+    <!-- CTA BAND -->
+    <div class="ins-cta">
+      <div class="ins-cta__text">
+        <h3>If any of this is <em>hitting close to home —</em></h3>
+        <p class="ins-cta__sub">A 30-minute conversation costs nothing. We'll talk about what's actually going on with your team, and whether working together makes sense.</p>
+      </div>
+      <a href="/contact" class="ins-cta__btn">Start the Conversation</a>
+    </div>
+
   </main>
 
 ${FOOTER}
-  </div>
+  </div><!-- end .page-transition -->
+
   <script src="/main.js"></script>
   <script>
     (function() {
-      // Scroll reveal
-      var io = new IntersectionObserver(function(entries) {
-        entries.forEach(function(en) {
-          if (en.isIntersecting) { en.target.classList.add('sm-in'); io.unobserve(en.target); }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-      function observeAll() {
-        requestAnimationFrame(function() {
-          document.querySelectorAll('[data-reveal]:not(.sm-in)').forEach(function(el) { io.observe(el); });
-        });
-      }
-      observeAll();
-
-      // Filter tabs
-      var tabs = document.querySelectorAll('.sm-tab');
-      var cards = document.querySelectorAll('#sm-quick-grid .sm-card-quick');
-      function setActive(tab) {
-        tabs.forEach(function(t) { t.classList.remove('active'); });
-        tab.classList.add('active');
-        var filter = tab.getAttribute('data-filter');
-        cards.forEach(function(card) {
-          if (filter === 'All' || card.getAttribute('data-category') === filter) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
+      var tabsEl = document.getElementById('ins-tabs');
+      var countEl = document.getElementById('ins-count-label');
+      var rows = Array.prototype.slice.call(document.querySelectorAll('#ins-essays .ins-essay-row'));
+      var total = rows.length;
+      function pad(n) { return n < 10 ? '0' + n : '' + n; }
+      function apply(topic) {
+        var shown = 0;
+        rows.forEach(function(r) {
+          var match = topic === 'All' || r.getAttribute('data-topic') === topic;
+          r.style.display = match ? '' : 'none';
+          if (match) {
+            shown++;
+            var num = r.querySelector('.ins-essay-num');
+            if (num) num.textContent = pad(shown);
           }
         });
-        observeAll();
+        countEl.textContent = topic === 'All' ? total + ' essays' : shown + ' in ' + topic;
       }
-      if (tabs.length > 0) {
-        tabs[0].classList.add('active');
-        tabs.forEach(function(tab) {
-          tab.addEventListener('click', function() { setActive(tab); });
+      if (tabsEl) {
+        tabsEl.addEventListener('click', function(ev) {
+          var btn = ev.target.closest('.ins-tab');
+          if (!btn) return;
+          tabsEl.querySelectorAll('.ins-tab').forEach(function(t) { t.classList.remove('active'); });
+          btn.classList.add('active');
+          apply(btn.getAttribute('data-topic'));
         });
       }
     })();
