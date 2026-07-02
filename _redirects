@@ -2,7 +2,7 @@
 /six-shifts /six-shifts.html  200
 /services   /services.html    200
 /client-praise /client-praise.html 200
-/client-results /client-praise.html 200
+/client-results /client-praise      301
 /contact    /contact.html     200
 /start-here /contact.html     200
 /apply-now  /contact.html     200
@@ -12,9 +12,15 @@
 # Specific paths must precede the /post/* splat so the splat doesn't shadow them.
 /services/1-1-coaching            /services         301
 /services/organization-coaching   /services         301
-/hmbg                             /                 301
+/services/six-shifts              /six-shifts       301
+/services/leadership-360-assesment /services        301
+/services/speaking                /services         301
+/events/30-min-connection-call-w-andy-hite   /apply-now   301
+/blog                             /insights         301
+/post/imposter-syndrome-insights-for-todays-leaders   /imposter-syndrome   301
 /post/win-lose                    /playing-to-win   301
 /post/*                           /insights         301
+# Junk/staging paths intentionally left to 404 (no rule): /hmbg /hmbgKathy /rs /bghacks
 
 # BEGIN one-pagers (clean URLs + legacy /insights/*.html redirects)
 # Clean URL for each Insight one-pager (serve the root .html at the extensionless path)
@@ -76,3 +82,72 @@
 /insights/vulnerability-leadership.html   /vulnerability-leadership     301
 /insights/what-got-you-here.html          /what-got-you-here            301
 # END one-pagers
+
+# BEGIN essay trailing-slash canonicalization (dir-based /<slug>/index.html)
+# Force NO trailing slash to match canonical tags + one-pagers/core pages.
+# /<slug>/ 301s to /<slug>; /<slug> serves the index (no auto-added slash).
+/coaching-vs-consulting/                      /coaching-vs-consulting                      301!
+/coaching-vs-consulting                       /coaching-vs-consulting/index.html          200!
+/cost-of-executive-team-dysfunction/          /cost-of-executive-team-dysfunction          301!
+/cost-of-executive-team-dysfunction           /cost-of-executive-team-dysfunction/index.html 200!
+/does-my-leadership-team-need-a-coach/        /does-my-leadership-team-need-a-coach        301!
+/does-my-leadership-team-need-a-coach         /does-my-leadership-team-need-a-coach/index.html 200!
+/everything-runs-through-me/                  /everything-runs-through-me                  301!
+/everything-runs-through-me                   /everything-runs-through-me/index.html      200!
+/executive-team-accountability/               /executive-team-accountability               301!
+/executive-team-accountability                /executive-team-accountability/index.html   200!
+/executive-team-coaching-chicago/             /executive-team-coaching-chicago             301!
+/executive-team-coaching-chicago              /executive-team-coaching-chicago/index.html 200!
+/executive-team-trust/                        /executive-team-trust                        301!
+/executive-team-trust                         /executive-team-trust/index.html            200!
+/founder-bottleneck/                          /founder-bottleneck                          301!
+/founder-bottleneck                           /founder-bottleneck/index.html              200!
+/founder-led-to-team-led/                     /founder-led-to-team-led                     301!
+/founder-led-to-team-led                      /founder-led-to-team-led/index.html         200!
+/individual-vs-team-coaching/                 /individual-vs-team-coaching                 301!
+/individual-vs-team-coaching                  /individual-vs-team-coaching/index.html     200!
+/is-executive-coaching-worth-it/              /is-executive-coaching-worth-it              301!
+/is-executive-coaching-worth-it               /is-executive-coaching-worth-it/index.html  200!
+/leaders-wont-take-ownership/                 /leaders-wont-take-ownership                 301!
+/leaders-wont-take-ownership                  /leaders-wont-take-ownership/index.html     200!
+/leadership-offsite-that-works/               /leadership-offsite-that-works               301!
+/leadership-offsite-that-works                /leadership-offsite-that-works/index.html   200!
+/leadership-team-hard-conversations/          /leadership-team-hard-conversations          301!
+/leadership-team-hard-conversations           /leadership-team-hard-conversations/index.html 200!
+/leadership-team-looks-good-on-paper/         /leadership-team-looks-good-on-paper         301!
+/leadership-team-looks-good-on-paper          /leadership-team-looks-good-on-paper/index.html 200!
+/leadership-team-without-you/                 /leadership-team-without-you                 301!
+/leadership-team-without-you                  /leadership-team-without-you/index.html     200!
+/nonprofit-leadership-team-coaching/          /nonprofit-leadership-team-coaching          301!
+/nonprofit-leadership-team-coaching           /nonprofit-leadership-team-coaching/index.html 200!
+/one-on-one-meetings/                         /one-on-one-meetings                         301!
+/one-on-one-meetings                          /one-on-one-meetings/index.html             200!
+/playing-favorites-at-work/                   /playing-favorites-at-work                   301!
+/playing-favorites-at-work                    /playing-favorites-at-work/index.html       200!
+/psychological-safety-executive-team/         /psychological-safety-executive-team         301!
+/psychological-safety-executive-team          /psychological-safety-executive-team/index.html 200!
+/signs-leadership-team-underperforming/       /signs-leadership-team-underperforming       301!
+/signs-leadership-team-underperforming        /signs-leadership-team-underperforming/index.html 200!
+/silence-in-leadership-meetings/              /silence-in-leadership-meetings              301!
+/silence-in-leadership-meetings               /silence-in-leadership-meetings/index.html  200!
+/six-shifts-explained/                        /six-shifts-explained                        301!
+/six-shifts-explained                         /six-shifts-explained/index.html            200!
+/the-meeting-after-the-meeting/               /the-meeting-after-the-meeting               301!
+/the-meeting-after-the-meeting                /the-meeting-after-the-meeting/index.html   200!
+/what-coaching-cant-fix/                      /what-coaching-cant-fix                      301!
+/what-coaching-cant-fix                       /what-coaching-cant-fix/index.html          200!
+/what-the-leader-has-to-bring/                /what-the-leader-has-to-bring                301!
+/what-the-leader-has-to-bring                 /what-the-leader-has-to-bring/index.html    200!
+/when-a-leader-changes/                       /when-a-leader-changes                       301!
+/when-a-leader-changes                        /when-a-leader-changes/index.html           200!
+/when-the-ceo-is-the-problem/                 /when-the-ceo-is-the-problem                 301!
+/when-the-ceo-is-the-problem                  /when-the-ceo-is-the-problem/index.html     200!
+/who-helps-executive-teams/                   /who-helps-executive-teams                   301!
+/who-helps-executive-teams                    /who-helps-executive-teams/index.html       200!
+/why-best-employees-leave/                    /why-best-employees-leave                    301!
+/why-best-employees-leave                     /why-best-employees-leave/index.html        200!
+/working-with-executive-team-coach/           /working-with-executive-team-coach           301!
+/working-with-executive-team-coach            /working-with-executive-team-coach/index.html 200!
+/workplace-civility/                          /workplace-civility                          301!
+/workplace-civility                           /workplace-civility/index.html              200!
+# END essay trailing-slash canonicalization
