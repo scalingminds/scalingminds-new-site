@@ -2,7 +2,7 @@
 /six-shifts /six-shifts.html  200
 /services   /services.html    200
 /client-praise /client-praise.html 200
-/client-results /client-praise.html 200
+/client-results /client-praise      301
 /contact    /contact.html     200
 /start-here /contact.html     200
 /apply-now  /contact.html     200
@@ -12,9 +12,15 @@
 # Specific paths must precede the /post/* splat so the splat doesn't shadow them.
 /services/1-1-coaching            /services         301
 /services/organization-coaching   /services         301
-/hmbg                             /                 301
+/services/six-shifts              /six-shifts       301
+/services/leadership-360-assesment /services        301
+/services/speaking                /services         301
+/events/30-min-connection-call-w-andy-hite   /apply-now   301
+/blog                             /insights         301
+/post/imposter-syndrome-insights-for-todays-leaders   /imposter-syndrome   301
 /post/win-lose                    /playing-to-win   301
 /post/*                           /insights         301
+# Junk/staging paths intentionally left to 404 (no rule): /hmbg /hmbgKathy /rs /bghacks
 
 # BEGIN one-pagers (clean URLs + legacy /insights/*.html redirects)
 # Clean URL for each Insight one-pager (serve the root .html at the extensionless path)
@@ -76,3 +82,4 @@
 /insights/vulnerability-leadership.html   /vulnerability-leadership     301
 /insights/what-got-you-here.html          /what-got-you-here            301
 # END one-pagers
+
