@@ -1,8 +1,8 @@
 ---
 slug: executive-team-accountability
 title: "How to Build Accountability on an Executive Team"
-titleTag: "How to Build Accountability on an Executive Team | Scaling Minds"
-description: "More than 80% of managers struggle with holding others accountable. Here's why peer accountability almost never happens on leadership teams and what actually builds it."
+titleTag: "Why Your Executive Team Has No Accountability (and the Fix)"
+description: "Deadlines slip and nobody on the leadership team calls it out. Here's why peer accountability breaks down on executive teams and how to build it."
 author: "Andy Hite"
 datePublished: 2026-06-23
 category: "Insight"
