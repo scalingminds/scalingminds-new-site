@@ -4,7 +4,7 @@
  * --------------------------------------
  * Reads one markdown file per article from insights/_articles/*.md,
  * and emits:
- *   - insights/<slug>/index.html   (clean URL: /insights/<slug>)
+ *   - <slug>.html at the site root  (clean URL: /<slug>, no trailing slash)
  *   - insights/index.html          (the Insights index, lists every article)
  *
  * Each article's markdown carries frontmatter (slug, title, description, etc.).
@@ -18,7 +18,7 @@
  * Netlify runs `npm run build:insights` on deploy.
  */
 
-import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync, rmSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
@@ -908,9 +908,20 @@ function build() {
   });
 
   for (const article of articles) {
-    const dir = join(ARTICLE_OUT, article.slug);
-    mkdirSync(dir, { recursive: true });
-    writeFileSync(join(dir, 'index.html'), renderArticle(article));
+    // Flat-file output (<slug>.html) so Netlify serves /<slug> with 200 and
+    // 301s /<slug>/ -> /<slug>, matching the no-slash canonical tag (TODO #18).
+    // Remove any legacy <slug>/ dir from the old dir-based build, but only if it
+    // holds nothing except the generated index.html.
+    const legacyDir = join(ARTICLE_OUT, article.slug);
+    if (existsSync(legacyDir) && statSync(legacyDir).isDirectory()) {
+      const entries = readdirSync(legacyDir);
+      if (entries.length === 1 && entries[0] === 'index.html') {
+        rmSync(legacyDir, { recursive: true, force: true });
+      } else {
+        console.warn(`[insights] left legacy dir /${article.slug}/ in place (unexpected contents: ${entries.join(', ')})`);
+      }
+    }
+    writeFileSync(join(ARTICLE_OUT, `${article.slug}.html`), renderArticle(article));
     console.log(`[insights] built /${article.slug}`);
   }
 
@@ -932,7 +943,7 @@ function updateGitignore(slugs) {
   if (!existsSync(path)) return;
   const BEGIN = '# BEGIN generated-insights (auto-managed by scripts/build-insights.mjs)';
   const END = '# END generated-insights';
-  const block = [BEGIN, ...slugs.sort().map((s) => `/${s}/`), END].join('\n');
+  const block = [BEGIN, ...slugs.sort().map((s) => `/${s}.html`), END].join('\n');
   let txt = readFileSync(path, 'utf8');
   const re = new RegExp(`${BEGIN.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[\\s\\S]*?${END}`);
   txt = re.test(txt) ? txt.replace(re, block) : `${txt.replace(/\s*$/, '')}\n\n${block}\n`;
