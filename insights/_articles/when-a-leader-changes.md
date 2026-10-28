@@ -2,7 +2,7 @@
 slug: when-a-leader-changes
 title: "When a Leader Changes, What Actually Changes?"
 titleTag: "When a Leader Changes, What Actually Changes? | Scaling Minds"
-description: "Leadership development focuses on the leader. But a leader doesn't operate in a vacuum — they operate inside a system. Andy Hite on what actually has to shift for real change to take hold."
+description: "Leadership development focuses on the leader. But every leader operates inside a system. Andy Hite on what actually has to shift for real change to take hold."
 author: "Andy Hite"
 datePublished: 2026-06-23
 category: "Insight"

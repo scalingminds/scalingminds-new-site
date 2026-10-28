@@ -2,7 +2,7 @@
 slug: founder-bottleneck
 title: "The Founder Bottleneck: Why Everything in Your Company Runs Through You"
 titleTag: "The Founder Bottleneck: When Everything Runs Through You"
-description: "Why growth stalls when every decision routes through the founder — and how to build a leadership team that runs without you in the room."
+description: "Why growth stalls when every decision routes through the founder, and how to build a leadership team that runs without you in the room."
 author: "Andy Hite"
 datePublished: 2026-01-09
 order: 1
@@ -32,7 +32,7 @@ Nobody builds a decision bottleneck on purpose. It's the leftover of what made t
 
 Early on, your judgment was the edge. You knew every customer, made every call, and your speed was the advantage. The organization grew up around your involvement because your involvement was the best thing it had. Right design at 10 people. At 80, it's strangling you.
 
-I learned this years before I ever coached a CEO. For seventeen years I oversaw productions at The Marriott Theatre, and every director and designer came to me for approval on everything, which felt like quality control right up until I got seriously ill during the week we moved a production into the theater, the highest-stakes stretch of the whole process. With me out, the production essentially halted. My team did everything they could, the best they could, and the honest truth is they didn't have the practice of trusting their own calls, because I'd taken that practice away from them by controlling every decision.
+I learned this years before I ever coached a CEO. I ran an organization where every decision came to me for approval, which felt like quality control right up until I got seriously ill during the highest-stakes week of our year. With me out, the work essentially halted. My team did everything they could, the best they could, and the honest truth is they didn't have the practice of trusting their own calls, because I'd taken that practice away from them by controlling every decision.
 
 The hard part to accept is that your people learned this from you. Every time a decision went sideways and you grabbed it back, the lesson got louder: the safe move is to check with the boss.
 

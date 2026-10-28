@@ -32,7 +32,7 @@ The person with the most power in the room is also the person with the least vis
 
 I've watched CEOs ask for honest input, watch the room go quiet, and conclude the team was aligned. The team wasn't aligned. The team had learned, over time, that certain kinds of honest input were received in ways that made offering them more expensive than staying quiet. Nobody announced that policy. Nobody needed to. The team did the math.
 
-Seventeen years in theater, where my reactions to everything happening in rehearsal were visible to every person in the room, taught me something about this. The response the authority figure gives to the first person who says the uncomfortable thing determines what everyone else in the room will say for the rest of that session. If the response is curiosity, you get more. If the response is defensiveness, you get less. The team watches that first response and calibrates accordingly, often before the person speaking has finished their sentence.
+Years before I coached my first CEO, I ran meetings where my reaction to everything was visible to every person in the room, and that taught me something about this. The response the authority figure gives to the first person who says the uncomfortable thing determines what everyone else in the room will say for the rest of that session. If the response is curiosity, you get more. If the response is defensiveness, you get less. The team watches that first response and calibrates accordingly, often before the person speaking has finished their sentence.
 
 ## What to do with it
 

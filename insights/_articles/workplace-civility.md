@@ -4,7 +4,7 @@ title: "How You Treat People at Work Is a Business Decision"
 titleTag: "How You Treat People at Work Is a Business Decision | Scaling Minds"
 description: "Two-thirds of employees experience workplace incivility every month. Here is what it is actually costing your organization and what the research says leaders can do about it."
 category: "Insight"
-dek: "Two-thirds of employees experience workplace incivility every month. Here's what it's actually costing your organization — and what the research says leaders can do about it."
+dek: "Two-thirds of employees experience workplace incivility every month. Here's what it's actually costing your organization, and what the research says leaders can do about it."
 datePublished: 2026-06-23
 author: "Andy Hite"
 ---

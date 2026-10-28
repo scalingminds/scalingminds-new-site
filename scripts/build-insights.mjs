@@ -354,7 +354,7 @@ ${faqHtml}
     <section class="article-cta">
       <div class="article-cta__inner">
         <h2>Is your leadership team performing below its potential?</h2>
-        <p>The Six Shifts Diagnostic shows you exactly where your executive team is stuck — and how to close the gap.</p>
+        <p>The Six Shifts Diagnostic shows you exactly where your executive team is stuck and how to close the gap.</p>
         <a href="/six-shifts" class="btn btn--primary">Start the Conversation</a>
       </div>
     </section>
@@ -428,7 +428,7 @@ function renderIndex(articles, onePagers = []) {
     { slug: 'leadership-team-hard-conversations', symptom: 'If your meetings feel fine but nothing actually changes afterward', title: 'Why Leadership Teams Avoid Hard Conversations' },
     { slug: 'founder-bottleneck', symptom: 'If everything still runs through you, no matter what you try to delegate', title: 'The Founder Bottleneck' },
     { slug: 'executive-team-trust', symptom: 'If your team is good enough on paper but somehow not clicking together', title: "When Your Executive Team Doesn't Trust Each Other" },
-    { slug: 'does-my-leadership-team-need-a-coach', symptom: "If you're not sure what's broken — only that something quietly is", title: 'Does My Leadership Team Need a Coach?' },
+    { slug: 'does-my-leadership-team-need-a-coach', symptom: "If you're not sure what's broken, only that something quietly is", title: 'Does My Leadership Team Need a Coach?' },
   ];
   const triageHtml = triageCards
     .map(
@@ -484,7 +484,7 @@ function renderIndex(articles, onePagers = []) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Insights | Scaling Minds</title>
-  <meta name="description" content="Field notes on executive team performance, leadership transitions, and the Six Shifts — practical reading for CEOs and the teams they lead.">
+  <meta name="description" content="Field notes on executive team performance, leadership transitions, and the Six Shifts. Practical reading for CEOs and the teams they lead.">
   <link rel="canonical" href="${SITE}/insights">
   <meta property="og:title" content="Insights | Scaling Minds">
   <meta property="og:description" content="Field notes on executive team performance, leadership transitions, and the Six Shifts.">
@@ -613,8 +613,8 @@ ${NAV}
         <span class="ins-hero__eyebrow-rule"></span>
         <span class="ins-hero__eyebrow-label">Field Notes for CEOs</span>
       </div>
-      <h1>Your leadership team has the talent.<br><em>This is about the gap.</em></h1>
-      <p class="ins-hero__sub">Long-form essays and quick references for executives who sense something is off with their team — and want to name it precisely before it costs them.</p>
+      <h1>Your leadership team has the talent.<br><em>This is about closing the gap.</em></h1>
+      <p class="ins-hero__sub">Long-form essays and quick references for executives who sense something is off with their team and want to name it precisely before it costs them.</p>
       <div class="ins-hero__stats">
         <div class="ins-hero__stat">
           <span class="ins-hero__stat-num">${essayCount}</span>
@@ -633,7 +633,7 @@ ${NAV}
   <section class="ins-triage">
     <div class="ins-triage__inner">
       <div class="ins-triage__header">
-        <h2>Start where it hurts</h2>
+        <h2>Where most CEOs start</h2>
         <span>Four ways CEOs find their way in. Pick the one that sounds like you.</span>
       </div>
       <div class="ins-triage__grid">
@@ -648,14 +648,14 @@ ${triageHtml}
     <!-- FEATURED ESSAYS -->
     <div class="ins-section-header">
       <h2>Featured Essays</h2>
-      <span class="ins-section-header__note">The highest-stakes reads</span>
+      <span class="ins-section-header__note">Read these first</span>
     </div>
 
     <a href="/founder-bottleneck" class="ins-lead">
       <div class="ins-lead__left">
         <span class="ins-lead__eyebrow">Most Read</span>
         <h3>The Founder Bottleneck: Why Everything Runs Through You</h3>
-        <p class="ins-lead__dek">The founder bottleneck is when a company grows but its decisions don't. Why delegation alone won't fix it — and the sequence that does.</p>
+        <p class="ins-lead__dek">The founder bottleneck is when a company grows but its decisions don't. Why delegation alone won't fix it, and the sequence that does.</p>
         <div class="ins-lead__meta">
           <span>7 min read</span>
           <span class="ins-lead__meta-sep">·</span>
@@ -665,7 +665,7 @@ ${triageHtml}
       </div>
       <div class="ins-lead__right">
         <span class="ins-lead__num">01</span>
-        <span class="ins-lead__caption">The first essay most CEOs read — and the one they send to their COO afterward.</span>
+        <span class="ins-lead__caption">The first essay most CEOs read, and the one they send to their COO afterward.</span>
       </div>
     </a>
 
@@ -673,7 +673,7 @@ ${triageHtml}
       <a href="/executive-team-trust" class="ins-3up__card">
         <span class="ins-3up__eyebrow">Start Here</span>
         <h3>When Your Executive Team Doesn't Trust Each Other</h3>
-        <p class="ins-3up__dek">Polite meetings, hallway truth. Why offsites don't fix it — and what the research says does.</p>
+        <p class="ins-3up__dek">Polite meetings, hallway truth. Why offsites don't fix it, and what the research says does.</p>
         <span class="ins-3up__meta">6 min · Trust</span>
         <span class="ins-3up__cta">Read →</span>
       </a>
@@ -687,7 +687,7 @@ ${triageHtml}
       <a href="/six-shifts-explained" class="ins-3up__card">
         <span class="ins-3up__eyebrow">Framework Overview</span>
         <h3>The Six Shifts, Explained: A Leadership Operating System</h3>
-        <p class="ins-3up__dek">Trust, candor, ownership, empowerment, alignment, leadership — installed in sequence. Why order matters.</p>
+        <p class="ins-3up__dek">Trust, candor, ownership, empowerment, alignment, leadership, installed in sequence. Why order matters.</p>
         <span class="ins-3up__meta">12 min · Six Shifts</span>
         <span class="ins-3up__cta">Read →</span>
       </a>
@@ -724,7 +724,7 @@ ${quickHtml}
     <!-- CTA BAND -->
     <div class="ins-cta">
       <div class="ins-cta__text">
-        <h3>If any of this is <em>hitting close to home —</em></h3>
+        <h3>If any of this is <em>hitting close to home,</em></h3>
         <p class="ins-cta__sub">A 30-minute conversation costs nothing. We'll talk about what's actually going on with your team, and whether working together makes sense.</p>
       </div>
       <a href="/contact" class="ins-cta__btn">Start the Conversation</a>
