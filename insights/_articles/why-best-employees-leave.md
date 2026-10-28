@@ -20,11 +20,11 @@ The reason organizations keep being surprised by this is that the departure ofte
 
 Gallup's research found that 45% of employees who eventually left had zero proactive conversation with their manager in their final three months, and not a difficult conversation either. Any conversation at all. The decision happened entirely inside the employee's head while the manager's attention was elsewhere.
 
-Before the decision, there's almost always a period of quiet withdrawal. The employee who used to bring ideas in meetings starts bringing updates instead. The one who used to push back stops. The person who was invested starts doing their job technically without doing the part that required them to care. Culture Amp's research found that development opportunities drove departure decisions at 52% of the time, dwarfing manager influence as a single factor. People don't just leave bad managers. They leave organizations that stopped giving them work that stretched them, that stopped showing them a future worth staying for.
+Before the decision, there's almost always a period of quiet withdrawal. The employee who used to bring ideas in meetings starts bringing updates instead. The one who used to push back stops. The person who was invested starts doing their job technically without doing the part that required them to care. Culture Amp's research found that development opportunities drove departure decisions 52% of the time, dwarfing manager influence as a single factor. People don't just leave bad managers. They leave organizations that stopped giving them work that stretched them, that stopped showing them a future worth staying for.
 
 I've had clients tell me they never saw it coming when a direct report left. And then in the same conversation, almost always, they'll describe a moment three or four months earlier where that person said something in a meeting and the response they got made them go quiet. The leader remembered the moment. They just didn't read it as the moment.
 
-That withdrawal period is the window most organizations miss. It's also the only window where intervention is actually possible. Once someone has made the decision, you're not saving the employee. You're managing the departure.
+That withdrawal period is the window most organizations miss. It's also the only window where intervention is possible. Once someone has made the decision, you're not saving the employee. You're managing the departure.
 
 ## Why your best people leave first
 

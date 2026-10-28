@@ -40,7 +40,7 @@ And it's rarely worth the investment at the price points most coaching commands 
 
 ## The real case for it
 
-The most compelling argument for executive coaching isn't the ROI numbers. It's the access problem. A CEO has almost nobody in their professional life who will tell them the truth about how they're showing up. Their board has agendas. Their team manages up. Their peers are competitors. Their advisors are vendors. A good coach is, structurally, the only person in that ecosystem whose only job is the leader's development, with no agenda other than helping them see clearly and perform better.
+The most compelling argument for executive coaching isn't the ROI numbers. It's the access problem. A CEO has almost nobody in their professional life who will tell them the truth about how they're showing up. Their board has agendas, their team manages up, their peers are competitors, and their advisors are vendors. A good coach is, structurally, the only person in that ecosystem whose only job is the leader's development, with no agenda other than helping them see clearly and perform better.
 
 If you're running a company or leading a significant part of one, that access is worth a lot. The question is only whether the coach is good enough and the conditions are right. Both of those are things you can assess before you spend a dollar.
 
