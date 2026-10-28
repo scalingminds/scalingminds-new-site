@@ -12,7 +12,7 @@ A company becomes team-led when important decisions get made well without the CE
 
 This is written for privately held companies, 50 to 200 people, where the money is the owners' money and a bad transition has no venture cushion under it. The SaaS playbook, hire executives from companies two sizes bigger and get out of the way, was built for a different game.
 
-## What does founder-led actually mean?
+## What does founder-led mean?
 
 Founder-led isn't about who holds the CEO title. It's a decision structure: one person is the quality control on everything that matters. Pricing, key hires, the product roadmap, whatever blew up with the biggest customer this week. All of it routes through one brain.
 
@@ -22,7 +22,7 @@ I watched this up close at a family company where the father founded the busines
 
 ## When should a company move from founder-led to team-led?
 
-Later than is ideal and earlier than feels comfortable. For most companies that's somewhere between 50 and 150 people. Below that, founder-led is often genuinely the best system you have. Past it, the math stops working: there are more important decisions per week than one person has hours.
+Later than is ideal and earlier than feels comfortable. For most companies that's somewhere between 50 and 150 people. Below that, founder-led is often the best system you have. Past it, the math stops working: there are more important decisions per week than one person has hours.
 
 You'll feel the moment before you can name it. Good opportunities start dying in your inbox. Your executives stop developing because they never make a consequential call. And the company's risk quietly concentrates, because if everything routes through you, you are one health event away from chaos. Ask whoever sold you your key-person insurance how they feel about that.
 
@@ -36,7 +36,7 @@ The classic version: the CEO decides to step back, promotes or hires a layer of 
 
 The transition dies in the gap between authority on paper and authority in practice. You can hand somebody a P&L in the morning and take it back by 3pm with one skeptical question in a hallway. Most CEOs do this without noticing. Their teams notice every time.
 
-## How do you actually make the shift?
+## How do you make the shift?
 
 The team has to become capable of carrying the weight before you put the weight on it, and that capability gets built in a specific order.
 
@@ -54,11 +54,11 @@ The ones who get through it describe the far side the same way. The company got 
 
 ### How long does the transition from founder-led to team-led take?
 
-A year at minimum, more often two. The structural pieces, decision rights and a new operating rhythm, can be drawn up in a quarter. The behavioral piece, a team that genuinely carries weight and a CEO who genuinely lets them, is the slow part. Anyone quoting you 90 days is describing a reorg, which you could do alone, and which won't work.
+A year at minimum, more often two. The structural pieces, decision rights and a new operating rhythm, can be drawn up in a quarter. The behavioral piece, a team that carries weight and a CEO who lets them, is the slow part. Anyone quoting you 90 days is describing a reorg, which you could do alone, and which won't work.
 
 ### Do I need to hire new executives to become team-led?
 
-Sometimes, but start with the system. Most CEOs underestimate their current team because they've only ever seen it operate inside a structure where the CEO makes the calls. Fix how decisions work first and you'll find out who can actually play. Some people will surprise you in a good way. One or two probably won't, and then you hire, with much better information about what you actually need.
+Sometimes, but start with the system. Most CEOs underestimate their current team because they've only ever seen it operate inside a structure where the CEO makes the calls. Fix how decisions work first and you'll find out who can play. Some people will surprise you in a good way. One or two probably won't, and then you hire, with much better information about what you need.
 
 ### What if I'm a successor CEO and the founder is still around?
 

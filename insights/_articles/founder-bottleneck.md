@@ -10,7 +10,7 @@ order: 1
 
 The founder bottleneck is when a company grows but its decisions don't. Everything important still comes to you, so the business moves at the speed of your calendar. People call it the founder bottleneck, but you don't have to be the founder. Any CEO can become the choke point, including the one who inherited the company and the one who was hired into it. Same pattern, same fix.
 
-The fix isn't delegation. You've tried that. The fix is a leadership team that carries weight when you're not in the room.
+The fix is a leadership team that carries weight when you're not in the room. Delegation won't get you there, and you've probably tried.
 
 This is for CEOs of privately held companies, 50 to 200 people, who have a nagging feeling they're the reason it can't go faster.
 
@@ -56,9 +56,7 @@ Once a team can tell the truth in the room, ownership becomes possible. Leaders 
 
 ## Where this leaves you
 
-No three-step plan. You've read plenty and you're still the bottleneck.
-
-One thing to try. Ask each of your executives, one on one: what conversation does this team most need to have that we're not having? Five different answers is your starting point. Five versions of "honestly, we're pretty good" is a worse one.
+You've read plenty of three-step plans and you're still the bottleneck, so here's one thing to try instead. Ask each of your executives, one on one: what conversation does this team most need to have that we're not having? Five different answers is your starting point. Five versions of "honestly, we're pretty good" is a worse one.
 
 The bottleneck took years to build. It doesn't break in a month, but it breaks. The CEOs who've done it describe the change the same way: I stopped being the place where decisions go and started building the place where decisions happen.
 

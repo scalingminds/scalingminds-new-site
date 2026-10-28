@@ -18,7 +18,7 @@ Forget the org chart and look at your calendar, because your calendar is the rea
 
 Then look at your phone after 8pm. The "quick questions" queue up at night because your people spent the day discovering that their work needed a piece of you to proceed. Each question is small. The pattern is the company breathing through a single straw.
 
-And notice what you've become for the organization: its working memory. You're the only one who knows why the Henderson contract has weird terms, what was promised to the VP of Ops at hiring, which vendor burned you in 2022. Institutional knowledge that lives in one skull isn't knowledge. It's dependency with a good memory.
+And notice what you've become for the organization: its working memory. You're the only one who knows why the Henderson contract has weird terms, what was promised to the VP of Ops at hiring, which vendor burned you in 2022. Institutional knowledge that lives in one skull is dependency with a good memory.
 
 ## Why does everything actually route through you?
 
@@ -42,8 +42,7 @@ And the job stopped being fun somewhere, didn't it. You built or took this compa
 
 The structural rebuild takes a team that can carry weight, and there's an order to building one. The companion article covers it, so here I'll give you the piece that's yours alone: you have to stop being the answer machine before any structure can hold, and that's a habit, which means it breaks one rep at a time.
 
-One CEO I worked with started with a single move: in leadership meetings, when a question came at him, he'd say "what's your call?" and then, this is the hard part, stay silent through the pause that followed. The first pauses were excruciating. Eight, ten seconds. His COO told me later those silences were the moment she realized the rules had changed, and the answers that eventually filled them were the first real positions she'd taken in two years, some of which he disagreed with and let stand anyway. Letting them stand was the trust work. The positions getting voiced at all was candor arriving. And within two quarters, his team was bringing him decisions already made, for information instead of permission, which is what ownership looks like when it finally arrives. Every piece of that story, the silences, the positions, the pre-made decisions, maps to a stage of [the Six Shifts](/six-shifts).
-
+One CEO I worked with started with a single move: in leadership meetings, when a question came at him, he'd say "what's your call?" and then, this is the hard part, stay silent through the pause that followed. The first pauses were excruciating. Eight, ten seconds. His COO told me later those silences were the moment she realized the rules had changed, and the answers that eventually filled them were the first real positions she'd taken in two years, some of which he disagreed with and let stand anyway. Letting them stand was the trust work. The positions getting voiced at all was candor arriving. And within two quarters, his team was bringing him decisions already made, for information instead of permission, which is what ownership looks like when it finally arrives.
 The habit and the structure feed each other. Every question you decline to catch builds the team's muscle, and the team's muscle makes the next decline easier.
 
 ## Where this leaves you
