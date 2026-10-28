@@ -8,7 +8,7 @@ datePublished: 2026-02-27
 order: 8
 ---
 
-Working with an executive team coach mostly looks like your regular meetings with one extra person in the room, asking the questions your team has agreed not to ask. There's a diagnostic up front, structured sessions to build specific muscles, and reinforcement in between. The real work happens on your actual decisions, with your actual people, at your actual stakes.
+Working with an executive team coach mostly looks like your regular meetings with one extra person in the room, asking the questions your team has agreed not to ask. There's a diagnostic up front, structured sessions to build specific muscles, and reinforcement in between. The real work happens on your real decisions, with the people who have to live with them.
 
 This is the article I wish more buyers read before the first call, because the gap between what CEOs picture and what happens is wide. Most picture an offsite. The good versions of this work look more like a year of better Tuesdays.
 
@@ -34,7 +34,7 @@ Between sessions there's rhythm work: the team practices specific behaviors in i
 
 More than you're expecting, and the coach should tell you this before you sign anything.
 
-The CEO is in every session, receiving feedback like everyone else, and goes first on the hard stuff. I've written elsewhere about why this is structural: the team's patterns organize around the most powerful person in the room, so the work has to include that person or it's theater. Expect to hear things about your own behavior that nobody has said to your face in years. That's a feature. It's also the part CEOs underestimate most.
+The CEO is in every session, receiving feedback like everyone else, and goes first on the hard stuff. I've written elsewhere about why this is structural: the team's patterns organize around the most powerful person in the room, so the work has to include that person or it's theater. Expect to hear things about your own behavior that nobody has said to your face in years. It's also the part CEOs underestimate most.
 
 The team commits real time. Sessions are typically a half-day to a full day every month or so, plus the behavior work in between. Teams that treat sessions as appointments to survive get appointment-level results.
 
@@ -46,7 +46,7 @@ The early evidence is behavioral and shows up before any business number moves. 
 
 The business evidence follows: decisions per meeting goes up, decisions revisited goes down, and the initiatives that used to stall start clearing the stage where they always died. By the back half of a real engagement, the question shifts from "is this working" to "why did we run the company the old way for so long."
 
-And the last marker, the one that means it stuck: the team starts catching its own patterns without the coach in the room. The point of the work was always to become unnecessary.
+And the last marker, the one that means it stuck: the team starts catching its own patterns without the coach in the room.
 
 ## Common Questions
 
