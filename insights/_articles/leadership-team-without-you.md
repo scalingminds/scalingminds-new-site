@@ -14,7 +14,7 @@ Most CEOs know they should delegate more. What they can't always see is why they
 
 ## How it gets built
 
-In the early days of most companies, the CEO's involvement in everything was the right design. They were closest to the customer, the market, the product. Their judgment was the actual edge. Decisions routed through them because routing through them made the decisions better. The organization that grew up around that pattern learned it as a feature, not a liability, and adapted accordingly.
+In the early days of most companies, the CEO's involvement in everything was the right design. They were closest to the customer, the market, the product. Their judgment was the actual edge. Decisions routed through them because routing through them made the decisions better. The organization that grew up around that pattern learned it as a feature and adapted accordingly.
 
 The liability comes later, when the company has grown past the point where one person can hold the context for every call, but the routing patterns built in the early days are still intact. Now the CEO is in every decision because the team hasn't developed the trust, the norms, or the shared context to make calls without checking. And because the CEO hasn't yet built the conditions that would let them.
 
@@ -22,9 +22,9 @@ Administrative Science Quarterly research found that founders invest their sense
 
 I've never worked with a CEO who wanted to be the bottleneck. Every one of them believed they were pushing decisions down. What most of them were actually doing was pushing tasks down and keeping decisions, often without noticing the distinction.
 
-## What actually has to change
+## What has to change
 
-Anita Woolley's research at MIT found that collective intelligence is a much stronger predictor of team performance than the ability of individual team members. Smart people are necessary but not sufficient for creating smart groups. What matters is whether those people can actually think together, which requires three things the CEO controls directly.
+Anita Woolley's research at MIT found that collective intelligence is a much stronger predictor of team performance than the ability of individual team members. Smart people are necessary but not sufficient for creating smart groups. What matters is whether those people can think together, which requires three things the CEO controls directly.
 
 The first is shared context. You can't delegate authority without also delegating the understanding of what the organization is trying to do and why certain things matter more than others. That means not the mission statement on the wall, but the actual operating priorities that would let a leader know, in the moment, whether a given call is theirs to make or needs to go up the chain. I've asked leadership teams to independently write down their organization's top three priorities and gotten six different answers in a room of five people. That team cannot operate autonomously because there's nothing to align the autonomy to.
 
@@ -38,8 +38,7 @@ The third is evidence that being wrong won't cost disproportionately. The team t
 
 A practical test I use with leadership teams: how long can the organization function at its current quality level without the CEO in the room? If the honest answer is a few hours, the team has never been built to function independently. If the answer is weeks, the CEO has trusted them enough, long enough, that they've developed genuine judgment of their own. Most teams are somewhere in between, and the question worth asking is whether that gap is closing or staying the same.
 
-The shift is from being the decision-maker to being the person who ensures the team can make decisions well. That means investing more time in the alignment conversations: what matters, what good looks like, how to think about trade-offs, and less time in the individual calls. A team that knows how you think, with enough trust in each other to make calls laterally, needs you present for far fewer decisions. That's what building a real team actually looks like.
-
+The shift is from being the decision-maker to being the person who ensures the team can make decisions well. That means investing more time in the alignment conversations: what matters, what good looks like, how to think about trade-offs, and less time in the individual calls. A team that knows how you think, with enough trust in each other to make calls laterally, needs you present for far fewer decisions.
 ## Common Questions
 
 ### How do you build a leadership team that makes decisions without you?
@@ -60,7 +59,7 @@ Ask yourself how long the organization could function at its current quality lev
 
 ### What does research say about team collective intelligence versus individual talent?
 
-Anita Woolley's MIT research found that collective intelligence is a much stronger predictor of team performance than the ability of individual members. Smart people are necessary but not sufficient. What drives team performance is whether those people can actually think together, which depends on collaboration quality, not individual horsepower.
+Anita Woolley's MIT research found that collective intelligence is a much stronger predictor of team performance than the ability of individual members. Smart people are necessary but not sufficient. What drives team performance is whether those people can think together, which depends on collaboration quality, not individual horsepower.
 
 ### How long does it take to build a leadership team that runs itself?
 
