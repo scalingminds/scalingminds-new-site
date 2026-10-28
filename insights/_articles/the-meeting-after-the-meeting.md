@@ -46,7 +46,7 @@ The informal conversation that happens after a formal leadership meeting ends, w
 
 ### Why do people say different things in the hallway than in the meeting?
 
-Because the room doesn't feel safe enough for the real conversation. When speaking up carries a social cost, people wait until the authority gradient drops, until they're in a smaller group without the person who tends to shut things down, where the stakes of honesty feel lower. The hallway conversation isn't disloyalty. It's a pressure valve for a room that won't hold the truth.
+Because the room doesn't feel safe enough for the real conversation. When speaking up carries a social cost, people wait until the authority gradient drops, until they're in a smaller group without the person who tends to shut things down, where the stakes of honesty feel lower. The hallway conversation is a pressure valve for a room that won't hold the truth.
 
 ### What is phantom alignment?
 

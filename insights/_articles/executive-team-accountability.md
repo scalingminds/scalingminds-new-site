@@ -8,15 +8,15 @@ datePublished: 2026-06-23
 category: "Insight"
 ---
 
-Most executive teams talk about accountability constantly and practice it almost never. Not because they don't care about results, but because holding a peer accountable is one of the most uncomfortable things you can do in a professional relationship, and most teams have never built the conditions that make it feel safe enough to try.
+Most executive teams talk about accountability constantly and practice it almost never. They care about results. The problem is that holding a peer accountable is one of the most uncomfortable things you can do in a professional relationship, and most teams have never built the conditions that make it feel safe enough to try.
 
-Gallup surveyed leaders across seven core leadership competencies and found that both leaders and their managers rated creating accountability dead last. Not in the middle, not near the bottom. Last. Out of seven competencies, the one organizations need most is the one leaders perform worst on. And the managers who report to those leaders are even more pessimistic about it than the leaders are about themselves.
+Gallup surveyed leaders across seven core leadership competencies and found that both leaders and their managers rated creating accountability dead last. Dead last, out of seven. Out of seven competencies, the one organizations need most is the one leaders perform worst on. And the managers who report to those leaders are even more pessimistic about it than the leaders are about themselves.
 
 More than 80% of managers say they struggle with holding others accountable. Ninety-one percent of employees say it's one of their organization's top leadership development needs. Those two numbers together tell you something important: everyone knows it's broken, nobody's fixing it, and the people closest to the problem are the most clear-eyed about how bad it actually is.
 
 ## Why peer accountability almost never happens
 
-The conventional picture of accountability on a leadership team is the CEO holding each executive responsible for their numbers. That's not accountability. That's management. Real accountability on an executive team is lateral. It's the CFO telling the VP of Sales that the forecast is a fantasy, in the meeting, with everyone watching. It's the COO raising a missed commitment from a peer before the CEO has to. It's the team holding itself to a standard that doesn't require the boss to enforce it.
+The conventional picture of accountability on a leadership team is the CEO holding each executive responsible for their numbers. That's management. Real accountability on an executive team is lateral. It's the CFO telling the VP of Sales that the forecast is a fantasy, in the meeting, with everyone watching. It's the COO raising a missed commitment from a peer before the CEO has to. It's the team holding itself to a standard that doesn't require the boss to enforce it.
 
 Joseph Grenny put it plainly in HBR: the worst teams have no accountability, mediocre teams rely on the boss for accountability, and the best teams hold themselves accountable. Most executive teams are somewhere between mediocre and worst on this scale, and they've been there long enough that it feels normal.
 
@@ -30,7 +30,7 @@ I've worked with leadership teams where this pattern had been running for years.
 
 ## What actually builds it
 
-Accountability on an executive team doesn't come from a values poster or an accountability chart. It comes from three things, in order.
+Accountability on an executive team comes from three things, in order.
 
 The first is clarity about what was actually committed to. You can't hold someone accountable to a commitment that was never made explicitly. Most executive teams make decisions that feel like commitments but weren't articulated as such, with no owner, no deadline, no agreed-upon definition of done. The research is consistent on this: unclear expectations are one of the primary drivers of the accountability gap. Before the team can hold each other accountable, they need to know what they agreed to.
 
@@ -38,7 +38,7 @@ The second is trust. Peer accountability only works in a room where relationship
 
 The third is a leader who models it first. The CEO who names their own missed commitments in the room, who asks directly when something was supposed to happen and hasn't, who rewards the person who raised the uncomfortable thing. That CEO is making it safer for everyone else to do the same. The one who lets things slide, who addresses missed commitments through back channels, who treats peer feedback as disloyalty. That CEO is building a team that will never hold itself accountable, regardless of how many times the word appears in a meeting agenda.
 
-The question worth sitting with: in your last leadership meeting, did anyone say anything about a commitment that wasn't kept? If the answer is no, that's not a sign that everything is on track. It's a sign that the accountability conversation is happening somewhere else, or not at all.
+The question worth sitting with: in your last leadership meeting, did anyone say anything about a commitment that wasn't kept? If the answer is no, the accountability conversation is happening somewhere else, or not at all.
 
 ## Common Questions
 
@@ -64,7 +64,7 @@ Every concern travels up through the CEO and back down through the CEO, which me
 
 ### How do you know if your executive team has an accountability problem?
 
-Ask yourself: in your last leadership meeting, did anyone say anything about a commitment that wasn't kept? If the answer is no, that's not a sign that everything is on track. It's a sign that the accountability conversation is happening somewhere else, or not at all.
+Ask yourself: in your last leadership meeting, did anyone say anything about a commitment that wasn't kept? If the answer is no, the accountability conversation is happening somewhere else, or not at all.
 
 ---
 
