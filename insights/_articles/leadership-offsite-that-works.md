@@ -26,7 +26,7 @@ One thing: having the conversation that can't seem to happen at the office, with
 
 You already know what the conversation is. Every CEO does. It's the one you thought of when you read the last sentence, the strategy doubt, the broken peer relationship, the commitment everyone made and nobody believes. An offsite earns its cost by giving that conversation four protected hours instead of the eleven rushed minutes it would get at the end of a Tuesday agenda.
 
-Everything else, the strategy review, the planning, the dinner, is fine as supporting material. But if you can't name the one conversation, postpone the offsite, because you're about to spend $30K cater-feeding the avoidance.
+Everything else, the strategy review, the planning, the dinner, is fine as supporting material. But if you can't name the one conversation, postpone the offsite, because you're about to spend $30K avoiding the conversation in a nicer room.
 
 ## How do you design an offsite that sticks?
 
@@ -34,8 +34,7 @@ Strip the agenda until it's almost uncomfortable. One real conversation, with ro
 
 Do the surfacing work beforehand. Short private conversations with each executive ahead of the event, what does this team need to talk about that it doesn't, change everything, because the hard topics arrive at the offsite already named instead of needing to be excavated on-site, which burns half a day and most of the courage in the room.
 
-And the CEO opens with the most honest thing said all year. I watched a CEO start an offsite with: "Our biggest customer is probably leaving, I've known for three weeks, and I haven't told you because I didn't trust how this team would handle it." Brutal opening. It also set the honesty bar for the entire two days, and the team spent them having conversations they'd deferred for two years, including what it meant that their CEO didn't trust them with bad news. That admission was trust work, the conversations that followed it were candor, and the commitments that came out the other side actually held, because people made them with the truth on the table. The order those things happened in wasn't luck. It was [the Six Shifts](/six-shifts) running at compressed speed, 48 hours instead of a year, and the compression only held because the weeks afterward defended it.
-
+And the CEO opens with the most honest thing said all year. I watched a CEO start an offsite with: "Our biggest customer is probably leaving, I've known for three weeks, and I haven't told you because I didn't trust how this team would handle it." Brutal opening. It also set the honesty bar for the entire two days, and the team spent them having conversations they'd deferred for two years, including what it meant that their CEO didn't trust them with bad news. That admission was trust work, the conversations that followed it were candor, and the commitments that came out the other side actually held, because people made them with the truth on the table.
 ## What happens the Tuesday after?
 
 The offsite's fate gets decided in the first two weeks back, so design those weeks before you design the event.

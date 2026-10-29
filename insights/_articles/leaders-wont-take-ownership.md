@@ -56,7 +56,7 @@ Probably the system, and there's an honest way to find out. Change what mistakes
 
 ### Should I just refuse to decide and let things fail?
 
-The sink-or-swim move usually backfires. Refusing to engage while the old fear is still in place doesn't teach ownership. It teaches your team that you've added a guessing game to the danger. The order matters: make honesty and misses survivable first, then hand back the decisions. Done backwards, you get quiet chaos and a few expensive failures that confirm everyone's caution.
+The sink-or-swim move usually backfires. Refusing to engage while the old fear is still in place just adds a guessing game to the danger. The order matters: make honesty and misses survivable first, then hand back the decisions. Done backwards, you get quiet chaos and a few expensive failures that confirm everyone's caution.
 
 ### What's the difference between accountability and ownership?
 

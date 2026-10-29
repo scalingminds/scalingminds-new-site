@@ -20,7 +20,7 @@ The meeting after the meeting exists for a reason. When people don't feel safe s
 
 Organizational psychologists have a term for what the meeting after the meeting produces: phantom alignment. Everyone appears to be moving in the same direction based on what happened in the formal meeting. But the informal network has already negotiated a different trajectory. Leaders continue allocating resources and measuring progress against commitments that were quietly revised in a hallway conversation three weeks prior. They don't know they're operating on stale information. The team does.
 
-This is the thing that makes it so damaging. It's not that informal conversations happen. Informal conversations are healthy and necessary, people process, debrief, connect. The problem is when the informal conversation is the real meeting. When the actual assessment of the plan, the real vote on the decision, the genuine expression of concern all happen after the official version is over, the organization is running on two parallel tracks simultaneously, and the leader is only on one of them.
+This is the thing that makes it so damaging. Informal conversations are healthy and necessary, people process, debrief, connect. The damage starts when the informal conversation becomes the real meeting. When the actual assessment of the plan, the real vote on the decision, the genuine expression of concern all happen after the official version is over, the organization is running on two parallel tracks simultaneously, and the leader is only on one of them.
 
 ## How it starts
 
@@ -30,13 +30,13 @@ I've sat in leadership meetings that felt productive, efficient, and aligned, an
 
 ## What you do about it
 
-You can't eliminate the meeting after the meeting. MIT Sloan's research is clear on that. It's a feature of human organizations, not a bug to be fixed. What you can do is shrink the gap between what happens in the room and what happens in the hallway.
+You can't eliminate the meeting after the meeting. MIT Sloan's research is clear on that, and it's how human organizations work. What you can do is shrink the gap between what happens in the room and what happens in the hallway.
 
 That starts with making the room safe enough for the real conversation. Which means the leader being the first one to say something uncomfortable, to invite the dissenting view rather than wait for it to emerge defensively, to respond to bad news with curiosity rather than the kind of reaction that makes people calculate the cost of sharing bad news next time. See how this connects to [psychological safety on an executive team](/psychological-safety-executive-team): the same conditions that drive the meeting after the meeting are the ones that make the room unsafe in the first place.
 
-The signal worth paying attention to: how long after a leadership meeting before you hear something through a back channel that contradicts what you thought was decided? If the answer is hours, you have a moderate problem. If the answer is days or weeks, it's structural. The hallway is running a shadow government, and the official meeting has become theater.
+The signal worth paying attention to: how long after a leadership meeting before you hear something through a back channel that contradicts what you thought was decided? If the answer is hours, you have a moderate problem. If the answer is days or weeks, it's structural. The hallway is running a shadow government.
 
-The goal isn't a room where everyone agrees. It's a room where people say the actual thing, so the hallway conversation afterward is just people processing and connecting, not people having the [hard conversation your organization needed to have inside the room](/leadership-team-hard-conversations).
+The goal is a room where people say the actual thing, so the hallway conversation afterward is just people processing and connecting, not people having the [hard conversation your organization needed to have inside the room](/leadership-team-hard-conversations).
 
 ## Common Questions
 
@@ -46,7 +46,7 @@ The informal conversation that happens after a formal leadership meeting ends, w
 
 ### Why do people say different things in the hallway than in the meeting?
 
-Because the room doesn't feel safe enough for the real conversation. When speaking up carries a social cost, people wait until the authority gradient drops, until they're in a smaller group without the person who tends to shut things down, where the stakes of honesty feel lower. The hallway conversation isn't disloyalty. It's a pressure valve for a room that won't hold the truth.
+Because the room doesn't feel safe enough for the real conversation. When speaking up carries a social cost, people wait until the authority gradient drops, until they're in a smaller group without the person who tends to shut things down, where the stakes of honesty feel lower. The hallway conversation is a pressure valve for a room that won't hold the truth.
 
 ### What is phantom alignment?
 

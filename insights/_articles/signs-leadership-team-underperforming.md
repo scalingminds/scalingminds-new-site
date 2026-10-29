@@ -36,7 +36,7 @@ The clearest sign of this is a CEO calendar full of decisions that three people 
 
 One of the most telling signals of a struggling leadership team isn't visible in outputs or metrics. It's visible in energy. The executive who used to push back in meetings and has gone quiet. The leader who used to bring ideas and now brings only updates. The person who's doing their job technically but has stopped doing the part of their job that required them to care.
 
-Research from the University of Zurich found that in dysfunctional leadership teams, one of the first things that disappears is constructive challenge. Teams stop pushing on each other's thinking. Everyone starts nodding at everyone else's ideas. The surface looks harmonious and the underneath is either checked out or quietly adversarial, but never actually engaged.
+Research from the University of Zurich found that in dysfunctional leadership teams, one of the first things that disappears is constructive challenge. Teams stop pushing on each other's thinking. Everyone starts nodding at everyone else's ideas. The surface looks harmonious and the underneath is either checked out or quietly adversarial, but never engaged.
 
 ## The CEO is the only one who holds anyone accountable
 
@@ -48,7 +48,7 @@ Gallup found that accountability is the lowest-rated leadership competency acros
 
 A leadership team can have one of these signs and be fundamentally healthy, going through a hard stretch, adjusting to new conditions, navigating something that will resolve. Two or three of these together, sustained over time, is a different situation. It's a team that has developed patterns of avoidance and workaround that are now load-bearing parts of how the organization operates.
 
-The most important thing isn't the diagnosis. It's whether the team can have an honest conversation about what's actually happening. That conversation, if it can happen, is the beginning of everything else. If it can't happen, if the team can't sit in a room and name what isn't working, then the symptoms will keep returning until the conditions change.
+The most important thing isn't the diagnosis. It's whether the team can have an honest conversation about what's happening. That conversation, if it can happen, is the beginning of everything else. If it can't happen, if the team can't sit in a room and name what isn't working, then the symptoms will keep returning until the conditions change.
 
 ## Common Questions
 

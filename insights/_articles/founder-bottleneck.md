@@ -2,7 +2,7 @@
 slug: founder-bottleneck
 title: "The Founder Bottleneck: Why Everything in Your Company Runs Through You"
 titleTag: "The Founder Bottleneck: When Everything Runs Through You"
-description: "Why growth stalls when every decision routes through the founder — and how to build a leadership team that runs without you in the room."
+description: "Why growth stalls when every decision routes through the founder, and how to build a leadership team that runs without you in the room."
 author: "Andy Hite"
 datePublished: 2026-01-09
 order: 1
@@ -10,7 +10,7 @@ order: 1
 
 The founder bottleneck is when a company grows but its decisions don't. Everything important still comes to you, so the business moves at the speed of your calendar. People call it the founder bottleneck, but you don't have to be the founder. Any CEO can become the choke point, including the one who inherited the company and the one who was hired into it. Same pattern, same fix.
 
-The fix isn't delegation. You've tried that. The fix is a leadership team that carries weight when you're not in the room.
+The fix is a leadership team that carries weight when you're not in the room. Delegation won't get you there, and you've probably tried.
 
 This is for CEOs of privately held companies, 50 to 200 people, who have a nagging feeling they're the reason it can't go faster.
 
@@ -32,7 +32,7 @@ Nobody builds a decision bottleneck on purpose. It's the leftover of what made t
 
 Early on, your judgment was the edge. You knew every customer, made every call, and your speed was the advantage. The organization grew up around your involvement because your involvement was the best thing it had. Right design at 10 people. At 80, it's strangling you.
 
-I learned this years before I ever coached a CEO. For seventeen years I oversaw productions at The Marriott Theatre, and every director and designer came to me for approval on everything, which felt like quality control right up until I got seriously ill during the week we moved a production into the theater, the highest-stakes stretch of the whole process. With me out, the production essentially halted. My team did everything they could, the best they could, and the honest truth is they didn't have the practice of trusting their own calls, because I'd taken that practice away from them by controlling every decision.
+I learned this years before I ever coached a CEO. I ran an organization where every decision came to me for approval, which felt like quality control right up until I got seriously ill during the highest-stakes week of our year. With me out, the work essentially halted. My team did everything they could, the best they could, and the honest truth is they didn't have the practice of trusting their own calls, because I'd taken that practice away from them by controlling every decision.
 
 The hard part to accept is that your people learned this from you. Every time a decision went sideways and you grabbed it back, the lesson got louder: the safe move is to check with the boss.
 
@@ -56,9 +56,7 @@ Once a team can tell the truth in the room, ownership becomes possible. Leaders 
 
 ## Where this leaves you
 
-No three-step plan. You've read plenty and you're still the bottleneck.
-
-One thing to try. Ask each of your executives, one on one: what conversation does this team most need to have that we're not having? Five different answers is your starting point. Five versions of "honestly, we're pretty good" is a worse one.
+You've read plenty of three-step plans and you're still the bottleneck, so here's one thing to try instead. Ask each of your executives, one on one: what conversation does this team most need to have that we're not having? Five different answers is your starting point. Five versions of "honestly, we're pretty good" is a worse one.
 
 The bottleneck took years to build. It doesn't break in a month, but it breaks. The CEOs who've done it describe the change the same way: I stopped being the place where decisions go and started building the place where decisions happen.
 

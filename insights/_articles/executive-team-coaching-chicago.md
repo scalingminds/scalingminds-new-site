@@ -22,7 +22,7 @@ Different doors, same room: an executive team that's smart, expensive, and someh
 
 ## What does working together look like?
 
-In person, mostly, and on your real work. I sit in your actual leadership meetings, run sessions with your team in your building or somewhere quiet nearby, and work the patterns where they actually fire instead of in a hotel ballroom. Being local is the point: the work happens in your operating rhythm, monthly and sometimes weekly, not in quarterly fly-in events.
+In person, mostly, and on your real work. I sit in your actual leadership meetings, run sessions with your team in your building or somewhere quiet nearby, and work the patterns where they actually fire instead of in a hotel ballroom. Being local is the point: the work happens in your operating rhythm, monthly and sometimes weekly.
 
 The shape of an engagement: a diagnostic up front, where I interview every executive and put one honest picture of the team on the table. Then sequenced work, because teams change in an order and skipping ahead is how the last consultant failed. One Chicago-area client, a third-generation distribution company, watched that order pay off the day their VP of Operations told the family CEO, in the meeting, that the expansion timeline was a fantasy, and instead of the conversation everyone feared, they got the first honest planning cycle in a decade. The system I run that work through is [the Six Shifts](/six-shifts), and I built it for exactly these teams.
 
@@ -32,7 +32,7 @@ If you're still sorting out what kind of help you need, coach, EOS implementer, 
 
 A conversation, thirty minutes, no deck. You tell me what's actually happening with your team, I'll tell you whether it's the pattern I work on, and if it isn't, I'll point you at whoever fits better. Chicago's business community is small enough that referring you well matters more to me than closing you.
 
-If it goes further, the next step is the diagnostic, and you'll know within a month whether this is working, because your team will already be having meetings that sound different.
+If it goes further, the next step is the diagnostic, and you'll know within a month whether this is working.
 
 ## Common Questions
 

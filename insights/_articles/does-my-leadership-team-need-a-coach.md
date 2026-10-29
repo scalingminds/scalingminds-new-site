@@ -34,7 +34,7 @@ And if you want the team fixed but don't intend to be in the room, save your mon
 
 The useful version of this work happens inside your real meetings, with your real decisions on the table. Offsite exercises have their place, but the job is mostly sitting in the room where the team actually operates and naming what the team has agreed not to notice.
 
-A moment from a client engagement, because the work is easier to show than describe. The leadership team had just politely approved a plan. Nods all around. I asked the COO one question: "What would you say about this plan if your CEO weren't in the room?" Long pause. Then she answered honestly, and the real meeting started, the one they'd been not-having for a year. That question only worked because weeks of trust-building came first; cold, it would have gotten a polite deflection. The truth-telling it opened is what let the team eventually own the plan rather than comply with it. A good coach is essentially a mechanic for that progression, finding which link is missing and building it in the right order, and [the Six Shifts](/six-shifts) is the diagram I work from.
+A moment from a client engagement, because the work is easier to show than describe. The leadership team had just politely approved a plan. Nods all around. I asked the COO one question: "What would you say about this plan if your CEO weren't in the room?" Long pause. Then she answered honestly, and the real meeting started, the one they'd been not-having for a year. That question only worked because weeks of trust-building came first; cold, it would have gotten a polite deflection. The truth-telling it opened is what let the team eventually own the plan for real. A good coach is essentially a mechanic for that progression, finding which link is missing and building it in the right order, and [the Six Shifts](/six-shifts) is the diagram I work from.
 
 What a coach can't do: want it more than you do, substitute for decisions you're avoiding, or change a team that's only in the room because attendance was mandatory.
 
@@ -56,11 +56,11 @@ For teams at companies between roughly $10M and $200M, real engagements generall
 
 ### Won't hiring a coach signal that something's wrong with us?
 
-Your team already knows what's wrong. They talk about it, just never in your meetings. In practice the signal lands the opposite way: the CEO has noticed what everyone privately sees and is treating it as solvable rather than permanent. The relief in the first session is usually visible. The harder signal to manage is the one sent by doing nothing, because that one says the pattern is officially fine.
+Your team already knows what's wrong. They talk about it, just never in your meetings. In practice the signal lands the opposite way: the CEO has noticed what everyone privately sees and is treating it as solvable. The relief in the first session is usually visible. The harder signal to manage is the one sent by doing nothing, because that one says the pattern is officially fine.
 
 ### Can I sit out and just have the coach work with my team?
 
-No, and be suspicious of any coach who says yes. You're part of the pattern, structurally, because every dynamic on an executive team organizes itself around the most powerful person in it. Sitting out also tells your team this is remediation for them rather than work the whole team takes seriously. The engagements that produce real change have the CEO in every session, getting feedback like everyone else.
+No, and be suspicious of any coach who says yes. You're part of the pattern, structurally, because every dynamic on an executive team organizes itself around the most powerful person in it. Sitting out also tells your team this is remediation for them, and they'll treat it accordingly. The engagements that produce real change have the CEO in every session, getting feedback like everyone else.
 
 ---
 

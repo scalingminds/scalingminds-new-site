@@ -48,11 +48,11 @@ One moment doesn't rebuild trust, but it starts the ledger. Every time somebody 
 
 ## Where this leaves you
 
-You can't order people to trust each other, and you can't outsource it to a facilitator with a deck of icebreaker cards. What you can do is change what happens the next time somebody takes a risk in your presence.
+The only piece of this you control directly is your own response the next time somebody takes a risk in your presence.
 
-So here's the test. The next time one of your executives says something hard, about the plan, about a peer, about you, watch what you do in the following five seconds. The team certainly will. That five seconds is the trust strategy.
+So here's the test. The next time one of your executives says something hard, about the plan, about a peer, about you, watch what you do in the following five seconds. The team certainly will.
 
-**Related:** [Trust Repair — After a Breakdown](/trust-repair)
+**Related:** [Trust Repair After a Breakdown](/trust-repair)
 
 ## Common Questions
 

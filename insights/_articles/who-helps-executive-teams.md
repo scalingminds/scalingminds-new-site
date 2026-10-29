@@ -24,7 +24,7 @@ The expensive mistake is buying strategy help for a behavior problem. The strate
 
 ## What about EOS and other operating systems?
 
-EOS, Scaling Up, and their cousins install structure: a meeting cadence, a scorecard, quarterly priorities with somebody's name attached to each one. For a company that's never had operational discipline, that structure is genuinely valuable, and a good implementer earns their fee.
+EOS, Scaling Up, and their cousins install structure: a meeting cadence, a scorecard, quarterly priorities with somebody's name attached to each one. For a company that's never had operational discipline, that structure is valuable, and a good implementer earns their fee.
 
 What structure can't do is make people honest inside it. I've sat with teams running textbook EOS meetings, issues list on the screen, everything by the book, where the real issues never made the list. The cadence was perfect and the conversations inside the cadence were the same careful performances as before. One COO told me, in a diagnostic interview, "We've gotten very organized about avoiding the same topics."
 
@@ -44,13 +44,13 @@ Match the help to where the problem actually lives, and be suspicious of your fi
 
 A rough sorting test. If nobody can articulate the priorities, start with structure. If the priorities are clear and the team can't execute them together, the problem is behavioral, and the tell is what happens in your meetings: when the real conversations consistently happen after the meeting instead of in it, no scorecard fixes that. That's the pattern I work on, and it unwinds in a specific order. I watched that COO from the EOS team test it herself: months into the behavioral work, she put one of the avoided topics on the issues list, by name, and the team actually processed it. The structure they'd bought two years earlier finally started earning its keep, because there was finally a team inside it. Building that team is what [the Six Shifts](/six-shifts) is for.
 
-And whoever you hire, for whatever category: ask them what problems they're wrong for. Anyone whose answer is some version of "none" is selling, and you'll be re-reading this article in eighteen months.
+And whoever you hire, for whatever category: ask them what problems they're wrong for. Anyone whose answer is some version of "none" is selling, and you'll be shopping again in eighteen months.
 
 ## Common Questions
 
 ### Can my head of HR or an internal facilitator do this work?
 
-For structure and process, often yes, and a strong HR leader is an asset in any of these engagements. The behavioral work at the executive level is harder to run from inside, for one structural reason: the facilitator reports to someone in the room. Naming the CEO's pattern, or the COO's, with your career in their hands, is a lot to ask, and teams know it, so the candor stays shallow. Outside help isn't smarter. It's just free to say things.
+For structure and process, often yes, and a strong HR leader is an asset in any of these engagements. The behavioral work at the executive level is harder to run from inside, for one structural reason: the facilitator reports to someone in the room. Naming the CEO's pattern, or the COO's, with your career in their hands, is a lot to ask, and teams know it, so the candor stays shallow. Outside help is free to say things.
 
 ### Do small companies even need this, or is it a big-company thing?
 

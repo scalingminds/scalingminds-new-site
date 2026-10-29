@@ -35,13 +35,13 @@ Because each shift is load-bearing for the next, and skipping is the most common
 
 Candor without trust gets you compliance theater: people perform honesty in the structured exercise and revert by Thursday. Ownership without candor gets you commitments people never believed, which is just escalation with a delay on it. Empowerment without ownership distributes decisions to people who will hand them right back. I've watched a CEO try to install alignment on a team that had never built trust, and the result was a beautifully worded strategy one-pager that every executive privately worked around.
 
-Here's the order working in real life. A team I coached had a VP of Sales whose forecast everyone doubted and nobody challenged. Months of trust work came first, the CEO openly owning his own bad calls, misses handled without blood. Then one quarter the CFO finally said it at the table: "I don't believe this number, and I haven't believed it for three quarters." That's candor, and it was only survivable because of what came before. The forecast fight that followed was the first real one, and the number that came out of it was one the VP of Sales actually owned, because for the first time he'd negotiated it honestly. Trust made the truth possible, truth made the commitment real. You can't run that film backwards.
+Here's the order working in real life. A team I coached had a VP of Sales whose forecast everyone doubted and nobody challenged. Months of trust work came first, the CEO openly owning his own bad calls, misses handled without blood. Then one quarter the CFO finally said it at the table: "I don't believe this number, and I haven't believed it for three quarters." That's candor, and it was only survivable because of what came before. The forecast fight that followed was the first real one, and the number that came out of it was one the VP of Sales actually owned, because for the first time he'd negotiated it honestly. Trust made the truth possible, truth made the commitment real.
 
 ## How do the Six Shifts get installed?
 
 Through a diagnostic first, because every team is cracked in a different place, then sequenced work inside the team's real operating rhythm. Each shift gets built through live sessions and then reinforced where it counts, in the regular meetings, on actual decisions, until the new behavior is what the team does when nobody's watching. The full picture of the system lives on [the Six Shifts page](/six-shifts), and the bottleneck pattern it most often gets hired to break is the one I wrote about in [the founder bottleneck](/founder-bottleneck).
 
-What it is emphatically not: a workshop, a personality assessment, or a poster. Teams don't change because they heard a good idea. They change when the behavior changes and holds under pressure, and pressure is why the sequence exists.
+Teams change when the behavior changes and holds under pressure, and pressure is why the sequence exists. A workshop, a personality assessment, or a poster won't do it.
 
 ## Where this leaves you
 
